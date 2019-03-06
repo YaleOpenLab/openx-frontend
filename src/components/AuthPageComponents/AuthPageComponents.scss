@@ -16,5 +16,24 @@
     .auth-image, .auth-form {
         flex: 1;
     }
+
+    @media only screen and (max-width: 768px) {
+      .auth-image {
+        flex: 1;
+      }
+      .auth-form {
+        flex: 3;
+      }
+    }
+
+    @media only screen and (max-width: 576px) {
+      .auth-image {
+        flex: 1;
+      }
+      .auth-form {
+        flex: 5;
+      }
+    }
   }
 }
+

@@ -26,12 +26,6 @@ class ExplorePageContainer extends Component {
                     <SubNavigationComponent list={this.state.menu} />
                     <ExploreComponent />
                 </div>
-                <Switch>
-                  <Route path={ROUTES.EXPLORE_PAGES.PV_SOLAR}  component={ExploreComponent} />
-                  <Route path={ROUTES.EXPLORE_PAGES.STORAGE}  component={ExploreComponent} />
-                  <Route path={ROUTES.EXPLORE_PAGES.WIND}  component={ExploreComponent} />
-                  <Route path={ROUTES.EXPLORE_PAGES.MICROGRID}  component={ExploreComponent} />
-                </Switch>
             </LayoutHoc>
         )
     }
