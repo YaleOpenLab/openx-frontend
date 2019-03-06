@@ -1,0 +1,20 @@
+@import "../../styles/variables";
+
+.auth-page {
+  .comp {
+    margin: 0;
+    display: flex;
+
+    .auth-image {
+        height: 100vh;
+        background-image: url(../../assets/images/background-login.png);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .auth-image, .auth-form {
+        flex: 1;
+    }
+  }
+}

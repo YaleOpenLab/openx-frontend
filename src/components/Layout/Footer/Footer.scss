@@ -1,0 +1,25 @@
+//Variables
+@import '../../../styles/variables';
+$footer-background: rgba(216, 216, 216, 0.38);
+
+//Style
+
+.Footer{
+    background: $footer-background;
+    height: 447px;
+    width: 100%;
+    width: 100%;
+
+    .Sources {
+        height: 49px;
+        background: $primary-color;
+        margin-top: 350px;
+
+        div {
+            font-size: 16px;
+            font-weight: 500;
+            color: $inverse-font-color;
+            padding: 15px;
+        }
+    }
+}

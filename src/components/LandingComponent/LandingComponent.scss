@@ -1,0 +1,48 @@
+@import '../../styles/variables';
+
+.landing {
+    .header {
+        position: relative;
+        text-align: center;
+      
+        img {
+            width: 100%;
+            height: auto;
+            max-height: 353px;
+        }
+        .header-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: $primary-font-color;
+            font-weight: bold;
+            font-size: 1.8vw;
+            background: $background-color;
+            padding: 5px;
+        }
+    }
+
+    .content {
+        margin-bottom: 20px;
+
+        .item {
+            max-height: 350px;
+            .title {
+                height: 15%;
+                text-align: center;
+            }
+            .image-div {
+                height: 85%;
+
+                img {
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                    cursor: pointer;
+                }
+            }
+        }
+
+    }
+}

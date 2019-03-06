@@ -1,0 +1,38 @@
+@import '../../../styles/variables';
+
+.sub-navbar {
+    background:$sub-navigation-background;
+    padding: 0;
+
+    .navbar-nav {
+        margin: 0;
+        display: flex;
+        justify-content: center !important;
+        align-items: center;
+        height: 100%;
+
+        .nav-item{
+            padding: 0px 20px 0px 20px;
+            font-weight: bold;
+            font-size: 14px;
+            text-transform: uppercase;
+
+            a {
+                color: $sub-navigation-font-color;
+            }
+
+            a:hover, a:active, a:focus {
+                color:$sub-navigation-font-action;
+                border-bottom: 2px solid $primary-font-color;
+                box-sizing: border-box;
+            }
+        }
+        .active {
+            .nav-link{
+                color: $sub-navigation-font-action;
+                border-bottom: 2px solid $primary-font-color;
+                box-sizing: border-box;
+            }
+        }
+    }
+}
