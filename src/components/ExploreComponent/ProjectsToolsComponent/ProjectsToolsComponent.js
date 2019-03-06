@@ -5,9 +5,18 @@ class ProjectsToolsComponent extends Component {
 
     render() {
         return (
-            <div class="d-flex flex-row bg-secondary">
-                <div class="p-2 bg-info">Flex item 1</div>
-                <div class="p-2 bg-warning">Flex item 2</div>
+            <div className="container-fluid ">
+            <div className="row">
+                <div className="col-sm col-lg-12">
+                    One of three columns
+                </div>
+                <div className="col-sm">
+                    One of three columns
+                </div>
+                <div className="col-sm">
+                    One of three columns
+                </div>
+            </div>
             </div>
         );
     }

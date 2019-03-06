@@ -1,43 +1,42 @@
-@import '../../../styles/variables';
-
+@import "../../../styles/variables";
 
 .main-navigation {
-    background: $background-color;
-    padding-top: 0;
-    padding-bottom: 0;
-    
-    .navbar-nav {
-        margin: 0;
+  background: $background-color;
+  padding-top: 0;
+  padding-bottom: 0;
 
-        .nav-item{
-            font-weight: 500;
-            font-size: 16px;
-            text-transform: uppercase;
+  .navbar-nav {
+    margin: 0;
 
-            a {
-                color: $primary-font-color;
-            }
+    .nav-item {
+      font-weight: 500;
+      font-size: 16px;
+      text-transform: uppercase;
 
-            a:hover, a:active, a:focus {
-                color:$primary-font-color;
-                background: rgba(155, 155, 155, 0.11);
-            }
-        }
-        .active {
-            .nav-link{
-                color: $sub-navigation-font-action;
-                background: rgba(155, 155, 155, 0.11);
-            }
-        }
+      a {
+        color: $primary-font-color;
+      }
 
-        .border-left {
-            border-right: 1px solid black;
-        }
-        
+      a:hover,
+      a:active,
+      a:focus {
+        color: $primary-font-color;
+        background: rgba(155, 155, 155, 0.11);
+      }
+    }
+    .active {
+      .nav-link {
+        color: $sub-navigation-font-action;
+        background: rgba(155, 155, 155, 0.11);
+      }
     }
 
-    .navbar-toggler-icon{
-        background: black;
-        
+    .border-left {
+      border-right: 1px solid black;
     }
+  }
+
+  .navbar-toggler-icon {
+    background: black;
+  }
 }

@@ -11,11 +11,7 @@ import ExplorePageContainer from './containers/ExplorePageContainer/ExplorePageC
 class App extends Component {
   render() {
     return (
-      <div>
       <BrowserRouter>
-        <div>
-        <div className="content">
-          <div>
                 <Switch>
                   <Route path={Routes.HOME} exact component={LandingContainer} />
                   <Route path={Routes.EXPLORE} component={ExplorePageContainer} />
@@ -26,12 +22,7 @@ class App extends Component {
                   <PrivateRoute path={Routes.DEVELOPER} authed={false} component={TestComponent} />
                   <Route path='*' exact component={NotFoundPageContainer} />
                 </Switch>
-          </div>
-        </div>
-        </div>
-        </BrowserRouter>
-
-      </div>
+      </BrowserRouter>
     );
   }
 }
