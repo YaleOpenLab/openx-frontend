@@ -1,0 +1,66 @@
+@import '../../../styles/variables';
+
+.ProjectsTools {
+    .toolparts{
+        margin-bottom: 10px;
+    }
+
+    .tool-default {
+        height: 42px;
+        background-color: #e5e6ea;
+        margin-bottom: 5px;
+        color: $sub-navigation-font-color;
+        
+        div {
+            border: none;
+            border-radius: 0;
+            background-color: #e5e6ea;
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+    }
+
+    .title {
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        color: $sidebar-font-color;
+    }
+
+    .sub-title {
+        color: $sidebar-subtitle-font-color;
+        border-bottom: 1px solid #9b9b9b;
+
+        h4 {
+            padding: 0 0px 5px 10px;
+            color: $sidebar-font-color;
+        }
+    }
+
+    .box {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        margin-top: 5px;
+        background: $sidebar-background;
+    }
+
+    .location-box {
+        .separator {
+            margin-bottom: 15px;
+        }
+        .location-result{
+            height: 42px;
+            border-left: 6px solid $primary-color;
+            padding: 10px;
+        }
+    }
+    .project-filters-box{
+        padding: 15px;
+
+        h5 {
+            text-transform: uppercase;
+            color: $sidebar-font-color;
+        }
+    }
+}

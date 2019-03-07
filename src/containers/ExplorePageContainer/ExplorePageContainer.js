@@ -3,7 +3,6 @@ import LayoutHoc from '../../hoc/Layout/Layout';
 import ExploreComponent from '../../components/ExploreComponent/ExploreComponent';
 import SubNavigationComponent from '../../components/General/SubNavigationComponent/SubNavigationComponent';
 import ROUTES from '../../routes/routes';
-import {  Switch, Route } from 'react-router-dom';
 
 class ExplorePageContainer extends Component {
     
@@ -14,7 +13,7 @@ class ExplorePageContainer extends Component {
                 {name: 'pv solar', link: ROUTES.EXPLORE_PAGES.PV_SOLAR},
                 {name: 'storage', link: ROUTES.EXPLORE_PAGES.STORAGE},
                 {name: 'wind', link: ROUTES.EXPLORE_PAGES.WIND},
-                {name: 'microgrid', link: ROUTES.EXPLORE_PAGES.MICROGRID},
+                {name: 'systems', link: ROUTES.EXPLORE_PAGES.SYSTEMS},
             ],
         }
     }

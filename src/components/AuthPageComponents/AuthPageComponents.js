@@ -1,29 +1,30 @@
-import React from 'react';
-import './AuthPageComponents.scss';
-import Routes from '../../routes/routes';
-import { Switch, Route } from 'react-router-dom';
-import LoginComponent from './LoginComponent/LoginComponent';
-import SignUpComponent from './SignUpComponent/SignUpComponent';
+import React from "react";
+import "./AuthPageComponents.scss";
+import Routes from "../../routes/routes";
+import { Switch, Route } from "react-router-dom";
+import LoginComponent from "./LoginComponent/LoginComponent";
+import SignUpComponent from "./SignUpComponent/SignUpComponent";
 
-const authPageComponents = props => {
-    return (
-        <div className="auth-page">
-            <div className="comp">
-            <div className="auth-image" />
-            <div className="auth-form">
-                <div className="flex-column">
-                    <div className="flex-column align-end">
-                        <h1 className="title">Open Solar</h1>
-                    </div>
-                    <Switch>
-                        <Route path={Routes.LOGIN} component={LoginComponent} />
-                        <Route path={Routes.SIGNUP} component={SignUpComponent} />
-                    </Switch>
-                </div>
+const AuthPageComponents = props => {
+  return (
+    <div className="AuthPage">
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-6 col-md-4 col-sm-2 col-2 auth-image" />
+          <div className="col-lg-6 col-md-8 col-sm-10 col-10 auth-form">
+            <div className="container auth-form-container">
+              <div className="row h-100">
+                <Switch>
+                  <Route path={Routes.LOGIN} component={LoginComponent} />
+                  <Route path={Routes.SIGNUP} component={SignUpComponent} />
+                </Switch>
+              </div>
             </div>
-            </div>
+          </div>
         </div>
-    );
-}
+      </div>
+    </div>
+  );
+};
 
-export default authPageComponents;
+export default AuthPageComponents;
