@@ -14,6 +14,12 @@ h6 {
   padding: 0;
 }
 
+.component-box-title {
+  color: $primary-font-color;
+  font-weight: bold;
+  font-size: 18px;
+}
+
 .solar-forms {
   display: block;
   width: 100%;
@@ -26,12 +32,36 @@ h6 {
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid #ced4da;
-  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 .solar-forms::placeholder {
   font-size: 13px;
   color: $input-placeholder-color;
 }
-.solar-forms[type=search] {
+
+// Project Icons
+
+.inner-addon {
+  position: relative;
+}
+
+.inner-addon {
+  .solar-icon {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0.5;
+  }
+  input {
+    padding-left: 2.2rem !important;
+  }
+}
+
+.left-addon .solar-icon {
+  left: 15px;
+  top: 17px;
+}
+.right-addon .solar-icon {
+  right: 15px;
+  top: 17px;
 }

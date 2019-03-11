@@ -1,1 +1,0 @@
-import "./SolarForms.scss";

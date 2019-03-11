@@ -15,30 +15,42 @@ const signUpComponent = props => {
         }}
         render={props => (
           <form onSubmit={props.handleSubmit}>
-            <Field
-              type="text"
-              className="auth-input"
-              name="firstName"
-              placeholder="First Name"
-            />
-            <Field
-              type="text"
-              className="auth-input"
-              name="lastName"
-              placeholder="Last Name"
-            />
-            <Field
-              type="email"
-              className="auth-input"
-              name="email"
-              placeholder="Email"
-            />
-            <Field
-              type="password"
-              className="auth-input"
-              name="password"
-              placeholder="Password"
-            />
+            <div className="inner-addon left-addon">
+              <i className="solar-icon user-icon"></i>
+              <Field
+                type="text"
+                className="auth-input"
+                name="firstName"
+                placeholder="First Name"
+              />
+            </div>
+            <div className="inner-addon left-addon">
+              <i className="solar-icon user-icon"></i>
+              <Field
+                type="text"
+                className="auth-input"
+                name="lastName"
+                placeholder="Last Name"
+              />
+            </div>
+            <div className="inner-addon left-addon">
+              <i className="solar-icon email-icon"></i>
+              <Field
+                type="email"
+                className="auth-input"
+                name="email"
+                placeholder="Email"
+              />
+            </div>
+            <div className="inner-addon left-addon">
+              <i className="solar-icon password-icon"></i>
+              <Field
+                type="password"
+                className="auth-input"
+                name="password"
+                placeholder="Password"
+              />
+            </div>
             <button type="submit" className="auth-button">
               Submit
             </button>

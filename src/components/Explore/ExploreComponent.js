@@ -2,8 +2,9 @@ import React from "react";
 import "./ExploreComponent.scss";
 import ProjectsToolsComponent from "./ProjectsToolsComponent/ProjectsToolsComponent";
 import Projects from "./Projects/Projects";
+import SingleProject from "./SingleProject/SingleProject";
 
-const exploreComponent = () => {
+const ExploreComponent = () => {
   return (
     <React.Fragment>
       <div className="ExploreComponent">
@@ -13,9 +14,10 @@ const exploreComponent = () => {
             <Projects />
           </div>
         </div>
+        <SingleProject />
       </div>
     </React.Fragment>
   );
 };
 
-export default exploreComponent;
+export default ExploreComponent;

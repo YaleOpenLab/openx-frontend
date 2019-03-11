@@ -16,6 +16,8 @@ class LoginComponent extends Component {
           }}
           render={props => (
             <form onSubmit={props.handleSubmit}>
+            <div className="inner-addon left-addon">
+              <i className="solar-icon user-icon"></i>
               <Field
                 type="email"
                 className="auth-input"
@@ -23,12 +25,16 @@ class LoginComponent extends Component {
                 placeholder="Email"
                 required
               />
+            </div>
+            <div className="inner-addon left-addon">
+              <i className="solar-icon password-icon"></i>
               <Field
                 type="password"
                 className="auth-input"
                 name="password"
                 placeholder="Password"
               />
+            </div>
               <button type="submit" className="auth-button">
                 Log In
               </button>

@@ -45,4 +45,19 @@
         }
 
     }
+
+    .landing-info {
+        margin: 25px 0px 35px 0px;
+        text-align: center;
+
+        h1 {
+            color: $sub-navigation-font-color;
+            font-size: 34px;
+        }
+
+        p {
+            color: $sub-navigation-font-color;
+            font-size: 14px;
+        }
+    }
 }

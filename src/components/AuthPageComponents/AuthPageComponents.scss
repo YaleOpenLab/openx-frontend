@@ -68,4 +68,29 @@
     color: $auth-link-color;
     font-size: 12px;
   }
+
+  .user-icon {
+    height: 15px;
+    width: 15px;
+    background: url("../../assets/images/auth-user-icon.png");
+    background-size: 15px;
+    background-repeat: no-repeat;
+  }
+
+  .email-icon {
+    height: 15px;
+    width: 15px;
+    top: 20px;
+    background: url("../../assets/images/auth-mail-icon.png");
+    background-size: 13px;
+    background-repeat: no-repeat;
+  }
+
+  .password-icon {
+    height: 15px;
+    width: 15px;
+    background: url("../../assets/images/auth-password-icon.png");
+    background-size: 12px;
+    background-repeat: no-repeat;
+  }
 }
