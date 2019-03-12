@@ -8,7 +8,6 @@ import AuthPageContainer from "./pages/AuthPageContainer/AuthPageContainer";
 import NotFoundPageContainer from "./pages/NotFoundPageContainer/NotFoundPageContainer";
 import ExploreContainer from "./pages/Explore/ExploreContainer";
 import InvestorContainer from "./pages/Investor/InvestorContainer";
-import SingleProject from "./components/Explore/SingleProject/SingleProject";
 
 class App extends Component {
   render() {

@@ -24,8 +24,6 @@ class ExplorePageContainer extends Component {
   }
 
   render() {
-    const { isLoading, projects } = this.props;
-
     return (
       <LayoutHoc>
         <div className="component-content explore">

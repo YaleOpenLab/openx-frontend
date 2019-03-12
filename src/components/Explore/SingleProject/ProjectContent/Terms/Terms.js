@@ -5,7 +5,7 @@ const Terms = props => {
     <div id="terms" className="Terms">
       <div className="container">
         <div className="row">
-          <div className="col-12 title no-padding">Terms</div>
+          <div className="col-12 title no-padding border-bottom">Terms</div>
           <div className="col-12 text-description">
             <div className="sub-title">Purpose</div>
             <div className="sub-text">

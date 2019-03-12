@@ -15,10 +15,17 @@
     font-size: 16px;
     color: $sidebar-font-color;
     font-weight: 600;
+    text-transform: capitalize;
   }
 
   .sub-text {
     margin-top: 10px;
+    color: $sidebar-font-color;
+    font-size: 13px;
+  }
+
+  .pd-sub-text{
+    padding: 10px;
     color: $sidebar-font-color;
     font-size: 13px;
   }
@@ -29,6 +36,34 @@
       height: 100%;
       width: 100%;
       object-fit: cover;
+    }
+  }
+
+  .grid-title {
+    color: $sidebar-font-color;
+    font-size: 13px;
+    text-transform: capitalize;
+    height: 20%;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    padding: 14px;
+  }
+  
+  .grid-body {
+    background: $project-content-background;
+    padding: 15px;
+    
+    .grid-body-content {
+      font-size: 22px;
+      font-weight: 200;
+      color: $sidebar-font-color;
+    }
+    .grid-body-description {
+      font-size: 8px;
+      color: #aaaeb3;
+      font-weight: 500;
+      text-transform: uppercase;
     }
   }
 
@@ -55,6 +90,17 @@
     }
   }
 
+  .component-title {
+    font-size: 20px;
+    color: $primary-font-color;
+    text-transform: uppercase;
+
+    span {
+      font-weight: bold;
+    }
+  }
+
   @import "./Terms/Terms.scss";
   @import "./Overview/Overview.scss";
+  @import "./ProjectDetails/ProjectDetails.scss";
 }

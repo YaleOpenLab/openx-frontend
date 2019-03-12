@@ -3,6 +3,7 @@ import AnchorNavigation from "../../../General/AnchorNavigation/AnchorNavigation
 import './ProjectContent.scss';
 import Terms from "./Terms/Terms";
 import Overview from "./Overview/Overview";
+import ProjectDetails from "./ProjectDetails/ProjectDetails";
 
 const ProjectContent = props => {
   return (
@@ -10,7 +11,7 @@ const ProjectContent = props => {
       <AnchorNavigation list={props.navigation} />
       <Terms />
       <Overview />
-      <div id="project">Project</div>
+      <ProjectDetails />
       <div id="stageforecast">Stage & Foreast</div>
       <div id="documents">Documents</div>
     </div>

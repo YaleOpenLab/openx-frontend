@@ -22,7 +22,6 @@ class SingleProject extends Component {
     return (
       <div className="SingleProject">
         <ProjectMain />
-        {/* Scroll Menu Component */}
         <ProjectContent navigation={this.state.menu} />
       </div>
     );

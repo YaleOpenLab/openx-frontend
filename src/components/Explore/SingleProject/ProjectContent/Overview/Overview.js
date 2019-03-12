@@ -20,21 +20,21 @@ const Overview = props => {
                       <span>icon </span>
                       investment
                     </div>
-                    <div className="grid-body">
+                    <div className="grid-body flex-content-20">
                       <div className="grid-body-content">$ 5000</div>
                       <div className="grid-body-description">capex</div>
                     </div>
-                    <div className="grid-body">
+                    <div className="grid-body flex-content-20">
                       <div className="grid-body-content">60 %</div>
                       <div className="grid-body-description">hardware</div>
                     </div>
-                    <div className="grid-body">
+                    <div className="grid-body flex-content-20">
                       <div className="grid-body-content">30 %</div>
                       <div className="grid-body-description">
                         first loss escrow
                       </div>
                     </div>
-                    <div className="grid-body">
+                    <div className="grid-body flex-content-20">
                       <div className="grid-body-content">n/a</div>
                       <div className="grid-body-description">
                         certification cost
@@ -46,21 +46,21 @@ const Overview = props => {
                       <span>icon </span>
                       financials
                     </div>
-                    <div className="grid-body">
+                    <div className="grid-body flex-content-20">
                       <div className="grid-body-content">3.1 %</div>
                       <div className="grid-body-description">return (tey)</div>
                     </div>
-                    <div className="grid-body">
+                    <div className="grid-body flex-content-20">
                       <div className="grid-body-content">Premium</div>
                       <div className="grid-body-description">insurance</div>
                     </div>
-                    <div className="grid-body">
+                    <div className="grid-body flex-content-20">
                       <div className="grid-body-content">0.24 ct/kWh</div>
                       <div className="grid-body-description">
                         first loss escrow
                       </div>
                     </div>
-                    <div className="grid-body">
+                    <div className="grid-body flex-content-20">
                       <div className="grid-body-content">2028</div>
                       <div className="grid-body-description">
                         maturity (variable)
@@ -73,19 +73,19 @@ const Overview = props => {
                       <span>icon </span>
                       project size
                     </div>
-                    <div className="grid-body">
+                    <div className="grid-body flex-content-20">
                       <div className="grid-body-content">1 kW</div>
                       <div className="grid-body-description">pv solar</div>
                     </div>
-                    <div className="grid-body">
+                    <div className="grid-body flex-content-20">
                       <div className="grid-body-content">200 Wh</div>
                       <div className="grid-body-description">storage</div>
                     </div>
-                    <div className="grid-body">
+                    <div className="grid-body flex-content-20">
                       <div className="grid-body-content">2%</div>
                       <div className="grid-body-description">% critical</div>
                     </div>
-                    <div className="grid-body">
+                    <div className="grid-body flex-content-20">
                       <div className="grid-body-content">2.5 kW</div>
                       <div className="grid-body-description">
                         inverter capacity
@@ -98,23 +98,23 @@ const Overview = props => {
                       <span>icon </span>
                       sustainability metrics
                     </div>
-                    <div className="grid-body">
+                    <div className="grid-body flex-content-20">
                       <div className="grid-body-content">0.1 t/kWh</div>
                       <div className="grid-body-description">
                         carbon drawdpwn
                       </div>
                     </div>
-                    <div className="grid-body">
+                    <div className="grid-body flex-content-20">
                       <div className="grid-body-content">5/7</div>
                       <div className="grid-body-description">
                         community value
                       </div>
                     </div>
-                    <div className="grid-body">
+                    <div className="grid-body flex-content-20">
                       <div className="grid-body-content">n/a</div>
                       <div className="grid-body-description">lca</div>
                     </div>
-                    <div className="grid-body">
+                    <div className="grid-body flex-content-20">
                       <div className="grid-body-content">80%</div>
                       <div className="grid-body-description">
                         resilience rating
@@ -129,7 +129,7 @@ const Overview = props => {
       </div>
 
       <div className="full-image">
-        <img src="https://via.placeholder.com/1500x450" />
+        <img src="https://via.placeholder.com/1500x450" alt="placeholder" />
       </div>
       <div className="opportunity">
         <div className="container">
