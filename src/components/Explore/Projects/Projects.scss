@@ -1,7 +1,7 @@
 @import "../../../styles/variables";
 
 .Projects {
-  margin-top: 28px;
+  margin-top: 32px;
 
   .projects-box {
     margin-bottom: 15px;
@@ -24,18 +24,18 @@
     .desc-status {
       text-transform: uppercase;
       font-size: 13px;
-      font-weight: 700;
+      font-weight: 400;
       color: $projects-status-color;
-      margin: 0 0 5px 0;
+      margin: 0 0 12px;
     }
 
     .desc-title {
-      text-transform: capitalize;
-      font-weight: bold;
       color: $primary-font-color;
-      a{
-        text-transform: capitalize;
-        font-weight: bold;
+      font-size: 18px;
+      font-weight: bold;
+      line-height: 25px;
+      text-transform: capitalize;
+      a {
         color: $primary-font-color;
       }
     }
