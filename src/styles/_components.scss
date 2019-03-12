@@ -1,7 +1,73 @@
-@import 'variables';
-
+@import "variables";
 
 .component-content {
-    min-height: 500px;
+  min-height: 500px;
 }
 
+.component-box-title {
+  color: $primary-font-color;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.solar-forms {
+  display: block;
+  width: 100%;
+  height: calc(1.5em + 0.75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.solar-forms::placeholder {
+  font-size: 13px;
+  color: $input-placeholder-color;
+}
+
+.solar-button{
+  background: $button-color;
+  width: 120px;
+  height: 40px;  
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  text-transform: uppercase;
+  font-family: $font-family;
+  font-size: 10px;
+  font-weight: 600;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+// Project Icons
+.inner-addon {
+  position: relative;
+}
+
+.inner-addon {
+  .solar-icon {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0.5;
+  }
+  input {
+    padding-left: 2.2rem !important;
+  }
+}
+
+.left-addon .solar-icon {
+  left: 15px;
+  top: 17px;
+}
+
+.right-addon .solar-icon {
+  right: 15px;
+  top: 17px;
+}

@@ -25,12 +25,11 @@ class ExplorePageContainer extends Component {
 
   render() {
     const { isLoading, projects } = this.props;
-    console.log(isLoading, projects);
 
     return (
       <LayoutHoc>
         <div className="component-content explore">
-          <SubNavigationComponent  list={this.state.menu} />
+          <SubNavigationComponent list={this.state.menu} />
           <ExploreComponent />
         </div>
       </LayoutHoc>

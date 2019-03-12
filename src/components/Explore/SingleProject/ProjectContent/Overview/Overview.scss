@@ -1,0 +1,52 @@
+.Overview {
+  margin-top: 35px;
+  .title-yellow {
+    color: $primary-color;
+    text-transform: uppercase;
+    font-size: 22px;
+    font-weight: bold;
+  }
+
+  .summary {
+    margin-top: 30px;
+    .grid-title {
+      color: $sidebar-font-color;
+      font-size: 13px;
+      text-transform: capitalize;
+      height: 70px;
+      display: inline-block;
+      width: 100%;
+      text-align: center;
+      padding: 14px;
+    }
+    .grid-body {
+      background: $project-content-background;
+      padding: 15px;
+      height: 80px;
+      .grid-body-content {
+        font-size: 22px;
+        font-weight: 200;
+        color: $sidebar-font-color;
+      }
+      .grid-body-description {
+        font-size: 8px;
+        color: #aaaeb3;
+        font-weight: 500;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  .full-image {
+      margin-top: 55px;
+      width: 100%;
+      img {
+        width: 100%;
+      }
+  }
+  .context{
+      padding: 45px;
+      background: $project-content-background;
+      
+  }
+}

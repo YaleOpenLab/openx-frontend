@@ -6,17 +6,10 @@ import PropTypes from 'prop-types';
 
 class SubNavigationComponent extends Component {
   navItems = null;
-  state = {
-    isOpen: false
-  };
 
   navItems = this.props.list.map(item => {
     return <NavigationItem link={item.link} key={item.link}>{item.name}</NavigationItem>
   });
-
-  toggleCollapse = () => {
-    this.setState({ isOpen: !this.state.isOpen });
-  };
 
   render() {
     return (

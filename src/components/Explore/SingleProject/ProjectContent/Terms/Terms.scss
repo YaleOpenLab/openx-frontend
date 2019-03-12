@@ -1,0 +1,20 @@
+.Terms{
+    background: $project-content-background;
+    padding: 25px; 
+
+    .security-note{
+        color: $sidebar-font-color;
+        .security-title{
+            margin-top: 10px;
+            font-size: 16px;
+            font-weight: 300;
+            text-transform: uppercase;
+        }
+        .security-text{
+            margin-top: 10px;
+            font-size: 12px;
+            font-weight: 300;
+            margin-bottom: 35px;
+        }
+    }
+}

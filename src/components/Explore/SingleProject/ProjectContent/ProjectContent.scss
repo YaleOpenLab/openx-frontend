@@ -1,0 +1,60 @@
+@import "../../../../styles/variables";
+
+.ProjectContent {
+  .title {
+    font-size: 25px;
+    color: $sidebar-font-color;
+    font-weight: 500;
+  }
+
+  .text-description {
+    padding: 20px;
+  }
+
+  .sub-title {
+    font-size: 16px;
+    color: $sidebar-font-color;
+    font-weight: 600;
+  }
+
+  .sub-text {
+    margin-top: 10px;
+    color: $sidebar-font-color;
+    font-size: 13px;
+  }
+
+  .sub-image {
+    width: 100%;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .project-table {
+    margin-top: 5px;
+
+    table {
+      .thead-white {
+        background: white;
+        text-transform: uppercase;
+        font-size: 10px;
+        color: $sidebar-font-color;
+
+        th {
+          vertical-align: middle;
+          border: none;
+        }
+      }
+      .tbody-white {
+        font-size: 15px;
+        font-weight: 300;
+        color: #393c40;
+      }
+    }
+  }
+
+  @import "./Terms/Terms.scss";
+  @import "./Overview/Overview.scss";
+}

@@ -7,6 +7,7 @@ const ROUTES = {
         WIND: '/explore/wind',
         SYSTEMS: '/explore/systems',
     },
+    PROJECT: '/project',
     INVESTOR: '/investor',
     RECEIVER: '/receiver',
     DEVELOPER: '/developer',
