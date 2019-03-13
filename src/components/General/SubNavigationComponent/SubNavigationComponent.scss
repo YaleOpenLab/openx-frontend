@@ -3,7 +3,8 @@
 .sub-navbar {
     background:$sub-navigation-background;
     padding: 0;
-
+    min-height: 20px;
+    
     .navbar-nav {
         margin: 0;
         display: flex;

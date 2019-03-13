@@ -6,11 +6,12 @@ import AnchorNavigationItem from "./AnchorNavigationItem/AnchorNavigationItem";
 class AnchorNavigation extends Component {
   navItems = null;
 
-  navItems = this.props.list.map(item => {
-    return <AnchorNavigationItem link={item.link} key={item.link} type={item.type}>{item.name}</AnchorNavigationItem>
-  });
-
   render() {
+
+    this.navItems = this.props.list.map(item => {
+      return <AnchorNavigationItem link={item.link} key={item.link} type={item.type}>{item.name}</AnchorNavigationItem>
+    });
+
     return (
       <MDBNavbar className="anchor-navbar" expand="md">
         <MDBNavbarNav>

@@ -4,7 +4,10 @@
     margin-top:50px;
     background:#f6f7f7;
     padding: 0;
-
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    
     .navbar-nav {
         margin: 0;
         display: flex;

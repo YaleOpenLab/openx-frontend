@@ -1,0 +1,54 @@
+.ProfileNavBar {
+  .profile-nav-info-section {
+    .proile-nav-image {
+      img {
+        object-fit: cover;
+        width: 100%;
+        padding: 0 15% 0 15%;
+        border-radius: 100%;
+        cursor: pointer;
+      }
+      img:hover {
+        opacity: 0.8;
+      }
+    }
+    .profile-nav-user-name {
+      color: $sidebar-font-color;
+      font-size: 16px;
+      text-align: center;
+      font-weight: 300;
+    }
+  }
+
+  .profile-nav-menu-section {
+    margin-top: 15px;
+
+    // Single menu item
+    .ProfileNavItem {
+      height: 50px;
+      background: $profile-navbar-background;
+      border-bottom: 2px solid $profile-navbar-border;
+      color: $sidebar-font-color;
+      cursor: pointer;
+    }
+    .ProfileNavItem:hover {
+      opacity: 0.8;
+      color: $primary-font-color;
+      box-shadow: 3px 0px 0px 0px $primary-color;
+    }
+
+    .profile-menu-icon {
+      width: 25%;
+      line-height: 3;
+      float: left;
+      text-align: center;
+    }
+    .profile-menu-name {
+      width: 75%;
+      line-height: 3.9;
+      float: left;
+      text-transform: capitalize;
+      font-size: 13px;
+    }
+  }
+}

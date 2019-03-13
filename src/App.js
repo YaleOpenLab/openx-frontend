@@ -8,6 +8,7 @@ import AuthPageContainer from "./pages/AuthPageContainer/AuthPageContainer";
 import NotFoundPageContainer from "./pages/NotFoundPageContainer/NotFoundPageContainer";
 import ExploreContainer from "./pages/Explore/ExploreContainer";
 import InvestorContainer from "./pages/Investor/InvestorContainer";
+import ProfileContainer from "./pages/Profile/ProfileContainer";
 
 class App extends Component {
   render() {
@@ -19,6 +20,11 @@ class App extends Component {
           <Route path={Routes.PROJECT} component={ExploreContainer} />
           <Route path={Routes.LOGIN} component={AuthPageContainer} />
           <Route path={Routes.SIGNUP} component={AuthPageContainer} />
+          <PrivateRoute
+            path={Routes.PROFILE}
+            authed={true}
+            component={ProfileContainer}
+          />
           <PrivateRoute
             path={Routes.INVESTOR}
             authed={true}

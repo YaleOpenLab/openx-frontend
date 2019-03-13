@@ -10,7 +10,7 @@ const navigationItem = props => {
     items = (
       <a
         className={`waves-effect waves-light ${
-          props.divider ? "border-right" : null
+          props.divider ? "border-right" : ""
         } `}
         href={props.link}
       >
