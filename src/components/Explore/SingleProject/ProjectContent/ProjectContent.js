@@ -1,9 +1,13 @@
 import React from "react";
 import AnchorNavigation from "../../../General/AnchorNavigation/AnchorNavigation";
-import './ProjectContent.scss';
+import "./ProjectContent.scss";
 import Terms from "./Terms/Terms";
 import Overview from "./Overview/Overview";
 import ProjectDetails from "./ProjectDetails/ProjectDetails";
+import Forecast from "./Forecast/Forecast";
+import Documents from "./Documents/Documents";
+import Invest from "./Invest/Invest";
+import SupportOpenX from "../../../General/SupportOpenX/SupportOpenX";
 
 const ProjectContent = props => {
   return (
@@ -12,8 +16,10 @@ const ProjectContent = props => {
       <Terms />
       <Overview />
       <ProjectDetails />
-      <div id="stageforecast">Stage & Foreast</div>
-      <div id="documents">Documents</div>
+      <Forecast />
+      <Documents />
+      <Invest />
+      <SupportOpenX />
     </div>
   );
 };

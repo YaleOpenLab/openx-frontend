@@ -17,7 +17,7 @@ const Overview = props => {
                 <div className="row">
                   <div className="col-sm-6 col-md-3">
                     <div className="grid-title">
-                      <span>icon </span>
+                      <span className="money-icon" />
                       investment
                     </div>
                     <div className="grid-body flex-content-20">
@@ -43,7 +43,7 @@ const Overview = props => {
                   </div>
                   <div className="col-sm-6 col-md-3">
                     <div className="grid-title">
-                      <span>icon </span>
+                      <span className="handout-icon" />
                       financials
                     </div>
                     <div className="grid-body flex-content-20">
@@ -70,7 +70,7 @@ const Overview = props => {
 
                   <div className="col-sm-6 col-md-3">
                     <div className="grid-title">
-                      <span>icon </span>
+                      <span className="settings-icon" />
                       project size
                     </div>
                     <div className="grid-body flex-content-20">
@@ -95,7 +95,7 @@ const Overview = props => {
 
                   <div className="col-sm-6 col-md-3">
                     <div className="grid-title">
-                      <span>icon </span>
+                      <span className="preferences-icon" />
                       sustainability metrics
                     </div>
                     <div className="grid-body flex-content-20">

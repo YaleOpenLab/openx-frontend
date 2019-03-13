@@ -1,0 +1,124 @@
+@import "../../../../../styles/variables";
+
+.Forecast {
+  margin-top: 35px;
+
+  .DevelopmentStage{
+    margin-top: 15px;
+  }
+  .ds-chart {
+    text-align: center;
+
+    .ds-count {
+      font-size: 8px;
+      color: $light-font-color;
+    }
+    .ds-line {
+      position: absolute;
+      z-index: -1;
+      top: 28px;
+      width: 100%;
+      border-bottom: 1px solid silver;
+    }
+    .ds-line-half {
+      position: absolute;
+      z-index: -1;
+      top: 28px;
+      width: 50%;
+      border-bottom: 1px solid silver;
+    }
+    .ds-dashed-line-half-right {
+      position: absolute;
+      z-index: -1;
+      top: 28px;
+      width: 50%;
+      right: 0;
+      border-bottom: 1px dashed silver;
+    }
+    .ds-dashed-line-half-left {
+      position: absolute;
+      z-index: -1;
+      top: 28px;
+      width: 50%;
+      border-bottom: 1px dashed silver;
+    }
+    .ds-ball {
+      height: 15px;
+      width: 15px;
+      margin: 0px auto;
+      border-radius: 18px;
+      margin-top: 10px;
+    }
+    .ds-full {
+      background: $button-color;
+    }
+    .ds-current {
+      border: 1px solid $button-color;
+      background: white;
+    }
+    .ds-empty {
+      border: 1px solid $light-font-color;
+      background: white;
+    }
+    .ds-title {
+      font-size: 9px;
+      word-break: break-all;
+      text-transform: capitalize;
+    }
+    .ds-date {
+      font-size: 8px;
+      color: $light-font-color;
+    }
+    .ds-image {
+      width: 100%;
+      height: 100%;
+      border-radius: 50px;
+      object-fit: cover;
+    }
+  }
+
+  .solar-financial-restricted{
+    padding-bottom: 35px;
+  }
+  
+  .forecast-info {
+    text-align: center;
+    padding-bottom: 15px;
+    .forecast-info-title {
+      font-size: 22px;
+      text-transform: capitalize;
+      color: $primary-font-color;
+      font-weight: 300;
+    }
+    .forecast-info-sub-title {
+      font-size: 10px;
+      text-transform: uppercase;
+      color: $sidebar-font-color;
+      font-weight: 300;
+      margin-top: 10px;
+    }
+    .forecast-info-content {
+      font-size: 12px;
+      color: $sidebar-font-color;
+      margin-top: 15px;
+    }
+  }
+  .link-to-records{
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .solar-financial-restricted {
+    margin-top: 35px;
+    background: $sidebar-background;
+
+    .restricted-info-sub-title{
+      color: $sidebar-font-color;
+      text-transform: capitalize;
+      margin-top: 10px;
+    }
+    .link-to-login{
+      text-align: center;
+    }
+  }
+}

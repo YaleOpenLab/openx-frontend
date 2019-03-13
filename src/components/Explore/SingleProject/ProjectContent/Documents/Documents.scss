@@ -1,0 +1,94 @@
+.Documents {
+  .doc-title {
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: 25px;
+    text-transform: uppercase;
+    color: $sidebar-font-color;
+  }
+  .doc-content {
+    margin-top: 25px;
+    .doc-description {
+      text-align: center;
+      text-transform: capitalize;
+      color: $sidebar-font-color;
+      font-size: 13px;
+      margin-top: 10px;
+    }
+    .doc-name {
+      text-align: center;
+      text-transform: uppercase;
+      font-size: 10px;
+      margin-top: 15px;
+      font-weight: 600;
+      color: $sidebar-font-color;
+    }
+  }
+
+  .review-contracts {
+    margin-top: 15px;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    div {
+      margin-top: 5px;
+    }
+    .icon-check-box {
+      text-align: center;
+    }
+  }
+  .doc-review {
+    margin-top: 15px;
+    .doc-review-title {
+        text-transform: uppercase;
+        font-size: 11px;
+        font-weight: 600;
+        color: $sidebar-font-color;
+    }
+    .doc-review-content {
+        margin-top: 10px;
+        font-size: 11px;
+        color: $sidebar-font-color;
+    }
+  }
+
+  .icon-doc-archive {
+    display: block;
+    height: 50px;
+    margin: 0px auto;
+    width: 50px;
+    background: url("../../../../assets/images/ic-doc-archive.svg");
+    background-size: 40px;
+    background-repeat: no-repeat;
+  }
+
+  .icon-doc-file {
+    display: block;
+    height: 50px;
+    margin: 0px auto;
+    width: 50px;
+    background: url("../../../../assets/images/ic-doc-single-folder.svg");
+    background-size: 40px;
+    background-repeat: no-repeat;
+  }
+
+  .icon-doc-checked {
+    display: block;
+    height: 25px;
+    margin: 0px auto;
+    width: 25px;
+    background: url("../../../../assets/images/ic-doc-checked.svg");
+    background-size: 20px;
+    background-repeat: no-repeat;
+  }
+
+  .icon-doc-unchecked {
+    display: block;
+    height: 25px;
+    margin: 0px auto;
+    width: 25px;
+    background: url("../../../../assets/images/ic-doc-unchecked.svg");
+    background-size: 20px;
+    background-repeat: no-repeat;
+  }
+}

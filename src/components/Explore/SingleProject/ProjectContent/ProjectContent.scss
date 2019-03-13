@@ -24,7 +24,7 @@
     font-size: 13px;
   }
 
-  .pd-sub-text{
+  .pd-sub-text {
     padding: 10px;
     color: $sidebar-font-color;
     font-size: 13px;
@@ -49,11 +49,11 @@
     text-align: center;
     padding: 14px;
   }
-  
+
   .grid-body {
     background: $project-content-background;
     padding: 15px;
-    
+
     .grid-body-content {
       font-size: 22px;
       font-weight: 200;
@@ -100,7 +100,59 @@
     }
   }
 
+  .money-icon {
+    float: left;
+    height: 25px;
+    width: 25px;
+    background: url("../../../../assets/images/ic-attach-money.svg");
+    background-size: 20px;
+    background-repeat: no-repeat;
+  }
+  .handout-icon {
+    float: left;
+    height: 25px;
+    width: 25px;
+    background: url("../../../../assets/images/ic-handout.svg");
+    background-size: 20px;
+    background-repeat: no-repeat;
+  }
+  .settings-icon {
+    float: left;
+    height: 25px;
+    width: 25px;
+    background: url("../../../../assets/images/ic-settings-gear.svg");
+    background-size: 20px;
+    background-repeat: no-repeat;
+  }
+  .preferences-icon {
+    float: left;
+    height: 25px;
+    width: 25px;
+    background: url("../../../../assets/images/ic-preferences.svg");
+    background-size: 20px;
+    background-repeat: no-repeat;
+  }
+  .terms-doc-icon {
+    float: right;
+    height: 25px;
+    width: 25px;
+    background: url("../../../../assets/images/ic-terms-doc.svg");
+    background-size: 20px;
+    background-repeat: no-repeat;
+  }
+  .lock-icon {
+    margin: 0px auto;
+    height: 25px;
+    width: 25px;
+    background: url("../../../../assets/images/ic-lock.svg");
+    background-size: 20px;
+    background-repeat: no-repeat;
+  }
+
   @import "./Terms/Terms.scss";
   @import "./Overview/Overview.scss";
   @import "./ProjectDetails/ProjectDetails.scss";
+  @import "./Forecast/Forecast.scss";
+  @import "./Documents/Documents.scss";
+  @import "./Invest/Invest.scss";
 }

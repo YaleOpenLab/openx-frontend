@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 53.2 (72643) - https://sketchapp.com -->
+    <title>BDB048EF-D116-4152-A9CE-9166762717F8</title>
+    <desc>Created with sketchtool.</desc>
+    <g id="OpenSolar" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square">
+        <g id="SolarProjectPage/-Pasto" transform="translate(-751.000000, -2056.000000)" stroke-width="2">
+            <g id="settings-gear-63" transform="translate(752.000000, 2057.000000)">
+                <circle id="Oval" stroke="#FF9800" cx="15" cy="15" r="4"></circle>
+                <path d="M30,18 L30,12 L25.6,12 C25.4,11.2 25,10.4 24.6,9.6 L27.7,6.5 L23.5,2.3 L20.4,5.4 C19.7,5 18.9,4.7 18,4.4 L18,0 L12,0 L12,4.4 C11.2,4.6 10.4,5 9.6,5.4 L6.5,2.3 L2.3,6.5 L5.4,9.6 C5,10.3 4.7,11.1 4.4,12 L0,12 L0,18 L4.4,18 C4.6,18.8 5,19.6 5.4,20.4 L2.3,23.5 L6.5,27.7 L9.6,24.6 C10.3,25 11.1,25.3 12,25.6 L12,30 L18,30 L18,25.6 C18.8,25.4 19.6,25 20.4,24.6 L23.5,27.7 L27.7,23.5 L24.6,20.4 C25,19.7 25.3,18.9 25.6,18 L30,18 Z" id="Path" stroke="#111111"></path>
+            </g>
+        </g>
+    </g>
+</svg>

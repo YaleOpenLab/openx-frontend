@@ -45,6 +45,12 @@
   margin-bottom: 10px;
   cursor: pointer;
 }
+.solar-button:disabled,
+.solar-button[disabled]{
+  border: 1px solid $button-border-inverse;
+  background: $button-color-inverse;
+  color: $light-font-color;
+}
 
 // Project Icons
 .inner-addon {

@@ -1,13 +1,14 @@
-import React from 'react';
-import './Logo.scss';
-import { NavLink } from 'react-router-dom';
+import React from "react";
+import "./Logo.scss";
+import { NavLink } from "react-router-dom";
 
 const logo = props => (
+  <div className={"Logo"} style={{ width: props.width }}>
     <NavLink to={"/"}>
-    <div className={"Logo"} style={{width: props.width}}>
-        <span className={"FirstPart"}>open</span><span className={"SecondPart"}>solar</span>
-    </div>
+      <span className={"FirstPart"}>open</span>
+      <span className={"SecondPart"}>solar</span>
     </NavLink>
+  </div>
 );
 
 export default logo;

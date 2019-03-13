@@ -39,7 +39,7 @@ const Terms = props => {
                       <span>demo</span>
                     </td>
                     <td>
-                      <span>doc-icon</span>
+                      <span className="terms-doc-icon" />
                     </td>
                   </tr>
                   <tr>
@@ -51,7 +51,7 @@ const Terms = props => {
                       <span>demo</span>
                     </td>
                     <td>
-                      <span>doc-icon</span>
+                      <span className="terms-doc-icon" />
                     </td>
                   </tr>
                 </tbody>
@@ -59,9 +59,7 @@ const Terms = props => {
             </div>
           </div>
           <div className="col-12 security-note">
-            <div className="security-title">
-                security note
-            </div>
+            <div className="security-title">security note</div>
             <div className="security-text">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
               dapibus vulputate diam eu pretium. Mauris elit orci, ultricies id

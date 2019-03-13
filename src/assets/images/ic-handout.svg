@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="36px" viewBox="0 0 40 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 53.2 (72643) - https://sketchapp.com -->
+    <title>494A2763-FF9C-4D23-A18F-E5BFF2058A8B</title>
+    <desc>Created with sketchtool.</desc>
+    <g id="OpenSolar" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="SolarProjectPage/-Pasto" transform="translate(-449.000000, -2056.000000)" stroke-width="2">
+            <g id="handout" transform="translate(450.000000, 2057.000000)">
+                <path d="M5,18 L7.60869565,18 C10.4643478,18 13.0869565,19.3158 14.5652174,21.6 L19.7826087,21.6 C22.3104348,21.6 25,24.3837 25,27 L12.826087,27" id="Path" stroke="#111111"></path>
+                <path d="M23.3143784,24 L31.8108108,24 C35.9907027,24 37,27.3332403 37,27.3332403 L18.6622703,33.78806 C17.2378378,34.1147176 15.7476757,34.0630523 14.3509189,33.6380642 L5,29.8331705" id="Path" stroke="#111111"></path>
+                <circle id="Oval" stroke="#FF9800" stroke-linecap="square" cx="26.5" cy="12.5" r="4.5"></circle>
+                <circle id="Oval" stroke="#FF9800" stroke-linecap="square" cx="14.5" cy="4.5" r="4.5"></circle>
+                <rect id="Rectangle" stroke="#111111" stroke-linecap="square" x="0" y="17" width="5" height="14"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

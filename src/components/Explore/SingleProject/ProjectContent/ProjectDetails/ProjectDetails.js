@@ -129,9 +129,7 @@ const ProjectDetails = props => {
                     </div>
                   </div>
                   <div className="col-12 mg-top-15">
-                    <div className="sub-title flex-title">
-                      IT infrastructure
-                    </div>
+                    <div className="sub-title">IT infrastructure</div>
                     <div className="container no-padding">
                       <div className="row">
                         <div className="col-4 pd-sub-text overflow-auto">
@@ -170,9 +168,11 @@ const ProjectDetails = props => {
                         </div>
                       </div>
                     </div>
-                    <NavLink to="#">
-                      Link to specific document for this section >
-                    </NavLink>
+                    <div className="col-12 mg-top-15">
+                      <NavLink to="#">
+                        Link to specific document for this section >
+                      </NavLink>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -187,59 +187,133 @@ const ProjectDetails = props => {
             <div className="component-title col-12">
               <span>community engagement</span>
             </div>
-            <div className="col-12 col-sm-6 col-md-3 mg-top-15">
-              <div className="sub-title flex-title">consultation</div>
-              <div className="flex-content-60">
+            <div className="col-6 col-sm-6 col-md-3 mg-top-15">
+              <div className="sub-title">consultation</div>
+              <div className="sub-image">
                 <img
                   src="https://via.placeholder.com/450x350"
                   alt="placeholder"
                 />
               </div>
-              <div className="flex-content-30 overflow-auto pd-sub-text">
+              <div className="overflow-auto pd-sub-text">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
                 dapibus vulputate diam eu pretium.x
               </div>
             </div>
-            <div className="col-12 col-sm-6 col-md-3 mg-top-15">
-              <div className="sub-title flex-title">participation</div>
-              <div className="flex-content-60">
+            <div className="col-6 col-sm-6 col-md-3 mg-top-15">
+              <div className="sub-title">participation</div>
+              <div className="sub-image">
                 <img
                   src="https://via.placeholder.com/450x350"
                   alt="placeholder"
                 />
               </div>
-              <div className="flex-content-30 overflow-auto pd-sub-text">
+              <div className="overflow-auto pd-sub-text">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
                 dapibus vulputate diam eu pretium.x
               </div>
             </div>
-            <div className="col-12 col-sm-6 col-md-3 mg-top-15">
-              <div className="sub-title flex-title">outreach</div>
-              <div className="flex-content-60">
+            <div className="col-6 col-sm-6 col-md-3 mg-top-15">
+              <div className="sub-title">outreach</div>
+              <div className="sub-image">
                 <img
                   src="https://via.placeholder.com/450x350"
                   alt="placeholder"
                 />
               </div>
-              <div className="flex-content-30 overflow-auto pd-sub-text">
+              <div className="overflow-auto pd-sub-text">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
                 dapibus vulputate diam eu pretium.x
               </div>
             </div>
-            <div className="col-12 col-sm-6 col-md-3 mg-top-15">
-              <div className="sub-title flex-title">governance</div>
-              <div className="flex-content-60">
+            <div className="col-6 col-sm-6 col-md-3 mg-top-15">
+              <div className="sub-title">governance</div>
+              <div className="sub-image">
                 <img
                   src="https://via.placeholder.com/450x350"
                   alt="placeholder"
                 />
               </div>
-              <div className="flex-content-30 overflow-auto pd-sub-text">
+              <div className="overflow-auto pd-sub-text">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
                 dapibus vulputate diam eu pretium.x
               </div>
             </div>
             <div className="col-12">
+              <NavLink to="#">
+                Link to specific document for this section >
+              </NavLink>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="business margin-top">
+        <div className="container">
+          <div className="row">
+            <div className="component-title col-12">
+              <span>business numbers & payment scheme</span>
+            </div>
+            <div className="col-12 mg-top-15">
+              <div className="row">
+                <div className="col-12 sub-title">general payment logic</div>
+                <div className="col-12 col-sm-8 sub-image">
+                  <img
+                    src="https://via.placeholder.com/550x150"
+                    alt="placeholder"
+                  />
+                </div>
+                <div className="col-12 col-sm-4 pd-sub-text">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
+                  dapibus vulputate diam eu pretium.x
+                </div>
+              </div>
+            </div>
+            <div className="col-12 mg-top-15">
+              <div className="row">
+                <div className="col-12 sub-title">capital expenditure</div>
+                <div className="col-12 col-sm-8 sub-image">
+                  <img
+                    src="https://via.placeholder.com/550x150"
+                    alt="placeholder"
+                  />
+                </div>
+                <div className="col-12 col-sm-4 pd-sub-text">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
+                  dapibus vulputate diam eu pretium.x
+                </div>
+              </div>
+            </div>
+            <div className="col-12 mg-top-15">
+              <div className="row">
+                <div className="col-12 sub-title">project revenue</div>
+                <div className="col-12 col-sm-8 sub-image">
+                  <img
+                    src="https://via.placeholder.com/550x150"
+                    alt="placeholder"
+                  />
+                </div>
+                <div className="col-12 col-sm-4 pd-sub-text">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
+                  dapibus vulputate diam eu pretium.x
+                </div>
+              </div>
+            </div>
+            <div className="col-12 mg-top-15">
+              <div className="row">
+                <div className="col-12 sub-title">net income</div>
+                <div className="col-12 col-sm-8 sub-image">
+                  <img
+                    src="https://via.placeholder.com/550x150"
+                    alt="placeholder"
+                  />
+                </div>
+                <div className="col-12 col-sm-4 pd-sub-text">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
+                  dapibus vulputate diam eu pretium.x
+                </div>
+              </div>
+            </div>
+            <div className="col-12 mg-top-15">
               <NavLink to="#">
                 Link to specific document for this section >
               </NavLink>
