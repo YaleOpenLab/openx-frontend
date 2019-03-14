@@ -14,12 +14,12 @@ const signUpComponent = props => {
             props.history.push(ROUTES.LOGIN);
         }}
         render={props => (
-          <form onSubmit={props.handleSubmit}>
+          <form onSubmit={props.handleSubmit} className="solar-form">
             <div className="inner-addon left-addon">
               <i className="solar-icon user-icon"></i>
               <Field
                 type="text"
-                className="auth-input"
+                className="solar-form-input"
                 name="firstName"
                 placeholder="First Name"
               />
@@ -28,7 +28,7 @@ const signUpComponent = props => {
               <i className="solar-icon user-icon"></i>
               <Field
                 type="text"
-                className="auth-input"
+                className="solar-form-input"
                 name="lastName"
                 placeholder="Last Name"
               />
@@ -37,7 +37,7 @@ const signUpComponent = props => {
               <i className="solar-icon email-icon"></i>
               <Field
                 type="email"
-                className="auth-input"
+                className="solar-form-input"
                 name="email"
                 placeholder="Email"
               />
@@ -46,12 +46,12 @@ const signUpComponent = props => {
               <i className="solar-icon password-icon"></i>
               <Field
                 type="password"
-                className="auth-input"
+                className="solar-form-input"
                 name="password"
                 placeholder="Password"
               />
             </div>
-            <button type="submit" className="auth-button">
+            <button type="submit" className="solar-form-button">
               Submit
             </button>
           </form>

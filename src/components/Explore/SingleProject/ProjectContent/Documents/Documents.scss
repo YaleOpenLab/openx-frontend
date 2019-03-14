@@ -53,44 +53,4 @@
       color: $sidebar-font-color;
     }
   }
-
-  .icon-doc-archive {
-    display: block;
-    height: 50px;
-    margin: 0px auto;
-    width: 50px;
-    background: url("../../../../assets/images/ic-doc-archive.svg");
-    background-size: 40px;
-    background-repeat: no-repeat;
-  }
-
-  .icon-doc-file {
-    display: block;
-    height: 50px;
-    margin: 0px auto;
-    width: 50px;
-    background: url("../../../../assets/images/ic-doc-single-folder.svg");
-    background-size: 40px;
-    background-repeat: no-repeat;
-  }
-
-  .icon-doc-checked {
-    display: block;
-    height: 25px;
-    margin: 0px auto;
-    width: 25px;
-    background: url("../../../../assets/images/ic-doc-checked.svg");
-    background-size: 20px;
-    background-repeat: no-repeat;
-  }
-
-  .icon-doc-unchecked {
-    display: block;
-    height: 25px;
-    margin: 0px auto;
-    width: 25px;
-    background: url("../../../../assets/images/ic-doc-unchecked.svg");
-    background-size: 20px;
-    background-repeat: no-repeat;
-  }
 }

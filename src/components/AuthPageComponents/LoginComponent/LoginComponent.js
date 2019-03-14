@@ -15,12 +15,12 @@ class LoginComponent extends Component {
             this.props.history.push(ROUTES.HOME);
           }}
           render={props => (
-            <form onSubmit={props.handleSubmit}>
+            <form onSubmit={props.handleSubmit} className="solar-form">
             <div className="inner-addon left-addon">
               <i className="solar-icon user-icon"></i>
               <Field
                 type="email"
-                className="auth-input"
+                className="solar-form-input"
                 name="email"
                 placeholder="Email"
                 required
@@ -30,12 +30,12 @@ class LoginComponent extends Component {
               <i className="solar-icon password-icon"></i>
               <Field
                 type="password"
-                className="auth-input"
+                className="solar-form-input"
                 name="password"
                 placeholder="Password"
               />
             </div>
-              <button type="submit" className="auth-button">
+              <button type="submit" className="solar-form-button">
                 Log In
               </button>
             </form>

@@ -6,7 +6,7 @@
     max-width: 100%;
   }
   .auth-image {
-    background-image: url(../../assets/images/background-login.png);
+    background-image: url("../../assets/images/background-login.png");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -27,70 +27,8 @@
     margin-bottom: 30px;
   }
 
-  .auth-input {
-    height: 50px;
-    border-radius: 5px;
-    border: solid 1px #c6c9cf;
-    width: 100%;
-    padding: 0.375rem 0.75rem;
-    font-weight: 400;
-    line-height: 1.5;
-    margin-bottom: 10px;
-    text-align: center;
-    font-family: $font-family;
-    font-size: 13px;
-  }
-
-  .auth-input:focus {
-    border: solid 1px #393c40;
-  }
-
-  .auth-input::placeholder {
-    color: $input-placeholder-color;
-  }
-
-  .auth-button {
-    width: 136px;
-    height: 50px;
-    border-radius: 5px;
-    background-color: $button-color;
-    border: none;
-    color: #fff;
-    text-transform: uppercase;
-    font-family: $font-family;
-    font-size: 10px;
-    font-weight: 600;
-    margin-top: 20px;
-    margin-bottom: 10px;
-  }
-
   .auth-notice {
     color: $auth-link-color;
     font-size: 12px;
-  }
-
-  .user-icon {
-    height: 15px;
-    width: 15px;
-    background: url("../../assets/images/auth-user-icon.png");
-    background-size: 15px;
-    background-repeat: no-repeat;
-  }
-
-  .email-icon {
-    height: 15px;
-    width: 15px;
-    top: 20px;
-    background: url("../../assets/images/auth-mail-icon.png");
-    background-size: 13px;
-    background-repeat: no-repeat;
-  }
-
-  .password-icon {
-    height: 15px;
-    width: 15px;
-    background: url("../../assets/images/auth-password-icon.png");
-    background-size: 12px;
-    background-repeat: no-repeat;
   }
 }

@@ -15,6 +15,10 @@ h6 {
   padding: 0;
 }
 
+*:focus {
+  outline: none;
+}
+
 .no-padding {
   padding: 0;
 }

@@ -35,6 +35,21 @@
       opacity: 0.8;
       color: $primary-font-color;
       box-shadow: 3px 0px 0px 0px $primary-color;
+      .profile-menu-icon,
+      .profile-menu-name {
+        color: $primary-font-color;
+      }
+    }
+    .is-active {
+      div {
+        opacity: 0.8;
+        color: $primary-font-color;
+        box-shadow: 3px 0px 0px 0px $primary-color;
+        .profile-menu-icon,
+        .profile-menu-name {
+          color: $primary-font-color;
+        }
+      }
     }
 
     .profile-menu-icon {
@@ -42,6 +57,7 @@
       line-height: 3;
       float: left;
       text-align: center;
+      color: $sidebar-font-color;
     }
     .profile-menu-name {
       width: 75%;
@@ -49,6 +65,28 @@
       float: left;
       text-transform: capitalize;
       font-size: 13px;
+      color: $sidebar-font-color;
+    }
+  }
+
+  .profile-nav-progress-section {
+    margin-top: 25px;
+    text-align: center;
+    color: $sidebar-font-color;
+    font-size: 12px;
+    .profile-progress-percentage {
+      margin-top: 5px;
+    }
+    .profile-progress-bar {
+      border: 1px solid #979797;
+      height: 11px;
+      margin: 0px 10px 0px 10px;
+      border-radius: 5.5px;
+      .profile-progress-success {
+        height: 100%;
+        background: $primary-color;
+        border-radius: 5.5px;
+      }
     }
   }
 }
