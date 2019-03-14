@@ -11,7 +11,6 @@ class LoginComponent extends Component {
         <Formik
           initialValues={{ email: "", password: "" }}
           onSubmit={(values, actions) => {
-            console.log(values, actions);
             this.props.history.push(ROUTES.HOME);
           }}
           render={props => (
