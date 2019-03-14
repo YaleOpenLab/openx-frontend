@@ -8,21 +8,44 @@ class SingleProject extends Component {
     super(props);
     this.state = {
       menu: [
-        { name: "terms", link: "#terms" },
-        { name: "overview", link: "#overview" },
-        { name: "project", link: "#project" },
-        { name: "stage & forecast", link: "#stageforecast" },
-        { name: "documents", link: "#documents" },
+        { name: "terms", link: "#terms", id: "terms-nav" },
+        { name: "overview", link: "#overview", id: "overview-nav" },
+        { name: "project", link: "#project", id: "project-nav" },
+        {
+          name: "stage & forecast",
+          link: "#stageforecast",
+          id: "stageforecast-nav"
+        },
+        { name: "documents", link: "#documents", id: "documents-nav" },
         { name: "invest", link: "#", type: "button" }
-      ]
+      ],
+      selectedItem: ""
     };
   }
+
+  handleScroll = () => {
+    let selectedItem = window.location.href.split("#")[1] + "-nav";
+    this.setState({
+      selectedItem
+    });
+  };
+
+  componentDidMount = () => {
+    window.addEventListener("scroll", this.handleScroll);
+  };
+
+  componentWillUnmount = () => {
+    window.removeEventListener("scroll", this.handleScroll);
+  };
 
   render() {
     return (
       <div className="SingleProject">
         <ProjectMain />
-        <ProjectContent navigation={this.state.menu} />
+        <ProjectContent
+          navigation={this.state.menu}
+          active={this.state.selectedItem}
+        />
       </div>
     );
   }

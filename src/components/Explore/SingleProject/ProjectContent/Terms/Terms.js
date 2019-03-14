@@ -5,7 +5,7 @@ configureAnchors({offset: -90, scrollDuration: 200, keepLastAnchorHash: true});
 const Terms = props => {
   return (
     <ScrollableAnchor id={"terms"}>
-      <div id="terms" className="Terms">
+      <section className="Terms">
         <div className="container">
           <div className="row">
             <div className="col-12 title no-padding border-bottom">Terms</div>
@@ -72,7 +72,7 @@ const Terms = props => {
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </ScrollableAnchor>
   );
 };

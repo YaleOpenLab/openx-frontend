@@ -8,13 +8,17 @@ import Forecast from "./Forecast/Forecast";
 import Documents from "./Documents/Documents";
 import Invest from "./Invest/Invest";
 import SupportOpenX from "../../../General/SupportOpenX/SupportOpenX";
-import { configureAnchors }  from "react-scrollable-anchor";
-configureAnchors({ offset: -90, scrollDuration: 400, keepLastAnchorHash: true });
+import { configureAnchors } from "react-scrollable-anchor";
+configureAnchors({
+  offset: -90,
+  scrollDuration: 500,
+  keepLastAnchorHash: true
+});
 
 const ProjectContent = props => {
   return (
     <div className="ProjectContent">
-      <AnchorNavigation list={props.navigation} />
+      <AnchorNavigation list={props.navigation} active={props.active} />
       <Terms />
       <Overview />
       <ProjectDetails />

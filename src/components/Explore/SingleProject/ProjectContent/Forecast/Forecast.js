@@ -7,7 +7,7 @@ import ScrollableAnchor from "react-scrollable-anchor";
 const Forecast = props => {
   return (
     <ScrollableAnchor id={"stageforecast"}>
-      <div className="Forecast">
+      <section className="Forecast">
         <div className="container">
           <div className="row">
             <div className="col-12 title border-bottom no-padding">
@@ -61,7 +61,7 @@ const Forecast = props => {
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </ScrollableAnchor>
   );
 };

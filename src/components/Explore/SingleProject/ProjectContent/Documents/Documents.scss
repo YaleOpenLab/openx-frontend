@@ -1,4 +1,6 @@
 .Documents {
+  margin-top: 35px;
+
   .doc-title {
     font-size: 15px;
     font-weight: 600;
@@ -40,15 +42,15 @@
   .doc-review {
     margin-top: 15px;
     .doc-review-title {
-        text-transform: uppercase;
-        font-size: 11px;
-        font-weight: 600;
-        color: $sidebar-font-color;
+      text-transform: uppercase;
+      font-size: 11px;
+      font-weight: 600;
+      color: $sidebar-font-color;
     }
     .doc-review-content {
-        margin-top: 10px;
-        font-size: 11px;
-        color: $sidebar-font-color;
+      margin-top: 10px;
+      font-size: 11px;
+      color: $sidebar-font-color;
     }
   }
 

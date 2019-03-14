@@ -6,7 +6,7 @@ const NavBar = props => {
     <div className="col-12 col-sm-4 col-lg-3">
       <div className="ProfileNavBar">
         <div className="profile-nav-info-section">
-          <div className="proile-nav-image" f>
+          <div className="proile-nav-image">
             <img src="https://i1.rgstatic.net/ii/profile.image/722704944607235-1549317694495_Q512/Martin_Wainstein.jpg" alt="placeholder" />
           </div>
           <div className="profile-nav-user-name">Martin Wainstein</div>

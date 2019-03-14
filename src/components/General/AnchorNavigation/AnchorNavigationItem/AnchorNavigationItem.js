@@ -5,13 +5,12 @@ import Button from "../../../UI/SolarForms/Button/Button";
 
 const navigationItem = props => {
   let items = null;
-
   if (!props.type) {
     items = (
       <a
         className={`waves-effect waves-light ${
           props.divider ? "border-right" : ""
-        } `}
+        } ${props.active ? "active-nav-item" : ""}`}
         href={props.link}
       >
         {props.children}

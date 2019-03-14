@@ -7,16 +7,17 @@ class AnchorNavigation extends Component {
   navItems = null;
 
   render() {
-
     this.navItems = this.props.list.map(item => {
-      return <AnchorNavigationItem link={item.link} key={item.link} type={item.type}>{item.name}</AnchorNavigationItem>
+      return (
+        <AnchorNavigationItem active={item.id === this.props.active} link={item.link} key={item.link} type={item.type}>
+          {item.name}
+        </AnchorNavigationItem>
+      );
     });
 
     return (
       <MDBNavbar className="anchor-navbar" expand="md">
-        <MDBNavbarNav>
-          {this.navItems}
-        </MDBNavbarNav>
+        <MDBNavbarNav>{this.navItems}</MDBNavbarNav>
       </MDBNavbar>
     );
   }
