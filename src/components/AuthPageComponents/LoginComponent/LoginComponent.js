@@ -15,28 +15,33 @@ class LoginComponent extends Component {
           }}
           render={props => (
             <form onSubmit={props.handleSubmit} className="solar-form">
-            <div className="inner-addon left-addon">
-              <i className="solar-icon user-icon"></i>
-              <Field
-                type="email"
-                className="solar-form-input"
-                name="email"
-                placeholder="Email"
-                required
-              />
-            </div>
-            <div className="inner-addon left-addon">
-              <i className="solar-icon password-icon"></i>
-              <Field
-                type="password"
-                className="solar-form-input"
-                name="password"
-                placeholder="Password"
-              />
-            </div>
-              <button type="submit" className="solar-form-button">
-                Log In
-              </button>
+              <div className="inner-addon left-addon">
+                <i className="solar-icon user-icon" />
+                <Field
+                  type="email"
+                  className="solar-form-input"
+                  name="email"
+                  placeholder="Email"
+                  required
+                />
+              </div>
+              <div className="inner-addon left-addon">
+                <i className="solar-icon password-icon" />
+                <Field
+                  type="password"
+                  className="solar-form-input"
+                  name="password"
+                  placeholder="Password"
+                />
+              </div>
+              <div className="auth-button">
+                <button
+                  type="submit"
+                  className="solar-form-button solar-btn-normal"
+                >
+                  Log In
+                </button>
+              </div>
             </form>
           )}
         />

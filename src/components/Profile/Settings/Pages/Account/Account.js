@@ -143,14 +143,13 @@ const Account = props => (
                   <div className="col-6">
                     <button
                       type="button"
-                      className="solar-form-button"
-                      disabled
+                      className="solar-form-button solar-btn-white"
                     >
                       reset
                     </button>
                   </div>
                   <div className="col-6">
-                    <button type="submit" className="solar-form-button">
+                    <button type="submit" className="solar-form-button solar-btn-normal">
                       save
                     </button>
                   </div>

@@ -49,9 +49,11 @@ const signUpComponent = props => (
               placeholder="Password"
             />
           </div>
-          <button type="submit" className="solar-form-button">
-            Submit
-          </button>
+          <div className="auth-button">
+            <button type="submit" className="solar-form-button solar-btn-normal">
+              Submit
+            </button>
+          </div>
         </form>
       )}
     />

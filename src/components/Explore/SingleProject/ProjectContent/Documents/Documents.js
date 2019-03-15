@@ -68,11 +68,13 @@ const Documents = props => (
                 <div className="col-12">
                   <div className="row">
                     <div className="col-3">
-                      <Button
+                      <button
                         link="#"
                         name="review smart contracts"
-                        style={{ width: "100%", padding: 0, margin: 0 }}
-                      />
+                        className="solar-form-button solar-btn-normal"
+                      >
+                        review smart contracts
+                      </button>
                     </div>
                     <div className="col-3 icon-check-box">
                       <div className="">
