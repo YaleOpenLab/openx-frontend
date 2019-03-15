@@ -20,7 +20,8 @@
     "redux-observable": "^1.0.0",
     "rxjs": "^6.4.0",
     "rxjs-compat": "^6.4.0",
-    "sass-loader": "^7.1.0"
+    "sass-loader": "^7.1.0",
+    "yup": "^0.27.0"
   },
   "scripts": {
     "start": "react-scripts start",

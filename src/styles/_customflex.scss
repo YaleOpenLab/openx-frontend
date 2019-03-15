@@ -1,10 +1,11 @@
+// TODO: get rid of this
 .flex-title {
   height: 10%;
 }
 .flex-content {
   height: 90%;
   width: 100%;
-  * {
+  img {
     height: 100%;
     width: 100%;
     object-fit: cover;
@@ -13,7 +14,7 @@
 .flex-content-30 {
   height: 30%;
   width: 100%;
-  * {
+  img {
     height: 100%;
     width: 100%;
     object-fit: cover;
@@ -58,7 +59,7 @@
     object-fit: cover;
   }
 }
-.flex-content-50{
+.flex-content-50 {
   height: 50%;
   width: 100%;
 
@@ -88,6 +89,7 @@
     object-fit: cover;
   }
 }
+// end of TODO
 
 .col-xs-1-10,
 .col-sm-1-10 {

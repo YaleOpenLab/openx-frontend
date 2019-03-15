@@ -11,7 +11,6 @@ const Projects = props => (
 
       <div className="col-sm-12 col-md-8 col-lg-9">
         <div className="Projects">
-          <div className="container">
             <div className="row">
               {/* TODO: move to separate component when data is available */}
 
@@ -337,7 +336,6 @@ const Projects = props => (
           </div>
         </div>
       </div>
-    </div>
   </div>
 );
 

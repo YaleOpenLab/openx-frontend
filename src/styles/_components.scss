@@ -9,6 +9,18 @@
   font-weight: bold;
   font-size: 18px;
 }
+.component-header {
+  color: $primary-font-color;
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 32px;
+}
+.component-sub-header {
+  color: $primary-font-color;
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 32px;
+}
 
 .solar-forms {
   display: block;
@@ -91,10 +103,12 @@
   .solar-form-input:focus + label {
     color: $sidebar-font-color;
   }
-
   .solar-form-input::placeholder {
     color: $input-placeholder-color;
   }
+  // .solar-form-input:invalid {
+  //   border: 1px solid red;
+  // }
 
   .solar-form-button {
     width: 100%;
@@ -120,13 +134,11 @@
     background: $button-color-inverse;
     color: $light-font-color;
   }
-
-  .solar-input-text-label{
+  .solar-input-text-label {
     font-size: 16px;
     color: $light-font-color;
     font-weight: lighter;
   }
-
   .solar-input-switch input {
     position: absolute;
     opacity: 0;
@@ -140,7 +152,6 @@
     border-radius: 1em;
     cursor: pointer;
   }
-
   .solar-input-switch div {
     height: 1em;
     width: 1em;
@@ -153,12 +164,48 @@
     position: absolute;
     top: 1px;
   }
-
   .solar-input-switch input:checked + div {
     -webkit-transform: translate3d(100%, 0, 0);
     -moz-transform: translate3d(100%, 0, 0);
     transform: translate3d(100%, 0, 0);
   }
+
+  .solar-input-div-box {
+    height: 50px;
+    width: 100%;
+    font-weight: 400;
+    margin-bottom: 10px;
+
+  }
+  .full-box {
+    border: solid 1px #c6c9cf;
+    border-radius: 5px;
+  }
+  .open-box {
+    border-top: solid 1px #c6c9cf;
+    border-bottom: solid 1px #c6c9cf;
+  }
+  .solar-input-div-text {
+    text-align: center;
+    font-size: 10px;
+    text-transform: uppercase;
+    line-height: 5;
+    float: left;
+    width: 80%;
+    padding: 0px 0px 0px 40px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  .solar-input-div-icon {
+    width: 20%;
+    float: left;
+    height: 100%;
+    border-left: 1px solid silver;
+    display: flex;
+    justify-content: center;      
+  }
+
 }
 
 .inner-addon {

@@ -12,9 +12,8 @@ const ProjectDetails = props => (
           </div>
           <div className="col-12">
             <div className="architecture margin-top">
-              <div className="container no-padding">
-                <div className="row no-padding">
-                  <div className="component-title col-12 no-padding">
+                <div className="row">
+                  <div className="component-title col-12">
                     <span>architecture</span> / project design
                   </div>
                   <div className="col-sm-6 col-md-4 mg-top-15">
@@ -90,14 +89,12 @@ const ProjectDetails = props => (
                     </div>
                   </div>
                 </div>
-              </div>
             </div>
           </div>
           <div className="col-12">
             <div className="architecture margin-top">
-              <div className="container no-padding">
-                <div className="row no-padding">
-                  <div className="component-title col-12 no-padding">
+                <div className="row">
+                  <div className="component-title col-12">
                     <span>engineering</span> / solar layout
                   </div>
                   <div className="col-sm-6 col-md-5 mg-top-15">
@@ -131,7 +128,6 @@ const ProjectDetails = props => (
                   </div>
                   <div className="col-12 mg-top-15">
                     <div className="sub-title">IT infrastructure</div>
-                    <div className="container no-padding">
                       <div className="row">
                         <div className="col-4 pd-sub-text overflow-auto">
                           Lorem ipsum dolor sit amet, consectetur adipiscing
@@ -168,7 +164,6 @@ const ProjectDetails = props => (
                           </div>
                         </div>
                       </div>
-                    </div>
                     <div className="col-12 mg-top-15">
                       <NavLink to="#">
                         Link to specific document for this section >
@@ -176,7 +171,6 @@ const ProjectDetails = props => (
                     </div>
                   </div>
                 </div>
-              </div>
             </div>
           </div>
         </div>

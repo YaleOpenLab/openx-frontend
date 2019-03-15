@@ -6,6 +6,8 @@ import ROUTES from '../../../routes/routes';
 import Account from "./Pages/Account/Account";
 import Security from "./Pages/Security/Security";
 import Preferences from "./Pages/Preferences/Preferences";
+import Entity from "./Pages/Entity/Entity";
+import Profiles from "./Pages/Profiles/Profiles";
 
 class Settings extends Component {
   render() {
@@ -19,10 +21,9 @@ class Settings extends Component {
                 <Route path={ROUTES.PROFILE_PAGES.SETTINGS} exact component={Account} />
                 <Route path={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.ACCOUNT} component={Account} />
                 <Route path={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.SECURITY} component={Security} />
-                <Route path={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.ENTITY_PROFILE} component={Account} />
-                <Route path={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.USER_PROFILES} component={Account} />
+                <Route path={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.ENTITY_PROFILE} component={Entity} />
+                <Route path={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.USER_PROFILES} component={Profiles} />
                 <Route path={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.PREFERENCES} component={Preferences} />
-                <Route path={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.LEGAL} component={Account} />
               </Switch>
             </div>
           </div>

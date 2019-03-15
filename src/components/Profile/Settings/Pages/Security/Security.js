@@ -13,7 +13,6 @@ const Security = props => (
       onSubmit={(values, actions) => {}}
       render={props => (
         <form onSubmit={props.handleSubmit} className="solar-form">
-          <div className="container">
             <div className="row">
               <div className="col-12 col-md-10 col-lg-8 mx-auto">
                 <div className="row">
@@ -115,7 +114,6 @@ const Security = props => (
                 </div>
               </div>
             </div>
-          </div>
         </form>
       )}
     />
