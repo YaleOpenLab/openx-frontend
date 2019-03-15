@@ -1,8 +1,10 @@
 @import "../../../styles/variables";
 
 .ProfileSettings {
-    padding-top: 35px;
-    padding-bottom: 35px;
-    
-    @import "./NavBar/NavBar.scss";
+  padding-top: 35px;
+  padding-bottom: 35px;
+
+  .settings-content {
+    margin-top: 40px;
+  }
 }

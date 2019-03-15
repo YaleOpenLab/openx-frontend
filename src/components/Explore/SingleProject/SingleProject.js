@@ -7,6 +7,7 @@ class SingleProject extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      // TODO: get menu items from db or create enum
       menu: [
         { name: "terms", link: "#terms", id: "terms-nav" },
         { name: "overview", link: "#overview", id: "overview-nav" },
