@@ -3,7 +3,7 @@
 .ProjectContent {
   .title {
     font-size: 25px;
-    color: $sidebar-font-color;
+    color: $secondary-color;
     font-weight: 500;
   }
 
@@ -13,20 +13,20 @@
 
   .sub-title {
     font-size: 16px;
-    color: $sidebar-font-color;
+    color: $secondary-color;
     font-weight: 600;
     text-transform: capitalize;
   }
 
   .sub-text {
     margin-top: 10px;
-    color: $sidebar-font-color;
+    color: $secondary-color;
     font-size: 13px;
   }
 
   .pd-sub-text {
     padding: 10px;
-    color: $sidebar-font-color;
+    color: $secondary-color;
     font-size: 13px;
   }
 
@@ -40,7 +40,7 @@
   }
 
   .grid-title {
-    color: $sidebar-font-color;
+    color: $secondary-color;
     font-size: 15px;
     text-transform: capitalize;
     height: 20%;
@@ -57,7 +57,7 @@
     .grid-body-content {
       font-size: 22px;
       font-weight: 200;
-      color: $sidebar-font-color;
+      color: $secondary-color;
     }
     .grid-body-description {
       font-size: 8px;
@@ -75,7 +75,7 @@
         background: white;
         text-transform: uppercase;
         font-size: 10px;
-        color: $sidebar-font-color;
+        color: $secondary-color;
 
         th {
           vertical-align: middle;
@@ -92,7 +92,7 @@
 
   .component-title {
     font-size: 20px;
-    color: $primary-font-color;
+    color: $primary-color-light;
     text-transform: uppercase;
 
     span {

@@ -27,7 +27,7 @@
   .steps-inactive {
     height: 10px;
     width: 10px;
-    background: $sidebar-background;
+    background: $secondary-color-very-light;
     border-radius: 15px;
   }
 
@@ -36,12 +36,12 @@
     top: 24px;
     font-size: 12px;
     text-transform: capitalize;
-    color: $light-font-color;
+    color: $secondary-color-lighter;
   }
 
   .divider {
     flex-grow: 1;
-    border-bottom: 1px solid $light-font-color;
+    border-bottom: 1px solid $secondary-color-lighter;
     margin: 9px 0px 9px 0px;
   }
 }

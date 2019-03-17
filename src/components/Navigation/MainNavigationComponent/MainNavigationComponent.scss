@@ -1,7 +1,7 @@
 @import "../../../styles/variables";
 
 .main-navigation {
-  background: $background-color;
+  background: $white;
   padding-top: 0;
   padding-bottom: 0;
 
@@ -14,13 +14,13 @@
       text-transform: uppercase;
 
       a {
-        color: $primary-font-color;
+        color: $primary-color-light;
       }
 
       a:hover,
       a:active,
       a:focus {
-        color: $primary-font-color;
+        color: $primary-color-light;
         background: rgba(155, 155, 155, 0.11);
       }
     }

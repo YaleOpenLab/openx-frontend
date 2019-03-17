@@ -1,5 +1,4 @@
 import React from "react";
-import Button from "../../../../UI/SolarForms/Button/Button";
 
 const Invest = props => (
   <div className="Invest">

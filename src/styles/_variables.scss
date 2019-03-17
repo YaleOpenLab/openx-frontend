@@ -1,33 +1,33 @@
-//TODO: refactor
-$primary-color: #f5911e;
-$primary-font-color: #f5a623;
-$button-color: #f5a623;
-$button-color-inverse: #eae9e9;
-$button-border-inverse: #c6c9cf;
-$inverse-font-color: #fff;
-$font-family: 'Nunito', sans-serif;
-$background-color: #fff;
-$input-placeholder-color: rgba(74, 74, 74, 0.36);
+$font-family: "Nunito", sans-serif;
 
+$multiplier: 1;
+$base-pixel: 8px;
+$base-font: 16px;
+$font-size: $base-pixel * $multiplier;
+
+$primary-color: #f5911e;
+$primary-color-light: #f5a623;
+$secondary-color: #4a4a4a;
+$secondary-color-light: #767676;
+$secondary-color-lighter: #aaaeb3;
+$secondary-color-very-light: #ededed;
+$third-color: #294a70;
+$third-color-light: #2961a2;
+$third-color-lighter: #4a90e2;
+$status-color: #417505;
+$pale-grey: rgba(245, 246, 248, 0.48);
+$grey-light: #ecedef;
+$white: #ffffff;
+
+//TODO: refactor and get rid of the unneccesary colors
+
+$input-placeholder-color: rgba(74, 74, 74, 0.36);
 $sub-navigation-background: #d8d8d8;
-$sub-navigation-font-color: #4a4a4a;
 $sub-navigation-font-action: #9e9e9e;
 $anchor-navigation-background: #f6f7f7;
-
-$sidebar-background: #ededed;
-$sidebar-font-color: #4a4a4a;
 $sidebar-subtitle-font-color: #686868;
-$light-font-color: #aaaeb3;
-
 $projects-background: rgba(0, 0, 0, 0.07);
-$projects-status-color: #417505;
 $projects-location-color: #737578;
-$projects-first-spec: #f5911e;
-$projects-second-spec: #2961a2;
-
 $project-content-background: #f0eeee;
-
-$auth-link-color: #393c40;
-
 $profile-navbar-background: #f6f7f7;
 $profile-navbar-border: #bfbdbd;

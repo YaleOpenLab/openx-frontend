@@ -11,7 +11,7 @@
 
     .ds-count {
       font-size: 8px;
-      color: $light-font-color;
+      color: $secondary-color-lighter;
     }
     .ds-line {
       position: absolute;
@@ -50,14 +50,14 @@
       margin-top: 10px;
     }
     .ds-full {
-      background: $button-color;
+      background: $primary-color-light;
     }
     .ds-current {
-      border: 1px solid $button-color;
+      border: 1px solid $primary-color-light;
       background: white;
     }
     .ds-empty {
-      border: 1px solid $light-font-color;
+      border: 1px solid $secondary-color-lighter;
       background: white;
     }
     .ds-title {
@@ -67,7 +67,7 @@
     }
     .ds-date {
       font-size: 8px;
-      color: $light-font-color;
+      color: $secondary-color-lighter;
     }
     .ds-image {
       width: 60px;
@@ -90,19 +90,19 @@
     .forecast-info-title {
       font-size: 22px;
       text-transform: capitalize;
-      color: $primary-font-color;
+      color: $primary-color-light;
       font-weight: 300;
     }
     .forecast-info-sub-title {
       font-size: 10px;
       text-transform: uppercase;
-      color: $sidebar-font-color;
+      color: $secondary-color;
       font-weight: 300;
       margin-top: 10px;
     }
     .forecast-info-content {
       font-size: 12px;
-      color: $sidebar-font-color;
+      color: $secondary-color;
       margin-top: 15px;
     }
   }
@@ -113,10 +113,10 @@
 
   .solar-financial-restricted {
     margin-top: 35px;
-    background: $sidebar-background;
+    background: $secondary-color-very-light;
 
     .restricted-info-sub-title {
-      color: $sidebar-font-color;
+      color: $secondary-color;
       text-transform: capitalize;
       margin-top: 10px;
     }

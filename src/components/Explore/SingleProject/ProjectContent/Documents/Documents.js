@@ -1,6 +1,5 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import Button from "../../../../UI/SolarForms/Button/Button";
 import ScrollableAnchor from "react-scrollable-anchor";
 
 const Documents = props => (

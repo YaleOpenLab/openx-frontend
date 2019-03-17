@@ -16,10 +16,10 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            color: $primary-font-color;
+            color: $primary-color-light;
             font-weight: bold;
             font-size: 1.8vw;
-            background: $background-color;
+            background: $white;
             padding: 5px;
         }
     }
@@ -34,7 +34,7 @@
             .title {
                 height: 15%;
                 text-align: center;
-                color: $primary-font-color;
+                color: $primary-color-light;
             }
             .image-div {
                 height: 85%;
@@ -55,12 +55,12 @@
         text-align: center;
 
         h1 {
-            color: $sub-navigation-font-color;
+            color: $secondary-color;
             font-size: 34px;
         }
 
         p {
-            color: $sub-navigation-font-color;
+            color: $secondary-color;
             font-size: 14px;
         }
     }

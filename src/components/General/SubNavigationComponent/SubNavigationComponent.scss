@@ -19,19 +19,19 @@
             text-transform: uppercase;
 
             a {
-                color: $sub-navigation-font-color;
+                color: $secondary-color;
             }
 
             a:hover, a:active, a:focus {
                 color:$sub-navigation-font-action;
-                border-bottom: 2px solid $primary-font-color;
+                border-bottom: 2px solid $primary-color-light;
                 box-sizing: border-box;
             }
         }
         .active {
             .nav-link{
                 color: $sub-navigation-font-action;
-                border-bottom: 2px solid $primary-font-color;
+                border-bottom: 2px solid $primary-color-light;
                 box-sizing: border-box;
             }
         }

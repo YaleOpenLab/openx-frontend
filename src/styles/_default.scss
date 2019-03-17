@@ -3,7 +3,7 @@
 
 a {
   text-decoration: none;
-  color: #294a70;
+  color: $third-color;
 }
 h1,
 h2,
@@ -17,6 +17,12 @@ h6 {
 
 .no-padding {
   padding: 0;
+}
+
+.header-4 {
+  font-size: 20px;
+  font-weight: 600;
+  color: $secondary-color;
 }
 
 .margin-top {
