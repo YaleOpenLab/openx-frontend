@@ -21,18 +21,18 @@
       text-transform: capitalize;
 
       a {
-        color: $sub-navigation-font-color;
+        color: $secondary-color;
       }
 
       a:hover {
         color: $sub-navigation-font-action;
-        border-bottom: 3px solid $primary-font-color;
+        border-bottom: 3px solid $primary-color-light;
         box-sizing: border-box;
       }
     }
     .active-nav-item {
       color: $sub-navigation-font-action;
-      border-bottom: 3px solid $primary-font-color;
+      border-bottom: 3px solid $primary-color-light;
       box-sizing: border-box;
     }
   }

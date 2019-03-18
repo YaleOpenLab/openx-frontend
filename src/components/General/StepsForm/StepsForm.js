@@ -45,7 +45,7 @@ class StepsForm extends Component {
         <React.Fragment>
           <div className="col-6">
             <button
-              className="solar-form-button"
+              className="solar-form-button solar-btn-normal"
               onClick={this.goBack}
               type="button"
             >
@@ -54,7 +54,7 @@ class StepsForm extends Component {
           </div>
           <div className="col-6">
             <button
-              className="solar-form-button"
+              className="solar-form-button solar-btn-normal"
               onClick={this.goNext}
               type="button"
             >
@@ -68,7 +68,7 @@ class StepsForm extends Component {
         <React.Fragment>
           <div className="col-6">
             <button
-              className="solar-form-button"
+              className="solar-form-button solar-btn-normal"
               onClick={this.goNext}
               type="button"
             >
@@ -82,7 +82,7 @@ class StepsForm extends Component {
         <React.Fragment>
           <div className="col-6">
             <button
-              className="solar-form-button"
+              className="solar-form-button solar-btn-normal"
               onClick={this.goBack}
               type="button"
             >
@@ -91,7 +91,7 @@ class StepsForm extends Component {
           </div>
           <div className="col-6">
             <button
-              className="solar-form-button"
+              className="solar-form-button solar-btn-normal"
               onClick={this.goNext}
               type="button"
             >

@@ -22,13 +22,19 @@
   }
 
   .auth-title {
+    font-family: $secondary-font;
     font-size: 26px;
     font-weight: 300;
     margin-bottom: 30px;
   }
 
   .auth-notice {
-    color: $auth-link-color;
+    color: $secondary-color;
     font-size: 12px;
+  }
+
+  .auth-button {
+    width: 139px;
+    margin: 0px auto;
   }
 }

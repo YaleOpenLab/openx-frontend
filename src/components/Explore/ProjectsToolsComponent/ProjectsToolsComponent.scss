@@ -9,7 +9,7 @@
         height: 42px;
         background-color: #e5e6ea;
         margin-bottom: 5px;
-        color: $sub-navigation-font-color;
+        color: $secondary-color;
         
         div {
             border: none;
@@ -25,7 +25,7 @@
         font-size: 20px;
         font-weight: bold;
         text-align: center;
-        color: $sidebar-font-color;
+        color: $secondary-color;
     }
 
     .sub-title {
@@ -34,7 +34,7 @@
 
         h4 {
             padding: 0 0px 5px 10px;
-            color: $sidebar-font-color;
+            color: $secondary-color;
         }
     }
 
@@ -42,7 +42,7 @@
         padding-top: 15px;
         padding-bottom: 15px;
         margin-top: 5px;
-        background: $sidebar-background;
+        background: $secondary-color-very-light;
     }
 
     .location-box {
@@ -60,7 +60,7 @@
 
         h5 {
             text-transform: uppercase;
-            color: $sidebar-font-color;
+            color: $secondary-color;
         }
     }
 }

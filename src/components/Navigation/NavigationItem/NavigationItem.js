@@ -3,11 +3,12 @@ import React from "react";
 import { MDBNavItem, MDBNavLink } from "mdbreact";
 
 const navigationItem = props => (
-  <MDBNavItem>
+  <MDBNavItem className={props.divider ? "border-right" : ""}>
     <MDBNavLink
+      activeClassName="is-active"
       className={`waves-effect waves-light ${
-        props.divider ? "border-right" : null
-      } `}
+        props.diffClass ? props.diffClass : ""
+      }`}
       to={props.link}
     >
       {props.children}

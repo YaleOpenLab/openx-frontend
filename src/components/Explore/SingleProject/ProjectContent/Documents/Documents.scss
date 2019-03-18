@@ -6,14 +6,14 @@
     font-weight: 600;
     margin-top: 25px;
     text-transform: uppercase;
-    color: $sidebar-font-color;
+    color: $secondary-color;
   }
   .doc-content {
     margin-top: 25px;
     .doc-description {
       text-align: center;
       text-transform: capitalize;
-      color: $sidebar-font-color;
+      color: $secondary-color;
       font-size: 13px;
       margin-top: 10px;
     }
@@ -23,7 +23,7 @@
       font-size: 10px;
       margin-top: 15px;
       font-weight: 600;
-      color: $sidebar-font-color;
+      color: $secondary-color;
     }
   }
 
@@ -45,12 +45,12 @@
       text-transform: uppercase;
       font-size: 11px;
       font-weight: 600;
-      color: $sidebar-font-color;
+      color: $secondary-color;
     }
     .doc-review-content {
       margin-top: 10px;
       font-size: 11px;
-      color: $sidebar-font-color;
+      color: $secondary-color;
     }
   }
 }
