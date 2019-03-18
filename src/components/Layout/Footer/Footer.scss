@@ -6,22 +6,48 @@ $footer-background: rgba(216, 216, 216, 0.38);
 
 .Footer {
   background: $footer-background;
-  height: 447px;
+  height: 444px;
   width: 100%;
   width: 100%;
-
   .Sources {
-    height: 49px;
     background: $primary-color;
     margin-top: 350px;
+    display: flex;
 
-    div {
+    .footer-text-div {
       font-size: 16px;
       font-weight: 500;
       color: $white;
+      height: 49px;
+      line-height: 49px;
+      flex: 1;
+      text-align: center;
     }
-    .footer-project-logo {
-      float: left;
+    .footer-project-logo-div {
+      display: flex;
+      flex: 1;
+      align-self: center;
+      justify-content: center;
+      .footer-project-logo {
+        float: left;
+        align-self: center;
+        padding: 0 $pixel-base * 2 0 $pixel-base * 2;
+      }
+    }
+    .footer-border-left {
+      border-left: 1px solid #ffffff;
+      margin: $pixel-base 0 $pixel-base 0;
+    }
+  }
+
+  @media #{$sm-scren} {
+    .Sources {
+      display: block;
+      .footer-project-logo-div {
+        .footer-project-logo {
+          padding: 0 $pixel-base 0 $pixel-base;
+        }
+      }
     }
   }
 }

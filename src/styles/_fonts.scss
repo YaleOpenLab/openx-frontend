@@ -1,2 +1,73 @@
-@import url('https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i');
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i');
+@import url("https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i");
+
+@font-face {
+  font-family: "AvenirNext";
+  font-style: normal;
+  font-weight: bold;
+  src: local("AvenirNextLTPro"), local("AvenirNextLTPro-Bold"),
+    url(./assets/fonts/AvenirNextLTPro-Bold.otf) format("opentype");
+}
+@font-face {
+  font-family: "AvenirNext";
+  font-style: normal;
+  font-weight: 600;
+  src: local("AvenirNextLTPro"), local("AvenirNextLTPro-Demi"),
+    url(./assets/fonts/AvenirNextLTPro-Demi.otf) format("opentype");
+}
+@font-face {
+  font-family: "AvenirNext";
+  font-style: italic;
+  font-weight: 600;
+  src: local("AvenirNextLTPro"), local("AvenirNextLTPro-DemiIt"),
+    url(./assets/fonts/AvenirNextLTPro-DemiIt.otf) format("opentype");
+}
+@font-face {
+  font-family: "AvenirNext";
+  font-style: normal;
+  font-weight: 1000;
+  src: local("AvenirNextLTPro"), local("AvenirNextLTPro-Heavy"),
+    url(./assets/fonts/AvenirNextLTPro-Heavy.otf) format("opentype");
+}
+@font-face {
+  font-family: "AvenirNext";
+  font-style: italic;
+  font-weight: 1000;
+  src: local("AvenirNextLTPro"), local("AvenirNextLTPro-HeavyIt"),
+    url(./assets/fonts/AvenirNextLTPro-HeavyIt.otf) format("opentype");
+}
+@font-face {
+  font-family: "AvenirNext";
+  font-style: italic;
+  font-weight: normal;
+  src: local("AvenirNextLTPro"), local("AvenirNextLTPro-It"),
+    url(./assets/fonts/AvenirNextLTPro-It.otf) format("opentype");
+}
+@font-face {
+  font-family: "AvenirNext";
+  font-style: italic;
+  font-weight: 500;
+  src: local("AvenirNextLTPro"), local("AvenirNextLTPro-MediumIt"),
+    url(./assets/fonts/AvenirNextLTPro-MediumIt.otf) format("opentype");
+}
+@font-face {
+  font-family: "AvenirNext";
+  font-style: normal;
+  font-weight: normal;
+  src: local("AvenirNextLTPro"), local("AvenirNextLTPro-Regular"),
+    url(./assets/fonts/AvenirNextLTPro-Regular.otf) format("opentype");
+}
+@font-face {
+  font-family: "AvenirNext";
+  font-style: normal;
+  font-weight: 200;
+  src: local("AvenirNextLTPro"), local("AvenirNextLTPro-UltLt"),
+    url(./assets/fonts/AvenirNextLTPro-UltLt.otf) format("opentype");
+}
+@font-face {
+  font-family: "AvenirNext";
+  font-style: italic;
+  font-weight: 200;
+  src: local("AvenirNextLTPro"), local("AvenirNextLTPro-UltLtIt"),
+    url(./assets/fonts/AvenirNextLTPro-UltLtIt.otf) format("opentype");
+}

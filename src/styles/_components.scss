@@ -83,11 +83,14 @@
   font-size: 10px;
   margin-bottom: $pixel-base;
 }
+.darker-label {
+  color: $input-color-focus;
+}
 
 .solar-form-input {
   height: $pixel-base * 6;
   border-radius: 5px;
-  border: solid 1px #c6c9cf;
+  border: solid 1px $input-color-light;
   width: 100%;
   padding: $pixel-base $pixel-base * 2;
   font-weight: 400;
@@ -99,7 +102,7 @@
 }
 
 .solar-form-input:focus {
-  border: solid 1px #393c40;
+  border: solid 1px $input-color-focus;
 }
 .solar-form-input:focus + label {
   color: $secondary-color;
@@ -135,7 +138,7 @@
 .solar-btn-white {
   background: #ffffff00;
   color: #aaaeb3;
-  border: 1px solid #c6c9cf;
+  border: 1px solid $input-color-light;
 }
 
 .solar-form-button:active {
@@ -202,12 +205,12 @@
   display: flex;
 }
 .full-box {
-  border: solid 1px #c6c9cf;
+  border: solid 1px $input-color-focus;
   border-radius: 5px;
 }
 .open-box {
-  border-top: solid 1px #c6c9cf;
-  border-bottom: solid 1px #c6c9cf;
+  border-top: solid 1px $input-color-focus;
+  border-bottom: solid 1px $input-color-focus;
 }
 .solar-input-div-text {
   text-align: center;
@@ -221,6 +224,11 @@
   text-overflow: ellipsis;
   overflow: hidden;
   align-self: center;
+}
+.solar-input-full-text {
+  font-weight: 600;
+  font-family: "Open Sans";
+  color: $input-color-focus;
 }
 .solar-input-div-icon {
   width: 20%;
