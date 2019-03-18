@@ -5,7 +5,7 @@ import ROUTES from "../../../routes/routes";
 
 const signUpComponent = props => (
   <div className="col-sm-10 col-md-6 auth-form my-auto">
-    <div className="auth-title">SignUp</div>
+    <div className="auth-title">Signup</div>
     <Formik
       initialValues={{ firstName: "", lastName: "", email: "", password: "" }}
       onSubmit={(values, actions) => {
@@ -49,9 +49,11 @@ const signUpComponent = props => (
               placeholder="Password"
             />
           </div>
-          <button type="submit" className="solar-form-button">
-            Submit
-          </button>
+          <div className="auth-button">
+            <button type="submit" className="solar-form-button solar-btn-normal">
+              Submit
+            </button>
+          </div>
         </form>
       )}
     />

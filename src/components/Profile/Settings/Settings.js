@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Settings.scss";
 import NavBar from "./NavBar/NavBar";
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import ROUTES from '../../../routes/routes';
 import Account from "./Pages/Account/Account";
 import Security from "./Pages/Security/Security";
@@ -18,6 +18,7 @@ class Settings extends Component {
             <NavBar />
             <div className="col-12 col-sm-8 col-lg-9 settings-content">
               <Switch>
+                <Redirect from={ROUTES.PROFILE_PAGES.SETTINGS} exact to={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.ACCOUNT} />
                 <Route path={ROUTES.PROFILE_PAGES.SETTINGS} exact component={Account} />
                 <Route path={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.ACCOUNT} component={Account} />
                 <Route path={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.SECURITY} component={Security} />

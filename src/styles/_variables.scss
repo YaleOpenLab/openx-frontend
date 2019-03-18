@@ -1,33 +1,63 @@
-//TODO: refactor
+$primary-font: "AvenirNext", sans-serif;
+$secondary-font: "Open Sans", sans-serif;
+
+$multiplier: 1;
+$pixel-base: 8px * $multiplier;
+$base-font: 16px * $multiplier;
+
 $primary-color: #f5911e;
-$primary-font-color: #f5a623;
-$button-color: #f5a623;
-$button-color-inverse: #eae9e9;
-$button-border-inverse: #c6c9cf;
-$inverse-font-color: #fff;
-$font-family: 'Nunito', sans-serif;
-$background-color: #fff;
+$primary-color-light: #f5a623;
+$secondary-color: #4a4a4a;
+$secondary-color-light: #767676;
+$secondary-color-lighter: #aaaeb3;
+$secondary-color-very-light: #ededed;
+$third-color: #294a70;
+$third-color-light: #2961a2;
+$third-color-lighter: #4a90e2;
+$status-color: #417505;
+$pale-grey: rgba(245, 246, 248, 0.48);
+$grey-light: #ecedef;
+$white: #ffffff;
+
+@mixin margin-mix($position, $times) {
+  @if $position == "top" {
+    margin-top: $pixel-base * $times;
+  } @else if $position == "bottom" {
+    margin-bottom: $pixel-base * $times;
+  } @else if $position == "left" {
+    margin-left: $pixel-base * $times;
+  } @else {
+    margin-right: $pixel-base * $times;
+  }
+}
+@mixin padding-mix($position, $times) {
+  @if $position == "top" {
+    padding-top: $pixel-base * $times;
+  } @else if $position == "bottom" {
+    padding-bottom: $pixel-base * $times;
+  } @else if $position == "left" {
+    padding-left: $pixel-base * $times;
+  } @else {
+    padding-right: $pixel-base * $times;
+  }
+}
+
+$xs-scren: "(max-width: 575px)";
+$sm-scren: "(max-width: 768px)";
+$smd-scren: "(max-width: 990px)";
+$md-scren: "(max-width: 1199px)";
+$lg-scren: "(min-width: 1200px)";
+
+//TODO: refactor and get rid of the unneccesary colors
 $input-placeholder-color: rgba(74, 74, 74, 0.36);
-
-$sub-navigation-background: #d8d8d8;
-$sub-navigation-font-color: #4a4a4a;
-$sub-navigation-font-action: #9e9e9e;
-$anchor-navigation-background: #f6f7f7;
-
-$sidebar-background: #ededed;
-$sidebar-font-color: #4a4a4a;
 $sidebar-subtitle-font-color: #686868;
-$light-font-color: #aaaeb3;
-
-$projects-background: rgba(0, 0, 0, 0.07);
-$projects-status-color: #417505;
 $projects-location-color: #737578;
-$projects-first-spec: #f5911e;
-$projects-second-spec: #2961a2;
-
+$sub-navigation-font-action: #9e9e9e;
+$sub-navigation-background: #d8d8d8;
+$anchor-navigation-background: #f6f7f7;
 $project-content-background: #f0eeee;
-
-$auth-link-color: #393c40;
-
 $profile-navbar-background: #f6f7f7;
 $profile-navbar-border: #bfbdbd;
+$projects-background: rgba(0, 0, 0, 0.07);
+$input-color-focus: #474b4f;
+$input-color-light: #c6c9cf;

@@ -1,39 +1,39 @@
-@import '../../../styles/variables';
+@import "../../../styles/variables";
 
 .sub-navbar {
-    background:$sub-navigation-background;
-    padding: 0;
-    min-height: 20px;
-    
-    .navbar-nav {
-        margin: 0;
-        display: flex;
-        justify-content: center !important;
-        align-items: center;
-        height: 100%;
+  background: $sub-navigation-background;
+  padding: 0;
+  min-height: $pixel-base * 3;
 
-        .nav-item{
-            padding: 0px 20px 0px 20px;
-            font-weight: bold;
-            font-size: 14px;
-            text-transform: uppercase;
+  .navbar-nav {
+    margin: 0;
+    display: flex;
+    justify-content: center !important;
+    align-items: center;
+    height: 100%;
 
-            a {
-                color: $sub-navigation-font-color;
-            }
+    .nav-item {
+      padding: 0px $pixel-base 0px $pixel-base;
+      font-weight: bold;
+      font-size: 13px;
+      text-transform: uppercase;
 
-            a:hover, a:active, a:focus {
-                color:$sub-navigation-font-action;
-                border-bottom: 2px solid $primary-font-color;
-                box-sizing: border-box;
-            }
-        }
-        .active {
-            .nav-link{
-                color: $sub-navigation-font-action;
-                border-bottom: 2px solid $primary-font-color;
-                box-sizing: border-box;
-            }
-        }
+      a {
+        color: $secondary-color;
+        padding-left: $pixel-base * 2;
+        padding-right: $pixel-base * 2;
+      }
+
+      a:hover {
+        color: $primary-color-light;
+        border-bottom: 2px solid $primary-color-light;
+        box-sizing: border-box;
+      }
+      .is-active {
+        color: $primary-color-light;
+        border-bottom: 2px solid $primary-color-light;
+        box-sizing: border-box;
+      }
     }
+  }
 }

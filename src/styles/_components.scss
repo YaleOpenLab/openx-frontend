@@ -5,21 +5,21 @@
 }
 
 .component-box-title {
-  color: $primary-font-color;
+  color: $primary-color-light;
   font-weight: bold;
   font-size: 18px;
 }
 .component-header {
-  color: $primary-font-color;
+  color: $primary-color-light;
   font-weight: bold;
   font-size: 18px;
-  margin-bottom: 32px;
+  @include margin-mix("bottom", 4);
 }
 .component-sub-header {
-  color: $primary-font-color;
+  color: $primary-color-light;
   font-weight: bold;
   font-size: 18px;
-  margin-bottom: 32px;
+  @include margin-mix("bottom", 4);
 }
 
 .solar-forms {
@@ -43,14 +43,14 @@
 }
 
 .solar-button {
-  background: $button-color;
+  background: $primary-color-light;
   width: 120px;
   height: 40px;
   border-radius: 5px;
   border: none;
   color: #fff;
   text-transform: uppercase;
-  font-family: $font-family;
+  font-family: $primary-font;
   font-size: 10px;
   font-weight: 600;
   margin-top: 20px;
@@ -59,153 +59,184 @@
 }
 .solar-button:disabled,
 .solar-button[disabled] {
-  border: 1px solid $button-border-inverse;
-  background: $button-color-inverse;
-  color: $light-font-color;
+  border: 1px solid $secondary-color-lighter;
+  background: $secondary-color-very-light;
+  color: $secondary-color-lighter;
 }
 
 // solar form
-.solar-form {
-  .solar-form-separator {
-    margin: 25px 0 25px 0;
-    border-bottom: 1px solid silver;
-  }
+.solar-form-separator {
+  margin: $pixel-base * 4 0 $pixel-base * 4 0;
+  border-bottom: 2px solid $grey-light;
+}
 
-  .solar-input-div {
-    display: flex;
-    flex-direction: column-reverse;
-  }
+.solar-input-div {
+  display: flex;
+  flex-direction: column-reverse;
+}
 
-  .solar-form-label {
-    color: $light-font-color;
-    text-transform: uppercase;
-    font-size: 10px;
-    margin-bottom: 5px;
-  }
+.solar-form-label {
+  font-family: $secondary-font;
+  font-weight: 600;
+  color: $secondary-color-lighter;
+  text-transform: uppercase;
+  font-size: 10px;
+  margin-bottom: $pixel-base;
+}
+.darker-label {
+  color: $input-color-focus;
+}
 
-  .solar-form-input {
-    height: 50px;
-    border-radius: 5px;
-    border: solid 1px #c6c9cf;
-    width: 100%;
-    padding: 0.375rem 0.75rem;
-    font-weight: 400;
-    line-height: 1.5;
-    margin-bottom: 10px;
-    text-align: center;
-    font-family: $font-family;
-    font-size: 13px;
-  }
+.solar-form-input {
+  height: $pixel-base * 6;
+  border-radius: 5px;
+  border: solid 1px $input-color-light;
+  width: 100%;
+  padding: $pixel-base $pixel-base * 2;
+  font-weight: 400;
+  line-height: 1.5;
+  margin-bottom: $pixel-base * 3;
+  text-align: center;
+  font-family: $primary-font;
+  font-size: 13px;
+}
 
-  .solar-form-input:focus {
-    border: solid 1px #393c40;
-  }
-  .solar-form-input:focus + label {
-    color: $sidebar-font-color;
-  }
-  .solar-form-input::placeholder {
-    color: $input-placeholder-color;
-  }
-  // .solar-form-input:invalid {
-  //   border: 1px solid red;
-  // }
+.solar-form-input:focus {
+  border: solid 1px $input-color-focus;
+}
+.solar-form-input:focus + label {
+  color: $secondary-color;
+}
+.solar-form-input::placeholder {
+  color: $input-placeholder-color;
+}
+// .solar-form-input:invalid {
+//   border: 1px solid red;
+// }
 
-  .solar-form-button {
-    width: 100%;
-    height: 50px;
-    border-radius: 5px;
-    background-color: $button-color;
-    border: none;
-    color: #fff;
-    text-transform: uppercase;
-    font-family: $font-family;
-    font-size: 10px;
-    font-weight: 600;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    cursor: pointer;
-  }
-  .solar-form-button:active {
-    opacity: 0.7;
-  }
-  .solar-form-button:disabled,
-  .solar-form-button[disabled] {
-    border: 1px solid $button-border-inverse;
-    background: $button-color-inverse;
-    color: $light-font-color;
-  }
-  .solar-input-text-label {
-    font-size: 16px;
-    color: $light-font-color;
-    font-weight: lighter;
-  }
-  .solar-input-switch input {
-    position: absolute;
-    opacity: 0;
-  }
-  .solar-input-switch {
-    display: inline-block;
-    font-size: 20px; /* 1 */
-    height: 10px;
-    width: 2em;
-    background: #ecedef;
-    border-radius: 1em;
-    cursor: pointer;
-  }
-  .solar-input-switch div {
-    height: 1em;
-    width: 1em;
-    border-radius: 1em;
-    background: $primary-font-color;
-    box-shadow: 0 0.1em 0.3em rgba(0, 0, 0, 0.3);
-    -webkit-transition: all 300ms;
-    -moz-transition: all 300ms;
-    transition: all 300ms;
-    position: absolute;
-    top: 1px;
-  }
-  .solar-input-switch input:checked + div {
-    -webkit-transform: translate3d(100%, 0, 0);
-    -moz-transform: translate3d(100%, 0, 0);
-    transform: translate3d(100%, 0, 0);
-  }
+.solar-button-fixed-width {
+  width: 139px;
+  margin: 0px auto;
+}
+.solar-form-button {
+  width: 100%;
+  height: $pixel-base * 6;
+  border-radius: 5px;
+  border: none;
+  text-transform: uppercase;
+  font-family: $secondary-font;
+  font-size: 10px;
+  font-weight: 600;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.solar-btn-normal {
+  background-color: $primary-color;
+  color: #fff;
+}
+.solar-btn-white {
+  background: #ffffff00;
+  color: #aaaeb3;
+  border: 1px solid $input-color-light;
+}
 
-  .solar-input-div-box {
-    height: 50px;
-    width: 100%;
-    font-weight: 400;
-    margin-bottom: 10px;
+.solar-form-button:active {
+  opacity: 0.7;
+}
+.solar-form-button:disabled,
+.solar-form-button[disabled] {
+  border: 1px solid $secondary-color-lighter;
+  background: $secondary-color-very-light;
+  color: $secondary-color-lighter;
+}
+.solar-input-text-label {
+  font-size: 18px;
+  color: $secondary-color-lighter;
+  font-weight: lighter;
+  text-align: center;
+}
+.solar-input-switch input {
+  position: absolute;
+  opacity: 0;
+}
+.solar-input-switch {
+  display: inline-block;
+  font-size: 20px; /* 1 */
+  height: 10px;
+  width: 2em;
+  background: #ecedef;
+  border-radius: 1em;
+  cursor: pointer;
+}
+.solar-input-switch div {
+  height: 1em;
+  width: 1em;
+  border-radius: 1em;
+  background: $primary-color;
+  box-shadow: 0 0.1em 0.3em rgba(0, 0, 0, 0.3);
+  -webkit-transition: all 300ms;
+  -moz-transition: all 300ms;
+  transition: all 300ms;
+  position: absolute;
+  top: 1px;
+}
+.solar-input-switch span {
+  position: absolute;
+  left: 60px;
+  font-size: 10px;
+  top: 4px;
+  font-family: OpenSans;
+  font-size: 12px;
+  font-weight: 300;
+  color: $secondary-color-lighter;
+}
+.solar-input-switch input:checked + div {
+  -webkit-transform: translate3d(100%, 0, 0);
+  -moz-transform: translate3d(100%, 0, 0);
+  transform: translate3d(100%, 0, 0);
+}
 
-  }
-  .full-box {
-    border: solid 1px #c6c9cf;
-    border-radius: 5px;
-  }
-  .open-box {
-    border-top: solid 1px #c6c9cf;
-    border-bottom: solid 1px #c6c9cf;
-  }
-  .solar-input-div-text {
-    text-align: center;
-    font-size: 10px;
-    text-transform: uppercase;
-    line-height: 5;
-    float: left;
-    width: 80%;
-    padding: 0px 0px 0px 40px;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-  }
-  .solar-input-div-icon {
-    width: 20%;
-    float: left;
-    height: 100%;
-    border-left: 1px solid silver;
-    display: flex;
-    justify-content: center;      
-  }
-
+.solar-input-div-box {
+  height: $pixel-base * 6;
+  width: 100%;
+  font-weight: 400;
+  margin-bottom: 10px;
+  display: flex;
+}
+.full-box {
+  border: solid 1px $input-color-focus;
+  border-radius: 5px;
+}
+.open-box {
+  border-top: solid 1px $input-color-focus;
+  border-bottom: solid 1px $input-color-focus;
+}
+.solar-input-div-text {
+  text-align: center;
+  font-size: 10px;
+  text-transform: uppercase;
+  line-height: 5;
+  float: left;
+  width: 80%;
+  padding: 0px 0px 0px 40px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  align-self: center;
+}
+.solar-input-full-text {
+  font-weight: 600;
+  font-family: "Open Sans";
+  color: $input-color-focus;
+}
+.solar-input-div-icon {
+  width: 20%;
+  float: left;
+  height: 100%;
+  border-left: 1px solid silver;
+  display: flex;
+  justify-content: center;
 }
 
 .inner-addon {
