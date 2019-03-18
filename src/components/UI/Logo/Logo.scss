@@ -1,24 +1,33 @@
-@import '../../../styles/variables';
+@import "../../../styles/variables";
 
 .Logo {
-    padding: 8px;
-    cursor: pointer;
-    font-family: $primary-font;
-    font-size:24px;
-
-    img {
-        height: 100%;
-    }
+  padding: 8px;
+  cursor: pointer;
+  font-family: $primary-font;
+  a {
+    color: inherit;
+    font-size: inherit;
+  }
+  img {
+    height: 100%;
+  }
 }
-
-.Logo 
-
+.logo-default {
+  color: $primary-color-light;
+  font-size: 24px;
+}
+.logo-white {
+  color: white;
+  font-size: 22px;
+}
 .FirstPart {
-    color: $primary-color-light;
-    font-weight: 200;
+  color: inherit;
+  font-size: inherit;
+  font-weight: 200;
 }
 
 .SecondPart {
-    color: $primary-color-light;
-    font-weight: bold;
+  color: inherit;
+  font-size: inherit;
+  font-weight: bold;
 }

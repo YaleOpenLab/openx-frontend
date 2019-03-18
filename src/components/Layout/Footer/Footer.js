@@ -8,18 +8,21 @@ const footer = props => (
       <div className="logo-container">
         <Logo projectName="solar" />
       </div>
-      <div className="Sources d-flex justify-content-around">
-        <div>open source licenses & links</div>
+      <div className="Sources">
+        <div className="footer-text-div">open source licenses & links</div>
         <div className="footer-project-logo-div">
           <div className="footer-project-logo">
             <Logo projectName="s" type="white" />
           </div>
+          <div className="footer-border-left"></div>
           <div className="footer-project-logo">
             <Logo projectName="x" type="white" />
           </div>
+          <div className="footer-border-left"></div>
           <div className="footer-project-logo">
             <Logo projectName="y" type="white" />
           </div>
+          <div className="footer-border-left"></div>
           <div className="footer-project-logo">
             <Logo projectName="z" type="white" />
           </div>

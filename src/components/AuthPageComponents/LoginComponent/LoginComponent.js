@@ -7,7 +7,7 @@ class LoginComponent extends Component {
   render() {
     return (
       <div className="col-sm-10 col-md-6 auth-form  my-auto">
-        <div className="auth-title">LogIn</div>
+        <div className="auth-title">Log In</div>
         <Formik
           initialValues={{ email: "", password: "" }}
           onSubmit={(values, actions) => {

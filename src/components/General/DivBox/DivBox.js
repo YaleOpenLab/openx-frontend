@@ -11,13 +11,13 @@ const DivBox = props => {
             <i className={`solar-icon ${props.leftIcon}`} />
           </div>
           <div className="solar-input-div-box full-box">
-            <div className="solar-input-div-text">{props.text}</div>
+            <div className="solar-input-div-text solar-input-full-text">{props.text}</div>
             <div className="solar-input-div-icon ">
               <div className={props.rightIcon} />
             </div>
           </div>
         </div>
-        <label className="solar-form-label">{props.label}</label>
+        <label className="solar-form-label darker-label">{props.label}</label>
       </div>
     );
   } else {
@@ -32,7 +32,7 @@ const DivBox = props => {
           </div>
         </div>
 
-        <label className="solar-form-label center-al">{props.label}</label>
+        <label className="solar-form-label center-al darker-label">{props.label}</label>
       </div>
     );
   }
