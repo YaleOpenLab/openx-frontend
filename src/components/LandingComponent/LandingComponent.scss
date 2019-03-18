@@ -1,67 +1,106 @@
-@import '../../styles/variables';
+@import "../../styles/variables";
 
 .landing {
-    .header {
-        position: relative;
+  .header {
+    position: relative;
+    text-align: center;
+
+    img {
+      width: 100%;
+      height: auto;
+      max-height: 353px;
+    }
+    .header-text {
+      text-transform: uppercase;
+      top: 50%;
+      left: 50%;
+      color: $primary-color-light;
+      font-weight: bold;
+      font-size: $base-font * 2;
+      background: $white;
+      padding: 0 $pixel-base * 2 0 $pixel-base * 2;
+    }
+    .part-1 {
+      position: absolute;
+      transform: translate(-50%, -100%);
+    }
+    .part-2 {
+      position: absolute;
+      transform: translate(-50%, 0%);
+    }
+
+    @media #{$md-scren} {
+      .header-text {
+        font-size: $base-font * 1.2;
+      }
+    }
+    @media #{$sm-scren} {
+      .header-text {
+        font-size: $base-font;
+      }
+    }
+    @media #{$xs-scren} {
+      .header-text {
+        font-size: $base-font / 1.7;
+      }
+    }
+    @media #{$lg-scren} {
+      .header-text {
+        font-size: $base-font * 1.5;
+      }
+    }
+  }
+
+  .content {
+    margin-bottom: 20px;
+
+    .item {
+      margin-top: 24px;
+      max-height: 350px;
+
+      .title {
+        height: 15%;
         text-align: center;
-      
+        color: $primary-color-light;
+      }
+      .image-div {
+        height: 85%;
+
         img {
-            width: 100%;
-            height: auto;
-            max-height: 353px;
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          cursor: pointer;
         }
-        .header-text {
-            position: absolute;
-            text-transform: uppercase;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: $primary-color-light;
-            font-weight: bold;
-            font-size: 1.8vw;
-            background: $white;
-            padding: 5px;
-        }
-    }
-
-    .content {
-        margin-bottom: 20px;
-
-        .item {
-            margin-top: 24px;
-            max-height: 350px;
-
-            .title {
-                height: 15%;
-                text-align: center;
-                color: $primary-color-light;
-            }
-            .image-div {
-                height: 85%;
-
-                img {
-                    height: 100%;
-                    width: 100%;
-                    object-fit: cover;
-                    cursor: pointer;
-                }
-            }
-        }
-
-    }
-
-    .landing-info {
-        margin: 25px 0px 35px 0px;
+      }
+      .image-link {
+        position: absolute;
+        top: 80%;
+        width: auto;
+        left: 0;
+        right: 0;
         text-align: center;
-
-        h1 {
-            color: $secondary-color;
-            font-size: 34px;
-        }
-
-        p {
-            color: $secondary-color;
-            font-size: 14px;
-        }
+        margin: 0 30% 0 30%;
+        background: $white;
+        font-size: 14px;
+        font-weight: 600;
+        color: $secondary-color;
+      }
     }
+  }
+
+  .landing-info {
+    margin: 25px 0px 35px 0px;
+    text-align: center;
+
+    h1 {
+      color: $secondary-color;
+      font-size: 34px;
+    }
+
+    p {
+      color: $secondary-color;
+      font-size: 14px;
+    }
+  }
 }

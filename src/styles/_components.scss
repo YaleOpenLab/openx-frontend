@@ -13,13 +13,13 @@
   color: $primary-color-light;
   font-weight: bold;
   font-size: 18px;
-  margin-bottom: 32px;
+  @include margin-mix("bottom", 4);
 }
 .component-sub-header {
   color: $primary-color-light;
   font-weight: bold;
   font-size: 18px;
-  margin-bottom: 32px;
+  @include margin-mix("bottom", 4);
 }
 
 .solar-forms {
@@ -50,7 +50,7 @@
   border: none;
   color: #fff;
   text-transform: uppercase;
-  font-family: $font-family;
+  font-family: $primary-font;
   font-size: 10px;
   font-weight: 600;
   margin-top: 20px;
@@ -66,7 +66,7 @@
 
 // solar form
 .solar-form-separator {
-  margin: 25px 0 25px 0;
+  margin: $pixel-base * 4 0 $pixel-base * 4 0;
   border-bottom: 2px solid $grey-light;
 }
 
@@ -76,23 +76,25 @@
 }
 
 .solar-form-label {
+  font-family: $secondary-font;
+  font-weight: 600;
   color: $secondary-color-lighter;
   text-transform: uppercase;
   font-size: 10px;
-  margin-bottom: 5px;
+  margin-bottom: $pixel-base;
 }
 
 .solar-form-input {
-  height: 50px;
+  height: $pixel-base * 6;
   border-radius: 5px;
   border: solid 1px #c6c9cf;
   width: 100%;
-  padding: 0.375rem 0.75rem;
+  padding: $pixel-base $pixel-base * 2;
   font-weight: 400;
   line-height: 1.5;
-  margin-bottom: 10px;
+  margin-bottom: $pixel-base * 3;
   text-align: center;
-  font-family: $font-family;
+  font-family: $primary-font;
   font-size: 13px;
 }
 
@@ -115,11 +117,11 @@
 }
 .solar-form-button {
   width: 100%;
-  height: 50px;
+  height: $pixel-base * 6;
   border-radius: 5px;
   border: none;
   text-transform: uppercase;
-  font-family: $font-family;
+  font-family: $secondary-font;
   font-size: 10px;
   font-weight: 600;
   margin-top: 20px;
@@ -176,6 +178,16 @@
   position: absolute;
   top: 1px;
 }
+.solar-input-switch span {
+  position: absolute;
+  left: 60px;
+  font-size: 10px;
+  top: 4px;
+  font-family: OpenSans;
+  font-size: 12px;
+  font-weight: 300;
+  color: $secondary-color-lighter;
+}
 .solar-input-switch input:checked + div {
   -webkit-transform: translate3d(100%, 0, 0);
   -moz-transform: translate3d(100%, 0, 0);
@@ -183,10 +195,11 @@
 }
 
 .solar-input-div-box {
-  height: 50px;
+  height: $pixel-base * 6;
   width: 100%;
   font-weight: 400;
   margin-bottom: 10px;
+  display: flex;
 }
 .full-box {
   border: solid 1px #c6c9cf;
@@ -207,6 +220,7 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+  align-self: center;
 }
 .solar-input-div-icon {
   width: 20%;

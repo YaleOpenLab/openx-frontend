@@ -1,8 +1,9 @@
 import React from "react";
 import { Formik, Field } from "formik";
+import SwitchButton from "../../../../General/SwitchButton/SwitchButton";
 
 const Preferences = props => (
-  <div className="ProfileSecurity">
+  <div className="ProfilePreferences">
     <Formik
       initialValues={{
         firstName: "",
@@ -15,7 +16,7 @@ const Preferences = props => (
         <form onSubmit={props.handleSubmit} className="solar-form">
           <div className="row">
             <div className="col-12 col-md-10 col-lg-8 mx-auto">
-              <div className="header-4">Preferred Settings</div>
+              <div className="header-4 margin-bottom-x4">Preferred Settings</div>
             </div>
             <div className="col-12 col-md-10 col-lg-8 mx-auto">
               <div className="row">
@@ -76,56 +77,12 @@ const Preferences = props => (
             </div>
 
             <div className="col-12 col-md-10 col-lg-8 mx-auto">
-              <div className="row">
-                <div className="col-9 solar-input-text-label">
-                  Enable two-factor authentification
-                </div>
-                <div className="col-3 solar-form-checkbox-switch">
-                  <label className="solar-input-switch">
-                    <input type="checkbox" /> <div />
-                  </label>
-                </div>
-              </div>
-              <div className="row mg-top-15">
-                <div className="col-9 solar-input-text-label">
-                  Enable two-factor authentification
-                </div>
-                <div className="col-3 solar-form-checkbox-switch">
-                  <label className="solar-input-switch">
-                    <input type="checkbox" /> <div />
-                  </label>
-                </div>
-              </div>
-              <div className="row mg-top-15">
-                <div className="col-9 solar-input-text-label">
-                  Enable two-factor authentification
-                </div>
-                <div className="col-3 solar-form-checkbox-switch">
-                  <label className="solar-input-switch">
-                    <input type="checkbox" /> <div />
-                  </label>
-                </div>
-              </div>
-              <div className="row mg-top-15">
-                <div className="col-9 solar-input-text-label">
-                  Enable two-factor authentification
-                </div>
-                <div className="col-3 solar-form-checkbox-switch">
-                  <label className="solar-input-switch">
-                    <input type="checkbox" /> <div />
-                  </label>
-                </div>
-              </div>
-              <div className="row mg-top-15">
-                <div className="col-9 solar-input-text-label">
-                  Enable two-factor authentification
-                </div>
-                <div className="col-3 solar-form-checkbox-switch">
-                  <label className="solar-input-switch">
-                    <input type="checkbox" /> <div />
-                  </label>
-                </div>
-              </div>
+              <SwitchButton label="Enable two-factor authentification" checked={false} />
+              <SwitchButton label="Enable two-factor authentification" checked={false} />
+              <SwitchButton label="Enable two-factor authentification" checked={false} />
+              <SwitchButton label="Enable two-factor authentification" checked={false} />
+              <SwitchButton label="Enable two-factor authentification" checked={false} />
+              <SwitchButton label="Enable two-factor authentification" checked={false} />
             </div>
 
             <div className="col-12 col-md-10 col-lg-8 mx-auto">

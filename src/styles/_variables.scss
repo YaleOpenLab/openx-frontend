@@ -1,9 +1,9 @@
-$font-family: "Nunito", sans-serif;
+$primary-font: "Nunito", sans-serif;
+$secondary-font: "Open Sans", sans-serif;
 
 $multiplier: 1;
-$base-pixel: 8px;
-$base-font: 16px;
-$font-size: $base-pixel * $multiplier;
+$pixel-base: 8px * $multiplier;
+$base-font: 16px * $multiplier;
 
 $primary-color: #f5911e;
 $primary-color-light: #f5a623;
@@ -19,15 +19,43 @@ $pale-grey: rgba(245, 246, 248, 0.48);
 $grey-light: #ecedef;
 $white: #ffffff;
 
-//TODO: refactor and get rid of the unneccesary colors
+@mixin margin-mix($position, $times) {
+  @if $position == "top" {
+    margin-top: $pixel-base * $times;
+  } @else if $position == "bottom" {
+    margin-bottom: $pixel-base * $times;
+  } @else if $position == "left" {
+    margin-left: $pixel-base * $times;
+  } @else {
+    margin-right: $pixel-base * $times;
+  }
+}
+@mixin padding-mix($position, $times) {
+  @if $position == "top" {
+    padding-top: $pixel-base * $times;
+  } @else if $position == "bottom" {
+    padding-bottom: $pixel-base * $times;
+  } @else if $position == "left" {
+    padding-left: $pixel-base * $times;
+  } @else {
+    padding-right: $pixel-base * $times;
+  }
+}
 
+$xs-scren: "(max-width: 575px)";
+$sm-scren: "(max-width: 768px)";
+$smd-scren: "(max-width: 990px)";
+$md-scren: "(max-width: 1199px)";
+$lg-scren: "(min-width: 1200px)";
+
+//TODO: refactor and get rid of the unneccesary colors
 $input-placeholder-color: rgba(74, 74, 74, 0.36);
-$sub-navigation-background: #d8d8d8;
-$sub-navigation-font-action: #9e9e9e;
-$anchor-navigation-background: #f6f7f7;
 $sidebar-subtitle-font-color: #686868;
-$projects-background: rgba(0, 0, 0, 0.07);
 $projects-location-color: #737578;
+$sub-navigation-font-action: #9e9e9e;
+$sub-navigation-background: #d8d8d8;
+$anchor-navigation-background: #f6f7f7;
 $project-content-background: #f0eeee;
 $profile-navbar-background: #f6f7f7;
 $profile-navbar-border: #bfbdbd;
+$projects-background: rgba(0, 0, 0, 0.07);

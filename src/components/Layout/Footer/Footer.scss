@@ -1,25 +1,27 @@
 //Variables
-@import '../../../styles/variables';
+@import "../../../styles/variables";
 $footer-background: rgba(216, 216, 216, 0.38);
 
 //Style
 
-.Footer{
-    background: $footer-background;
-    height: 447px;
-    width: 100%;
-    width: 100%;
+.Footer {
+  background: $footer-background;
+  height: 447px;
+  width: 100%;
+  width: 100%;
 
-    .Sources {
-        height: 49px;
-        background: $primary-color;
-        margin-top: 350px;
+  .Sources {
+    height: 49px;
+    background: $primary-color;
+    margin-top: 350px;
 
-        div {
-            font-size: 16px;
-            font-weight: 500;
-            color: $white;
-            padding: 15px;
-        }
+    div {
+      font-size: 16px;
+      font-weight: 500;
+      color: $white;
     }
+    .footer-project-logo {
+      float: left;
+    }
+  }
 }

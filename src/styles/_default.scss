@@ -25,12 +25,16 @@ h6 {
   color: $secondary-color;
 }
 
+.margin-bottom-x4 {
+  @include margin-mix("bottom", 4);
+}
+
 .margin-top {
-  margin-top: 35px;
+  @include margin-mix("top", 4);
 }
 
 .mg-top-15 {
-  margin-top: 15px;
+  @include margin-mix("top", 2);
 }
 
 .center-al {

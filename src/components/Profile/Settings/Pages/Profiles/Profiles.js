@@ -3,7 +3,7 @@ import StepsForm from "../../../../General/StepsForm/StepsForm";
 import Register from "./ProfilesTabs/Register/Register";
 
 const Entity = props => (
-  <div className="ProfileEntity">
+  <div className="ProfileUsers">
     <StepsForm
       tabs={[
         { name: "register", key: 1 },

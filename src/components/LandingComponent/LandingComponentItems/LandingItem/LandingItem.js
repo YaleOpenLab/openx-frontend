@@ -12,6 +12,7 @@ const LandingItem = props => (
           src={props.imageUrl}
           alt={props.title}
         />
+        <div className="image-link">{props.diffUrl}</div>
       </div>
     </NavLink>
   </div>
