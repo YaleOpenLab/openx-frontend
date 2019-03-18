@@ -2,6 +2,7 @@ import React from "react";
 import { Formik, Field } from "formik";
 import { NavLink } from "react-router-dom";
 import ROUTES from "../../../routes/routes";
+import { Http } from '../../../services/Http';
 
 const signUpComponent = props => (
   <div className="col-sm-10 col-md-6 auth-form my-auto">
@@ -9,7 +10,9 @@ const signUpComponent = props => (
     <Formik
       initialValues={{ firstName: "", lastName: "", email: "", password: "" }}
       onSubmit={(values, actions) => {
-        props.history.push(ROUTES.LOGIN);
+        Http.userRegister(`${values.firstName} ${values.lastName}`, values.email, values.password)
+          .then(response => console.log(response));
+        console.log('submitting', values);
       }}
       render={props => (
         <form onSubmit={props.handleSubmit} className="solar-form">
