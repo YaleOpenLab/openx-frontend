@@ -8,23 +8,23 @@
   .text {
     color: $secondary-color;
     font-weight: 200;
-
     .text-first {
-      font-size: 25px;
+      font-size: 27px;
       span {
         font-weight: bold;
       }
     }
     .text-second {
-        font-size: 18px;
+        font-size: 17px;
         text-transform: uppercase;
     }
   }
 
   .text-box {
+    font-family: $secondary-font;
     background: $white;
     color: $secondary-color;
-    font-size: 14px;
+    font-size: 20px;
     font-weight: 300;
     border-radius: 11.5px;
     text-transform: capitalize;
