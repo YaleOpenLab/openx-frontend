@@ -32,7 +32,7 @@ export class Http {
   }
 
   static projectAll() {
-    return this.get('project/all')
+    return this.get('project/all').map(data => data.data ? data.data : data);
   }
 
   static projectGet(id) {
