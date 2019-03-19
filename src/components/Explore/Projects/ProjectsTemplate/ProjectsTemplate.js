@@ -23,13 +23,12 @@ const ProjectsTemplate = props => (
           </div>
           <div className="desc-location col-12">
             <span className="" />
-            Aibonito, Puerto Rico, USA
+            {props.location}
           </div>
           <div className="col-6 desc-category">Donation</div>
           <div className="col-6 desc-category">Yale / MIT</div>
           <div className="desc-description col-12">
-            Installation of InverSOL 3kW moveable system acting as full project
-            pilot on smart financing.
+            {props.metadata}
             <ul>
               <li>Research project</li>
               <li>Multi-stakeholder partnership</li>
