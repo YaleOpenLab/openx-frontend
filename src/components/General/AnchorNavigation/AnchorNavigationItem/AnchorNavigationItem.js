@@ -1,7 +1,6 @@
 import React from "react";
 
 import { MDBNavItem } from "mdbreact";
-import Button from "../../../UI/SolarForms/Button/Button";
 
 const navigationItem = props => {
   let items = null;
@@ -17,7 +16,7 @@ const navigationItem = props => {
       </a>
     );
   } else {
-    items = <Button link={props.link} name={props.children} />;
+    items = <div className="solar-button-fixed-width"><button className="solar-form-button solar-btn-normal" link={props.link} >{props.children}</button></div>;
   }
 
   return <MDBNavItem>{items}</MDBNavItem>;

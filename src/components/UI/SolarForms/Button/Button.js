@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 const Button = props => (
   <NavLink to={props.link}>
     <button
-      className="solar-button"
+      className="solar-form-button solar-btn-normal"
       disabled={props.disabled ? true : false}
       style={props.style ? props.style : null}
     >
