@@ -1,5 +1,6 @@
 import { Storage } from './Storage';
 import * as axios from 'axios';
+import { from } from 'rxjs';
 
 export class Http {
 
@@ -57,13 +58,13 @@ export class Http {
   }
 
   static get(path, data) {
-    return axios({
+    return from(axios({
       method: 'GET',
       url: `http://34.73.202.205:8080/${path}`,
       params: data,
       headers: {
         'Content-Type': 'application/x-www-form/urlencoded',
       }
-    })
+    }));
   }
 }
