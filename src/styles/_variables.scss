@@ -18,6 +18,7 @@ $status-color: #417505;
 $pale-grey: rgba(245, 246, 248, 0.48);
 $grey-light: #ecedef;
 $white: #ffffff;
+$error-color: #da3b3b;
 
 @mixin margin-mix($position, $times) {
   @if $position == "top" {
