@@ -64,7 +64,8 @@
   color: $secondary-color-lighter;
 }
 
-// solar form
+// Solar Forms
+
 .solar-form-separator {
   margin: $pixel-base * 4 0 $pixel-base * 4 0;
   border-bottom: 2px solid $grey-light;
@@ -110,9 +111,25 @@
 .solar-form-input::placeholder {
   color: $input-placeholder-color;
 }
-// .solar-form-input:invalid {
-//   border: 1px solid red;
-// }
+.solar-form-input-error {
+  border: solid 1px $error-color;
+  color: $error-color;
+}
+.solar-form-input-error:focus {
+  animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  transform: translate3d(0, 0, 0);
+  border: solid 2px $error-color;
+  color: $error-color;
+}
+
+.solar-form-error-text {
+  color: $error-color;
+  position: absolute;
+  margin-top: -25px;
+  font-size: 12px;
+  width: 100%;
+  padding: 6px;
+}
 
 .solar-button-fixed-width {
   width: 139px;
@@ -263,3 +280,25 @@
   right: 15px;
   top: 17px;
 }
+
+@keyframes shake {
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+// End of Solar Inputs

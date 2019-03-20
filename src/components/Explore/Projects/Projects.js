@@ -13,6 +13,7 @@ const Projects = props => (
           <div className="row">
             {props.projects.map(project => (
                 <ProjectsTemplate
+                  key={project.Index}
                   location={project.Location}
                   metadata={project.Metadata}
                   imageUrl="https://via.placeholder.com/350x350"
@@ -28,7 +29,7 @@ const Projects = props => (
   </div>
 );
 
-const mapStateToProps = state => ({projects: state.projects});
+const mapStateToProps = state => ({projects: state.projects.items});
 
 export default connect(
   mapStateToProps

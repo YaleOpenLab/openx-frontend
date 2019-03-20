@@ -9,6 +9,7 @@ import NotFoundPageContainer from "./pages/NotFoundPageContainer/NotFoundPageCon
 import ExploreContainer from "./pages/Explore/ExploreContainer";
 import InvestorContainer from "./pages/Investor/InvestorContainer";
 import ProfileContainer from "./pages/Profile/ProfileContainer";
+import connect from 'react-redux/es/connect/connect';
 
 class App extends Component {
   render() {
@@ -22,22 +23,22 @@ class App extends Component {
           <Route path={Routes.SIGNUP} component={AuthPageContainer} />
           <PrivateRoute
             path={Routes.PROFILE}
-            authed={true}
+            authed={this.props.authed}
             component={ProfileContainer}
           />
           <PrivateRoute
             path={Routes.INVESTOR}
-            authed={true}
+            authed={this.props.authed}
             component={InvestorContainer}
           />
           <PrivateRoute
             path={Routes.RECEIVER}
-            authed={false}
+            authed={this.props.authed}
             component={TestComponent}
           />
           <PrivateRoute
             path={Routes.DEVELOPER}
-            authed={false}
+            authed={this.props.authed}
             component={TestComponent}
           />
           <Route path="*" exact component={NotFoundPageContainer} />
@@ -46,5 +47,6 @@ class App extends Component {
     );
   }
 }
+const mapStateToProps = state => ({authed: state.auth.authorized});
 
-export default App;
+export default connect(mapStateToProps)(App);
