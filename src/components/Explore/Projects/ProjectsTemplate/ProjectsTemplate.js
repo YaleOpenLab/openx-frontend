@@ -1,24 +1,23 @@
 import React from "react";
 import { NavLink } from "mdbreact";
 import ROUTES from "../../../../routes/routes";
+import DescriptionGrid from "../../../General/DescriptionGrid/DescriptionGrid";
+import ProgressBar from "../../../General/ProgressBar/ProgressBar";
 
 const ProjectsTemplate = props => (
   <div className="col-sm-12 col-md-6">
     <div className="projects-box">
       <NavLink to={ROUTES.PROJECT} className="no-padding">
         <div className="projects-image-box">
-          <img
-            src={props.imageUrl}
-            alt={props.title}
-          />
+          <img src={props.imageUrl} alt={props.title} />
         </div>
       </NavLink>
-      <div className="projects-description-box container">
+      <div className="projects-description-box">
         <div className="row">
-          <div className="desc-status col-12">{props.status}</div>
-          <div className="desc-title col-12">
+          <div className="col-12 desc-status">{props.status}</div>
+          <div className="col-12 desc-title">
             <NavLink className="no-padding" to={ROUTES.PROJECT}>
-                {props.title}
+              {props.title}
             </NavLink>
           </div>
           <div className="desc-location col-12">
@@ -35,42 +34,28 @@ const ProjectsTemplate = props => (
               <li>Full backup of Admin building</li>
             </ul>
           </div>
+          <DescriptionGrid
+            list={[
+              { value: "3 kW", desc: "solar", type: "base" },
+              { value: "0 kWh", desc: "storage" },
+              { value: "0.0", desc: "tariff" },
+              { value: "1/7", desc: "stage" }
+            ]}
+          />
+          <DescriptionGrid
+            list={[
+              { value: "0%", desc: "return", type: "blue" },
+              { value: "n/a", desc: "rating" },
+              { value: "n/a", desc: "tax" },
+              { value: "2008", desc: "eta" }
+            ]}
+          />
           <div className="col-12 specifics-box">
-            <div className="container">
-              <div className="row">
-                <div className="col-3 spec-cont -first">3 kW</div>
-                <div className="col-3 spec-cont">0 kWh</div>
-                <div className="col-3 spec-cont">0.0</div>
-                <div className="col-3 spec-cont">1/7</div>
-                <div className="col-3 spec-desc -first">solar</div>
-                <div className="col-3 spec-desc">storage</div>
-                <div className="col-3 spec-desc">tariff</div>
-                <div className="col-3 spec-desc">stage</div>
-              </div>
-            </div>
-          </div>
-          <div className="col-12 specifics-box">
-            <div className="container">
-              <div className="row">
-                <div className="col-3 spec-cont -second">0%</div>
-                <div className="col-3 spec-cont">n/a</div>
-                <div className="col-3 spec-cont">n/a</div>
-                <div className="col-3 spec-cont">2008</div>
-                <div className="col-3 spec-desc -second">return</div>
-                <div className="col-3 spec-desc">rating</div>
-                <div className="col-3 spec-desc">tax</div>
-                <div className="col-3 spec-desc">eta</div>
-              </div>
-            </div>
-          </div>
-          <div className="col-12 specifics-box">
-            <div className="container">
-              <div className="row">
-                <div className="col-6 spec-first-price">$4000</div>
-                <div className="col-6 spec-second-price">$4000</div>
-                <div className="col-12 ">
-                  <div>bar</div>
-                </div>
+            <div className="row">
+              <div className="col-6 spec-first-price">$4000</div>
+              <div className="col-6 spec-second-price">$4000</div>
+              <div className="col-12 ">
+                <ProgressBar progress={Math.floor((Math.random() * 100) + 1)} />
               </div>
             </div>
           </div>

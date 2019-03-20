@@ -31,7 +31,7 @@ const Forecast = props => (
                 </div>
               </div>
               <div className="col-12 mg-top-15 link-to-records">
-                <NavLink to="#">FULL TIMELINE RECORDS ></NavLink>
+                <NavLink to="#" className="small">FULL TIMELINE RECORDS ></NavLink>
               </div>
             </div>
           </div>
