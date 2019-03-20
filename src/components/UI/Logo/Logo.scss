@@ -31,3 +31,9 @@
   font-size: inherit;
   font-weight: bold;
 }
+
+@media #{$xs-scren} {
+  .logo-white {
+    font-size: 16px;
+  }
+}

@@ -2,9 +2,10 @@
 
 .ProjectContent {
   .title {
-    font-size: 25px;
+    font-size: 34px;
     color: $secondary-color;
     font-weight: 500;
+    padding-bottom: $pixel-base;
   }
 
   .text-description {
@@ -12,26 +13,28 @@
   }
 
   .sub-title {
-    font-size: 16px;
+    font-size: 18px;
     color: $secondary-color;
     font-weight: 600;
     text-transform: capitalize;
   }
 
-  .sub-text {
-    margin-top: 10px;
+  .sub-desc {
+    margin-top: $pixel-base;
     color: $secondary-color;
-    font-size: 13px;
+    font-size: 16px;
   }
-
-  .pd-sub-text {
-    padding: 10px;
+  .sub-text {
+    margin-top: $pixel-base;
     color: $secondary-color;
-    font-size: 13px;
+    font-size: 14px;
+    padding-top: $pixel-base;
+    padding-bottom: $pixel-base;
   }
 
   .sub-image {
     width: 100%;
+    margin-top: $pixel-base;
     img {
       height: 100%;
       width: 100%;
@@ -39,30 +42,42 @@
     }
   }
 
+  .link-to-text {
+    margin: $pixel-base * 5 0 $pixel-base * 2 0;
+    a {
+      font-size: 17px;
+      font-weight: 600;
+    }
+  }
+
   .grid-title {
     color: $secondary-color;
-    font-size: 15px;
     text-transform: capitalize;
     height: 20%;
     display: inline-block;
     width: 100%;
     text-align: center;
-    padding: 14px;
+    padding: $pixel-base;
+    font-size: 17px;
+    font-weight: 500;
+    word-break: break-word;
   }
 
   .grid-body {
     background: $project-content-background;
-    padding: 15px;
+    padding: $pixel-base * 2;
+    font-family: $secondary-font;
 
     .grid-body-content {
-      font-size: 22px;
-      font-weight: 200;
+      font-size: 24px;
+      font-weight: 300;
       color: $secondary-color;
     }
     .grid-body-description {
-      font-size: 8px;
-      color: #aaaeb3;
-      font-weight: 500;
+      font-size: 10px;
+      color: $secondary-color-lighter;
+      font-weight: 600;
+      letter-spacing: 2px;
       text-transform: uppercase;
     }
   }
@@ -71,10 +86,15 @@
     margin-top: 5px;
 
     table {
+      border-spacing: 0px;
+
       .thead-white {
-        background: white;
+        background: $white;
         text-transform: uppercase;
+        font-family: $secondary-font;
         font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 2px;
         color: $secondary-color;
 
         th {
@@ -83,17 +103,19 @@
         }
       }
       .tbody-white {
-        font-size: 15px;
+        font-family: $secondary-font;
+        font-size: 18px;
         font-weight: 300;
-        color: #393c40;
+        color: $charcoal-grey-two;
       }
     }
   }
 
   .component-title {
-    font-size: 20px;
-    color: $primary-color-light;
+    font-size: 24px;
+    color: $primary-color;
     text-transform: uppercase;
+    margin-bottom: 18px;
 
     span {
       font-weight: bold;

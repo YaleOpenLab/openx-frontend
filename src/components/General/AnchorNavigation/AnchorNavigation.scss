@@ -1,7 +1,7 @@
 @import "../../../styles/variables";
 
 .anchor-navbar {
-  margin-top: 50px;
+  margin-top: $pixel-base * 6;
   background: #f6f7f7;
   padding: 0;
   position: sticky;
@@ -15,9 +15,9 @@
     height: 100%;
 
     .nav-item {
-      padding: 10px 20px 10px 20px;
+      padding: $pixel-base $pixel-base * 2 $pixel-base $pixel-base * 2;
       font-weight: 600;
-      font-size: 17px;
+      font-size: 20px;
       text-transform: capitalize;
 
       a {
