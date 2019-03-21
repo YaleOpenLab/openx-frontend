@@ -1,70 +1,71 @@
-import { Storage } from './Storage';
-import * as axios from 'axios';
-import { from } from 'rxjs';
+import Storage from "./Storage";
+import * as axios from "axios";
+import { from } from "rxjs";
+import { map } from "rxjs/operators";
 
 export class Http {
-
   // todo: verify whether seed password should be equal to password
   static userRegister(name, username, pwd) {
-    return this.get('user/register', {
+    return this.get("user/register", {
       name: name,
       username: username,
       pwd: pwd,
-      seedpwd: pwd,
-    })
+      seedpwd: pwd
+    });
   }
 
   static userValidate(username, pwhash) {
-    return this.get('user/validate', {
+    return this.get("user/validate", {
       username: username,
-      pwhash: pwhash,
-    })
+      pwhash: pwhash
+    });
   }
 
   static userBalanceXlm() {
-    const storage = new Storage();
-    const session = storage.session;
+    const session = Storage.session;
 
-    return this.get('user/balance/xlm', {
+    return this.get("user/balance/xlm", {
       username: session.username,
-      pwhash: session.pwhash,
-    })
+      pwhash: session.pwhash
+    });
   }
 
   static projectAll() {
-    return this.get('project/all').map(data => data.data ? data.data : data);
+    return this.get("project/all").pipe(map(result => result.data));
   }
 
   static projectGet(id) {
-    return this.get('project/get', {index: id})
+    return this.get("project/get", { index: id });
   }
 
   static investorRegister(name, username, pwd, seedpwd) {
-    return this.get('investor/register', {
+    return this.get("investor/register", {
       name: name,
       username: username,
       pwd: pwd,
-      seedpwd: seedpwd,
-    })
+      seedpwd: seedpwd
+    });
   }
 
   static recipientRegister(name, username, pwd, seedpwd) {
-    return this.get('recipient/register', {
+    return this.get("recipient/register", {
       name: name,
       username: username,
       pwd: pwd,
-      seedpwd: seedpwd,
-    })
+      seedpwd: seedpwd
+    });
   }
 
   static get(path, data) {
-    return from(axios({
-      method: 'GET',
-      url: `http://34.73.202.205:8080/${path}`,
-      params: data,
-      headers: {
-        'Content-Type': 'application/x-www-form/urlencoded',
-      }
-    }));
+    return from(
+      axios({
+        method: "GET",
+        url: `http://34.73.202.205:8080/${path}`,
+        params: data,
+        headers: {
+          "Content-Type": "application/x-www-form/urlencoded"
+        }
+      })
+    );
   }
 }
