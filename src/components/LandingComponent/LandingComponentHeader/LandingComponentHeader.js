@@ -7,9 +7,8 @@ const LandingComponentHeader = props => (
       className="Image"
       alt="Landing Header"
     />
-    <div className="header-text">
-      Open financing to help you <br /> drive the solar economy
-    </div>
+    <div className="header-text part-1">Open financing to help you</div>
+    <div className="header-text part-2">drive the solar economy</div>
   </div>
 );
 

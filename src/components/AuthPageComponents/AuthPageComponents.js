@@ -11,7 +11,7 @@ const AuthPageComponents = props => (
       <div className="row">
         <div className="col-lg-6 col-md-4 col-sm-2 col-2 auth-image" />
         <div className="col-lg-6 col-md-8 col-sm-10 col-10 auth-form">
-          <div className="container auth-form-container">
+          <div className="auth-form-container">
             <div className="row h-100">
               <Switch>
                 <Route path={Routes.LOGIN} component={LoginComponent} />

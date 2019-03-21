@@ -16,7 +16,7 @@ const landingComponent = () => {
           <div className="col-12 landing-info">
             <img src={SolarPanelImage} alt="Solar Panel" />
             <h1>
-              Radical Collaboration <br /> & Opeen Source Software for a Low Carbon
+              Radical Collaboration <br /> & Open Source Software for a Low Carbon
               Planet
             </h1>
             <p>

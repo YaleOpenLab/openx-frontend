@@ -20,7 +20,7 @@ export default function rootReducer(state = initialState, action) {
       };
     case FETCH_PROJECTS_SUCCESS:
       return {
-        projects: [...action.payload],
+        projects: action.payload,
         isLoading: false,
         error: null
       };
