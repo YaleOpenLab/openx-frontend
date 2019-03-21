@@ -39,78 +39,6 @@
     padding: $pixel-base * 6 0 $pixel-base * 10.5;
     margin-bottom: $pixel-base * 6;
     background: #fff;
-
-    .user-card-wrapper {
-      @media (max-width: 991px) {
-        margin-top: $pixel-base * 2;
-      }
-    }
-
-    .user-card {
-      max-width: 290px;
-      margin: 0 auto;
-      height: 100%;
-
-      .user-card-header {
-        display: flex;
-        align-items: center;
-        margin-bottom: $pixel-base * 2.25;
-
-        img {
-          width: 23px;
-          height: 23px;
-          margin-right: $pixel-base * 2;
-        }
-
-        h4 {
-          font-family: $secondary-font;
-          margin: 0;
-          font-size: $base-font * 0.625;
-          font-weight: 600;
-          font-style: normal;
-          font-stretch: normal;
-          line-height: normal;
-          letter-spacing: 2px;
-          color: $charcoal-grey-two;
-        }
-      }
-
-      .user-card-content {
-        background: #f3f3f3;
-        height: calc(100% - 40px);
-
-        div {
-          width: 100%;
-          padding: $pixel-base * 2 $pixel-base * 3;
-
-          &:not(:last-child) {
-            border-bottom: 1px solid $grey-light;
-          }
-        }
-
-        h4 {
-          font-family: $secondary-font;
-          font-size: $base-font * 1.5;
-          font-weight: 300;
-          font-style: normal;
-          font-stretch: normal;
-          line-height: normal;
-          letter-spacing: normal;
-          color: $charcoal-grey-two;
-        }
-
-        p {
-          font-family: $secondary-font;
-          font-size: $base-font * 0.625;
-          font-weight: 600;
-          font-style: normal;
-          font-stretch: normal;
-          line-height: normal;
-          letter-spacing: 2px;
-          color: $secondary-color-light;
-        }
-      }
-    }
   }
 
   .projects-section {
@@ -402,68 +330,6 @@
       }
     }
 
-    .row-wrapper {
-      border-bottom: 1px solid $warm-grey;
-    }
-
-    .flexbox {
-      padding: $pixel-base * 4.5 0 ;
-      display: flex;
-      align-items: center;
-
-      &.-space {
-        justify-content: space-between;
-      }
-
-      .icon {
-        width: 28px;
-        max-height: 36px;
-      }
-
-      img {
-        margin-right: $pixel-base * 1.5;
-      }
-
-      h4 {
-        font-family: $secondary-font;
-        font-size: $base-font * 1.125;
-        font-weight: 600;
-        font-style: normal;
-        font-stretch: normal;
-        line-height: normal;
-        letter-spacing: normal;
-        color: $primary-color;
-      }
-
-      button {
-        padding: 0;
-        width: fit-content;
-        cursor: pointer;
-        border: none;
-        background: transparent;
-
-        img {
-          margin: 0 auto;
-        }
-      }
-
-      p {
-        margin: 0;
-        font-family:  $secondary-font;
-        font-size: $base-font * 1.125;
-        font-weight: normal;
-        font-style: normal;
-        font-stretch: normal;
-        line-height: normal;
-        letter-spacing: normal;
-        color: $charcoal-grey-two;
-
-        &.-light {
-          font-weight: 300;
-        }
-      }
-    }
-
     .SolarGraph {
       display: flex;
       justify-content: space-between;
@@ -506,6 +372,44 @@
           }
         }
       }
+    }
+  }
+
+  .contracts-container {
+    padding: $pixel-base * 4 0 $pixel-base * 10;
+
+    h3 {
+      text-align: center;
+    }
+
+    .sub-title {
+      font-size: $base-font * 1.125;
+      font-weight: 300;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: center;
+      color: $charcoal-grey-two;
+      margin: 0 0 $pixel-base * 4.5;
+    }
+
+    h5 {
+      font-size: $base-font * 1.0625;
+      font-weight: 600;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      color: #393a3c;
+      margin: 0 0 $pixel-base * 3;
+    }
+
+    .contracts {
+      width: 100%;
+      margin: 0 0 $pixel-base * 4;
+      display: flex;
+      text-align: center;
     }
   }
   
