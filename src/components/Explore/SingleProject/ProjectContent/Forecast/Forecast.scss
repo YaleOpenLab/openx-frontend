@@ -8,6 +8,7 @@
   }
   .ds-chart {
     text-align: center;
+    font-family: $secondary-font;
 
     .ds-count {
       font-size: 8px;
@@ -61,13 +62,16 @@
       background: white;
     }
     .ds-title {
-      font-size: 9px;
       word-break: break-all;
       text-transform: capitalize;
+      font-size: 12px;
+      font-weight: 300;
+      color: $charcoal-grey-two;
     }
     .ds-date {
-      font-size: 8px;
       color: $secondary-color-lighter;
+      font-size: 12px;
+      font-weight: 300;
     }
     .ds-image {
       width: 60px;
@@ -87,28 +91,31 @@
   .forecast-info {
     text-align: center;
     padding-bottom: 15px;
+    font-family: $secondary-font;
+
     .forecast-info-title {
-      font-size: 22px;
-      text-transform: capitalize;
-      color: $primary-color-light;
+      font-size: 24px;
       font-weight: 300;
+      text-transform: capitalize;
+      color: $primary-color;
     }
     .forecast-info-sub-title {
-      font-size: 10px;
+      font-size: 12px;
       text-transform: uppercase;
       color: $secondary-color;
       font-weight: 300;
-      margin-top: 10px;
+      margin-top: $pixel-base;
     }
     .forecast-info-content {
-      font-size: 12px;
+      font-size: 14px;
       color: $secondary-color;
-      margin-top: 15px;
+      margin-top: $pixel-base * 2;
     }
   }
   .link-to-records {
-    font-size: 12px;
+    font-size: 11px;
     text-align: center;
+    font-weight: 600;
   }
 
   .solar-financial-restricted {
@@ -122,6 +129,7 @@
     }
     .link-to-login {
       text-align: center;
+      text-transform: uppercase;
     }
   }
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import ProgressBar from "../../../General/ProgressBar/ProgressBar";
 
 const ProjectMain = props => (
   <div className="container">
@@ -40,7 +41,7 @@ const ProjectMain = props => (
       </div>
 
       <div className="col-sm-12 col-md-6 order-md-2 order-sm-3  no-padding">
-        <div className="project-main-info container">
+        <div className="projects-description-box container">
           <div className="row">
             <div className="desc-status col-12">early stage</div>
             <div className="desc-title col-12">Pasto Public School - PoC</div>
@@ -65,7 +66,9 @@ const ProjectMain = props => (
                   <div className="col-6 spec-first-price">$4000</div>
                   <div className="col-6 spec-second-price">$4000</div>
                   <div className="col-12 ">
-                    <div>bar</div>
+                    <ProgressBar
+                      progress={75}
+                    />
                   </div>
                 </div>
               </div>
