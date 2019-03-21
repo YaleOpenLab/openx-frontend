@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="8.46" height="11.111" viewBox="0 0 8.46 11.111">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #6c6a6c;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g id="Location" transform="translate(0 -0.4)">
+    <path id="Callout_Background" data-name="Callout Background" class="cls-1" d="M1.239,1.367a5.014,5.014,0,0,0,0,6.6L3.99,11a.316.316,0,0,0,.479,0L7.221,7.966a5.014,5.014,0,0,0,0-6.6A3.956,3.956,0,0,0,1.239,1.367Z" transform="translate(0 0.4)"/>
+    <ellipse id="Oval" class="cls-2" cx="1.8" cy="2" rx="1.8" ry="2" transform="translate(2.52 3)"/>
+  </g>
+</svg>
