@@ -14,6 +14,17 @@
     margin: 0;
   }
 
+  .title-primary {
+    font-size: $base-font * 1.5;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $primary-color;
+    margin: 0 0 $pixel-base;
+  }
+
   .title-container {
     padding-bottom: $pixel-base * 4;
 
@@ -23,7 +34,7 @@
   }
 
   .profile-section {
-    padding: $pixel-base * 4 0;
+    padding: $pixel-base * 6 0 $pixel-base * 10.5;
     margin-bottom: $pixel-base * 6;
     background: #fff;
 
@@ -98,13 +109,13 @@
   }
 
   .projects-section {
-    padding: $pixel-base * 4 0;
+    padding: $pixel-base * 6 0 $pixel-base * 10.5;
     background: #fff;
 
     .media-right {
       img{
         width: 100%;
-        height: 460px;
+        height: 100%;
         object-fit: cover;
       }
     }
@@ -140,17 +151,6 @@
         margin: 0 0 $pixel-base * 1.5;
       }
 
-      h4 {
-        font-size: $base-font * 1.5;
-        font-weight: bold;
-        font-style: normal;
-        font-stretch: normal;
-        line-height: normal;
-        letter-spacing: normal;
-        color: $primary-color;
-        margin: 0 0 $pixel-base;
-      }
-
       h6 {
         font-size: $base-font * 0.75;
         font-weight: 600;
@@ -171,6 +171,11 @@
 
         &.-alt {
           padding: 0 0 $pixel-base * 2;
+        }
+
+        &.-no-spacing {
+          border: none;
+          margin: 0;
         }
 
         img {
@@ -252,6 +257,97 @@
         letter-spacing: normal;
         color: $secondary-color;
       }
+    }
+
+    .progress-bar-container {
+      position: relative;
+      margin: 0 0 $pixel-base * 2;
+
+      p {
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+
+        &.progress-donated {
+          color: $charcoal-grey-two;
+          font-size: $base-font * 1.065;
+        }
+
+        &.progress-total {
+          font-size: $base-font * 1.065;
+          margin-left: auto;
+          color: $secondary-color-lighter;
+          font-weight: 300;
+        }
+      }
+    }
+
+    .stats {
+      width: 100%;
+      padding: 0 $pixel-base;
+
+      .stat-container {
+        width: 25%;
+        display: inline-block;
+        text-align: left;
+        padding: 0 $pixel-base * 0.5;
+
+        h6 {
+          font-size: $base-font * 1.125;
+          font-weight: 300;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: normal;
+          letter-spacing: normal;
+          color: $charcoal-grey-two;
+        }
+
+        p {
+          font-size: $base-font * 0.625;
+          font-weight: 600;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: normal;
+          letter-spacing: 2px;
+          color: $secondary-color-lighter;
+          margin:0;
+        }
+      }
+    }
+  }
+
+  .details-container {
+    background-color: #efeded;
+    padding: $pixel-base * 4 0 $pixel-base * 6;
+
+    h3 {
+      text-align: center;
+    }
+
+    .sub-title {
+      font-size: $base-font * 1.125;
+      font-weight: 300;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: center;
+      color: $charcoal-grey-two;
+      margin: 0 0 $pixel-base * 4.5;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 600;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      color: $secondary-color;
+      text-align: left;
+      border-bottom: 1px solid $grey-light;
     }
   }
 }
