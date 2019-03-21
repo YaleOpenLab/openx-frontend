@@ -1,0 +1,73 @@
+@import "../../../styles/variables";
+
+.UserCard {
+  @media (max-width: 991px) {
+    margin-top: $pixel-base * 2;
+  }
+
+    .user-card {
+      max-width: 290px;
+      margin: 0 auto;
+      height: 100%;
+
+      .user-card-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: $pixel-base * 2.25;
+
+        img {
+          width: 23px;
+          height: 23px;
+          margin-right: $pixel-base * 2;
+        }
+
+        h4 {
+          font-family: $secondary-font;
+          margin: 0;
+          font-size: $base-font * 0.625;
+          font-weight: 600;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: normal;
+          letter-spacing: 2px;
+          color: $charcoal-grey-two;
+        }
+      }
+
+      .user-card-content {
+        background: #f3f3f3;
+        height: calc(100% - 40px);
+
+        div {
+          width: 100%;
+          padding: $pixel-base * 2 $pixel-base * 3;
+
+          &:not(:last-child) {
+            border-bottom: 1px solid $grey-light;
+          }
+        }
+
+        h4 {
+          font-family: $secondary-font;
+          font-size: $base-font * 1.5;
+          font-weight: 300;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: normal;
+          letter-spacing: normal;
+          color: $charcoal-grey-two;
+        }
+
+        p {
+          font-family: $secondary-font;
+          font-size: $base-font * 0.625;
+          font-weight: 600;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: normal;
+          letter-spacing: 2px;
+          color: $secondary-color-light;
+        }
+      }
+    }
+}

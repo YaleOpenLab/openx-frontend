@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="50" height="62" viewBox="0 0 50 62">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: none;
+        stroke: #111;
+        stroke-miterlimit: 10;
+        stroke-width: 2px;
+      }
+
+      .cls-2 {
+        stroke-linecap: square;
+      }
+    </style>
+  </defs>
+  <g id="single-folded-content_copy_6" data-name="single-folded-content copy 6" transform="translate(1 1)">
+    <path id="Path" class="cls-1" d="M0,0V16H16" transform="translate(32)"/>
+    <path id="Path-2" data-name="Path" class="cls-2" d="M32,0H0V60H48V16Z"/>
+    <path id="Path-3" data-name="Path" class="cls-2" d="M0,.5H24" transform="translate(12 45.5)"/>
+    <path id="Path-4" data-name="Path" class="cls-2" d="M0,.5H24" transform="translate(12 35.5)"/>
+    <path id="Path-5" data-name="Path" class="cls-2" d="M0,.5H24" transform="translate(12 25.5)"/>
+    <path id="Path-6" data-name="Path" class="cls-2" d="M0,.5H8" transform="translate(12 15.5)"/>
+  </g>
+</svg>

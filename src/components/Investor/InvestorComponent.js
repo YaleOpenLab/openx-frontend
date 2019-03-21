@@ -13,11 +13,17 @@ import IconCalendar from '../../assets/images/ic-calendar.svg';
 import IconDeveloper from '../../assets/images/ic-developer.svg';
 import IconContractor from '../../assets/images/ic-contractor.svg';
 import IconBox from '../../assets/images/ic-solarbox.svg';
+import IconArchive from '../../assets/images/ic-doc-archive.svg';
+import IconSingle from '../../assets/images/ic-single.svg';
+import IconChecked from '../../assets/images/ic-doc-checked.svg';
 import AvatarPlaceholder from '../../assets/images/avatarplaceholder.png';
 import GraphPlaceholder from '../../assets/images/graph-placeholder.png';
 import ProgressBar from './ProgressBar';
-import DetailContainer from './DetailContainer';
+import DetailContainer from './DetailContainer/DetailContainer';
 import './InvestorComponent.scss';
+import DocumentationContainer from './DocumentationContainer';
+import UserCard from './UserCard';
+import LinkContainer from './LinkContainer';
 
 class InvestorComponent extends React.Component {
 
@@ -42,94 +48,10 @@ class InvestorComponent extends React.Component {
         <div className="profile-section">
           <div className="container">
             <div className="row">
-              <div className="user-card-wrapper col-12 col-md-6 col-lg-3">
-                <div className="user-card">
-                  <div className="user-card-header">
-                    <img src={IconBenef} alt="beneficiary"/>
-                    <h4>YOUR PROFILE</h4>
-                  </div>
-                  <div className="user-card-content">
-                    <div>
-                      <h4>
-                        Martin Wainstein
-                      </h4>
-                      <p>BENEFICIARY NAME</p>
-                    </div>
-                    <div>
-                      <h4>2</h4>
-                      <p>
-                        ACTIVE PROJECTS
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="user-card-wrapper col-12 col-md-6 col-lg-3">
-                <div className="user-card">
-                  <div className="user-card-header">
-                    <img src={IconSolar} alt="beneficiary"/>
-                    <h4>YOUR ENERGY</h4>
-                  </div>
-                  <div className="user-card-content">
-                    <div>
-                      <h4>
-                        845 kWh
-                      </h4>
-                      <p>TOTAL IN CURRENT PERIOD</p>
-                    </div>
-                    <div>
-                      <h4>10,150 MWh</h4>
-                      <p>
-                        ALL TIME
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="user-card-wrapper col-12 col-md-6 col-lg-3">
-                <div className="user-card">
-                  <div className="user-card-header">
-                    <img src={IconWallet} alt="beneficiary"/>
-                    <h4>YOUR WALLET</h4>
-                  </div>
-                  <div className="user-card-content">
-                    <div>
-                      <h4>
-                        $604.25
-                      </h4>
-                      <p>PROJECT WALLET BALANCE</p>
-                    </div>
-                    <div>
-                      <h4>34 days</h4>
-                      <p>
-                        AUTO RE-LOAD
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="user-card-wrapper col-12 col-md-6 col-lg-3">
-                <div className="user-card">
-                  <div className="user-card-header">
-                    <img src={IconFlag} alt="beneficiary"/>
-                    <h4>NOTIFICATIONS & ACTIONS</h4>
-                  </div>
-                  <div className="user-card-content">
-                    <div>
-                      <h4>
-                        None
-                      </h4>
-                      <p>NOTIFICATION</p>
-                    </div>
-                    <div>
-                      <h4>Confirm Auto-Pay</h4>
-                      <p>
-                        ACTIONS REQUIRED
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <UserCard icon={IconBenef} header={"YOUR PROFILE"} title={'Martin Wainstein'} titleLabel={'BENEFICIARY NAME'} value={"2"} valueLabel={"ACTIVE PROJECTS"}/>
+              <UserCard icon={IconSolar} header={"YOUR ENERGY"} title={'845 kWh'} titleLabel={'TOTAL IN CURRENT PERIOD'} value={"10,150 MWh"} valueLabel={"ALL TIME"}/>
+              <UserCard icon={IconWallet} header={"YOUR WALLET"} title={' $604.25'} titleLabel={'PROJECT WALLET BALANCE'} value={"34 days"} valueLabel={"AUTO RE-LOAD"}/>
+              <UserCard icon={IconFlag} header={"NOTIFICATIONS & ACTIONS"} title={'None'} titleLabel={'NOTIFICATION'} value={"Confirm Auto-Pay"} valueLabel={"ACTIONS REQUIRED"}/>
             </div>
           </div>
         </div>
@@ -252,6 +174,52 @@ class InvestorComponent extends React.Component {
                 <button className={this.state.activeButton === 'year' ? "-active" : ''} onClick={() => this.onButtonClick('year')}>YEAR</button>
               </div>
             </div>
+            <button className="see-more">DOWNLOAD DATASET ></button>
+          </div>
+        </div>
+        <div className="contracts-container">
+          <h3 className="title-primary">YOUR PROJECT’s SMART SOLAR CONTRACTS</h3>
+          <h4 className="sub-title">PASTO PUBLIC SCHOOL - POC 1KW</h4>
+          <div className="container">
+            <h5>LEGAL CONTRACTUAL DOCUMENTATION</h5>
+            <div className="contracts">
+              <DocumentationContainer title={'Project Overview'} sub={'PROJECT PORTFOLIO'} icon={IconArchive}/>
+              <DocumentationContainer title={'PPA'} sub={'CONTRACT'} icon={IconSingle}/>
+              <DocumentationContainer title={'RE Certification Agreement'} sub={'RECs'} icon={IconSingle}/>
+              <DocumentationContainer title={'Guarantor Agreements'} sub={'INVESTOR PROTECTIONS'} icon={IconArchive}/>
+              <DocumentationContainer title={'Contractors Agreement'} sub={'DEVELOPER'} icon={IconArchive}/>
+              <DocumentationContainer title={'Stakeholder Agreement'} sub={'STAKEHOLDERS'} icon={IconSingle}/>
+              <DocumentationContainer title={'Community Energy Charter'} sub={'INVESTOR PROTECTIONS'} icon={IconSingle}/>
+              <DocumentationContainer title={'Financial Reportings'} sub={'PROJECT FINANCIALS'} icon={IconArchive}/>
+            </div>
+            <h5>BLOCKCHAIN-BASED SMART CONTRACTS</h5>
+            <div className="contract-review">
+              <div className="review-box">
+                <p>
+                  review
+                  smart
+                  contracts
+                </p>
+                </div>
+              <div className="flexbox">
+                <LinkContainer icon={IconChecked} value={"Link >"}/>
+                <LinkContainer icon={IconChecked} value={"Link >"}/>
+                <LinkContainer icon={IconChecked} value={"Link >"}/>
+                <LinkContainer icon={IconChecked} value={"Link >"}/>
+                <LinkContainer icon={IconChecked} value={"Link >"}/>
+                <LinkContainer icon={IconChecked} value={"Link >"}/>
+                <LinkContainer icon={IconChecked} value={"Link >"}/>
+              </div>
+            </div>
+            <h6>HOW TO REVIEW BLOCKCHAIN-BASED SMART CONTRACT</h6>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Cras dapibus vulputate diam eu pretium. Mauris elit orci,
+              ultricies id fermentum vel, porta et eros. Vestibulum condimentum lectus in convallis feugiat.
+              Sed vulputate fringilla felis. Aliquam ut arcu et dui feugiat scelerisque eu quis diam.
+              Mauris placerat congue dui sit amet blandit. Phasellus condimentum libero vel velit auctor, sit amet tincidunt velit varius.
+            </p>
+            <button className="display-button">SHOW LESS</button>
           </div>
         </div>
       </div>
