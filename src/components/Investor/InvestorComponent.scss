@@ -366,7 +366,127 @@
       color: $secondary-color;
       text-align: left;
       padding: 0 0 $pixel-base * 2;
-      border-bottom: 1px solid $secondary-color-lighter;
+      border-bottom: 1px solid $warm-grey;
+    }
+
+    .see-more {
+      border: none;
+      background: none;
+      margin: $pixel-base * 2 0 $pixel-base * 8 $pixel-base * 7.5;
+      font-size: 10px;
+      font-weight: 600;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: 2px;
+      color: $charcoal-grey-two;
+      cursor: pointer;
+    }
+
+    .row-wrapper {
+      border-bottom: 1px solid $warm-grey;
+    }
+
+    .flexbox {
+      padding: $pixel-base * 4.5 0 ;
+      display: flex;
+      align-items: center;
+
+      &.-space {
+        justify-content: space-between;
+      }
+
+      .icon {
+        width: 28px;
+        max-height: 36px;
+      }
+
+      img {
+        margin-right: $pixel-base * 1.5;
+      }
+
+      h4 {
+        font-family: $secondary-font;
+        font-size: $base-font * 1.125;
+        font-weight: 600;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: $primary-color;
+      }
+
+      button {
+        padding: 0;
+        width: fit-content;
+        cursor: pointer;
+        border: none;
+        background: transparent;
+
+        img {
+          margin: 0 auto;
+        }
+      }
+
+      p {
+        margin: 0;
+        font-family:  $secondary-font;
+        font-size: $base-font * 1.125;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: $charcoal-grey-two;
+
+        &.-light {
+          font-weight: 300;
+        }
+      }
+    }
+
+    .SolarGraph {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: $pixel-base * 4 0 0;
+
+      .switch-buttons {
+        display: flex;
+        flex-direction: column;
+
+        button {
+          width: 71px;
+          height: 24px;
+          border-radius: 24px;
+          background-color: $secondary-color-lighter;
+          font-size: $base-font * 0.625;
+          font-weight: 600;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: normal;
+          letter-spacing: 2px;
+          text-align: center;
+          color: $white;
+          border: none;
+          cursor: pointer;
+          outline: none;
+          transition: 0.25s;
+
+          &:hover {
+            background: $secondary-color;
+            opacity: 0.8;
+          }
+
+          &:not(:last-of-type) {
+            margin-bottom: $pixel-base;
+          }
+
+          &.-active {
+            background: $secondary-color;
+          }
+        }
+      }
     }
   }
 }
