@@ -9,6 +9,7 @@
     "js-sha3": "^0.8.0",
     "mdbreact": "^4.11.0",
     "node-sass": "^4.11.0",
+    "notistack": "^0.5.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",

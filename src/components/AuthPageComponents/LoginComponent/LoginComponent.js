@@ -6,9 +6,10 @@ import * as Yup from "yup";
 import { connect } from "react-redux";
 import { fetchLogin } from "./store/actions";
 import { bindActionCreators } from "redux";
-import { sha3_512 } from 'js-sha3';
-import { Storage } from "../../../services/Storage";
-Storage = new Storage();  
+import { sha3_512 } from "js-sha3";
+import Storage from "../../../services/Storage";
+import history from "../../../helpers/history";
+import { withSnackbar } from "notistack";
 
 // Move validation rules into separate file
 const LoginSchema = Yup.object().shape({
@@ -21,14 +22,20 @@ const LoginSchema = Yup.object().shape({
 });
 
 class LoginComponent extends Component {
-
   componentDidUpdate(prevProps) {
     if (this.props.authorized !== prevProps.authorized) {
-      Storage.set('token', "token");
-      // TODO: handle redirect here
+      Storage.set("token", "token");
+      this.props.enqueueSnackbar("Logged In.", {
+        variant: "success",
+        autoHideDuration: 2000
+      });
+      history.push(ROUTES.HOME);
     }
     if (this.props.error !== prevProps.error) {
-      // TODO: handle error here
+      this.props.enqueueSnackbar(this.props.error, {
+        variant: "error",
+        autoHideDuration: 2000
+      });
     }
   }
 
@@ -42,15 +49,12 @@ class LoginComponent extends Component {
             const payload = {
               username: values.email,
               password: sha3_512(values.password)
-              // Working credentials
-              // username: "martin",
-              // password: "9a768ace36ff3d1771d5c145a544de3d68343b2e76093cb7b2a8ea89ac7f1a20c852e6fc1d71275b43abffefac381c5b906f55c3bcff4225353d02f1d3498758"
             };
             this.props.fetchLogin(payload);
           }}
           validationSchema={LoginSchema}
         >
-          {({ errors, touched, isValidating }) => (
+          {({ errors, touched, isValidating, isSubmitting }) => (
             <Form className="solar-form">
               <div className="inner-addon left-addon">
                 <i className="solar-icon user-icon" />
@@ -88,9 +92,13 @@ class LoginComponent extends Component {
                 <button
                   type="submit"
                   className="solar-form-button solar-btn-normal"
-                  disabled={this.props.loading}
+                  disabled={
+                    isSubmitting ||
+                    (errors.email && touched.email) ||
+                    (errors.password && touched.password)
+                  }
                 >
-                  {this.props.loading ? "loading.." : "Log In"}
+                  {isSubmitting ? "loading.." : "Log In"}
                 </button>
               </div>
             </Form>
@@ -104,7 +112,11 @@ class LoginComponent extends Component {
   }
 }
 
-const mapStateToProps = state => ({ error: state.auth.error, loading: state.auth.isLoading, authorized: state.auth.authorized });
+const mapStateToProps = state => ({
+  error: state.auth.error,
+  loading: state.auth.isLoading,
+  authorized: state.auth.authorized
+});
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators({ fetchLogin }, dispatch);
@@ -112,4 +124,4 @@ const mapDispatchToProps = dispatch =>
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(LoginComponent);
+)(withSnackbar(LoginComponent));
