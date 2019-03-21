@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24.734" height="25" viewBox="0 0 24.734 25">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: rgba(0,0,0,0);
+      }
+
+      .cls-2 {
+        fill: none;
+        stroke: #606060;
+        stroke-linecap: square;
+        stroke-miterlimit: 10;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <g id="Icon_Beneficiary_Copy_3" data-name="Icon/Beneficiary Copy 3" transform="translate(0 1)">
+    <rect id="Icon_Beneficiary_Copy_3_background" data-name="Icon/Beneficiary Copy 3 background" class="cls-1" width="23" height="23"/>
+    <g id="flag-points-32" transform="translate(1.211)">
+      <path id="Path" class="cls-2" d="M0,0H21.789L18.158,6.273l3.632,6.273H0" transform="translate(0 2.091)"/>
+      <path id="Path-2" data-name="Path" class="cls-2" d="M.5,0V23" transform="translate(-0.5)"/>
+    </g>
+  </g>
+</svg>
