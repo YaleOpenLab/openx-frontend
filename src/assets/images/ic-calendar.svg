@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="27" viewBox="0 0 30 27">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: rgba(0,0,0,0);
+      }
+
+      .cls-2 {
+        fill: none;
+        stroke: #737171;
+        stroke-linecap: square;
+        stroke-miterlimit: 10;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <g id="Icon_Developer" data-name="Icon/Developer" transform="translate(1 1)">
+    <rect id="Icon_Developer_background" data-name="Icon/Developer background" class="cls-1" width="28" height="25"/>
+    <g id="calendar-60">
+      <path id="Path" class="cls-2" d="M22.909,0H28V22.727H0V0H5.091" transform="translate(0 2.273)"/>
+      <path id="Path-2" data-name="Path" class="cls-2" d="M0,.5H12.727" transform="translate(7.636 1.773)"/>
+      <rect id="Rectangle" class="cls-2" width="2.545" height="4.545" transform="translate(5.091)"/>
+      <rect id="Rectangle-2" data-name="Rectangle" class="cls-2" width="2.545" height="4.545" transform="translate(20.364)"/>
+      <path id="Path-3" data-name="Path" class="cls-2" d="M0,.5H28" transform="translate(0 8.591)"/>
+    </g>
+  </g>
+</svg>
