@@ -381,6 +381,25 @@
       letter-spacing: 2px;
       color: $charcoal-grey-two;
       cursor: pointer;
+      position: relative;
+      transition: 0.25s;
+      overflow: hidden;
+
+      &:after {
+        content: '';
+        width: 0;
+        height: 1px;
+        background: $charcoal-grey-two;
+        bottom: 0;
+        position: absolute;
+        display: block;
+      }
+
+      &:hover {
+        &:after {
+          animation: hover 1.5s ease-out;
+        }
+      }
     }
 
     .row-wrapper {
@@ -487,6 +506,33 @@
           }
         }
       }
+    }
+  }
+  
+  @keyframes hover {
+    0%{
+      right: 100%;
+      width: 100%;
+    }
+
+    25% {
+      right: 50%;
+      width: 100%;
+    }
+
+    50% {
+      right: 50%;
+      width: 0;
+    }
+
+    75% {
+      width: 100%;
+      right: -50%;
+    }
+
+    100% {
+      right: -100%;
+      width: 100%;
     }
   }
 }
