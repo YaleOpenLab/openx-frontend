@@ -15,11 +15,13 @@ $third-color: #294a70;
 $third-color-light: #2961a2;
 $third-color-lighter: #4a90e2;
 $status-color: #417505;
+$charcoal-grey-two: #393c40;
 $pale-grey: rgba(245, 246, 248, 0.48);
 $grey-light: #ecedef;
 $warm-grey: #9b9b9b;
 $charcoal-grey-two: #393c40;
 $white: #ffffff;
+$error-color: #da3b3b;
 
 @mixin margin-mix($position, $times) {
   @if $position == "top" {

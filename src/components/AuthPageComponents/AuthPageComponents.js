@@ -4,6 +4,7 @@ import Routes from "../../routes/routes";
 import { Switch, Route } from "react-router-dom";
 import LoginComponent from "./LoginComponent/LoginComponent";
 import SignUpComponent from "./SignUpComponent/SignUpComponent";
+import LogOutComponent from "./LogOutComponent/LogOutComponent";
 
 const AuthPageComponents = props => (
   <div className="AuthPage">
@@ -16,6 +17,7 @@ const AuthPageComponents = props => (
               <Switch>
                 <Route path={Routes.LOGIN} component={LoginComponent} />
                 <Route path={Routes.SIGNUP} component={SignUpComponent} />
+                <Route path={Routes.LOGOUT} component={LogOutComponent} />
               </Switch>
             </div>
           </div>

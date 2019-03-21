@@ -15,6 +15,7 @@ import {
 import Logo from "../../UI/Logo/Logo";
 import NavigationItem from "../NavigationItem/NavigationItem";
 import Routes from "../../../routes/routes";
+import isAuthorized from "../../../helpers/functions/is-authorized";
 
 class MainNavigationComponent extends Component {
   state = {
@@ -39,7 +40,7 @@ class MainNavigationComponent extends Component {
                 <MDBDropdownToggle nav caret>
                   <div className="d-md-inline">docs</div>
                 </MDBDropdownToggle>
-                <MDBDropdownMenu className="dropdown-default" right>
+                <MDBDropdownMenu className="dropdown-default">
                   <MDBDropdownItem href="/">page 1</MDBDropdownItem>
                   <MDBDropdownItem href="/">page 2</MDBDropdownItem>
                 </MDBDropdownMenu>
@@ -58,8 +59,33 @@ class MainNavigationComponent extends Component {
             <NavigationItem link={Routes.DEVELOPER} divider={true}>
               Developer
             </NavigationItem>
-            <NavigationItem link={Routes.LOGIN}>Log in</NavigationItem>
-            <NavigationItem link={Routes.SIGNUP}>Sign up</NavigationItem>
+            {isAuthorized() ? (
+              <React.Fragment>
+                <MDBNavItem className="profile-nav-container">
+                  <MDBDropdown>
+                    <MDBDropdownToggle nav caret>
+                      <div className="d-md-inline">User Name</div>
+                    </MDBDropdownToggle>
+                    <MDBDropdownMenu className="dropdown-default">
+                      <MDBDropdownItem href={Routes.PROFILE}>
+                        profile
+                      </MDBDropdownItem>
+                      <MDBDropdownItem href={Routes.LOGOUT}>
+                        log out
+                      </MDBDropdownItem>
+                    </MDBDropdownMenu>
+                  </MDBDropdown>
+                </MDBNavItem>
+                <div className="profile-nav-avatar">
+                  <img src="https://i1.rgstatic.net/ii/profile.image/722704944607235-1549317694495_Q512/Martin_Wainstein.jpg" alt="user profile" />
+                </div>
+              </React.Fragment>
+            ) : (
+              <React.Fragment>
+                <NavigationItem link={Routes.LOGIN}>Log in</NavigationItem>
+                <NavigationItem link={Routes.SIGNUP}>Sign up</NavigationItem>
+              </React.Fragment>
+            )}
           </MDBNavbarNav>
         </MDBCollapse>
       </MDBNavbar>
