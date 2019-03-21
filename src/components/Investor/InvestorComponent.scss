@@ -4,6 +4,7 @@
   padding: $pixel-base * 14 0 0;
 
   .container-title {
+    font-family: $primary-font;
     font-size: $base-font * 2;
     font-weight: 500;
     font-style: normal;
@@ -15,6 +16,7 @@
   }
 
   .title-primary {
+    font-family: $primary-font;
     font-size: $base-font * 1.5;
     font-weight: bold;
     font-style: normal;
@@ -61,6 +63,7 @@
         }
 
         h4 {
+          font-family: $secondary-font;
           margin: 0;
           font-size: $base-font * 0.625;
           font-weight: 600;
@@ -86,6 +89,7 @@
         }
 
         h4 {
+          font-family: $secondary-font;
           font-size: $base-font * 1.5;
           font-weight: 300;
           font-style: normal;
@@ -96,6 +100,7 @@
         }
 
         p {
+          font-family: $secondary-font;
           font-size: $base-font * 0.625;
           font-weight: 600;
           font-style: normal;
@@ -141,6 +146,7 @@
       }
 
       h5 {
+        font-family: $primary-font;
         font-size: $base-font * 0.75;
         font-weight: 600;
         font-style: normal;
@@ -152,6 +158,7 @@
       }
 
       h6 {
+        font-family: $secondary-font;
         font-size: $base-font * 0.75;
         font-weight: 600;
         font-style: normal;
@@ -187,6 +194,7 @@
         }
 
         h4 {
+          font-family: $primary-font;
           font-size: $base-font * 0.875;
           font-weight: bold;
           font-style: normal;
@@ -198,6 +206,7 @@
         }
 
         p {
+          font-family: $primary-font;
           margin: 0;
           font-size: $base-font * 0.75;
           font-weight: 600;
@@ -209,6 +218,7 @@
         }
 
         button {
+          font-family: $primary-font;
           background: transparent;
           border: none;
           margin-left: auto;
@@ -223,6 +233,7 @@
       }
 
       p {
+        font-family: $primary-font;
         font-size: $base-font * 0.875;
         font-weight: 500;
         font-style: normal;
@@ -235,8 +246,10 @@
 
       ul {
         margin: 0 0 $pixel-base * 2;
+        padding:  0 0 0 $pixel-base * 2;
 
         li {
+          font-family: $primary-font;
           margin: 0 0 $pixel-base;
           font-size: $base-font * 0.75;
           font-weight: normal;
@@ -249,6 +262,7 @@
       }
 
       .owner {
+        font-family: $primary-font;
         font-size: $base-font * 0.75;
         font-weight: 600;
         font-style: normal;
@@ -256,6 +270,7 @@
         line-height: normal;
         letter-spacing: normal;
         color: $secondary-color;
+        margin:  0 0 $pixel-base;
       }
     }
 
@@ -264,6 +279,7 @@
       margin: 0 0 $pixel-base * 2;
 
       p {
+        font-family: $secondary-font;
         font-weight: normal;
         font-style: normal;
         font-stretch: normal;
@@ -295,6 +311,7 @@
         padding: 0 $pixel-base * 0.5;
 
         h6 {
+          font-family: $secondary-font;
           font-size: $base-font * 1.125;
           font-weight: 300;
           font-style: normal;
@@ -305,6 +322,7 @@
         }
 
         p {
+          font-family: $secondary-font;
           font-size: $base-font * 0.625;
           font-weight: 600;
           font-style: normal;
@@ -347,7 +365,174 @@
       letter-spacing: normal;
       color: $secondary-color;
       text-align: left;
-      border-bottom: 1px solid $grey-light;
+      padding: 0 0 $pixel-base * 2;
+      border-bottom: 1px solid $warm-grey;
+    }
+
+    .see-more {
+      border: none;
+      background: none;
+      margin: $pixel-base * 2 0 $pixel-base * 8 $pixel-base * 7.5;
+      font-size: 10px;
+      font-weight: 600;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: 2px;
+      color: $charcoal-grey-two;
+      cursor: pointer;
+      position: relative;
+      transition: 0.25s;
+      overflow: hidden;
+
+      &:after {
+        content: '';
+        width: 0;
+        height: 1px;
+        background: $charcoal-grey-two;
+        bottom: 0;
+        position: absolute;
+        display: block;
+      }
+
+      &:hover {
+        &:after {
+          animation: hover 1.5s ease-out;
+        }
+      }
+    }
+
+    .row-wrapper {
+      border-bottom: 1px solid $warm-grey;
+    }
+
+    .flexbox {
+      padding: $pixel-base * 4.5 0 ;
+      display: flex;
+      align-items: center;
+
+      &.-space {
+        justify-content: space-between;
+      }
+
+      .icon {
+        width: 28px;
+        max-height: 36px;
+      }
+
+      img {
+        margin-right: $pixel-base * 1.5;
+      }
+
+      h4 {
+        font-family: $secondary-font;
+        font-size: $base-font * 1.125;
+        font-weight: 600;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: $primary-color;
+      }
+
+      button {
+        padding: 0;
+        width: fit-content;
+        cursor: pointer;
+        border: none;
+        background: transparent;
+
+        img {
+          margin: 0 auto;
+        }
+      }
+
+      p {
+        margin: 0;
+        font-family:  $secondary-font;
+        font-size: $base-font * 1.125;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: $charcoal-grey-two;
+
+        &.-light {
+          font-weight: 300;
+        }
+      }
+    }
+
+    .SolarGraph {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: $pixel-base * 4 0 0;
+
+      .switch-buttons {
+        display: flex;
+        flex-direction: column;
+
+        button {
+          width: 71px;
+          height: 24px;
+          border-radius: 24px;
+          background-color: $secondary-color-lighter;
+          font-size: $base-font * 0.625;
+          font-weight: 600;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: normal;
+          letter-spacing: 2px;
+          text-align: center;
+          color: $white;
+          border: none;
+          cursor: pointer;
+          outline: none;
+          transition: 0.25s;
+
+          &:hover {
+            background: $secondary-color;
+            opacity: 0.8;
+          }
+
+          &:not(:last-of-type) {
+            margin-bottom: $pixel-base;
+          }
+
+          &.-active {
+            background: $secondary-color;
+          }
+        }
+      }
+    }
+  }
+  
+  @keyframes hover {
+    0%{
+      right: 100%;
+      width: 100%;
+    }
+
+    25% {
+      right: 50%;
+      width: 100%;
+    }
+
+    50% {
+      right: 50%;
+      width: 0;
+    }
+
+    75% {
+      width: 100%;
+      right: -50%;
+    }
+
+    100% {
+      right: -100%;
+      width: 100%;
     }
   }
 }
