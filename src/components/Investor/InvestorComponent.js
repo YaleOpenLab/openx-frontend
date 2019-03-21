@@ -15,6 +15,7 @@ import IconContractor from '../../assets/images/ic-contractor.svg';
 import IconBox from '../../assets/images/ic-solarbox.svg';
 import IconArchive from '../../assets/images/ic-doc-archive.svg';
 import IconSingle from '../../assets/images/ic-single.svg';
+import IconChecked from '../../assets/images/ic-doc-checked.svg';
 import AvatarPlaceholder from '../../assets/images/avatarplaceholder.png';
 import GraphPlaceholder from '../../assets/images/graph-placeholder.png';
 import ProgressBar from './ProgressBar';
@@ -22,6 +23,7 @@ import DetailContainer from './DetailContainer/DetailContainer';
 import './InvestorComponent.scss';
 import DocumentationContainer from './DocumentationContainer';
 import UserCard from './UserCard';
+import LinkContainer from './LinkContainer';
 
 class InvestorComponent extends React.Component {
 
@@ -191,6 +193,33 @@ class InvestorComponent extends React.Component {
               <DocumentationContainer title={'Financial Reportings'} sub={'PROJECT FINANCIALS'} icon={IconArchive}/>
             </div>
             <h5>BLOCKCHAIN-BASED SMART CONTRACTS</h5>
+            <div className="contract-review">
+              <div className="review-box">
+                <p>
+                  review
+                  smart
+                  contracts
+                </p>
+                </div>
+              <div className="flexbox">
+                <LinkContainer icon={IconChecked} value={"Link >"}/>
+                <LinkContainer icon={IconChecked} value={"Link >"}/>
+                <LinkContainer icon={IconChecked} value={"Link >"}/>
+                <LinkContainer icon={IconChecked} value={"Link >"}/>
+                <LinkContainer icon={IconChecked} value={"Link >"}/>
+                <LinkContainer icon={IconChecked} value={"Link >"}/>
+                <LinkContainer icon={IconChecked} value={"Link >"}/>
+              </div>
+            </div>
+            <h6>HOW TO REVIEW BLOCKCHAIN-BASED SMART CONTRACT</h6>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Cras dapibus vulputate diam eu pretium. Mauris elit orci,
+              ultricies id fermentum vel, porta et eros. Vestibulum condimentum lectus in convallis feugiat.
+              Sed vulputate fringilla felis. Aliquam ut arcu et dui feugiat scelerisque eu quis diam.
+              Mauris placerat congue dui sit amet blandit. Phasellus condimentum libero vel velit auctor, sit amet tincidunt velit varius.
+            </p>
+            <button className="display-button">SHOW LESS</button>
           </div>
         </div>
       </div>

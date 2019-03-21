@@ -27,6 +27,18 @@
     margin: 0 0 $pixel-base;
   }
 
+  .sub-title {
+    font-size: $base-font * 1.125;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: $charcoal-grey-two;
+    margin: 0 0 $pixel-base * 4.5;
+  }
+
   .title-container {
     padding-bottom: $pixel-base * 4;
 
@@ -272,18 +284,6 @@
       text-align: center;
     }
 
-    .sub-title {
-      font-size: $base-font * 1.125;
-      font-weight: 300;
-      font-style: normal;
-      font-stretch: normal;
-      line-height: normal;
-      letter-spacing: normal;
-      text-align: center;
-      color: $charcoal-grey-two;
-      margin: 0 0 $pixel-base * 4.5;
-    }
-
     .section-title {
       font-size: 20px;
       font-weight: 600;
@@ -382,18 +382,6 @@
       text-align: center;
     }
 
-    .sub-title {
-      font-size: $base-font * 1.125;
-      font-weight: 300;
-      font-style: normal;
-      font-stretch: normal;
-      line-height: normal;
-      letter-spacing: normal;
-      text-align: center;
-      color: $charcoal-grey-two;
-      margin: 0 0 $pixel-base * 4.5;
-    }
-
     h5 {
       font-size: $base-font * 1.0625;
       font-weight: 600;
@@ -410,6 +398,86 @@
       margin: 0 0 $pixel-base * 4;
       display: flex;
       text-align: center;
+    }
+
+    .contract-review {
+      width: calc(100% + 84px);
+      position: relative;
+      left: -84px;
+      border-radius: 19px;
+      border: solid 2px #000000;
+      padding: $pixel-base * 2 $pixel-base $pixel-base * 2 $pixel-base * 5;
+      margin: 0 0 $pixel-base * 4;
+      display: flex;
+      align-items: center;
+
+      .flexbox {
+        display: inline-flex;
+        justify-content: space-between;
+        width: 100%;
+      }
+
+      .review-box {
+        width: 133px;
+        padding: $pixel-base * 2 $pixel-base * 3;
+        border-radius: 5px;
+        border: solid 2px #000000;
+        background-color: $primary-color-light;
+        display: inline-block;
+        margin: 0 $pixel-base * 3 0 0;
+
+        p {
+          font-family: $primary-font;
+          font-size: 13px;
+          font-weight: bold;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: 1.08;
+          letter-spacing: 1.3px;
+          color: $white;
+          margin: 0;
+        }
+      }
+    }
+
+    h6 {
+      font-family: $primary-font;
+      font-size: 13px;
+      font-weight: 600;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      color: #393a3c;
+      margin: 0 0 $pixel-base;
+    }
+
+    p {
+      font-family: $primary-font;
+      font-size: 14px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.43;
+      letter-spacing: normal;
+      color: $secondary-color;
+      margin: 0 0 $pixel-base * 5;
+    }
+
+    .display-button {
+      display: block;
+      cursor: pointer;
+      margin: 0 auto;
+      border: none;
+      background: transparent;
+      font-family: $secondary-font;
+      font-size: 18px;
+      font-weight: 600;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      color: $charcoal-grey-two;
     }
   }
   
