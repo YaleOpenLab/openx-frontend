@@ -1,17 +1,22 @@
-import { Observable } from 'rxjs';
-import { Http } from '../../../../services/Http';
-import 'rxjs/add/operator/switchMap';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/observable/of';
-import 'rxjs/add/operator/catch';
-import { FETCH_PROJECTS, fetchProjectsFailure, fetchProjectsSuccess } from './actions';
+import { Observable } from "rxjs";
+import { switchMap, catchError, map } from "rxjs/operators";
+import { ofType } from "redux-observable";
+import { Http } from "../../../../services/Http";
+import {
+  FETCH_PROJECTS,
+  fetchProjectsFailure,
+  fetchProjectsSuccess
+} from "./actions";
 
-const fetchProjectsEpic = action$ => {
-  return action$
-    .ofType(FETCH_PROJECTS)
-    .switchMap(() => Http.projectAll())
-    .map(projects => fetchProjectsSuccess(projects))
-    .catch(error => Observable.of(fetchProjectsFailure(error.message)))
-};
+const fetchProjectsEpic = action$ =>
+  action$.pipe(
+    ofType(FETCH_PROJECTS),
+    switchMap(() =>
+      Http.projectAll().pipe(
+        map(projects => fetchProjectsSuccess(projects)),
+        catchError(error => Observable.of(fetchProjectsFailure(error.message)))
+      )
+    )
+  );
 
 export default fetchProjectsEpic;
