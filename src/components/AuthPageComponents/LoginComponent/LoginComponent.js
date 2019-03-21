@@ -27,15 +27,17 @@ class LoginComponent extends Component {
       Storage.set("token", "token");
       this.props.enqueueSnackbar("Logged In.", {
         variant: "success",
-        autoHideDuration: 2000
+        autoHideDuration: 1500
       });
       history.push(ROUTES.HOME);
     }
     if (this.props.error !== prevProps.error) {
-      this.props.enqueueSnackbar(this.props.error, {
-        variant: "error",
-        autoHideDuration: 2000
-      });
+      if (this.props.error) {
+        this.props.enqueueSnackbar(this.props.error, {
+          variant: "error",
+          autoHideDuration: 1500
+        });
+      }
     }
   }
 
@@ -54,7 +56,7 @@ class LoginComponent extends Component {
           }}
           validationSchema={LoginSchema}
         >
-          {({ errors, touched, isValidating, isSubmitting }) => (
+          {({ errors, touched }) => (
             <Form className="solar-form">
               <div className="inner-addon left-addon">
                 <i className="solar-icon user-icon" />
@@ -93,12 +95,12 @@ class LoginComponent extends Component {
                   type="submit"
                   className="solar-form-button solar-btn-normal"
                   disabled={
-                    isSubmitting ||
+                    this.props.loading ||
                     (errors.email && touched.email) ||
                     (errors.password && touched.password)
                   }
                 >
-                  {isSubmitting ? "loading.." : "Log In"}
+                  {this.props.loading ? "loading.." : "Log In"}
                 </button>
               </div>
             </Form>

@@ -52,7 +52,7 @@ const signUpComponent = props => (
         });
       }}
     >
-      {({ errors, touched, isValidating, isSubmitting }) => (
+      {({ errors, touched }) => (
         <Form className="solar-form">
           <div className="inner-addon left-addon">
             <i className="solar-icon user-icon" />
@@ -121,14 +121,13 @@ const signUpComponent = props => (
               type="submit"
               className="solar-form-button solar-btn-normal"
               disabled={
-                isSubmitting ||
                 (errors.email && touched.email) ||
                 (errors.password && touched.password) ||
                 (errors.firstName && touched.firstName) ||
                 (errors.lastName && touched.lastName)
               }
             >
-              {isSubmitting ? "loading.." : "Sign up"}
+              Sign up
             </button>
           </div>
         </Form>
