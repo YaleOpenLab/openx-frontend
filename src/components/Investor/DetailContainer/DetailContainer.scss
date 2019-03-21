@@ -1,0 +1,63 @@
+@import "../../../styles/variables";
+
+.DetailContainer {
+  border-bottom: 1px solid $warm-grey;
+
+  .flexbox {
+    padding: $pixel-base * 4.5 0 ;
+    display: flex;
+    align-items: center;
+
+    &.-space {
+      justify-content: space-between;
+    }
+
+    .icon {
+      width: 28px;
+      max-height: 36px;
+    }
+
+    img {
+      margin-right: $pixel-base * 1.5;
+    }
+
+    h4 {
+      font-family: $secondary-font;
+      font-size: $base-font * 1.125;
+      font-weight: 600;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      color: $primary-color;
+    }
+
+    button {
+      padding: 0;
+      width: fit-content;
+      cursor: pointer;
+      border: none;
+      background: transparent;
+
+      img {
+        margin: 0 auto;
+      }
+    }
+
+    p {
+      margin: 0;
+      font-family:  $secondary-font;
+      font-size: $base-font * 1.125;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      color: $charcoal-grey-two;
+
+      &.-light {
+        font-weight: 300;
+      }
+    }
+  }
+}
