@@ -1,4 +1,4 @@
-import { Storage } from './Storage';
+import Storage from './Storage';
 import * as axios from 'axios';
 import { from } from 'rxjs';
 
@@ -22,8 +22,7 @@ export class Http {
   }
 
   static userBalanceXlm() {
-    const storage = new Storage();
-    const session = storage.session;
+    const session = Storage.session;
 
     return this.get('user/balance/xlm', {
       username: session.username,

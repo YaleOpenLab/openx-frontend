@@ -4,6 +4,8 @@ import { NavLink } from "react-router-dom";
 import ROUTES from "../../../routes/routes";
 import { Http } from "../../../services/Http";
 import * as Yup from "yup";
+import history from "../../../helpers/history";
+import { withSnackbar } from "notistack";
 
 // Move validation rules into separate file
 const SignupSchema = Yup.object().shape({
@@ -35,11 +37,22 @@ const signUpComponent = props => (
           values.email,
           values.password
         ).subscribe(response => {
-          console.log(response, "result");
+          if (response.status === 200) {
+            props.enqueueSnackbar("Registered successfully. please login", {
+              variant: "success",
+              autoHideDuration: 2000
+            });
+            history.push(ROUTES.LOGIN);
+          } else {
+            props.enqueueSnackbar(response.statusText, {
+              variant: "success",
+              autoHideDuration: 2000
+            });
+          }
         });
       }}
     >
-      {({ errors, touched, isValidating }) => (
+      {({ errors, touched, isValidating, isSubmitting }) => (
         <Form className="solar-form">
           <div className="inner-addon left-addon">
             <i className="solar-icon user-icon" />
@@ -107,8 +120,15 @@ const signUpComponent = props => (
             <button
               type="submit"
               className="solar-form-button solar-btn-normal"
+              disabled={
+                isSubmitting ||
+                (errors.email && touched.email) ||
+                (errors.password && touched.password) ||
+                (errors.firstName && touched.firstName) ||
+                (errors.lastName && touched.lastName)
+              }
             >
-              Submit
+              {isSubmitting ? "loading.." : "Sign up"}
             </button>
           </div>
         </Form>
@@ -120,4 +140,4 @@ const signUpComponent = props => (
   </div>
 );
 
-export default signUpComponent;
+export default withSnackbar(signUpComponent);

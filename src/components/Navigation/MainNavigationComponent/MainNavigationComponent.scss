@@ -27,6 +27,29 @@
         background: rgba(155, 155, 155, 0.11);
       }
     }
+
+    .profile-nav-container {
+      font-size: 18;
+      font-weight: 500;
+      text-transform: capitalize;
+      padding: 0 $pixel-base * 3 0 $pixel-base * 3;
+      .auth-nav-text {
+        color: $secondary-color;
+      }
+      a {
+        color: $charcoal-grey-two;
+      }
+    }
+    .profile-nav-avatar {
+      width: 30px;
+      height: 30px;
+      img {
+        height: 100%;
+        widows: 100%;
+        border-radius: 15px;
+      }
+    }
+
     @media #{$lg-scren} {
       .nav-item {
         padding: 0 $pixel-base * 2.5 0 $pixel-base * 2.5;
