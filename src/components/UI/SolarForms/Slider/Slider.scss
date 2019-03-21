@@ -1,31 +1,34 @@
-.Slider {
-    color: red;
-    .slider-title {
-        color: #aaaeb3;
-        font-size: 12
-    }
-    .slider-container {
-        height: 45px;
-        
-        .input-range__track {
-            height: 6px;
-        }
-        
-        .input-range__track--background{
-            background: #dfe1e3;
-        }
-        
-        .input-range__track--active {
-            background: #b3b6bb;
-        }
-        
-        .input-range__slider {
-            background: #f5a623;
-            border: 1px #f5a623;
-        }
-        .input-range__label--value {
-            top: 5px;
-        }    
-    }
-}
+@import "../../../../styles/variables";
 
+.Slider {
+  .slider-title {
+    color: $secondary-color-lighter;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: $pixel-base;
+  }
+  .slider-container {
+    height: $pixel-base * 6;
+
+    .input-range__track {
+      height: 6px;
+    }
+
+    .input-range__track--background {
+      background: $input-color-lighter;
+    }
+
+    .input-range__track--active {
+      background: $input-color-active-slider;
+    }
+
+    .input-range__slider {
+      background: $primary-color;
+      border: 1px $primary-color;
+    }
+    .input-range__label--value {
+      top: 5px;
+    }
+  }
+}

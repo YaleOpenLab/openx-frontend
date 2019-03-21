@@ -8,10 +8,11 @@
   }
   .ds-chart {
     text-align: center;
+    font-family: $secondary-font;
 
     .ds-count {
       font-size: 8px;
-      color: $light-font-color;
+      color: $secondary-color-lighter;
     }
     .ds-line {
       position: absolute;
@@ -50,24 +51,27 @@
       margin-top: 10px;
     }
     .ds-full {
-      background: $button-color;
+      background: $primary-color-light;
     }
     .ds-current {
-      border: 1px solid $button-color;
+      border: 1px solid $primary-color-light;
       background: white;
     }
     .ds-empty {
-      border: 1px solid $light-font-color;
+      border: 1px solid $secondary-color-lighter;
       background: white;
     }
     .ds-title {
-      font-size: 9px;
       word-break: break-all;
       text-transform: capitalize;
+      font-size: 12px;
+      font-weight: 300;
+      color: $charcoal-grey-two;
     }
     .ds-date {
-      font-size: 8px;
-      color: $light-font-color;
+      color: $secondary-color-lighter;
+      font-size: 12px;
+      font-weight: 300;
     }
     .ds-image {
       width: 60px;
@@ -87,41 +91,45 @@
   .forecast-info {
     text-align: center;
     padding-bottom: 15px;
+    font-family: $secondary-font;
+
     .forecast-info-title {
-      font-size: 22px;
-      text-transform: capitalize;
-      color: $primary-font-color;
+      font-size: 24px;
       font-weight: 300;
+      text-transform: capitalize;
+      color: $primary-color;
     }
     .forecast-info-sub-title {
-      font-size: 10px;
+      font-size: 12px;
       text-transform: uppercase;
-      color: $sidebar-font-color;
+      color: $secondary-color;
       font-weight: 300;
-      margin-top: 10px;
+      margin-top: $pixel-base;
     }
     .forecast-info-content {
-      font-size: 12px;
-      color: $sidebar-font-color;
-      margin-top: 15px;
+      font-size: 14px;
+      color: $secondary-color;
+      margin-top: $pixel-base * 2;
     }
   }
   .link-to-records {
-    font-size: 12px;
+    font-size: 11px;
     text-align: center;
+    font-weight: 600;
   }
 
   .solar-financial-restricted {
     margin-top: 35px;
-    background: $sidebar-background;
+    background: $secondary-color-very-light;
 
     .restricted-info-sub-title {
-      color: $sidebar-font-color;
+      color: $secondary-color;
       text-transform: capitalize;
       margin-top: 10px;
     }
     .link-to-login {
       text-align: center;
+      text-transform: uppercase;
     }
   }
 }

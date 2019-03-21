@@ -1,10 +1,11 @@
+// TODO: get rid of this
 .flex-title {
   height: 10%;
 }
 .flex-content {
   height: 90%;
   width: 100%;
-  * {
+  img {
     height: 100%;
     width: 100%;
     object-fit: cover;
@@ -13,7 +14,7 @@
 .flex-content-30 {
   height: 30%;
   width: 100%;
-  * {
+  img {
     height: 100%;
     width: 100%;
     object-fit: cover;
@@ -58,7 +59,7 @@
     object-fit: cover;
   }
 }
-.flex-content-50{
+.flex-content-50 {
   height: 50%;
   width: 100%;
 
@@ -87,6 +88,26 @@
     width: 100%;
     object-fit: cover;
   }
+}
+// end of TODO
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.flex-1 {
+  flex: 1;
+}
+.flex-8 {
+  flex: 8;
+}
+.flex-11 {
+  flex: 11;
+}
+.flex-19 {
+  flex: 19;
 }
 
 .col-xs-1-10,

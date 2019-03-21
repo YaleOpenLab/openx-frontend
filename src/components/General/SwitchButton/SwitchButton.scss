@@ -1,0 +1,5 @@
+@import "../../../styles/variables";
+
+.toggle-switch {
+  @include margin-mix("bottom", 4);
+}

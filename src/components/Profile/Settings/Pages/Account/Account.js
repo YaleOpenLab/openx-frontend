@@ -17,7 +17,6 @@ const Account = props => (
       onSubmit={(values, actions) => {}}
       render={props => (
         <form onSubmit={props.handleSubmit} className="solar-form">
-          <div className="container">
             <div className="row">
               <div className="col-12 col-md-10 col-lg-8 mx-auto">
                 <div className="row">
@@ -144,21 +143,19 @@ const Account = props => (
                   <div className="col-6">
                     <button
                       type="button"
-                      className="solar-form-button"
-                      disabled
+                      className="solar-form-button solar-btn-white"
                     >
                       reset
                     </button>
                   </div>
                   <div className="col-6">
-                    <button type="submit" className="solar-form-button">
+                    <button type="submit" className="solar-form-button solar-btn-normal">
                       save
                     </button>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
         </form>
       )}
     />

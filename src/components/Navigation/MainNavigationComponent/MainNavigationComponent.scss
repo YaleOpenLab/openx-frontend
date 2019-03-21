@@ -1,7 +1,7 @@
 @import "../../../styles/variables";
 
 .main-navigation {
-  background: $background-color;
+  background: $white;
   padding-top: 0;
   padding-bottom: 0;
 
@@ -12,22 +12,35 @@
       font-weight: 500;
       font-size: 16px;
       text-transform: uppercase;
-
-      a {
-        color: $primary-font-color;
+      padding: 0 $pixel-base * 3 0 $pixel-base * 3;
+      .auth-nav-text {
+        color: $secondary-color;
       }
-
-      a:hover,
-      a:active,
-      a:focus {
-        color: $primary-font-color;
+      a {
+        color: $primary-color-light;
+      }
+      a:hover {
+        background: rgba(155, 155, 155, 0.11);
+      }
+      .is-active {
+        font-weight: bold;
         background: rgba(155, 155, 155, 0.11);
       }
     }
-    .active {
-      .nav-link {
-        color: $sub-navigation-font-action;
-        background: rgba(155, 155, 155, 0.11);
+    @media #{$lg-scren} {
+      .nav-item {
+        padding: 0 $pixel-base * 2.5 0 $pixel-base * 2.5;
+      }
+    }
+    @media #{$md-scren} {
+      .nav-item {
+        padding: 0 $pixel-base 0 $pixel-base;
+      }
+    }
+    @media #{$smd-scren} {
+      .nav-item {
+        padding: 0;
+        font-size: 15px;
       }
     }
 

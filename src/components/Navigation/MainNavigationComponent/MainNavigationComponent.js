@@ -29,7 +29,7 @@ class MainNavigationComponent extends Component {
     return (
       <MDBNavbar color="dark" className="main-navigation" expand="md">
         <MDBNavbarBrand>
-          <Logo />
+          <Logo projectName="solar" />
         </MDBNavbarBrand>
         <MDBNavbarToggler onClick={this.toggleCollapse} />
         <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>

@@ -1,66 +1,76 @@
-@import '../../../styles/variables';
+@import "../../../styles/variables";
 
 .ProjectsTools {
-    .toolparts{
-        margin-bottom: 10px;
-    }
+  .toolparts {
+    margin-bottom: $pixel-base;
+  }
 
-    .tool-default {
-        height: 42px;
-        background-color: #e5e6ea;
-        margin-bottom: 5px;
-        color: $sub-navigation-font-color;
-        
-        div {
-            border: none;
-            border-radius: 0;
-            background-color: #e5e6ea;
-            font-size: 14px;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-    }
+  .tool-default {
+    height: $pixel-base * 5;
+    background-color: #e5e6ea;
+    margin-bottom: $pixel-base;
+    color: $secondary-color;
 
-    .title {
-        font-size: 20px;
-        font-weight: bold;
-        text-align: center;
-        color: $sidebar-font-color;
+    div {
+      border: none;
+      border-radius: 0;
+      background-color: #e5e6ea;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      padding-left: $pixel-base;
+      color: $secondary-color;
     }
+  }
 
-    .sub-title {
-        color: $sidebar-subtitle-font-color;
-        border-bottom: 1px solid #9b9b9b;
+  .title {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    color: $secondary-color;
+  }
 
-        h4 {
-            padding: 0 0px 5px 10px;
-            color: $sidebar-font-color;
-        }
+  .sub-title {
+    color: $sidebar-subtitle-font-color;
+    border-bottom: 2px solid $warm-grey;
+
+    .tools-sub-header {
+      padding: 0 0px 8px 16px;
+      color: $secondary-color;
+      font-size: 15px;
+      font-weight: 600;
     }
+  }
 
-    .box {
-        padding-top: 15px;
-        padding-bottom: 15px;
-        margin-top: 5px;
-        background: $sidebar-background;
-    }
+  .box {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-top: 5px;
+    background: $secondary-color-very-light;
+  }
 
-    .location-box {
-        .separator {
-            margin-bottom: 15px;
-        }
-        .location-result{
-            height: 42px;
-            border-left: 6px solid $primary-color;
-            padding: 10px;
-        }
+  .location-box {
+    .separator {
+      margin-bottom: $pixel-base * 2;
     }
-    .project-filters-box{
-        padding: 15px;
+    .location-result {
+      height: $pixel-base * 5;
+      border-left: 6px solid $primary-color;
+      font-size: 13px;
+      line-height: $pixel-base * 5;
+      padding-left: $pixel-base * 2;
+    }
+  }
+  .project-filters-box {
+    padding: $pixel-base * 2;
 
-        h5 {
-            text-transform: uppercase;
-            color: $sidebar-font-color;
-        }
+    .filters-sub-header {
+      text-transform: uppercase;
+      color: $secondary-color;
+      font-size: 12px;
+      font-weight: 600;
+      padding-left: $pixel-base * 2;
+      margin-bottom: $pixel-base * 2;
     }
+  }
 }

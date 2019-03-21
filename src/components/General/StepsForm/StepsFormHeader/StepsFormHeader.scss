@@ -1,0 +1,47 @@
+@import "../../../../styles/variables";
+
+.steps-form-header {
+  margin-bottom: 32px;
+
+  .steps-container {
+    display: flex;
+  }
+  .steps-box {
+    align-self: center;
+    display: flex;
+    justify-content: center;
+  }
+  .steps-first-box {
+    margin-left: 31px;
+  }
+  .steps-last-box {
+    margin-right: 31px;
+  }
+  .steps-active {
+    height: 20px;
+    width: 20px;
+    background: $primary-color;
+    border-radius: 15px;
+  }
+
+  .steps-inactive {
+    height: 10px;
+    width: 10px;
+    background: $secondary-color-very-light;
+    border-radius: 15px;
+  }
+
+  .steps-title {
+    position: absolute;
+    top: 24px;
+    font-size: 12px;
+    text-transform: capitalize;
+    color: $secondary-color-lighter;
+  }
+
+  .divider {
+    flex-grow: 1;
+    border-bottom: 1px solid $secondary-color-lighter;
+    margin: 9px 0px 9px 0px;
+  }
+}

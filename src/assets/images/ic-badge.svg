@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="20px" viewBox="0 0 24 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 53.2 (72643) - https://sketchapp.com -->
+    <title>809EFFAE-19FC-40DF-8A83-46A043DEEC1D</title>
+    <desc>Created with sketchtool.</desc>
+    <g id="OpenSolar" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Account-Settting/Entity" transform="translate(-949.000000, -451.000000)">
+            <g id="badge-13" transform="translate(950.000000, 452.000000)">
+                <path d="M14,8 L18,8" id="Path" stroke="#737171" stroke-width="2" stroke-linecap="square"></path>
+                <path d="M14,12 L18,12" id="Path" stroke="#737171" stroke-width="2" stroke-linecap="square"></path>
+                <path d="M3,14 C3,12.343 4.343,11 6,11 L8,11 C9.657,11 11,12.343 11,14 L3,14 Z" id="Path" fill="#737171" fill-rule="nonzero"></path>
+                <path d="M18,0 C18,1.105 17.105,2 16,2 C14.895,2 14,1.105 14,0 L8,0 C8,1.105 7.105,2 6,2 C4.895,2 4,1.105 4,0 L0,0 L0,18 L22,18 L22,0 L18,0 Z" id="Path" stroke="#737171" stroke-width="2" stroke-linecap="square"></path>
+                <circle id="Oval" fill="#737171" fill-rule="nonzero" cx="7" cy="8" r="2"></circle>
+            </g>
+        </g>
+    </g>
+</svg>
