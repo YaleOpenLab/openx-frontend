@@ -21,7 +21,7 @@ $grey-light: #ecedef;
 $warm-grey: #9b9b9b;
 $charcoal-grey-two: #393c40;
 $white: #ffffff;
-$error-color: #da3b3b;
+$error-color: #d0021b;
 
 @mixin margin-mix($position, $times) {
   @if $position == "top" {
