@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import LayoutHoc from '../../hoc/Layout/Layout';
 
-class LoginContainer extends Component {
+class ReceiverContainer extends Component {
     render() {
         return (
             <LayoutHoc>
-                <div className="component-content">Protected Page</div>
+                <div className="component-content Receiver">
+                </div>
             </LayoutHoc>
         )
     }
 }
 
-export default LoginContainer;
+export default ReceiverContainer;
