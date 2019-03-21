@@ -4,7 +4,7 @@ import ExploreComponent from "../../components/Explore/ExploreComponent";
 import SubNavigationComponent from "../../components/General/SubNavigationComponent/SubNavigationComponent";
 import ROUTES from "../../routes/routes";
 import { connect } from "react-redux";
-import { fetchProjects } from "../../store/actions";
+import { fetchProjects } from "../../components/Explore/Projects/store/actions";
 
 class ExplorePageContainer extends Component {
   constructor(props) {

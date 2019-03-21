@@ -25,7 +25,8 @@ const ROUTES = {
     }
   },
   LOGIN: "/login",
-  SIGNUP: "/signup"
+  SIGNUP: "/signup",
+  LOGOUT: "/logout",
 };
 
 export default ROUTES;
