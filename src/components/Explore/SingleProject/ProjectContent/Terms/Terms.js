@@ -14,7 +14,7 @@ const Terms = props => (
           <div className="col-12 title no-padding border-bottom">Terms</div>
           <div className="col-12 text-description">
             <div className="sub-title">Purpose</div>
-            <div className="sub-text">
+            <div className="sub-desc">
               Proceeds from this project's raise are invested in the development
               of a Proof-of-Concept installation in the Segunda Unidad Pasto
               School in Aibonito, Puerto Rico. The PoC is part of research

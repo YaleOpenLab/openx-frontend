@@ -9,7 +9,7 @@
     }
   }
   .project-main-display-image {
-    height: 460px;
+    height: 100%;
   }
   .project-main-choose-image {
     height: 45x;
@@ -21,71 +21,6 @@
       }
       img:hover {
         opacity: 0.7;
-      }
-    }
-  }
-
-  .project-main-info {
-    background: $projects-background;
-    padding: 15px;
-    height: 100%;
-
-    .desc-status {
-      text-transform: uppercase;
-      font-size: 13px;
-      font-weight: 700;
-      color: $status-color;
-      margin: 0 0 5px 0;
-    }
-
-    .desc-title {
-      text-transform: capitalize;
-      font-weight: bold;
-      color: $primary-color-light;
-    }
-
-    .desc-location {
-      font-size: 11px;
-      color: $projects-location-color;
-    }
-
-    .desc-category {
-      color: #aaaeb3;
-      font-size: 12px;
-    }
-
-    .desc-description {
-      color: $secondary-color;
-      font-size: 13px;
-    }
-
-    .specifics-box {
-      border-top: 1px solid white;
-      padding: 10px 0 10px 0;
-
-      .spec-cont {
-        font-size: 18px;
-        font-weight: 300;
-      }
-      .spec-desc {
-        text-transform: uppercase;
-        font-size: 10px;
-      }
-      .-first {
-        color: $primary-color;
-      }
-      .-second {
-        color: $third-color-light;
-      }
-
-      .spec-first-price {
-        font-size: 12px;
-        color: $secondary-color;
-      }
-      .spec-second-price {
-        font-size: 12px;
-        color: #aaaeb3;
-        text-align: right;
       }
     }
   }

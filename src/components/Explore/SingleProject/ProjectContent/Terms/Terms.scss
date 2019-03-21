@@ -5,16 +5,16 @@
     .security-note{
         color: $secondary-color;
         .security-title{
-            margin-top: 10px;
+            font-family: $secondary-font;
+            margin-top: $pixel-base * 4;
             font-size: 16px;
             font-weight: 300;
             text-transform: uppercase;
         }
         .security-text{
-            margin-top: 10px;
-            font-size: 12px;
-            font-weight: 300;
-            margin-bottom: 35px;
+            margin-top: $pixel-base * 2;
+            font-size: 14px;
+            margin-bottom: $pixel-base * 4;
         }
     }
 }

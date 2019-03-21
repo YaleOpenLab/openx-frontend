@@ -137,7 +137,7 @@ const Overview = props => (
           <div className="row">
             <div className="col-12 title-yellow margin-top">Opportunity</div>
             <div className="col-sm-12 col-md-4 margin-top">
-              <div className="sub-title">Description</div>
+              <div className="sub-title margin-bottom-x4">Description</div>
               <div className="sub-text">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
                 dapibus vulputate diam eu pretium. Mauris elit orci, ultricies
@@ -151,7 +151,7 @@ const Overview = props => (
             </div>
 
             <div className="col-sm-6 col-md-4 margin-top">
-              <div className="sub-title">Badges & Charasteristics</div>
+              <div className="sub-title margin-bottom-x4">Badges & Charasteristics</div>
               <div className="sub-image">
                 <img
                   src="https://via.placeholder.com/350x350"
@@ -161,7 +161,7 @@ const Overview = props => (
             </div>
 
             <div className="col-sm-6 col-md-4 margin-top">
-              <div className="sub-title">Impact & System Metrics</div>
+              <div className="sub-title margin-bottom-x4">Impact & System Metrics</div>
               <div className="sub-image">
                 <img
                   src="https://via.placeholder.com/350x350"

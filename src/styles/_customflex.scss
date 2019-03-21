@@ -91,6 +91,25 @@
 }
 // end of TODO
 
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.flex-1 {
+  flex: 1;
+}
+.flex-8 {
+  flex: 8;
+}
+.flex-11 {
+  flex: 11;
+}
+.flex-19 {
+  flex: 19;
+}
+
 .col-xs-1-10,
 .col-sm-1-10 {
   position: relative;
