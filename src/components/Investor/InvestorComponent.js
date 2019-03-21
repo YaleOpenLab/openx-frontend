@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import IconBenef from '../../assets/images/ic-beneficiary.svg';
 import IconWallet from '../../assets/images/ic-wallet.svg';
 import IconFlag from '../../assets/images/ic-flag.svg';
@@ -8,13 +8,15 @@ import './InvestorComponent.scss';
 import IconGps from '../../assets/images/ic-location-min.svg';
 import iconWatch from '../../assets/images/ic-watch.svg';
 import AvatarPlaceholder from '../../assets/images/avatarplaceholder.png';
+import ProgressBar from './ProgressBar';
 
-class InvestorComponent extends Component {
-  render() {
+const InvestorComponent = () => {
     return (
       <div className="InvestorComponent">
-        <div className="container title-container -border">
-          <h3 className="container-title">Summary</h3>
+        <div className="title-container -border">
+          <div className="container">
+            <h3 className="container-title">Summary</h3>
+          </div>
         </div>
         <div className="profile-section">
           <div className="container">
@@ -110,8 +112,10 @@ class InvestorComponent extends Component {
             </div>
           </div>
         </div>
-        <div className="container title-container -border">
-          <h3 className="container-title">Your Projects</h3>
+        <div className="title-container -border">
+          <div className="container">
+            <h3 className="container-title">Your Projects</h3>
+          </div>
         </div>
         <div className="projects-section">
           <div className="container">
@@ -124,7 +128,7 @@ class InvestorComponent extends Component {
                   <img src={iconWatch} alt="watch-icon"/>
                 </button>
                 <h5>SOLAR ONLY</h5>
-                <h4>Pasto Public School - POC 1kW</h4>
+                <h3 className="title-primary">Pasto Public School - POC 1kW</h3>
                 <h6><img src={IconGps} alt="icon-gps"/> Aibonito, Puerto Rico, USA</h6>
                 <div className="flexbox">
                   <p>MUNI BOND</p>
@@ -145,13 +149,52 @@ class InvestorComponent extends Component {
                   <img src={AvatarPlaceholder} alt="placeholder"/>
                   <h4>Developer Name</h4>
                 </div>
+                <div className="progress-bar-container">
+                  <div className="flexbox -no-spacing">
+                    <p className="progress-donated">$ 2356.23</p>
+                    <p className="progress-total">$ U$S 50'000.00</p>
+                  </div>
+                  <ProgressBar percentage={70}/>
+                </div>
+                <div className="stats">
+                  <div className="stat-container">
+                    <h6>% 5</h6>
+                    <p>
+                      RETURN
+                    </p>
+                  </div>
+                  <div className="stat-container">
+                    <h6>30%</h6>
+                    <p>
+                      TAX BENEFIT
+                    </p>
+                  </div>
+                  <div className="stat-container">
+                    <h6>2028</h6>
+                    <p>
+                      MATURITY
+                    </p>
+                  </div>
+                  <div className="stat-container">
+                    <h6>Aug 2019</h6>
+                    <p>
+                      INVEST BY
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
+        <div className="details-container">
+          <h3 className="title-primary">YOUR PROJECT DETAILS</h3>
+          <h4 className="sub-title">PASTO PUBLIC SCHOOL - POC 1KW</h4>
+          <div className="container">
+            <h4 className="section-title">Beneficiary Type</h4>
+          </div>
+        </div>
       </div>
     );
-  }
-}
+};
 
 export default InvestorComponent;
