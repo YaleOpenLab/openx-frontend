@@ -18,20 +18,17 @@ const Forecast = props => (
                 <span>development stage</span>
               </div>
               <div className="col-12">
-                <DevelopmentStage />
+                <DevelopmentStage data={props.data.graph}/>
               </div>
               <div className="col-12 col-sm-7 mx-auto mg-top-15 forecast-info">
-                <div className="forecast-info-title">Legacy</div>
+                <div className="forecast-info-title">{props.data.graph.stageName}</div>
                 <div className="forecast-info-sub-title">current stage</div>
                 <div className="forecast-info-content">
-                  The project is in the legacy stage, also known as O&M for
-                  Operations & Management. This means the system has been
-                  successfully funded and deployment, and the receiver is making
-                  appropriate schedule. Larn more>
+                  {props.data.graph.stageDescription} Larn more>
                 </div>
               </div>
               <div className="col-12 mg-top-15 link-to-records">
-                <NavLink to="#" className="small">FULL TIMELINE RECORDS ></NavLink>
+                <NavLink to={props.data.fullTimelineRecords} className="small">FULL TIMELINE RECORDS ></NavLink>
               </div>
             </div>
           </div>

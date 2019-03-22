@@ -69,22 +69,6 @@
       background: $grey-light;
       padding: $pixel-base * 1.5 $pixel-base * 2;
 
-      .watch-button {
-        position: absolute;
-        right: 8px;
-        top: 8px;
-        border: none;
-        background: none;
-        width: fit-content;
-        padding: 0;
-        cursor: pointer;
-        transition: opacity 0.25s;
-
-        &:hover {
-          opacity: 0.5;
-        }
-      }
-
       h5 {
         font-family: $primary-font;
         font-size: $base-font * 0.75;

@@ -1,20 +1,20 @@
-.Terms{
-    background: $project-content-background;
-    padding: 25px; 
+.Terms {
+  background: $project-content-background;
+  padding: 25px;
 
-    .security-note{
-        color: $secondary-color;
-        .security-title{
-            font-family: $secondary-font;
-            margin-top: $pixel-base * 4;
-            font-size: 16px;
-            font-weight: 300;
-            text-transform: uppercase;
-        }
-        .security-text{
-            margin-top: $pixel-base * 2;
-            font-size: 14px;
-            margin-bottom: $pixel-base * 4;
-        }
+  .security-note {
+    color: $secondary-color;
+    .security-title {
+      font-family: $secondary-font;
+      margin-top: $pixel-base * 4;
+      font-size: 16px;
+      font-weight: 300;
+      text-transform: uppercase;
     }
+    .security-text {
+      margin-top: $pixel-base * 2;
+      font-size: 14px;
+      margin-bottom: $pixel-base * 4;
+    }
+  }
 }
