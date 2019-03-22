@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./SingleProject.scss";
 import ProjectMain from "./ProjectMain/ProjectMain";
 import ProjectContent from "./ProjectContent/ProjectContent";
+import { DATA } from "../../../helpers/enums/temporary-data";
 
 class SingleProject extends Component {
   constructor(props) {
@@ -40,12 +41,14 @@ class SingleProject extends Component {
   };
 
   render() {
+    const data = DATA.project[0];
     return (
       <div className="SingleProject">
-        <ProjectMain />
+        <ProjectMain data={data.main}/>
         <ProjectContent
           navigation={this.state.menu}
           active={this.state.selectedItem}
+          data={data}
         />
       </div>
     );

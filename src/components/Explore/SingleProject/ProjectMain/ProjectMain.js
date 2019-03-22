@@ -1,111 +1,93 @@
 import React from "react";
 import ProgressBar from "../../../General/ProgressBar/ProgressBar";
+import "./ProjectMain.scss";
+import DescriptionGrid from "../../../General/DescriptionGrid/DescriptionGrid";
 
-const ProjectMain = props => (
-  <div className="container">
-    <div className="row">
-      <div className="col-sm-12 col-md-6 order-md-1 order-sm-1 no-padding">
-        <div className="project-main-image project-main-display-image">
-          <img
-            src="https://www.azocleantech.com/images/Article_Images/ImageForArticle_723(1).jpg"
-            alt="Project"
-          />
+const ProjectMain = props => {
+  const data = props.data;
+  let list = null;
+
+  list = data.description.list.map(item => {
+    return <li key={item.id}>{item.text}</li>;
+  });
+
+  return (
+    <div className="container project-main">
+      <div className="row">
+        <div className="col-sm-12 col-md-7 order-md-1 order-sm-1 no-padding">
+          <div className="project-main-image project-main-display-image">
+            <img src={data.imageUrl} alt="Project" />
+          </div>
         </div>
-      </div>
 
-      <div className="col-sm-12 col-md-6 order-md-3 order-sm-2 no-padding">
-        <div className="project-main-image project-main-choose-image">
-          <div className="container">
-            <div className="row mx-auto">
-              <div className="col-3 mx-auto no-padding">
-                <img
-                  src="https://www.azocleantech.com/images/Article_Images/ImageForArticle_723(1).jpg"
-                  alt="Project"
-                />
-              </div>
-              <div className="col-3 mx-auto no-padding">
-                <img
-                  src="https://www.azocleantech.com/images/Article_Images/ImageForArticle_723(1).jpg"
-                  alt="Project"
-                />
-              </div>
-              <div className="col-3 mx-auto no-padding">
-                <img
-                  src="https://www.azocleantech.com/images/Article_Images/ImageForArticle_723(1).jpg"
-                  alt="Project"
-                />
+        <div className="col-sm-12 col-md-7 order-md-3 order-sm-2 no-padding">
+          <div className="project-main-image project-main-choose-image">
+            <div className="container">
+              <div className="row mx-auto">
+                <div className="col-3 mx-auto no-padding">
+                  <img src={data.imageUrl2} alt="Project" />
+                </div>
+                <div className="col-3 mx-auto no-padding">
+                  <img src={data.imageUrl2} alt="Project" />
+                </div>
+                <div className="col-3 mx-auto no-padding">
+                  <img src={data.imageUrl2} alt="Project" />
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div className="col-sm-12 col-md-6 order-md-2 order-sm-3  no-padding">
-        <div className="projects-description-box container">
-          <div className="row">
-            <div className="desc-status col-12">early stage</div>
-            <div className="desc-title col-12">Pasto Public School - PoC</div>
-            <div className="desc-location col-12">
-              <span className="" />
-              Aibonito, Puerto Rico, USA
-            </div>
-            <div className="col-6 desc-category">MUNICIPAL BOND</div>
-            <div className="col-6 desc-category">Neighborly Securities</div>
-            <div className="desc-description col-12">
-              Project description in no more than two wrapping lines, giving the
-              main impact highlight.
-              <ul>
-                <li>Investment highlight number 1.</li>
-                <li>Social and green impact hihlight number 1.</li>
-                <li>General terms and conditions</li>
-              </ul>
-            </div>
-            <div className="col-12 specifics-box">
-              <div className="container">
-                <div className="row">
-                  <div className="col-6 spec-first-price">$4000</div>
-                  <div className="col-6 spec-second-price">$4000</div>
-                  <div className="col-12 ">
-                    <ProgressBar
-                      progress={75}
-                    />
+        <div className="col-sm-12 col-md-5 order-md-2 order-sm-3  no-padding">
+          <button className="watch-button">
+            <div className="watch-icon" />
+          </button>
+
+          <div className="projects-description-box container">
+            <div className="row">
+              <div className="desc-status col-12">{data.status}</div>
+              <div className="desc-title col-12">{data.title}</div>
+              <div className="desc-location col-12">
+                <span className="" />
+                {data.location}
+              </div>
+              <div className="col-6 desc-category desc-category-separator desc-cat-category">
+                {data.category}
+              </div>
+              <div className="col-6 desc-category desc-category-separator desc-gen-location">
+                {data.genLocation}
+              </div>
+              <div className="desc-description col-12">
+                {data.description.text}
+                <ul>{list}</ul>
+              </div>
+              <div className="col-12 specifics-box">
+                <div className="container">
+                  <div className="row">
+                    <div className="col-6 spec-first-price spec-price-bigger">
+                      {data.finances.current}
+                    </div>
+                    <div className="col-6 spec-second-price spec-price-bigger">
+                      {data.finances.target}
+                    </div>
+                    <div className="col-12 ">
+                      <ProgressBar progress={data.finances.percentage} />
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="col-12 specifics-box">
-              <div className="container">
-                <div className="row">
-                  <div className="col-3 spec-cont -first">3 kW</div>
-                  <div className="col-3 spec-cont">0 kWh</div>
-                  <div className="col-3 spec-cont">0.0</div>
-                  <div className="col-3 spec-cont">1/7</div>
-                  <div className="col-3 spec-desc -first">solar</div>
-                  <div className="col-3 spec-desc">storage</div>
-                  <div className="col-3 spec-desc">tariff</div>
-                  <div className="col-3 spec-desc">stage</div>
-                </div>
-              </div>
-            </div>
-            <div className="col-12 specifics-box">
-              <div className="container">
-                <div className="row">
-                  <div className="col-3 spec-cont -second">0%</div>
-                  <div className="col-3 spec-cont">n/a</div>
-                  <div className="col-3 spec-cont">n/a</div>
-                  <div className="col-3 spec-cont">2008</div>
-                  <div className="col-3 spec-desc -second">return</div>
-                  <div className="col-3 spec-desc">rating</div>
-                  <div className="col-3 spec-desc">tax</div>
-                  <div className="col-3 spec-desc">eta</div>
-                </div>
-              </div>
+                <DescriptionGrid
+                  list={props.data.specificsOne}
+                />
+                <DescriptionGrid
+                  list={props.data.specificsTwo}
+                />
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default ProjectMain;

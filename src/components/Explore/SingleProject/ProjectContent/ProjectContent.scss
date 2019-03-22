@@ -96,7 +96,7 @@
         font-weight: 600;
         letter-spacing: 2px;
         color: $secondary-color;
-
+        text-align: left;
         th {
           vertical-align: middle;
           border: none;
@@ -107,6 +107,11 @@
         font-size: 18px;
         font-weight: 300;
         color: $charcoal-grey-two;
+        text-transform: capitalize;
+        td {
+          height: $pixel-base * 10;
+          vertical-align: middle;
+        }
       }
     }
   }
