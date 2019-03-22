@@ -6,13 +6,22 @@
   padding: 0 $pixel-base;
   margin: 0 0 $pixel-base * 4;
 
+  @media (max-width: 991px) {
+    width: 25%;
+  }
+  
+  @media (max-width: 520px) {
+    width: 50%;
+  }
+
   img {
-    margin: 0 auto;
+    margin: 0 auto $pixel-base * 3;
     display: block;
   }
 
   p {
-    min-height: 44px;
+    font-family: $secondary-font;
+    min-height: 54px;
     font-size: 18px;
     font-weight: 300;
     font-style: normal;
@@ -25,6 +34,7 @@
   }
 
   span {
+    font-family: $secondary-font;
     font-size: 12px;
     font-weight: 600;
     font-style: normal;

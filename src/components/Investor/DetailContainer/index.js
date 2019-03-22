@@ -19,8 +19,10 @@ const DetailContainer = (props) => {
           </div>
           <div className="col-lg-6">
             <div className="flexbox -space">
+              <div className="text-wrapper">
               <h4>{props.type}</h4>
               <p className="-light">{props.action}</p>
+              </div>
               <button><img src={IconDoc} alt="doc"/></button>
             </div>
           </div>

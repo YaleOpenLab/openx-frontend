@@ -1,7 +1,8 @@
 @import "../../../styles/variables";
 
 .DetailContainer {
-  border-bottom: 1px solid $warm-grey;
+  border-bottom: 1px solid #dfdcdc;
+  padding: 0 $pixel-base * 2;
 
   .flexbox {
     padding: $pixel-base * 4.5 0 ;
@@ -10,6 +11,17 @@
 
     &.-space {
       justify-content: space-between;
+
+      .text-wrapper {
+        h4 {
+          display: inline-block;
+          min-width: 180px;
+        }
+
+        p {
+          display: inline-block;
+        }
+      }
     }
 
     .icon {
@@ -29,6 +41,7 @@
       font-stretch: normal;
       line-height: normal;
       letter-spacing: normal;
+      text-align: left;
       color: $primary-color;
     }
 
