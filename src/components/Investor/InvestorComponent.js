@@ -16,20 +16,25 @@ import IconBox from '../../assets/images/ic-solarbox.svg';
 import IconArchive from '../../assets/images/ic-doc-archive.svg';
 import IconSingle from '../../assets/images/ic-single.svg';
 import IconChecked from '../../assets/images/ic-doc-checked.svg';
+import IconUnChecked from '../../assets/images/ic-doc-unchecked.svg';
 import AvatarPlaceholder from '../../assets/images/avatarplaceholder.png';
 import GraphPlaceholder from '../../assets/images/graph-placeholder.png';
 import ProgressBar from './ProgressBar';
-import DetailContainer from './DetailContainer/DetailContainer';
+import DetailContainer from './DetailContainer';
 import './InvestorComponent.scss';
 import DocumentationContainer from './DocumentationContainer';
 import UserCard from './UserCard';
 import LinkContainer from './LinkContainer';
+import { mockData } from './mockData';
 
 class InvestorComponent extends React.Component {
 
-  state = {
-    activeButton: 'day',
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      activeButton: 'day',
+    };
+  }
 
   onButtonClick = (active) => {
     this.setState({
@@ -38,6 +43,8 @@ class InvestorComponent extends React.Component {
   };
 
   render() {
+    const investor = mockData.investorData;
+    const investorProject = mockData.project;
     return (
       <div className="InvestorComponent">
         <div className="title-container -border">
@@ -48,10 +55,10 @@ class InvestorComponent extends React.Component {
         <div className="profile-section">
           <div className="container">
             <div className="row">
-              <UserCard icon={IconBenef} header={"YOUR PROFILE"} title={'Martin Wainstein'} titleLabel={'BENEFICIARY NAME'} value={"2"} valueLabel={"ACTIVE PROJECTS"}/>
-              <UserCard icon={IconSolar} header={"YOUR ENERGY"} title={'845 kWh'} titleLabel={'TOTAL IN CURRENT PERIOD'} value={"10,150 MWh"} valueLabel={"ALL TIME"}/>
-              <UserCard icon={IconWallet} header={"YOUR WALLET"} title={' $604.25'} titleLabel={'PROJECT WALLET BALANCE'} value={"34 days"} valueLabel={"AUTO RE-LOAD"}/>
-              <UserCard icon={IconFlag} header={"NOTIFICATIONS & ACTIONS"} title={'None'} titleLabel={'NOTIFICATION'} value={"Confirm Auto-Pay"} valueLabel={"ACTIONS REQUIRED"}/>
+              <UserCard icon={IconBenef} header={"YOUR PROFILE"} title={investor.fullName} titleLabel={'BENEFICIARY NAME'} value={investor.projectsActive} valueLabel={"ACTIVE PROJECTS"}/>
+              <UserCard className={"-solar"} icon={IconSolar} header={"YOUR ENERGY"} title={investor.currentEnergy} titleLabel={'TOTAL IN CURRENT PERIOD'} value={investor.allTimeEnergy} valueLabel={"ALL TIME"}/>
+              <UserCard icon={IconWallet} header={"YOUR WALLET"} title={investor.wallet} titleLabel={'PROJECT WALLET BALANCE'} value={investor.autoReload} valueLabel={"AUTO RE-LOAD"}/>
+              <UserCard icon={IconFlag} header={"NOTIFICATIONS & ACTIONS"} title={investor.notification} titleLabel={'NOTIFICATION'} value={investor.actionsReq} valueLabel={"ACTIONS REQUIRED"}/>
             </div>
           </div>
         </div>
@@ -70,17 +77,17 @@ class InvestorComponent extends React.Component {
                 <button className="watch-button">
                   <img src={iconWatch} alt="watch-icon"/>
                 </button>
-                <h5>SOLAR ONLY</h5>
-                <h3 className="title-primary">Pasto Public School - POC 1kW</h3>
-                <h6><img src={IconGps} alt="icon-gps"/> Aibonito, Puerto Rico, USA</h6>
+                <h5>{investorProject.type}</h5>
+                <h3 className="title-primary">{investorProject.title}</h3>
+                <h6><img src={IconGps} alt="icon-gps"/>{investorProject.loc}</h6>
                 <div className="flexbox">
-                  <p>MUNI BOND</p>
+                  <p>{investorProject.category}</p>
                   <button>
                     Security issuer >
                   </button>
                 </div>
                 <p>
-                  Project description in no more than two wrapping lines, giving the main impact highlight.
+                  {investorProject.description}
                 </p>
                 <ul>
                   <li>Highlight bullet sentence.</li>
@@ -90,36 +97,36 @@ class InvestorComponent extends React.Component {
                 <h4 className="owner">PROJECT OWNER</h4>
                 <div className="flexbox -alt">
                   <img src={AvatarPlaceholder} alt="placeholder"/>
-                  <h4>Developer Name</h4>
+                  <h4>{investorProject.ownerName}</h4>
                 </div>
                 <div className="progress-bar-container">
                   <div className="flexbox -no-spacing">
-                    <p className="progress-donated">$ 2356.23</p>
-                    <p className="progress-total">$ U$S 50'000.00</p>
+                    <p className="progress-donated">$ {investorProject.donated}</p>
+                    <p className="progress-total">U$S {investorProject.total}</p>
                   </div>
                   <ProgressBar percentage={70}/>
                 </div>
                 <div className="stats">
                   <div className="stat-container">
-                    <h6>% 5</h6>
+                    <h6>% {investorProject.return}</h6>
                     <p>
                       RETURN
                     </p>
                   </div>
                   <div className="stat-container">
-                    <h6>30%</h6>
+                    <h6>{investorProject.benefit}%</h6>
                     <p>
                       TAX BENEFIT
                     </p>
                   </div>
                   <div className="stat-container">
-                    <h6>2028</h6>
+                    <h6>{investorProject.maturity}</h6>
                     <p>
                       MATURITY
                     </p>
                   </div>
                   <div className="stat-container">
-                    <h6>Aug 2019</h6>
+                    <h6>{investorProject.investBy}</h6>
                     <p>
                       INVEST BY
                     </p>
@@ -131,7 +138,7 @@ class InvestorComponent extends React.Component {
         </div>
         <div className="details-container">
           <h3 className="title-primary">YOUR PROJECT DETAILS</h3>
-          <h4 className="sub-title">PASTO PUBLIC SCHOOL - POC 1KW</h4>
+          <h4 className="sub-title">{investorProject.title}</h4>
           <div className="container">
             <h4 className="section-title">Beneficiary Type</h4>
             <DetailContainer icon={IconBenef} title={'You are an Offtaker'} type={'0.24 ct/kWh'}
@@ -167,7 +174,9 @@ class InvestorComponent extends React.Component {
                              action={'11:23 am Friday April 12, 2019'}/>
             <div className="SolarGraph">
               <img src={IconSolarAlt} alt="solar"/>
-              <img src={GraphPlaceholder} alt="solar"/>
+              <div className="graph-wrapper">
+                <img src={GraphPlaceholder} alt="solar"/>
+              </div>
               <div className="switch-buttons">
                 <button className={this.state.activeButton === 'day' ? "-active" : ''} onClick={() => this.onButtonClick('day')}>DAY</button>
                 <button className={this.state.activeButton === 'month' ? "-active" : ''} onClick={() => this.onButtonClick('month')}>MONTH</button>
@@ -196,9 +205,9 @@ class InvestorComponent extends React.Component {
             <div className="contract-review">
               <div className="review-box">
                 <p>
-                  review
-                  smart
-                  contracts
+                  REVIEW
+                  SMART
+                  CONTRACTS
                 </p>
                 </div>
               <div className="flexbox">
@@ -206,13 +215,13 @@ class InvestorComponent extends React.Component {
                 <LinkContainer icon={IconChecked} value={"Link >"}/>
                 <LinkContainer icon={IconChecked} value={"Link >"}/>
                 <LinkContainer icon={IconChecked} value={"Link >"}/>
-                <LinkContainer icon={IconChecked} value={"Link >"}/>
-                <LinkContainer icon={IconChecked} value={"Link >"}/>
-                <LinkContainer icon={IconChecked} value={"Link >"}/>
+                <LinkContainer icon={IconUnChecked} value={"Developer >"}/>
+                <LinkContainer icon={IconUnChecked} value={"Developer >"}/>
+                <LinkContainer icon={IconUnChecked} value={"Developer >"}/>
               </div>
             </div>
             <h6>HOW TO REVIEW BLOCKCHAIN-BASED SMART CONTRACT</h6>
-            <p>
+            <p className="-small">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
               Cras dapibus vulputate diam eu pretium. Mauris elit orci,
               ultricies id fermentum vel, porta et eros. Vestibulum condimentum lectus in convallis feugiat.

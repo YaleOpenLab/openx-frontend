@@ -3,7 +3,7 @@ import './UserCard.scss';
 
 const UserCard = (props) => {
   return(
-    <div className="UserCard col-12 col-md-6 col-lg-3">
+    <div className={`${props.className} UserCard col-12 col-md-6 col-lg-3`}>
       <div className="user-card">
         <div className="user-card-header">
           <img src={props.icon} alt="beneficiary"/>
