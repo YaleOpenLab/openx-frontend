@@ -318,6 +318,12 @@
       transition: 0.25s;
       overflow: hidden;
 
+      @media (max-width: 767px) {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
       &:after {
         content: '';
         width: 0;
@@ -330,7 +336,7 @@
 
       &:hover {
         &:after {
-          animation: hover 1.5s ease-out;
+          animation: hover 0.75s ease-out;
         }
       }
     }
