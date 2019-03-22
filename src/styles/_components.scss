@@ -383,3 +383,24 @@
 }
 
 // End of Solar Inputs
+
+.watch-button {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  border: none;
+  background: none;
+  width: fit-content;
+  padding: 0;
+  cursor: pointer;
+  transition: opacity 0.25s;
+  z-index: 1;
+  &:hover {
+    opacity: 0.5;
+  }
+}
+.custom-link-to {
+  font-weight: 500;
+  color: $third-color-lighter;
+  cursor: pointer;
+}
