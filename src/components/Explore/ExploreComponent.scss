@@ -38,7 +38,7 @@
     }
 
     .desc-category {
-      color: #aaaeb3;
+      color: $explore-location;
       font-size: 12px;
       font-weight: 600;
       font-family: $secondary-font;
@@ -47,6 +47,7 @@
 
     .desc-description {
       color: $secondary-color;
+      min-height: 160px;
       span {
         font-weight: 500;
         font-size: 13px;
@@ -58,6 +59,21 @@
           line-height: 16px;
         }
       }
+    }
+  }
+  
+  .watch-button-explore {
+    position: absolute;
+    border: none;
+    background: none;
+    width: -moz-fit-content;
+    padding: 0;
+    cursor: pointer;
+    transition: opacity 0.25s;
+    bottom: 8px;
+    left: 8px;
+    &:hover {
+      opacity: 0.5;
     }
   }
 }

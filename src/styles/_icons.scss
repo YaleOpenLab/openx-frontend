@@ -181,8 +181,6 @@
   background-repeat: no-repeat;
 }
 
-
-
 .profile-edit-icon {
   height: 15px;
   width: 15px;
@@ -202,8 +200,40 @@
 .profile-settings-icon {
   height: 25px;
   width: 25px;
-    background: url("./assets/images/ic-setting.svg");
+  background: url("./assets/images/ic-setting.svg");
   background-size: 25px;
+  background-repeat: no-repeat;
+  align-self: center;
+}
+.search-icon {
+  height: 20px;
+  width: 20px;
+  background: url("./assets/images/ic-search-glass.svg");
+  background-size: 19px;
+  background-repeat: no-repeat;
+  align-self: center;
+}
+.location-icon {
+  height: 11px;
+  width: 10px;
+  background: url("./assets/images/ic-location-min.svg");
+  background-size: 8px;
+  background-repeat: no-repeat;
+  align-self: center;
+}
+.watch-icon {
+  height: 25px;
+  width: 25px;
+  background: url("./assets/images/ic-watch.svg");
+  background-size: 25px;
+  background-repeat: no-repeat;
+  align-self: center;
+}
+.info-icon {
+  height: 6px;
+  width: 6px;
+  background: url("./assets/images/ic-info.svg");
+  background-size: 6px;
   background-repeat: no-repeat;
   align-self: center;
 }
