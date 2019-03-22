@@ -45,6 +45,11 @@
       margin-bottom: $pixel-base;
     }
 
+    .desc-category-separator{
+      border-bottom: 2px solid $white;
+      padding-bottom: $pixel-base / 2;
+    }
+
     .desc-description {
       color: $secondary-color;
       min-height: 160px;
