@@ -9,6 +9,9 @@ const ProjectsTemplate = props => (
     <div className="projects-box">
       <NavLink to={ROUTES.PROJECT} className="no-padding">
         <div className="projects-image-box">
+          <button className="watch-button-explore" type="button">
+            <div className="watch-icon" />
+          </button>
           <img src={props.imageUrl} alt={props.title} />
         </div>
       </NavLink>
@@ -21,7 +24,7 @@ const ProjectsTemplate = props => (
             </NavLink>
           </div>
           <div className="desc-location col-12">
-            <span className="" />
+            <div className="projects-location-icon location-icon" />
             {props.location}
           </div>
           <div className="col-6 desc-category">Donation</div>
@@ -47,7 +50,7 @@ const ProjectsTemplate = props => (
               { value: "0%", desc: "return", type: "blue" },
               { value: "n/a", desc: "rating" },
               { value: "n/a", desc: "tax" },
-              { value: "2008", desc: "eta" }
+              { value: "2008", desc: "eta", icon: true }
             ]}
           />
           <div className="col-12 specifics-box">
@@ -55,7 +58,7 @@ const ProjectsTemplate = props => (
               <div className="col-6 spec-first-price">$4000</div>
               <div className="col-6 spec-second-price">$4000</div>
               <div className="col-12 ">
-                <ProgressBar progress={Math.floor((Math.random() * 100) + 1)} />
+                <ProgressBar progress={Math.floor(Math.random() * 100 + 1)} label="4" />
               </div>
             </div>
           </div>

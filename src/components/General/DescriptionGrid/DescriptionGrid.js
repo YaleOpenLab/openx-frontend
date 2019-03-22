@@ -12,6 +12,7 @@ const DescriptionGrid = props => {
           order-${i}`}
         >
           {item.value}
+          {item.icon ? <div className="spec-icon-info info-icon" /> : ""}
         </div>
         <div
           className={`col-3 spec-desc ${item.type ? item.type : ""}

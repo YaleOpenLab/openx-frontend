@@ -132,6 +132,10 @@
   padding: 6px;
 }
 
+.solar-form-search {
+  box-shadow: 0 4px 10px 0 rgba(189, 199, 222, 0.23);
+}
+
 .solar-button-fixed-width {
   width: 139px;
   margin: 0px auto;
@@ -255,6 +259,82 @@
   border-left: 1px solid silver;
   display: flex;
   justify-content: center;
+}
+
+.solar-input-inner-addon {
+  display: flex;
+  justify-content: flex-end;
+  .solar-icon {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0.5;
+  }
+}
+
+.solar-left-addon .solar-icon {
+  left: 25px;
+}
+
+.solar-right-addon .solar-icon {
+  right: 25px;
+}
+.solar-radio-button {
+  margin-bottom: $pixel-base;
+  .solar-input-radio-button:checked,
+  .solar-input-radio-button:not(:checked) {
+    display: none;
+  }
+  .solar-input-radio-button:checked + label,
+  .solar-input-radio-button:not(:checked) + label {
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    line-height: 20px;
+    display: inline-block;
+    font-size: 12px;
+    text-transform: capitalize;
+  }
+  .solar-input-radio-button:checked + label {
+    color: $secondary-color;
+  }
+  .solar-input-radio-button:not(:checked) + label {
+    color: $warm-grey;
+  }
+  .solar-input-radio-button:checked + label:before,
+  .solar-input-radio-button:not(:checked) + label:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    border: 1px solid $secondary-color;
+    border-radius: 100%;
+    background: #fff;
+  }
+  .solar-input-radio-button:checked + label:after,
+  .solar-input-radio-button:not(:checked) + label:after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background: $secondary-color;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+  }
+  .solar-input-radio-button:not(:checked) + label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  .solar-input-radio-button:checked + label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
 }
 
 .inner-addon {
