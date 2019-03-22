@@ -24,7 +24,7 @@
     line-height: normal;
     letter-spacing: normal;
     color: $primary-color;
-    margin: 0 0 $pixel-base;
+    margin: 0 0 $pixel-base * 0.25;
   }
 
   .sub-title {
@@ -112,12 +112,13 @@
       .flexbox {
         display: flex;
         align-items: center;
-        border-bottom: 1px solid #fff;
+        border-bottom: 1px solid $white;
         margin: 0 0 $pixel-base * 2;
         padding: 0 0 $pixel-base * 0.5;
 
         &.-alt {
           padding: 0 0 $pixel-base * 2;
+          border-bottom: 2px solid $white;
         }
 
         &.-no-spacing {
@@ -294,7 +295,7 @@
       color: $secondary-color;
       text-align: left;
       padding: 0 0 $pixel-base * 2;
-      border-bottom: 1px solid $warm-grey;
+      border-bottom: 1px solid #dfdcdc;
     }
 
     .see-more {
@@ -335,10 +336,29 @@
       justify-content: space-between;
       align-items: center;
       margin: $pixel-base * 4 0 0;
+      border-bottom: 1px solid #dfdcdc;
+
+      @media (max-width: 991px) {
+        flex-direction: column;
+      }
+
+      .graph-wrapper {
+        margin-top: $pixel-base * 3;
+        max-width: 633px;
+        width: 100%;
+        img {
+          width: 100%;
+          object-fit: cover;
+        }
+      }
 
       .switch-buttons {
         display: flex;
         flex-direction: column;
+
+        @media (max-width: 991px) {
+          flex-direction: row;
+        }
 
         button {
           width: 71px;
@@ -357,6 +377,10 @@
           cursor: pointer;
           outline: none;
           transition: 0.25s;
+          
+          @media (max-width: 991px) {
+            margin: $pixel-base * 2 $pixel-base * 2 0;
+          }
 
           &:hover {
             background: $secondary-color;
@@ -364,11 +388,15 @@
           }
 
           &:not(:last-of-type) {
-            margin-bottom: $pixel-base;
+            margin-bottom: $pixel-base * 2.5;
           }
 
           &.-active {
             background: $secondary-color;
+
+            &:hover {
+              opacity: 1;
+            }
           }
         }
       }
@@ -398,6 +426,7 @@
       margin: 0 0 $pixel-base * 4;
       display: flex;
       text-align: center;
+      flex-wrap: wrap;
     }
 
     .contract-review {
@@ -410,11 +439,23 @@
       margin: 0 0 $pixel-base * 4;
       display: flex;
       align-items: center;
+      
+      @media (max-width: 991px) {
+        width: 100%;
+        left: 0;
+        flex-direction: column;
+      }
 
       .flexbox {
         display: inline-flex;
         justify-content: space-between;
         width: 100%;
+        
+        @media (max-width: 575px) {
+          width: calc(100% + 30px);
+          overflow-x: scroll;
+          margin-left: -30px;
+        }
       }
 
       .review-box {
@@ -425,6 +466,10 @@
         background-color: $primary-color-light;
         display: inline-block;
         margin: 0 $pixel-base * 3 0 0;
+
+        @media (max-width: 991px) {
+          margin-bottom: $pixel-base * 2;
+        }
 
         p {
           font-family: $primary-font;
@@ -452,7 +497,7 @@
       margin: 0 0 $pixel-base;
     }
 
-    p {
+    .-small {
       font-family: $primary-font;
       font-size: 14px;
       font-weight: normal;
