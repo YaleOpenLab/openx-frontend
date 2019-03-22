@@ -5,6 +5,17 @@
     margin-top: $pixel-base * 2;
   }
 
+  &.-solar {
+    .user-card {
+      .user-card-header {
+        img {
+          width: 34px;
+          height: 34px;
+        }
+      }
+    }
+  }
+
     .user-card {
       max-width: 290px;
       margin: 0 auto;
@@ -13,7 +24,8 @@
       .user-card-header {
         display: flex;
         align-items: center;
-        margin-bottom: $pixel-base * 2.25;
+        margin-bottom: $pixel-base * 2;
+        min-height: 34px;
 
         img {
           width: 23px;
@@ -66,7 +78,7 @@
           font-stretch: normal;
           line-height: normal;
           letter-spacing: 2px;
-          color: $secondary-color-light;
+          color: $secondary-color-lighter;
         }
       }
     }
