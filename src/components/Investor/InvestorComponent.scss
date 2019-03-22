@@ -296,6 +296,10 @@
       text-align: left;
       padding: 0 0 $pixel-base * 2;
       border-bottom: 1px solid #dfdcdc;
+      
+      @media (min-width: 992px) {
+        padding-left: $pixel-base * 2;
+      }
     }
 
     .see-more {
@@ -338,8 +342,13 @@
       margin: $pixel-base * 4 0 0;
       border-bottom: 1px solid #dfdcdc;
 
+
       @media (max-width: 991px) {
         flex-direction: column;
+      }
+
+      @media (min-width: 992px) {
+        padding: 0 $pixel-base * 8;
       }
 
       .graph-wrapper {
