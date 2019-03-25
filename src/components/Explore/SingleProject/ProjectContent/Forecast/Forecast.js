@@ -18,17 +18,17 @@ const Forecast = props => (
                 <span>development stage</span>
               </div>
               <div className="col-12">
-                <DevelopmentStage data={props.data.graph}/>
+                <DevelopmentStage data={props.tempData.graph} currentStage={props.data.Stage} />
               </div>
               <div className="col-12 col-sm-7 mx-auto mg-top-15 forecast-info">
-                <div className="forecast-info-title">{props.data.graph.stageName}</div>
+                <div className="forecast-info-title">{props.tempData.graph.stageName}</div>
                 <div className="forecast-info-sub-title">current stage</div>
                 <div className="forecast-info-content">
-                  {props.data.graph.stageDescription} Larn more>
+                  {props.tempData.graph.stageDescription} Larn more>
                 </div>
               </div>
               <div className="col-12 mg-top-15 link-to-records">
-                <NavLink to={props.data.fullTimelineRecords} className="small">FULL TIMELINE RECORDS ></NavLink>
+                <NavLink to={props.tempData.fullTimelineRecords} className="small">FULL TIMELINE RECORDS ></NavLink>
               </div>
             </div>
           </div>
