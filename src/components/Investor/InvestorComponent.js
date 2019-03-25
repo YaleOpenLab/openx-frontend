@@ -33,12 +33,19 @@ class InvestorComponent extends React.Component {
     super(props);
     this.state = {
       activeButton: 'day',
+      dropdown: false,
     };
   }
 
   onButtonClick = (active) => {
     this.setState({
       activeButton: active
+    })
+  };
+
+  handleDropdown = () => {
+    this.setState({
+      dropdown: !this.state.dropdown,
     })
   };
 
@@ -136,6 +143,7 @@ class InvestorComponent extends React.Component {
             </div>
           </div>
         </div>
+        {this.state.dropdown && <div className="dropdown-wrapper">
         <div className="details-container">
           <h3 className="title-primary">YOUR PROJECT DETAILS</h3>
           <h4 className="sub-title">{investorProject.title}</h4>
@@ -228,9 +236,10 @@ class InvestorComponent extends React.Component {
               Sed vulputate fringilla felis. Aliquam ut arcu et dui feugiat scelerisque eu quis diam.
               Mauris placerat congue dui sit amet blandit. Phasellus condimentum libero vel velit auctor, sit amet tincidunt velit varius.
             </p>
-            <button className="display-button">SHOW LESS</button>
           </div>
         </div>
+        </div>}
+        <button className="display-button" onClick={() => this.handleDropdown()}>{this.state.dropdown ? 'SHOW LESS' : 'SHOW MORE'}</button>
       </div>
     );
   }
