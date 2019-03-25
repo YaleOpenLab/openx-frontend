@@ -8,15 +8,15 @@ const DevelopmentStage = props => {
     stageItems = data.stages.map(stage => {
       let stageClass = "ds-full";
 
-      if (stage.index < data.currentStage) {
+      if (stage.index < props.currentStage) {
         stageClass = "ds-full";
-      } else if (stage.index === data.currentStage) {
+      } else if (stage.index === props.currentStage) {
         stageClass = "ds-current";
       } else {
         stageClass = "ds-empty";
       }
       return (
-        <div className="col-xs-1-10">
+        <div className="col-xs-1-10" key={stage.index}>
           <div className="ds-count">{stage.index}</div>
           <div className={`ds-ball ${stageClass}`} />
           {stage.index < 7 ? (

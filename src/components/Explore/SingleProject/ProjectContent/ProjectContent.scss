@@ -31,6 +31,12 @@
     padding-top: $pixel-base;
     padding-bottom: $pixel-base;
   }
+  .text-bg {
+    font-size: 16px;
+  }
+  .sub-spacer{
+    margin-top: $pixel-base * 3;
+  }
 
   .sub-image {
     width: 100%;
