@@ -7,7 +7,7 @@ import ProgressBar from "../../../General/ProgressBar/ProgressBar";
 const ProjectsTemplate = props => (
   <div className="col-sm-12 col-md-6">
     <div className="projects-box">
-      <NavLink to={ROUTES.PROJECT} className="no-padding">
+      <NavLink to={ROUTES.PROJECT_BASE+props.index} className="no-padding">
         <div className="projects-image-box">
           <button className="watch-button-explore" type="button">
             <div className="watch-icon" />
@@ -19,7 +19,7 @@ const ProjectsTemplate = props => (
         <div className="row">
           <div className="col-12 desc-status">{props.status}</div>
           <div className="col-12 desc-title">
-            <NavLink className="no-padding" to={ROUTES.PROJECT}>
+            <NavLink className="no-padding" to={ROUTES.PROJECT_BASE+props.index}>
               {props.title}
             </NavLink>
           </div>

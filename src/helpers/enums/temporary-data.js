@@ -40,8 +40,8 @@ export const DATA = {
     {
       main: {
         id: 1,
-        imageUrl: "https://via.placeholder.com/550x350",
-        imageUrl2: "https://via.placeholder.com/150x90",
+        imageUrl: "https://i.imgur.com/5WxZ6lb.png",
+        imageUrl2: "https://i.imgur.com/5WxZ6lb.png",
         status: "installed", // early stage, etc..
         title: "Pasto Public School - Poc 1kW",
         location: "india basin, san francisco",
@@ -159,8 +159,10 @@ export const DATA = {
           partOne: [
             {
               title: "description",
-              content:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus vulputate diam eu pretium. Mauris elit orci, ultricies id fermentum vel, porta et eros. Vestibulum condimentum lectus in convallis feugiat. Sed vulputate fringilla felis. Aliquam ut arcu et dui feugiat scelerisque eu quis diam. Mauris placerat congue dui sit amet blandit. Phasellus condimentum libero vel velit auctor, sit amet tincidunt velit varius. Mauris lacinia porta faucibus."
+              content1:
+                `The public school of SU Pasto is a Montessori-based school located in the town of Aibonito, Puerto Rico and operated by the Instituto Nueva Escuela. After hurricanes Maria and Irma affected the island of Puerto Rico, the school was out of power for over 6 months. However, it operated as a defacto community shelter since its Parent-Teacher Association is a strong cohesive group in the Aibonito community. The school had an emergency generator and was able to cater to community needs during the aftermath. The most important aspect missing for the school was a resilient telecommunication system to connect with first responders. `,
+              content2:
+                `The current project entails the installation of a 1kW system connected to the administrative building’s subpanel. The solar system powers critical loads in the admin building, including emergency lights, a telecommunication system, the principal's computer and a mini fridge for first aids. The project is a proof-of-concept installation design and developed by the Yale Openlab and the DCI at the MIT Media Lab. The object is to test the interconnection of the system and the internet connected sensors powering simulated payment mechanisms.`
             },
             {
               title: "badges & charasteristics",
