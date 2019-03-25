@@ -1,0 +1,12 @@
+@import "../../../styles/variables";
+
+.loading-container{
+    .loading-item {
+        font-size: 25px;
+        font-weight: 100;
+        text-align: center;
+        text-transform: uppercase;
+        color: $third-color-lighter;
+        font-family: $secondary-font;
+    }
+}

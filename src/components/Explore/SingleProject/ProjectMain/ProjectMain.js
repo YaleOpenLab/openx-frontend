@@ -2,21 +2,22 @@ import React from "react";
 import ProgressBar from "../../../General/ProgressBar/ProgressBar";
 import "./ProjectMain.scss";
 import DescriptionGrid from "../../../General/DescriptionGrid/DescriptionGrid";
+import percentage from "../../../../helpers/functions/percentage";
 
 const ProjectMain = props => {
   const data = props.data;
+  const tempData = props.tempData;
   let list = null;
 
-  list = data.description.list.map(item => {
+  list = tempData.description.list.map(item => {
     return <li key={item.id}>{item.text}</li>;
   });
-
   return (
     <div className="container project-main">
       <div className="row">
         <div className="col-sm-12 col-md-7 order-md-1 order-sm-1 no-padding">
           <div className="project-main-image project-main-display-image">
-            <img src={data.imageUrl} alt="Project" />
+            <img src={tempData.imageUrl} alt="Project" />
           </div>
         </div>
 
@@ -25,13 +26,13 @@ const ProjectMain = props => {
             <div className="container">
               <div className="row mx-auto">
                 <div className="col-3 mx-auto no-padding">
-                  <img src={data.imageUrl2} alt="Project" />
+                  <img src={tempData.imageUrl2} alt="Project" />
                 </div>
                 <div className="col-3 mx-auto no-padding">
-                  <img src={data.imageUrl2} alt="Project" />
+                  <img src={tempData.imageUrl2} alt="Project" />
                 </div>
                 <div className="col-3 mx-auto no-padding">
-                  <img src={data.imageUrl2} alt="Project" />
+                  <img src={tempData.imageUrl2} alt="Project" />
                 </div>
               </div>
             </div>
@@ -45,43 +46,39 @@ const ProjectMain = props => {
 
           <div className="projects-description-box container">
             <div className="row">
-              <div className="desc-status col-12">{data.status}</div>
-              <div className="desc-title col-12">{data.title}</div>
+              <div className="desc-status col-12">{tempData.status}</div>
+              <div className="desc-title col-12">{tempData.title}</div>
               <div className="desc-location col-12">
-                <span className="" />
-                {data.location}
+                <div className="projects-location-icon location-icon" />
+                {data.State}
               </div>
               <div className="col-6 desc-category desc-category-separator desc-cat-category">
-                {data.category}
+                {tempData.category}
               </div>
               <div className="col-6 desc-category desc-category-separator desc-gen-location">
-                {data.genLocation}
+                {tempData.genLocation}
               </div>
               <div className="desc-description col-12">
-                {data.description.text}
+                {data.Metadata}
                 <ul>{list}</ul>
               </div>
               <div className="col-12 specifics-box">
                 <div className="container">
                   <div className="row">
                     <div className="col-6 spec-first-price spec-price-bigger">
-                      {data.finances.current}
+                      ${data.MoneyRaised}
                     </div>
                     <div className="col-6 spec-second-price spec-price-bigger">
-                      {data.finances.target}
+                      ${data.TotalValue}
                     </div>
                     <div className="col-12 ">
-                      <ProgressBar progress={data.finances.percentage} />
+                      <ProgressBar progress={percentage(data.MoneyRaised, data.TotalValue)} />
                     </div>
                   </div>
                 </div>
               </div>
-                <DescriptionGrid
-                  list={props.data.specificsOne}
-                />
-                <DescriptionGrid
-                  list={props.data.specificsTwo}
-                />
+              <DescriptionGrid list={props.tempData.specificsOne} />
+              <DescriptionGrid list={props.tempData.specificsTwo} />
             </div>
           </div>
         </div>

@@ -3,8 +3,6 @@ import LayoutHoc from "../../hoc/Layout/Layout";
 import ExploreComponent from "../../components/Explore/ExploreComponent";
 import SubNavigationComponent from "../../components/General/SubNavigationComponent/SubNavigationComponent";
 import ROUTES from "../../routes/routes";
-import { connect } from "react-redux";
-import { fetchProjects } from "../../components/Explore/Projects/store/actions";
 
 class ExplorePageContainer extends Component {
   constructor(props) {
@@ -19,10 +17,6 @@ class ExplorePageContainer extends Component {
     };
   }
 
-  componentDidMount() {
-    this.props.fetchProjects();
-  }
-
   render() {
     return (
       <LayoutHoc>
@@ -35,13 +29,4 @@ class ExplorePageContainer extends Component {
   }
 }
 
-const mapStateToProps = state => ({ ...state });
-
-const mapDispatchToProps = dispatch => ({
-  fetchProjects: () => dispatch(fetchProjects())
-});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ExplorePageContainer);
+export default ExplorePageContainer;

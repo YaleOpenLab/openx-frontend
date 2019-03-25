@@ -14,6 +14,7 @@ const ProjectDetails = props => {
     communityItems = data.communityEngagement.content.map(item => {
       return (
         <CommunitySection
+          key={item.title}
           title={item.title}
           text={item.text}
           imageUrl={item.image}
@@ -25,6 +26,7 @@ const ProjectDetails = props => {
     businessItems = data.businessAndPayment.content.map(item => {
       return (
         <BusinessPaymentSection
+          key={item.title}
           title={item.title}
           text={item.text}
           imageUrl={item.image}
@@ -189,7 +191,10 @@ const ProjectDetails = props => {
               </div>
               {businessItems}
               <div className="col-12 link-to-text">
-                <NavLink to={data.businessAndPayment.linkToDocument} className="big">
+                <NavLink
+                  to={data.businessAndPayment.linkToDocument}
+                  className="big"
+                >
                   Link to specific document for this section >
                 </NavLink>
               </div>

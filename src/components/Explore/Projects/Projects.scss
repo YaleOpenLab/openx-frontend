@@ -1,10 +1,13 @@
 @import "../../../styles/variables";
 
+.explore-wrapper {
+  margin-top: $pixel-base * 3;
+}
 .Projects {
-  margin-top: 32px;
+  margin-top:  $pixel-base * 4;
 
   .projects-box {
-    margin-bottom: 15px;
+    margin-bottom: $pixel-base * 2;
   }
 
   .projects-image-box {
@@ -21,6 +24,6 @@
   .projects-location-icon {
     float: left;
     margin-top: 2px;
-    padding-left: 16px;
+    padding-left: $pixel-base * 2;
   }
 }
