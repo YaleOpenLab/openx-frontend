@@ -4,32 +4,30 @@
   .header {
     position: relative;
     text-align: center;
-    background: url("../../assets/images/HeroBar.png");
+    background: url("../../assets/images/landingHeader.png");
     background-size: cover;
-    min-height: 353px;
+    min-height: 709px;
 
     .header-text {
-      font-family: AvenirNext;
-      text-transform: uppercase;
-      top: 50%;
-      left: 50%;
-      color: $primary-color-light;
-      font-weight: bold;
-      font-size: $base-font * 1.125;
-      background: $white;
-      font-style: normal;
-      font-stretch: normal;
-      line-height: 1.44;
-      letter-spacing: normal;
-      padding: $pixel-base * 0.5 $pixel-base * 2;
-    }
-    .part-1 {
+      font-family: $secondary-font;
       position: absolute;
       transform: translate(-50%, -100%);
-    }
-    .part-2 {
-      position: absolute;
-      transform: translate(-50%, 0%);
+      top: 50%;
+      left: 50%;
+      color: $white;
+      .header-text-normal{
+        font-size: 18px;
+        text-transform: capitalize;
+      }
+      .header-text-bold {
+        font-size: 35px;
+        font-weight: bold;
+      }
+      .header-text-upper {
+        margin-top: $pixel-base * 3;
+        font-size: 15px;
+        text-transform: uppercase;
+      }      
     }
 
     @media #{$md-scren} {
