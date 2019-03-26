@@ -1,0 +1,24 @@
+@import "../../styles/variables";
+
+.InvestorComponent {
+  padding: $pixel-base * 10 0;
+  font-family: $secondary-font;
+  .investor-title {
+    font-size: 34px;
+    color: $secondary-color;
+    margin-bottom: $pixel-base * 4;
+  }
+  .investor-separator {
+    border-bottom: 1px solid $warm-grey-two;
+    margin-bottom: $pixel-base * 4;
+  }
+  .investor-sub-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: $secondary-color;
+    margin-bottom: $pixel-base * 2;
+  }
+  .summary-cards{
+    margin-bottom: $pixel-base * 6;
+  }
+}

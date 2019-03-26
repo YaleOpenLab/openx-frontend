@@ -15,7 +15,7 @@
       top: 50%;
       left: 50%;
       color: $white;
-      .header-text-normal{
+      .header-text-normal {
         font-size: 18px;
         text-transform: capitalize;
       }
@@ -27,33 +27,21 @@
         margin-top: $pixel-base * 3;
         font-size: 15px;
         text-transform: uppercase;
-      }      
+      }
     }
+  }
 
-    @media #{$md-scren} {
+  @media #{$sm-scren} {
+    .header {
+      min-height: 350px;
       .header-text {
-        font-size: $base-font * 1.2;
-      }
-    }
-    @media #{$sm-scren} {
-      .header-text {
-        font-size: $base-font;
-      }
-    }
-    @media #{$xs-scren} {
-      .header-text {
-        font-size: $base-font / 1.7;
-      }
-    }
-    @media #{$lg-scren} {
-      .header-text {
-        font-size: $base-font * 1.125;
+        transform: translate(-50%, -50%);
       }
     }
   }
 
   .content {
-    margin-bottom: 20px;
+    margin-bottom: $pixel-base * 10;
 
     .item {
       margin-top: 24px;
@@ -91,17 +79,68 @@
   }
 
   .landing-info {
-    margin: 25px 0px 35px 0px;
+    margin: $pixel-base * 9 0px $pixel-base * 9 0px;
     text-align: center;
+    color: $secondary-color;
+    font-family: $secondary-font;
 
-    h1 {
-      color: $secondary-color;
-      font-size: 34px;
-    }
-
-    p {
-      color: $secondary-color;
+    .landing-section {
       font-size: 14px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    .landing-title {
+      font-size: 34px;
+      font-weight: 300;
+      margin-top: $pixel-base;
+    }
+    .landing-text {
+      font-size: 18px;
+      font-weight: 600;
+      margin-top: $pixel-base * 4;
+    }
+    .landing-action-link {
+      margin-top: $pixel-base * 3;
+      font-size: 18px;
+      font-weight: 600;
+
+      a {
+        color: $primary-color;
+      }
+    }
+  }
+  .landing-board {
+    min-height: 283px;
+    background: $sub-navigation-background;
+    font-family: $secondary-font;
+    text-align: center;
+    color: $secondary-color;
+    padding: $pixel-base * 5;
+
+    .landing-item-block {
+      justify-content: center;
+    }
+    .landing-board-item {
+      .landing-board-icon {
+        height: 78px;
+        width: 63px;
+        margin: 0px auto;
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+      .landing-board-title {
+        font-size: 28px;
+        font-weight: 300;
+        text-transform: capitalize;
+      }
+      .landing-board-desc {
+        font-size: 14px;
+        font-weight: 600;
+        margin-top: $pixel-base * 2;
+      }
     }
   }
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import ScrollableAnchor from "react-scrollable-anchor";
-import SummaryCards from "./SummaryCards/SummaryCards";
+import SummaryCards from "../../../../General/SummaryCards/SummaryCards";
 // import SummaryCardsD from "./SummaryCardsD/SummaryCardsD";
 
 const Overview = props => {

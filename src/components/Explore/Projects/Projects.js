@@ -37,11 +37,12 @@ class Projects extends Component {
                 <div className="row">
                   {this.props.projects.map(project => (
                     <ProjectsTemplate
+                      data={project}
                       key={project.Index}
                       index={project.Index}
                       location={project.Location}
                       metadata={project.Metadata}
-                      imageUrl="https://via.placeholder.com/350x350"
+                      imageUrl="https://i.imgur.com/rHwhDpL.png"
                       title="Pasto Public School - Poc 1kW"
                       status="installed"
                     />
