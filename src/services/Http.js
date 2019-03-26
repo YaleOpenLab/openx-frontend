@@ -33,6 +33,10 @@ export class Http {
   static projectAll() {
     return this.get("project/all").pipe(map(result => result.data));
   }
+  
+  static originatorGet(id) {
+    return this.get("public/user", { index: id });
+  }
 
   static projectGet(id) {
     return this.get("project/get", { index: id });
