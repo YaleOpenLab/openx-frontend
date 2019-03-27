@@ -7,16 +7,25 @@ import percentage from "../../../../helpers/functions/percentage";
 import { Http } from "../../../../services/Http";
 
 class ProjectsTemplate extends Component {
-  state = {
-    originator: ""
+  constructor(props) {
+    super(props);
+    this.state = {
+      originator: ""
+    };
   }
 
   componentDidMount = () => {
-    Http.originatorGet(this.props.data.OriginatorIndex).subscribe(originator => {
+    this.originatorSub = Http.originatorGet(
+      this.props.data.OriginatorIndex
+    ).subscribe(originator => {
       this.setState({
         originator: originator.data.Name
       });
     });
+  };
+
+  componentWillUnmount = () => {
+    this.originatorSub.unsubscribe();
   };
 
   render() {
@@ -54,9 +63,7 @@ class ProjectsTemplate extends Component {
               <div className="col-6 desc-category">
                 {this.props.data.InvestmentType}
               </div>
-              <div className="col-6 desc-category">
-                {this.state.originator}
-              </div>
+              <div className="col-6 desc-category">{this.state.originator}</div>
               <div className="desc-description col-12">
                 {this.props.metadata}
                 <ul>

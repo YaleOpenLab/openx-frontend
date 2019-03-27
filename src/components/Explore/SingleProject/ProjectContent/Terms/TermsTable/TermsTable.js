@@ -7,19 +7,19 @@ const TermsTable = props => {
   if (props.data) {
     items = props.data.map(item => {
       return (
-        <tr key={item.index}>
+        <tr key={item.Value}>
           <td>
-            <div className="text-with-icon">{item.variable}</div>
+            <div className="text-with-icon">{item.Variable}</div>
             <div className="info-icon info-icon-img" />
           </td>
-          <td>{item.value}</td>
-          <td>{item.relevantParty}</td>
-          <td>{item.note}</td>
+          <td>{item.Value}</td>
+          <td>{item.RelevantParty}</td>
+          <td>{item.Note}</td>
           <td>
-            <div className="terms-table-status">{item.status}</div>
+            <div className="terms-table-status">{item.Status}</div>
           </td>
           <td>
-            <span className="terms-doc-icon" />
+            <a href={item.SupportDoc} rel="noopener noreferrer" target="_blank"><span className="terms-doc-icon" /></a>
           </td>
         </tr>
       );

@@ -269,3 +269,12 @@
   background-repeat: no-repeat;
   align-self: center;
 }
+.navbar-toggler-icon {
+  height: 30px;
+  width: 30px;
+  background: url("./assets/images/ic-menu.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  align-self: center;
+  cursor: pointer;
+}
