@@ -7,19 +7,28 @@ const navigationItem = props => {
   if (!props.type) {
     items = (
       <a
-        className={`waves-effect waves-light ${
-          props.divider ? "border-right" : ""
-        } ${props.active ? "active-nav-item" : ""}`}
+        className={`anchor-nav-link-item ${props.divider ? "border-right" : ""} ${
+          props.active ? "active-nav-item" : ""
+        }`}
         href={props.link}
       >
-        {props.children}
+        <MDBNavItem>{props.children}</MDBNavItem>
       </a>
     );
   } else {
-    items = <div className="solar-button-fixed-width"><button className="solar-form-button solar-btn-normal" link={props.link} >{props.children}</button></div>;
+    items = (
+      <div className="solar-button-fixed-width">
+        <button
+          className="solar-form-button solar-btn-normal"
+          link={props.link}
+        >
+          {props.children}
+        </button>
+      </div>
+    );
   }
 
-  return <MDBNavItem>{items}</MDBNavItem>;
+  return <React.Fragment>{items}</React.Fragment>;
 };
 
 export default navigationItem;

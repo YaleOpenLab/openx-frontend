@@ -10,7 +10,7 @@ import Invest from "./Invest/Invest";
 import SupportOpenX from "../../../General/SupportOpenX/SupportOpenX";
 import { configureAnchors } from "react-scrollable-anchor";
 configureAnchors({
-  offset: -90,
+  offset: -68,
   scrollDuration: 500,
   keepLastAnchorHash: true
 });
@@ -18,7 +18,7 @@ configureAnchors({
 const ProjectContent = props => (
   <div className="ProjectContent">
     <AnchorNavigation list={props.navigation} active={props.active} />
-    <Terms data={props.tempData.terms} />
+    <Terms tempData={props.tempData.terms} data={props.data} />
     <Overview tempData={props.tempData.projectOverview} data={props.data} />
     <ProjectDetails data={props.tempData.project} />
     <Forecast tempData={props.tempData.stageAndForecast} data={props.data} />

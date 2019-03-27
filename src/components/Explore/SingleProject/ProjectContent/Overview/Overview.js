@@ -1,23 +1,29 @@
 import React from "react";
 import ScrollableAnchor from "react-scrollable-anchor";
 import SummaryCards from "../../../../General/SummaryCards/SummaryCards";
-// import SummaryCardsD from "./SummaryCardsD/SummaryCardsD";
+import caseToName from "../../../../../helpers/functions/replace-case-name";
+import ExecutiveSummary from "./constants";
 
 const Overview = props => {
   let cards = null;
   const tempData = props.tempData;
-  // const data = props.data;
+  const data = props.data;
 
-  if (tempData.summary) {
-    cards = tempData.summary.map(card => {
+  if (data.ExecutiveSummary) {
+    cards = Object.keys(data.ExecutiveSummary).map(key => {
+      let title = ExecutiveSummary[key].title;
+      let icon = ExecutiveSummary[key].icon;
+      let items = [];
+
+      for (let item of Object.entries(data.ExecutiveSummary[key])) {
+        items.push({
+          value: item[1],
+          desc: caseToName(item[0])
+        });
+      }
       return (
-        <div className="col-sm-6 col-lg-3">
-          <SummaryCards
-            key={card.title}
-            title={card.title}
-            items={card.parts}
-            icon={card.icon}
-          />
+        <div className="col-sm-6 col-lg-3" key={title}>
+          <SummaryCards title={title} items={items} icon={icon} />
         </div>
       );
     });
@@ -38,53 +44,6 @@ const Overview = props => {
               <div className="col-12 summary-grid">
                 <div className="container">
                   <div className="row">
-                    {/* With real data ... */}
-                    {/* <SummaryCardsD 
-                      title="Investment"
-                      icon="money-icon"
-                      itemName1="capex"
-                      itemValue1={data.InvestmentMetrics.Capex}
-                      itemName2="certification cost"
-                      itemValue2={data.InvestmentMetrics.CertificationCosts}
-                      itemName3="first loss escrow"
-                      itemValue3={data.InvestmentMetrics.FirstLossEscrow}
-                      itemName4="hardware"
-                      itemValue4={data.InvestmentMetrics.Hardware}
-                    />
-                    <SummaryCardsD 
-                      title="financials"
-                      icon="handout-icon"
-                      itemName1="insurance"
-                      itemValue1={data.FinancialMetrics.Insurance}
-                      itemName2="maturity"
-                      itemValue2={data.FinancialMetrics.Maturity}
-                      itemName3="return"
-                      itemValue3={data.FinancialMetrics.Return}
-                      itemName4="tariff"
-                      itemValue4={data.FinancialMetrics.Tariff}
-                    />
-                    <SummaryCardsD 
-                      title="project size"
-                      icon="settings-icon"
-                      itemName1="% critical"
-                      itemValue1={data.ProjectSizeMetric.Critical}
-                      itemName2="inverter capacity"
-                      itemValue2={data.ProjectSizeMetric.InverterCapacity}
-                      itemName3="pv solar"
-                      itemValue3={data.ProjectSizeMetric.PVSolar}
-                      itemName4="storage"
-                      itemValue4={data.ProjectSizeMetric.Storage}
-                    />
-                    <SummaryCardsD 
-                      title="sustainability"
-                      icon="preferences-icon"
-                      itemName1="carbon drawdown"
-                      itemValue1={data.SustainabilityMetric.CarbonDrawdown}
-                      itemName2="community value"
-                      itemValue2={data.SustainabilityMetric.CommnunityValue}
-                      itemName3="lca"
-                      itemValue3={data.SustainabilityMetric.LCA}
-                    /> */}
                     {cards}
                   </div>
                 </div>

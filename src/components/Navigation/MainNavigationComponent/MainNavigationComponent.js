@@ -23,7 +23,9 @@ class MainNavigationComponent extends Component {
   };
 
   toggleCollapse = () => {
-    this.setState({ isOpen: !this.state.isOpen });
+    this.setState(prevState => ({
+      isOpen: !prevState.isOpen
+    }));
   };
 
   render() {
@@ -77,7 +79,10 @@ class MainNavigationComponent extends Component {
                   </MDBDropdown>
                 </MDBNavItem>
                 <div className="profile-nav-avatar">
-                  <img src="https://i1.rgstatic.net/ii/profile.image/722704944607235-1549317694495_Q512/Martin_Wainstein.jpg" alt="user profile" />
+                  <img
+                    src="https://i1.rgstatic.net/ii/profile.image/722704944607235-1549317694495_Q512/Martin_Wainstein.jpg"
+                    alt="user profile"
+                  />
                 </div>
               </React.Fragment>
             ) : (

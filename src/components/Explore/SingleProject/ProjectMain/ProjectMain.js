@@ -7,11 +7,7 @@ import percentage from "../../../../helpers/functions/percentage";
 const ProjectMain = props => {
   const data = props.data;
   const tempData = props.tempData;
-  let list = null;
 
-  list = tempData.description.list.map(item => {
-    return <li key={item.id}>{item.text}</li>;
-  });
   return (
     <div className="container project-main">
       <div className="row">
@@ -38,7 +34,6 @@ const ProjectMain = props => {
             </div>
           </div>
         </div>
-
         <div className="col-sm-12 col-md-5 order-md-2 order-sm-3  no-padding">
           <button className="watch-button">
             <div className="watch-icon" />
@@ -46,21 +41,25 @@ const ProjectMain = props => {
 
           <div className="projects-description-box container">
             <div className="row">
-              <div className="desc-status col-12">{tempData.status}</div>
-              <div className="desc-title col-12">{tempData.title}</div>
+              <div className="desc-status col-12">STAGE {data.Stage} | {tempData.status}</div>
+              <div className="desc-title col-12">{data.Name}</div>
               <div className="desc-location col-12">
                 <div className="projects-location-icon location-icon" />
-                {data.State}
+                {data.State}, {data.Country}
               </div>
               <div className="col-6 desc-category desc-category-separator desc-cat-category">
-                {tempData.category}
+                {data.InvestmentType}
               </div>
               <div className="col-6 desc-category desc-category-separator desc-gen-location">
-                {tempData.genLocation}
+                {data.BrokerDealer}
               </div>
               <div className="desc-description col-12">
                 {data.Metadata}
-                <ul>{list}</ul>
+                <ul>
+                <li>{data.Bullet1}</li>
+                <li>{data.Bullet2}</li>
+                <li>{data.Bullet3}</li>
+                </ul>
               </div>
               <div className="col-12 specifics-box">
                 <div className="container">
