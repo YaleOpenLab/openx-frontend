@@ -7,10 +7,14 @@
     font-size: 34px;
     color: $secondary-color;
     margin-bottom: $pixel-base * 4;
+    text-transform: capitalize;
   }
   .investor-separator {
     border-bottom: 1px solid $warm-grey-two;
     margin-bottom: $pixel-base * 4;
+  }
+  .investor-marginer {
+    margin-bottom: $pixel-base * 8; 
   }
   .investor-sub-title {
     font-size: 20px;

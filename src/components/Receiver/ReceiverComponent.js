@@ -60,38 +60,50 @@ class ReceiverComponent extends React.Component {
         <div className="profile-section">
           <div className="container">
             <div className="row">
-              <SummaryCards
-                title="your profile"
-                items={[
-                  { value: receiver.fullName, desc: "beneficiary name" },
-                  { value: receiver.projectsActive, desc: "active projects" }
-                ]}
-                icon="beneficiary-icon"
-              />
-              <SummaryCards
-                title="your energy"
-                items={[
-                  { value: receiver.currentEnergy, desc: "TOTAL IN CURRENT PERIOD" },
-                  { value: receiver.allTimeEnergy, desc: "ALL TIME" }
-                ]}
-                icon="solar-panel-icon"
-              />
-              <SummaryCards
-                title="YOUR WALLET"
-                items={[
-                  { value: receiver.wallet, desc: "PROJECT WALLET BALANCE" },
-                  { value: receiver.autoReload, desc: "AUTO RE-LOAD" }
-                ]}
-                icon="wallet-icon"
-              />
-              <SummaryCards
-                title="NOTIFICATIONS & ACTIONS"
-                items={[
-                  { value: receiver.notification, desc: "NOTIFICATION" },
-                  { value: receiver.actionsReq, desc: "ACTIONS REQUIRED" }
-                ]}
-                icon="flag-icon"
-              />
+              <div className="col-sm-6 col-lg-3 ">
+                <SummaryCards
+                  title="your profile"
+                  items={[
+                    { value: receiver.fullName, desc: "beneficiary name" },
+                    { value: receiver.projectsActive, desc: "active projects" }
+                  ]}
+                  icon="beneficiary-icon"
+                />
+              </div>
+              <div className="col-sm-6 col-lg-3 ">
+                <SummaryCards
+                  title="your energy"
+                  items={[
+                    {
+                      value: receiver.currentEnergy,
+                      desc: "TOTAL IN CURRENT PERIOD"
+                    },
+                    { value: receiver.allTimeEnergy, desc: "ALL TIME" }
+                  ]}
+                  icon="solar-panel-icon"
+                />
+              </div>
+
+              <div className="col-sm-6 col-lg-3 ">
+                <SummaryCards
+                  title="YOUR WALLET"
+                  items={[
+                    { value: receiver.wallet, desc: "PROJECT WALLET BALANCE" },
+                    { value: receiver.autoReload, desc: "AUTO RE-LOAD" }
+                  ]}
+                  icon="wallet-icon"
+                />
+              </div>
+              <div className="col-sm-6 col-lg-3 ">
+                <SummaryCards
+                  title="NOTIFICATIONS & ACTIONS"
+                  items={[
+                    { value: receiver.notification, desc: "NOTIFICATION" },
+                    { value: receiver.actionsReq, desc: "ACTIONS REQUIRED" }
+                  ]}
+                  icon="flag-icon"
+                />
+              </div>
             </div>
           </div>
         </div>

@@ -13,7 +13,8 @@ const ROUTES = {
   INVESTOR_PAGES: {
     DASHBOARD: "/investor/dashboard",
     PROFILE: "/investor/porofile",
-    NOTIFICATIONS: "/investor/notifications"
+    NOTIFICATIONS: "/investor/notifications",
+    CONFIRMATION: "/investor/confirm",
   },
   RECEIVER: "/receiver",
   DEVELOPER: "/developer",
