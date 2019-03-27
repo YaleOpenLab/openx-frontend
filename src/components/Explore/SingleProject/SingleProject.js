@@ -38,6 +38,7 @@ class SingleProject extends Component {
   };
 
   componentDidMount = () => {
+    window.scrollTo(0, 0);
     window.addEventListener("scroll", this.handleScroll);
     const projectId = this.props.match.params.projectId;
     this.props.fetchProject(projectId);

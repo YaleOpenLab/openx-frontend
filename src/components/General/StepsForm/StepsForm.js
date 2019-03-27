@@ -31,6 +31,10 @@ class StepsForm extends Component {
     let content = null;
     let buttons = null;
 
+    if(!children) {
+      return <div>empty form</div>
+    }
+
     if (children) {
       content = children.find(item => {
         if (parseInt(item.key) === this.state.step) {
