@@ -1,0 +1,10 @@
+@import "../../../../styles/variables";
+
+.investor-dashboard{
+    .investment-summary {
+        margin-bottom: $pixel-base * 6;
+    }
+    .invested-projects {
+        margin-top: $pixel-base * 16;
+    }
+}

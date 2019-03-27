@@ -23,7 +23,7 @@
   }
   .card-body {
     background: $white-three;
-    padding: $pixel-base * 2;
+    padding: $pixel-base * 3;
     font-family: $secondary-font;
     min-height: 82px;
     border-bottom: 1px solid $pale-grey;
@@ -45,6 +45,7 @@
 
   @media #{$md-scren} {
     .card-body {
+      padding: $pixel-base * 2;
       .card-body-content {
         font-size: 18px;
       }
@@ -52,6 +53,7 @@
   }
   @media #{$xs-scren} {
     .card-body {
+      padding: $pixel-base * 2;
       .card-body-content {
         font-size: 24px;
       }

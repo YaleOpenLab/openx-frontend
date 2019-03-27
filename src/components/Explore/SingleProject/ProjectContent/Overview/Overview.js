@@ -11,12 +11,14 @@ const Overview = props => {
   if (tempData.summary) {
     cards = tempData.summary.map(card => {
       return (
-        <SummaryCards
-          key={card.title}
-          title={card.title}
-          items={card.parts}
-          icon={card.icon}
-        />
+        <div className="col-sm-6 col-lg-3">
+          <SummaryCards
+            key={card.title}
+            title={card.title}
+            items={card.parts}
+            icon={card.icon}
+          />
+        </div>
       );
     });
   }
