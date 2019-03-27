@@ -18,9 +18,9 @@ class InvestmentConfirmation extends Component {
             <div className="col-12">
               <StepsForm
                 tabs={[
-                  { name: "register", key: 1 },
-                  { name: "identification", key: 2 },
-                  { name: "key gen", key: 3 }
+                  { name: "amount", key: 1 },
+                  { name: "profile", key: 2 },
+                  { name: "config", key: 3 }
                 ]}
               >
                 <div key={1}>1</div>
