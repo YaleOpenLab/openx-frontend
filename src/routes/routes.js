@@ -10,6 +10,12 @@ const ROUTES = {
   PROJECT_BASE: "/project/",
   PROJECT: "/project/:projectId",
   INVESTOR: "/investor",
+  INVESTOR_PAGES: {
+    DASHBOARD: "/investor/dashboard",
+    PROFILE: "/investor/porofile",
+    NOTIFICATIONS: "/investor/notifications",
+    CONFIRMATION: "/investor/confirm",
+  },
   RECEIVER: "/receiver",
   DEVELOPER: "/developer",
   PROFILE: "/profile",

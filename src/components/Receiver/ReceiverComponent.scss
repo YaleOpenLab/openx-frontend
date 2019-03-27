@@ -1,6 +1,6 @@
 @import "../../styles/variables";
 
-.InvestorComponent {
+.ReceiverComponent {
   padding: $pixel-base * 14 0 0;
 
   .container-title {
@@ -89,7 +89,7 @@
         font-stretch: normal;
         line-height: normal;
         letter-spacing: normal;
-        color: #737578;
+        color: $projects-location-color;
         margin: 0 0 $pixel-base * 1.5;
       }
 

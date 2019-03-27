@@ -16,10 +16,13 @@ $third-color-light: #2961a2;
 $third-color-lighter: #4a90e2;
 $status-color: #417505;
 $charcoal-grey-two: #393c40;
+$charcoal-grey-three: #393a3c;
 $pale-grey: rgba(245, 246, 248, 0.48);
 $grey-light: #ecedef;
 $warm-grey: #9b9b9b;
+$warm-grey-two: #979797;
 $white: #ffffff;
+$white-three: #f3f3f3;
 $error-color: #d0021b;
 
 @mixin margin-mix($position, $times) {
@@ -67,3 +70,4 @@ $input-color-focus: #474b4f;
 $input-color-light: #c6c9cf;
 $input-color-lighter: #dfe1e3;
 $input-color-active-slider: #b3b6bb;
+$pale-grey: #ecedef;

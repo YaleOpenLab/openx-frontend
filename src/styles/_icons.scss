@@ -2,7 +2,7 @@
   height: 15px;
   width: 15px;
   background: url("./assets/images/auth-user-icon.png");
-  background-size: 15px;
+  background-size: contain;
   background-repeat: no-repeat;
 }
 
@@ -11,7 +11,7 @@
   width: 15px;
   top: 20px;
   background: url("./assets/images/auth-mail-icon.png");
-  background-size: 13px;
+  background-size: contain;
   background-repeat: no-repeat;
 }
 
@@ -19,7 +19,7 @@
   height: 15px;
   width: 15px;
   background: url("./assets/images/auth-password-icon.png");
-  background-size: 12px;
+  background-size: contain;
   background-repeat: no-repeat;
 }
 .icon-doc-archive {
@@ -28,7 +28,7 @@
   margin: 0px auto;
   width: 50px;
   background: url("./assets/images/ic-doc-archive.svg");
-  background-size: 40px;
+  background-size: contain;
   background-repeat: no-repeat;
 }
 
@@ -38,7 +38,7 @@
   margin: 0px auto;
   width: 50px;
   background: url("./assets/images/ic-doc-single-folder.svg");
-  background-size: 40px;
+  background-size: contain;
   background-repeat: no-repeat;
 }
 
@@ -48,7 +48,7 @@
   margin: 0px auto;
   width: 25px;
   background: url("./assets/images/ic-doc-checked.svg");
-  background-size: 20px;
+  background-size: contain;
   background-repeat: no-repeat;
 }
 
@@ -58,7 +58,7 @@
   margin: 0px auto;
   width: 25px;
   background: url("./assets/images/ic-doc-unchecked.svg");
-  background-size: 20px;
+  background-size: contain;
   background-repeat: no-repeat;
 }
 
@@ -67,39 +67,43 @@
   height: 25px;
   width: 25px;
   background: url("./assets/images/ic-attach-money.svg");
-  background-size: 20px;
+  background-size: contain;
   background-repeat: no-repeat;
+  align-self: center;
 }
 .handout-icon {
   float: left;
   height: 25px;
   width: 25px;
   background: url("./assets/images/ic-handout.svg");
-  background-size: 20px;
+  background-size: contain;
   background-repeat: no-repeat;
+  align-self: center;
 }
 .settings-icon {
   float: left;
   height: 25px;
   width: 25px;
   background: url("./assets/images/ic-settings-gear.svg");
-  background-size: 20px;
+  background-size: contain;
   background-repeat: no-repeat;
+  align-self: center;
 }
 .preferences-icon {
   float: left;
   height: 25px;
   width: 25px;
   background: url("./assets/images/ic-preferences.svg");
-  background-size: 20px;
+  background-size: contain;
   background-repeat: no-repeat;
+  align-self: center;
 }
 .terms-doc-icon {
   float: right;
   height: 25px;
   width: 25px;
   background: url("./assets/images/ic-terms-doc.svg");
-  background-size: 20px;
+  background-size: contain;
   background-repeat: no-repeat;
 }
 .lock-icon {
@@ -107,85 +111,113 @@
   height: 25px;
   width: 25px;
   background: url("./assets/images/ic-lock.svg");
-  background-size: 20px;
+  background-size: contain;
   background-repeat: no-repeat;
 }
 .profile-user-icon {
   height: 18px;
   width: 18px;
   background: url("./assets/images/ic-profile-user.svg");
-  background-size: 17px;
+  background-size: contain;
   background-repeat: no-repeat;
+  align-self: center;
 }
 .profile-badge-icon {
   height: 18px;
   width: 18px;
   background: url("./assets/images/ic-badge.svg");
-  background-size: 17px;
+  background-size: contain;
   background-repeat: no-repeat;
+  align-self: center;
 }
 .profile-business-icon {
   height: 18px;
   width: 18px;
   background: url("./assets/images/ic-business.svg");
-  background-size: 17px;
+  background-size: contain;
   background-repeat: no-repeat;
+  align-self: center;
 }
 .profile-certified-icon {
   height: 18px;
   width: 18px;
   background: url("./assets/images/ic-certified.svg");
-  background-size: 17px;
+  background-size: contain;
   background-repeat: no-repeat;
+  align-self: center;
 }
 .profile-world-icon {
   height: 18px;
   width: 18px;
   background: url("./assets/images/ic-world.svg");
-  background-size: 17px;
+  background-size: contain;
   background-repeat: no-repeat;
+  align-self: center;
 }
 .profile-coop-icon {
   height: 18px;
   width: 18px;
   background: url("./assets/images/ic-coop.svg");
-  background-size: 17px;
+  background-size: contain;
   background-repeat: no-repeat;
+  align-self: center;
 }
 .wallet-icon {
   height: 18px;
   width: 18px;
   background: url("./assets/images/ic-wallet.svg");
-  background-size: 17px;
+  background-size: contain;
   background-repeat: no-repeat;
+  align-self: center;
 }
 .beneficiary-icon {
   height: 18px;
   width: 18px;
   background: url("./assets/images/ic-beneficiary.svg");
-  background-size: 17px;
+  background-size: contain;
   background-repeat: no-repeat;
+  align-self: center;
+}
+
+//TODO: replace solar icon with better quality one
+.solar-panel-icon {
+  height: 18px;
+  width: 18px;
+  background: url("./assets/images/ic-solar-panel.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  align-self: center;
+}
+.flag-icon {
+  height: 18px;
+  width: 18px;
+  background: url("./assets/images/ic-flag.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  align-self: center;
 }
 .investor-icon {
   height: 18px;
   width: 18px;
   background: url("./assets/images/ic-investor.svg");
-  background-size: 17px;
+  background-size: contain;
   background-repeat: no-repeat;
+  align-self: center;
 }
 .developer-icon {
   height: 18px;
   width: 18px;
   background: url("./assets/images/ic-developer.svg");
-  background-size: 17px;
+  background-size: contain;
   background-repeat: no-repeat;
+  align-self: center;
 }
 
 .profile-edit-icon {
   height: 15px;
   width: 15px;
   background: url("./assets/images/ic-edit.svg");
-  background-size: 15px;
+  background-size: contain;
   background-repeat: no-repeat;
   align-self: center;
 }
@@ -193,7 +225,7 @@
   height: 15px;
   width: 15px;
   background: url("./assets/images/ic-add.svg");
-  background-size: 12px;
+  background-size: contain;
   background-repeat: no-repeat;
   align-self: center;
 }
@@ -201,7 +233,7 @@
   height: 25px;
   width: 25px;
   background: url("./assets/images/ic-setting.svg");
-  background-size: 25px;
+  background-size: contain;
   background-repeat: no-repeat;
   align-self: center;
 }
@@ -209,7 +241,7 @@
   height: 20px;
   width: 20px;
   background: url("./assets/images/ic-search-glass.svg");
-  background-size: 19px;
+  background-size: contain;
   background-repeat: no-repeat;
   align-self: center;
 }
@@ -217,7 +249,7 @@
   height: 11px;
   width: 10px;
   background: url("./assets/images/ic-location-min.svg");
-  background-size: 8px;
+  background-size: contain;
   background-repeat: no-repeat;
   align-self: center;
 }
@@ -225,7 +257,7 @@
   height: 25px;
   width: 25px;
   background: url("./assets/images/ic-watch.svg");
-  background-size: 25px;
+  background-size: contain;
   background-repeat: no-repeat;
   align-self: center;
 }
@@ -233,7 +265,7 @@
   height: 8px;
   width: 8px;
   background: url("./assets/images/ic-info.svg");
-  background-size: 8px;
+  background-size: contain;
   background-repeat: no-repeat;
   align-self: center;
 }

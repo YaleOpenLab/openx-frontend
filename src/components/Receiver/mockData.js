@@ -1,5 +1,5 @@
 export const mockData = {
-  investorData:
+  receiverData:
     {
       fullName: 'Martin Wainstein',
       projectsActive: '2',

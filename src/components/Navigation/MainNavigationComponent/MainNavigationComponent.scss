@@ -16,12 +16,12 @@
         color: $secondary-color;
       }
       a {
-        color: $primary-color-light;
+        color: $secondary-color;
       }
       .is-active {
         font-weight: bold;
         background: rgba(155, 155, 155, 0.11);
-
+        color: $primary-color-light;
       }
     }
 
