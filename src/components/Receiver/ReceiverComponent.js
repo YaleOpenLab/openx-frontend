@@ -21,8 +21,8 @@ import GraphPlaceholder from "../../assets/images/graph-placeholder.png";
 import ProgressBar from "./ProgressBar";
 import DetailContainer from "./DetailContainer";
 import "./ReceiverComponent.scss";
-import DocumentationContainer from "./DocumentationContainer";
-import LinkContainer from "./LinkContainer";
+import DocumentationContainer from "../General/DocumentationContainer";
+import ContractReview from "../General/ContractReview";
 import { mockData } from "./mockData";
 import SummaryCards from "../General/SummaryCards/SummaryCards";
 
@@ -31,7 +31,79 @@ class ReceiverComponent extends React.Component {
     super(props);
     this.state = {
       activeButton: "day",
-      dropdown: false
+      dropdown: false,
+      documentation: [
+        {
+          title: 'Project Overview',
+          sub: 'PROJECT PORTFOLIO',
+          icon: IconArchive,
+        },
+        {
+          title: 'PPA',
+          sub: 'CONTRACT',
+          icon: IconSingle,
+        },
+        {
+          title: 'RE Certification Agreement',
+          sub: 'RECs',
+          icon: IconSingle,
+        },
+        {
+          title: 'Guarantor Agreements',
+          sub: 'INVESTOR PROTECTIONS',
+          icon: IconArchive,
+        },
+        {
+          title: 'Contractors Agreement',
+          sub: 'DEVELOPER',
+          icon: IconArchive,
+        },
+        {
+          title: 'Stakeholder Agreement',
+          sub: 'STAKEHOLDERS',
+          icon: IconSingle,
+        },
+        {
+          title: 'Community Energy Charter',
+          sub: 'INVESTOR PROTECTIONS',
+          icon: IconSingle,
+        },
+        {
+          title: 'Financial Reportings',
+          sub: 'PROJECT FINANCIALS',
+          icon: IconArchive,
+        },
+      ],
+      review: [
+        {
+          icon: IconChecked,
+          label: 'Link >',
+        },
+        {
+          icon: IconChecked,
+          label: 'Link >',
+        },
+        {
+          icon: IconChecked,
+          label: 'Link >',
+        },
+        {
+          icon: IconChecked,
+          label: 'Link >',
+        },
+        {
+          icon: IconUnChecked,
+          label: 'Developer >',
+        },
+        {
+          icon: IconUnChecked,
+          label: 'Developer >',
+        },
+        {
+          icon: IconUnChecked,
+          label: 'Developer >',
+        },
+      ]
     };
   }
 
@@ -309,63 +381,9 @@ class ReceiverComponent extends React.Component {
               <h4 className="sub-title">PASTO PUBLIC SCHOOL - POC 1KW</h4>
               <div className="container">
                 <h5>LEGAL CONTRACTUAL DOCUMENTATION</h5>
-                <div className="contracts">
-                  <DocumentationContainer
-                    title={"Project Overview"}
-                    sub={"PROJECT PORTFOLIO"}
-                    icon={IconArchive}
-                  />
-                  <DocumentationContainer
-                    title={"PPA"}
-                    sub={"CONTRACT"}
-                    icon={IconSingle}
-                  />
-                  <DocumentationContainer
-                    title={"RE Certification Agreement"}
-                    sub={"RECs"}
-                    icon={IconSingle}
-                  />
-                  <DocumentationContainer
-                    title={"Guarantor Agreements"}
-                    sub={"INVESTOR PROTECTIONS"}
-                    icon={IconArchive}
-                  />
-                  <DocumentationContainer
-                    title={"Contractors Agreement"}
-                    sub={"DEVELOPER"}
-                    icon={IconArchive}
-                  />
-                  <DocumentationContainer
-                    title={"Stakeholder Agreement"}
-                    sub={"STAKEHOLDERS"}
-                    icon={IconSingle}
-                  />
-                  <DocumentationContainer
-                    title={"Community Energy Charter"}
-                    sub={"INVESTOR PROTECTIONS"}
-                    icon={IconSingle}
-                  />
-                  <DocumentationContainer
-                    title={"Financial Reportings"}
-                    sub={"PROJECT FINANCIALS"}
-                    icon={IconArchive}
-                  />
-                </div>
+                <DocumentationContainer data={this.state.documentation}/>
                 <h5>BLOCKCHAIN-BASED SMART CONTRACTS</h5>
-                <div className="contract-review">
-                  <div className="review-box">
-                    <p>REVIEW SMART CONTRACTS</p>
-                  </div>
-                  <div className="flexbox">
-                    <LinkContainer icon={IconChecked} value={"Link >"} />
-                    <LinkContainer icon={IconChecked} value={"Link >"} />
-                    <LinkContainer icon={IconChecked} value={"Link >"} />
-                    <LinkContainer icon={IconChecked} value={"Link >"} />
-                    <LinkContainer icon={IconUnChecked} value={"Developer >"} />
-                    <LinkContainer icon={IconUnChecked} value={"Developer >"} />
-                    <LinkContainer icon={IconUnChecked} value={"Developer >"} />
-                  </div>
-                </div>
+                    <ContractReview data={this.state.review} title={'REVIEW SMART CONTRACTS'}/>
                 <h6>HOW TO REVIEW BLOCKCHAIN-BASED SMART CONTRACT</h6>
                 <p className="-small">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
