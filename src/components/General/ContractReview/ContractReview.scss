@@ -1,0 +1,80 @@
+@import "../../../styles/variables";
+
+.ContractReview {
+  width: calc(100% + 84px);
+  position: relative;
+  left: -84px;
+  border-radius: 19px;
+  border: solid 2px #000000;
+  padding: $pixel-base * 2 $pixel-base $pixel-base * 2 $pixel-base * 5;
+  margin: 0 0 $pixel-base * 4;
+  display: flex;
+  align-items: center;
+
+  .LinkContainer {
+    img {
+      display: block;
+      margin: 0 auto $pixel-base * 1.5;
+    }
+    button {
+      border: none;
+      cursor: pointer;
+      background: transparent;
+      text-align: center;
+      margin: 0 auto;
+      font-size: 13px;
+      font-weight: bold;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: 1.3px;
+      color: $secondary-color;
+      text-decoration: underline;
+    }
+  }
+
+
+  @media (max-width: 991px) {
+    width: 100%;
+    left: 0;
+    flex-direction: column;
+  }
+
+  .flexbox {
+    display: inline-flex;
+    justify-content: space-between;
+    width: 100%;
+
+    @media (max-width: 575px) {
+      width: calc(100% + 30px);
+      overflow-x: scroll;
+      margin-left: -30px;
+    }
+  }
+
+  .review-box {
+    width: 133px;
+    padding: $pixel-base * 2 $pixel-base * 3;
+    border-radius: 5px;
+    border: solid 2px #000000;
+    background-color: $primary-color-light;
+    display: inline-block;
+    margin: 0 $pixel-base * 3 0 0;
+
+    @media (max-width: 991px) {
+      margin-bottom: $pixel-base * 2;
+    }
+
+    p {
+      font-family: $primary-font;
+      font-size: 13px;
+      font-weight: bold;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.08;
+      letter-spacing: 1.3px;
+      color: $white;
+      margin: 0;
+    }
+  }
+}

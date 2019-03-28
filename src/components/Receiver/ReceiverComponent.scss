@@ -228,12 +228,21 @@
     .stats {
       width: 100%;
       padding: 0 $pixel-base;
+      display: flex;
+      flex-wrap: wrap;
 
       .stat-container {
+        flex: 0 25%;
         width: 25%;
         display: inline-block;
         text-align: left;
         padding: 0 $pixel-base * 0.5;
+        
+        @media (max-width: 576px) {
+          flex: 0 50%;
+          width: 50%;
+          margin-top: 14px;
+        }
 
         h6 {
           font-family: $secondary-font;
@@ -420,70 +429,6 @@
       margin: 0 0 $pixel-base * 3;
     }
 
-    .contracts {
-      width: 100%;
-      margin: 0 0 $pixel-base * 4;
-      display: flex;
-      text-align: center;
-      flex-wrap: wrap;
-    }
-
-    .contract-review {
-      width: calc(100% + 84px);
-      position: relative;
-      left: -84px;
-      border-radius: 19px;
-      border: solid 2px #000000;
-      padding: $pixel-base * 2 $pixel-base $pixel-base * 2 $pixel-base * 5;
-      margin: 0 0 $pixel-base * 4;
-      display: flex;
-      align-items: center;
-      
-      @media (max-width: 991px) {
-        width: 100%;
-        left: 0;
-        flex-direction: column;
-      }
-
-      .flexbox {
-        display: inline-flex;
-        justify-content: space-between;
-        width: 100%;
-        
-        @media (max-width: 575px) {
-          width: calc(100% + 30px);
-          overflow-x: scroll;
-          margin-left: -30px;
-        }
-      }
-
-      .review-box {
-        width: 133px;
-        padding: $pixel-base * 2 $pixel-base * 3;
-        border-radius: 5px;
-        border: solid 2px #000000;
-        background-color: $primary-color-light;
-        display: inline-block;
-        margin: 0 $pixel-base * 3 0 0;
-
-        @media (max-width: 991px) {
-          margin-bottom: $pixel-base * 2;
-        }
-
-        p {
-          font-family: $primary-font;
-          font-size: 13px;
-          font-weight: bold;
-          font-style: normal;
-          font-stretch: normal;
-          line-height: 1.08;
-          letter-spacing: 1.3px;
-          color: $white;
-          margin: 0;
-        }
-      }
-    }
-
     h6 {
       font-family: $primary-font;
       font-size: 13px;
@@ -542,9 +487,9 @@
      height: 0;
    }
 
-   to {
-     height: 3900px;
-   }
+    to {
+      height: 8000px;
+    }
   }
   
   @keyframes scroll-reveal {
