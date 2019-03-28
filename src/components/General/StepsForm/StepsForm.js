@@ -31,8 +31,8 @@ class StepsForm extends Component {
     let content = null;
     let buttons = null;
 
-    if(!children) {
-      return <div>empty form</div>
+    if (!children) {
+      return <div>empty form</div>;
     }
 
     if (children) {
@@ -110,13 +110,13 @@ class StepsForm extends Component {
       <div className="MultiSteps">
         <div className="solar-form">
           <div className="row">
-            <StepsFormHeader tabs={tabs} active={this.state.step} />
+            <StepsFormHeader tabs={tabs} active={this.state.step} classes={this.props.classes} />
             <div className="col-12 col-md-10 col-lg-8 mx-auto">
               <div className="row">
-                <div className="col-12 solar-form-separator" />
-                <div className="col-12">
-                  {content}
-                </div>
+                {this.props.separator === false ? null : (
+                  <div className="col-12 solar-form-separator" />
+                )}
+                <div className="col-12">{content}</div>
                 <div className="col-12">
                   <div className="row justify-content-end">{buttons}</div>
                 </div>

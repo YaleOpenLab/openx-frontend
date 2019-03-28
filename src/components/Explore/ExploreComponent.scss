@@ -51,16 +51,22 @@
 
     .desc-description {
       color: $secondary-color;
-      min-height: 160px;
+      .desc-description-text{
+        min-height: 120px
+      }
       span {
         font-weight: 500;
         font-size: 13px;
       }
-      ul {
-        margin: $pixel-base * 2 0 $pixel-base * 2 0;
-        font-size: 12px;
-        li {
-          line-height: 16px;
+      .desc-description-buttons{
+        min-height: 100px;
+        display: flex;
+        ul {
+          font-size: 12px;
+          align-self: center;
+          li {
+            line-height: 16px;
+          }
         }
       }
     }
