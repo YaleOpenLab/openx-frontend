@@ -17,20 +17,38 @@ const StepsFormHeader = props => {
                   props.active === count ? "steps-active" : "steps-inactive"
                 }
               />
-              <div className="steps-title">{item.name}</div>
+              <div
+                className={`steps-title ${
+                  props.active === count
+                    ? "steps-active-title"
+                    : "steps-inactive-title"
+                }`}
+              >
+                {item.name}
+              </div>
             </div>
           </React.Fragment>
         );
       } else {
         return (
           <React.Fragment key={item.key}>
-            <div className={`steps-box ${count === 1 ? "steps-first-box" : ""}`}>
+            <div
+              className={`steps-box ${count === 1 ? "steps-first-box" : ""}`}
+            >
               <div
                 className={
                   props.active === count ? "steps-active" : "steps-inactive"
                 }
               />
-              <div className="steps-title">{item.name}</div>
+              <div
+                className={`steps-title ${
+                  props.active === count
+                    ? "steps-active-title"
+                    : "steps-inactive-title"
+                }`}
+              >
+                {item.name}
+              </div>
             </div>
             <span className="divider" />
           </React.Fragment>
@@ -43,7 +61,9 @@ const StepsFormHeader = props => {
     <div className="col-12 col-md-10 col-lg-8 mx-auto">
       <div className="row steps-form-header">
         <div className="col-10 mx-auto">
-          <div className="steps-container">{items}</div>
+          <div className={`steps-container ${props.classes ? props.classes.join(" ") : ""}`}>
+            {items}
+          </div>
         </div>
       </div>
     </div>

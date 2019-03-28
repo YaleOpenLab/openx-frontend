@@ -6,6 +6,12 @@
   .steps-container {
     display: flex;
   }
+  .bigger-fonts {
+    .steps-title {
+      font-size: 18px;
+      font-weight: 300;
+    }
+  }
   .steps-box {
     align-self: center;
     display: flex;
@@ -37,6 +43,9 @@
     font-size: 12px;
     text-transform: capitalize;
     color: $secondary-color-lighter;
+  }
+  .steps-active-title{
+    color: $secondary-color;
   }
 
   .divider {

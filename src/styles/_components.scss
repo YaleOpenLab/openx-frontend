@@ -99,7 +99,7 @@
 }
 
 .darker-label {
-  color: $input-color-focus;
+  color: $charcoal-grey;
 }
 .label-right {
   text-align: right;
@@ -123,7 +123,7 @@
 }
 
 .solar-form-input:focus {
-  border: solid 1px $input-color-focus;
+  border: solid 1px $charcoal-grey;
 }
 .solar-form-input:focus + label {
   color: $secondary-color;
@@ -256,12 +256,18 @@
   }
 }
 .full-box {
-  border: solid 1px $input-color-focus;
+  border: solid 1px $charcoal-grey;
   border-radius: 5px;
 }
 .open-box {
-  border-top: solid 1px $input-color-focus;
-  border-bottom: solid 1px $input-color-focus;
+  border-top: solid 1px $charcoal-grey;
+  border-bottom: solid 1px $charcoal-grey;
+}
+.light-box {
+  .open-box {
+    border-top: solid 1px $secondary-color-very-light;
+    border-bottom: solid 1px $secondary-color-very-light;
+  }
 }
 .open-box-light {
   border-top: solid 1px $secondary-color-very-light;
@@ -296,16 +302,16 @@
   overflow: hidden;
   align-self: center;
 }
-.solar-input-normal{
+.solar-input-normal {
   font-weight: 300;
 }
-.solar-input-bold{
+.solar-input-bold {
   font-weight: 600;
 }
 .solar-input-full-text {
   font-weight: 600;
   font-family: "Open Sans";
-  color: $input-color-focus;
+  color: $charcoal-grey;
 }
 .solar-input-div-icon {
   height: 100%;

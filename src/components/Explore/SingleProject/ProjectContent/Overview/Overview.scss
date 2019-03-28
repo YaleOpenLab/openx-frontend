@@ -22,5 +22,15 @@
   .context{
       padding: 45px;
       background: $project-content-background;
+
+      .context-map-image {
+        display: flex;
+        justify-content: center;
+
+        img {
+          max-height: 178px;
+          max-width: 291px;
+        }
+      }
   }
 }
