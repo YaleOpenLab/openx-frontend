@@ -1,0 +1,12 @@
+@import "../../../styles/variables";
+
+.show-more-button-div{
+    font-family: "Open Sans", sans-serif;
+    color: #f5911e;
+    cursor: pointer;
+
+    .show-more-button {
+        font-weight: bold;
+        font-size: 12px;
+    }
+}

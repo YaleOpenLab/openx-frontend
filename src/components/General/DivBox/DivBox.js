@@ -127,7 +127,7 @@ const DivBox = props => {
             <div className="solar-input-div-text">{props.text}</div>
             <div className="solar-input-div-hidden " />
           </div>
-          <label className="solar-form-label center-al darker-label">
+          <label className="solar-form-label default-open-label darker-label">
             {props.label}
           </label>
         </div>
@@ -157,7 +157,7 @@ const DivBox = props => {
             <div className="solar-input-div-text">{props.text}</div>
             <div className="solar-input-div-hidden " />
           </div>
-          <label className="solar-form-label center-al darker-label">
+          <label className="solar-form-label default-open-label darker-label">
             {props.label}
           </label>
         </div>

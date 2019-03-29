@@ -6,24 +6,26 @@ import BusinessPaymentSection from "./BusinessPaymentSection/BusinessPaymentSect
 import SolarCard from "./SolarCard/SolarCard";
 
 const ProjectDetails = props => {
+  const tempData = props.tempData;
   const data = props.data;
   let communityItems = null;
   let businessItems = null;
 
-  if (data.communityEngagement) {
-    communityItems = data.communityEngagement.content.map(item => {
+  if (data.CommunityEngagement) {
+    communityItems = data.CommunityEngagement.map(item => {
       return (
         <CommunitySection
-          key={item.title}
-          title={item.title}
-          text={item.text}
-          imageUrl={item.image}
+          key={item.Title}
+          title={item.Title}
+          text={item.Content}
+          imageUrl={item.ImageURL}
+          col={item.Width}
         />
       );
     });
   }
-  if (data.businessAndPayment) {
-    businessItems = data.businessAndPayment.content.map(item => {
+  if (tempData.businessAndPayment) {
+    businessItems = tempData.businessAndPayment.content.map(item => {
       return (
         <BusinessPaymentSection
           key={item.title}
@@ -49,44 +51,46 @@ const ProjectDetails = props => {
                   <div className="component-title col-12">
                     <span>architecture</span> / project design
                   </div>
-                  <div className="col-sm-6 col-md-4 mg-top-15 flex-container">
-                    <div className="sub-title flex-1">
-                      {data.architecture[0].title}
+                  <div className="col-sm-6 col-md-4 mg-top-15 ">
+                    <div className="project-detail-arch-title">
+                      {tempData.architecture[0].title}
                     </div>
-                    <div className="sub-image flex-19">
+                    <div className="project-detail-arch-image-big ">
                       <img
-                        src={data.architecture[0].image}
-                        alt={data.architecture[0].title}
+                        src={data.AImages[0]}
+                        alt={tempData.architecture[0].title}
                       />
                     </div>
                   </div>
-                  <div className="col-sm-6 col-md-4 mg-top-15 flex-container">
-                    <div className="sub-title flex-1">
-                      {data.architecture[1].title}
+                  <div className="col-sm-6 col-md-4 mg-top-15 ">
+                    <div className="project-detail-arch-title">
+                      {tempData.architecture[1].title}
                     </div>
-                    <div className="sub-image flex-8">
+                    <div className="project-detail-arch-image-small">
                       <img
-                        src={data.architecture[1].image}
-                        alt={data.architecture[1].title}
+                        src={data.AImages[1]}
+                        alt={tempData.architecture[1].title}
                       />
                     </div>
-                    <div className="flex-11">
-                      <SolarCard items={data.architecture[1].list} />
+                    <div className="">
+                      <SolarCard items={tempData.architecture[1].list} />
                     </div>
                   </div>
-                  <div className="col-sm-12 col-md-4 mg-top-15 flex-container">
-                    <div className="sub-title flex-1">
-                      {data.architecture[2].title}
+                  <div className="col-sm-12 col-md-4 mg-top-15 ">
+                    <div className="project-detail-arch-title">
+                      {tempData.architecture[2].title}
                     </div>
-                    <div className="sub-text flex-11">
-                      {data.architecture[2].text}
+                    <div className="project-detail-arch-text">
+                      {tempData.architecture[2].text}
                     </div>
-                    <div className="sub-image flex-8">
-                      <img
-                        src={data.architecture[2].image}
-                        alt={data.architecture[2].title}
-                      />
-                    </div>
+                    {data.AImages[2] && (
+                      <div className="project-detail-arch-image-small">
+                        <img
+                          src={data.AImages[2]}
+                          alt={tempData.architecture[2].title}
+                        />
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
@@ -94,65 +98,66 @@ const ProjectDetails = props => {
             <div className="col-12">
               <div className="architecture margin-top">
                 <div className="row">
+                  {/*TODO: switch layout based on data.engineeringLayoutType property when it gets implemented*/}
                   <div className="component-title col-12">
                     <span>engineering</span> / solar layout
                   </div>
                   <div className="col-sm-6 col-md-5 mg-top-15 flex-container">
                     <div className="sub-title flex-1">
-                      {data.engineering.content[0].title}
+                      {tempData.engineering.content[0].title}
                     </div>
                     <div className="sub-image flex-11">
                       <img
-                        src={data.engineering.content[0].image}
-                        alt={data.engineering.content[0].title}
+                        src={tempData.engineering.content[0].image}
+                        alt={tempData.engineering.content[0].title}
                       />
                     </div>
                     <div className="sub-text flex-8">
-                      {data.engineering.content[0].text}
+                      {tempData.engineering.content[0].text}
                     </div>
                   </div>
                   <div className="col-sm-6 col-md-7 mg-top-15 flex-container">
                     <div className="sub-title flex-1">
-                      {data.engineering.content[1].title}
+                      {tempData.engineering.content[1].title}
                     </div>
                     <div className="sub-image flex-19">
                       <img
-                        src={data.engineering.content[1].image}
-                        alt={data.engineering.content[1].title}
+                        src={tempData.engineering.content[1].image}
+                        alt={tempData.engineering.content[1].title}
                       />
                     </div>
                   </div>
                   <div className="col-12 mg-top-15">
                     <div className="sub-title">
-                      {data.engineering.content[2].title}
+                      {tempData.engineering.content[2].title}
                     </div>
                     <div className="row">
                       <div className="col-4 sub-text">
-                        {data.engineering.content[2].descriptionOne}
+                        {tempData.engineering.content[2].descriptionOne}
                       </div>
                       <div className="col-4">
                         <div className="sub-image">
                           <img
-                            src={data.engineering.content[2].imageOne}
-                            alt={data.engineering.content[2].title}
+                            src={tempData.engineering.content[2].imageOne}
+                            alt={tempData.engineering.content[2].title}
                           />
                         </div>
                         <div className="sub-text">
-                          {data.engineering.content[2].descriptionTwo}
+                          {tempData.engineering.content[2].descriptionTwo}
                         </div>
                       </div>
                       <div className="col-4">
                         <div className="sub-image">
                           <img
-                            src={data.engineering.content[2].imageTwo}
-                            alt={data.engineering.content[2].title}
+                            src={tempData.engineering.content[2].imageTwo}
+                            alt={tempData.engineering.content[2].title}
                           />
                         </div>
                       </div>
                     </div>
                     <div className="col-12 link-to-text">
                       <NavLink
-                        to={data.engineering.linkToDocument}
+                        to={tempData.engineering.linkToDocument}
                         className="big"
                       >
                         Link to specific document for this section >
@@ -174,7 +179,7 @@ const ProjectDetails = props => {
               {communityItems}
               <div className="col-12 link-to-text">
                 <NavLink
-                  to={data.communityEngagement.linkToDocument}
+                  to={tempData.communityEngagement.linkToDocument}
                   className="big"
                 >
                   Link to specific document for this section >
@@ -192,7 +197,7 @@ const ProjectDetails = props => {
               {businessItems}
               <div className="col-12 link-to-text">
                 <NavLink
-                  to={data.businessAndPayment.linkToDocument}
+                  to={tempData.businessAndPayment.linkToDocument}
                   className="big"
                 >
                   Link to specific document for this section >

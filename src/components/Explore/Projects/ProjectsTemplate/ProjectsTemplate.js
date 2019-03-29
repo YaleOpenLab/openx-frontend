@@ -5,6 +5,7 @@ import DescriptionGrid from "../../../General/DescriptionGrid/DescriptionGrid";
 import ProgressBar from "../../../General/ProgressBar/ProgressBar";
 import percentage from "../../../../helpers/functions/percentage";
 import { Http } from "../../../../services/Http";
+import ShowMoreText from "../../../General/ShowMoreText/ShowMoreText";
 
 class ProjectsTemplate extends Component {
   constructor(props) {
@@ -40,7 +41,7 @@ class ProjectsTemplate extends Component {
               <button className="watch-button-explore" type="button">
                 <div className="watch-icon" />
               </button>
-              <img src={this.props.imageUrl} alt={this.props.title} />
+              <img src={this.props.data.DPIntroImage ? this.props.data.DPIntroImage : this.props.imageUrl} alt={this.props.title} />
             </div>
           </NavLink>
           <div className="projects-description-box">
@@ -65,12 +66,22 @@ class ProjectsTemplate extends Component {
               </div>
               <div className="col-6 desc-category">{this.state.originator}</div>
               <div className="desc-description col-12">
-                {this.props.metadata}
-                <ul>
-                  <li>{this.props.data.Bullet1}</li>
-                  <li>{this.props.data.Bullet2}</li>
-                  <li>{this.props.data.Bullet3}</li>
-                </ul>
+                <div className="desc-description-text">
+                  <ShowMoreText
+                    moreText="Show More"
+                    lessText="Show Less"
+                    lines={5}
+                  >
+                    {this.props.metadata}
+                  </ShowMoreText>
+                </div>
+                <div className="desc-description-buttons">
+                  <ul>
+                    <li>{this.props.data.Bullets.Bullet1}</li>
+                    <li>{this.props.data.Bullets.Bullet2}</li>
+                    <li>{this.props.data.Bullets.Bullet3}</li>
+                  </ul>
+                </div>
               </div>
               <DescriptionGrid
                 list={[

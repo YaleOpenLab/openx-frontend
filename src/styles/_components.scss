@@ -99,10 +99,13 @@
 }
 
 .darker-label {
-  color: $input-color-focus;
+  color: $charcoal-grey;
 }
 .label-right {
   text-align: right;
+  .default-open-label{
+    text-align: right;
+  }
 }
 .header-label {
   color: $primary-color;
@@ -120,10 +123,23 @@
   text-align: center;
   font-family: $primary-font;
   font-size: 13px;
+  color: $secondary-color;
+}
+.solar-input-div-field{
+  height: $pixel-base * 6;
+  border-radius: 5px;
+  width: 100%;
+  padding: $pixel-base $pixel-base * 2;
+  font-weight: 400;
+  line-height: 1.5;
+  margin-bottom: $pixel-base * 3;
+  font-family: $primary-font;
+  font-size: 14px;
+  color: $secondary-color;
 }
 
 .solar-form-input:focus {
-  border: solid 1px $input-color-focus;
+  border: solid 1px $charcoal-grey;
 }
 .solar-form-input:focus + label {
   color: $secondary-color;
@@ -192,11 +208,21 @@
   color: $secondary-color-lighter;
 }
 .solar-input-text-label {
+  font-family: $secondary-font;
   font-size: 18px;
   color: $secondary-color-lighter;
   font-weight: lighter;
   text-align: center;
 }
+.default-open-label{
+  text-align: center;
+}
+.-left-align {
+  .solar-input-text-label{
+    text-align: left;
+  }
+}
+
 .solar-input-switch input {
   position: absolute;
   opacity: 0;
@@ -214,7 +240,7 @@
   height: 1em;
   width: 1em;
   border-radius: 1em;
-  background: $primary-color;
+  background: $secondary-color-lighter;
   box-shadow: 0 0.1em 0.3em rgba(0, 0, 0, 0.3);
   -webkit-transition: all 300ms;
   -moz-transition: all 300ms;
@@ -231,11 +257,13 @@
   font-size: 12px;
   font-weight: 300;
   color: $secondary-color-lighter;
+  font-family: $secondary-font;
 }
 .solar-input-switch input:checked + div {
   -webkit-transform: translate3d(100%, 0, 0);
   -moz-transform: translate3d(100%, 0, 0);
   transform: translate3d(100%, 0, 0);
+  background: $primary-color;
 }
 
 .solar-input-multi {
@@ -256,12 +284,18 @@
   }
 }
 .full-box {
-  border: solid 1px $input-color-focus;
+  border: solid 1px $charcoal-grey;
   border-radius: 5px;
 }
 .open-box {
-  border-top: solid 1px $input-color-focus;
-  border-bottom: solid 1px $input-color-focus;
+  border-top: solid 1px $charcoal-grey;
+  border-bottom: solid 1px $charcoal-grey;
+}
+.light-box {
+  .open-box {
+    border-top: solid 1px $secondary-color-very-light;
+    border-bottom: solid 1px $secondary-color-very-light;
+  }
 }
 .open-box-light {
   border-top: solid 1px $secondary-color-very-light;
@@ -285,6 +319,9 @@
   text-overflow: ellipsis;
   overflow: hidden;
   align-self: center;
+  font-size: 11px;
+  font-weight: 500;
+  color: $charcoal-grey;
 }
 .solar-input-div-price-text {
   font-size: 18px;
@@ -296,16 +333,17 @@
   overflow: hidden;
   align-self: center;
 }
-.solar-input-normal{
+.solar-input-normal {
   font-weight: 300;
 }
-.solar-input-bold{
+.solar-input-bold {
   font-weight: 600;
 }
 .solar-input-full-text {
   font-weight: 600;
   font-family: "Open Sans";
-  color: $input-color-focus;
+  font-size: 10px;
+  color: $charcoal-grey;
 }
 .solar-input-div-icon {
   height: 100%;
@@ -388,6 +426,17 @@
     -webkit-transform: scale(1);
     transform: scale(1);
   }
+}
+
+.solar-form-select-reform {
+  div {
+    border: none;
+    border-radius: 0;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding-left: 8px;
+    color: #4a4a4a;}
 }
 
 .inner-addon {
