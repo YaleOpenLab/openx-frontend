@@ -43,8 +43,7 @@ class MainNavigationComponent extends Component {
                   <div className="d-md-inline">docs</div>
                 </MDBDropdownToggle>
                 <MDBDropdownMenu className="dropdown-default">
-                  <MDBDropdownItem href="/">page 1</MDBDropdownItem>
-                  <MDBDropdownItem href="/">page 2</MDBDropdownItem>
+                  <MDBDropdownItem href={Routes.ABOUT}>About</MDBDropdownItem>
                 </MDBDropdownMenu>
               </MDBDropdown>
             </MDBNavItem>

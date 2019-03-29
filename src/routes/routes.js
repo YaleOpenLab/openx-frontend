@@ -31,6 +31,7 @@ const ROUTES = {
       LEGAL: "/profile/settings/legal",
     }
   },
+  ABOUT: "/about",
   LOGIN: "/login",
   SIGNUP: "/signup",
   LOGOUT: "/logout",

@@ -10,12 +10,14 @@ import ExploreContainer from "./pages/Explore/ExploreContainer";
 import InvestorContainer from "./pages/Investor/InvestorContainer";
 import ProfileContainer from "./pages/Profile/ProfileContainer";
 import ReceiverContainer from "./pages/Receiver/ReceiverContainer";
+import AboutContainer from "./pages/About/AboutContainer";
 
 class App extends Component {
   render() {
     return (
       <Switch>
         <Route path={Routes.HOME} exact component={LandingContainer} />
+        <Route path={Routes.ABOUT} component={AboutContainer} />
         <Route path={Routes.EXPLORE} component={ExploreContainer} />
         <Route path={Routes.PROJECT} component={ExploreContainer} />
         <Route path={Routes.LOGIN} component={AuthPageContainer} />
