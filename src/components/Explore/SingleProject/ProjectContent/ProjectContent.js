@@ -20,7 +20,7 @@ const ProjectContent = props => (
     <AnchorNavigation list={props.navigation} active={props.active} />
     <Terms tempData={props.tempData.terms} data={props.data} />
     <Overview tempData={props.tempData.projectOverview} data={props.data} />
-    <ProjectDetails data={props.tempData.project} />
+    <ProjectDetails tempData={props.tempData.project} data={props.data} />
     <Forecast tempData={props.tempData.stageAndForecast} data={props.data} />
     <Documents data={props.tempData.documents} />
     <Invest />

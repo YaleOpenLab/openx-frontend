@@ -1,6 +1,8 @@
 import React from "react";
+import "./Terms.scss";
 import ScrollableAnchor, { configureAnchors } from "react-scrollable-anchor";
 import TermsTable from "./TermsTable/TermsTable";
+
 configureAnchors({
   offset: -90,
   scrollDuration: 200,

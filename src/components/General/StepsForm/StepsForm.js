@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./StepsForm.scss";
 import StepsFormHeader from "./StepsFormHeader/StepsFormHeader";
+import Storage from "../../../services/Storage";
 
 class StepsForm extends Component {
   constructor(props) {
@@ -10,19 +11,55 @@ class StepsForm extends Component {
     };
   }
 
+  componentDidMount = () => {
+    const currentStep = this.props.name
+      ? Storage.get(this.props.name)
+        ? Storage.get(this.props.name)
+        : Storage.get("currentStep")
+        ? Storage.get("currentStep")
+        : 1
+      : 1;
+    this.setState({
+      step: currentStep
+    });
+  };
+
+  scrollTop = () => {
+    this.head = document.getElementsByClassName("steps-container")[0];
+    this.head.scrollIntoView();
+  };
+
   goNext = () => {
+    this.scrollTop();
     if (this.state.step < this.props.children.length) {
-      this.setState(prevState => ({
-        step: prevState.step + 1
-      }));
+      this.setState(
+        prevState => ({
+          step: prevState.step + 1
+        }),
+        () => {
+          Storage.set(
+            this.props.name ? this.props.name : "currentStep",
+            this.state.step
+          );
+        }
+      );
     }
   };
 
   goBack = () => {
+    this.scrollTop();
     if (this.state.step > 1) {
-      this.setState(prevState => ({
-        step: prevState.step - 1
-      }));
+      this.setState(
+        prevState => ({
+          step: prevState.step - 1
+        }),
+        () => {
+          Storage.set(
+            this.props.name ? this.props.name : "currentStep",
+            this.state.step
+          );
+        }
+      );
     }
   };
 
@@ -31,8 +68,8 @@ class StepsForm extends Component {
     let content = null;
     let buttons = null;
 
-    if(!children) {
-      return <div>empty form</div>
+    if (!children) {
+      return <div>empty form</div>;
     }
 
     if (children) {
@@ -96,10 +133,10 @@ class StepsForm extends Component {
           <div className="col-6">
             <button
               className="solar-form-button solar-btn-normal"
-              onClick={this.goNext}
+              onClick={this.props.handleSave}
               type="button"
             >
-              save
+              {this.props.saveText ? this.props.saveText : "save"}
             </button>
           </div>
         </React.Fragment>
@@ -109,17 +146,22 @@ class StepsForm extends Component {
     return (
       <div className="MultiSteps">
         <div className="solar-form">
-          <div className="row">
-            <StepsFormHeader tabs={tabs} active={this.state.step} />
-            <div className="col-12 col-md-10 col-lg-8 mx-auto">
-              <div className="row">
-                <div className="col-12 solar-form-separator" />
-                <div className="col-12">
-                  {content}
-                </div>
-                <div className="col-12">
-                  <div className="row justify-content-end">{buttons}</div>
-                </div>
+        <div className="container">
+          <StepsFormHeader
+            tabs={tabs}
+            active={this.state.step}
+            classes={this.props.classes}
+            separator={this.props.separator}
+          />
+          </div>
+          <div className="col-12 mx-auto">
+            <div className="row  justify-content-center">
+              <div className="col-12">{content}</div>
+              <div className="container">
+
+              <div className="col-12 col-md-10 col-lg-8 mx-auto">
+                <div className="row justify-content-end">{buttons}</div>
+              </div>
               </div>
             </div>
           </div>

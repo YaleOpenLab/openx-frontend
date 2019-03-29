@@ -58,6 +58,10 @@ class SingleProject extends Component {
   };
 
   render() {
+    if(!this.state.data.Index){
+      return <div>No entry</div>
+    }
+
     const data = DATA.project[0];
     return (
       <div className="SingleProject">
