@@ -22,7 +22,7 @@ const ProjectMain = props => {
       <div className="row">
         <div className="col-sm-12 col-md-7 order-md-1 order-sm-1 no-padding">
           <div className="project-main-image project-main-display-image">
-            <img src={tempData.imageUrl} alt="Project" />
+            <img src={data.DPIntroImage} alt="Project" />
           </div>
         </div>
 
@@ -31,13 +31,13 @@ const ProjectMain = props => {
             <div className="container">
               <div className="row mx-auto">
                 <div className="col-3 mx-auto no-padding">
-                  <img src={tempData.imageUrl2} alt="Project" />
+                  <img src={data.DPIntroImage} alt="Project" />
                 </div>
                 <div className="col-3 mx-auto no-padding">
-                  <img src={tempData.imageUrl2} alt="Project" />
+                  <img src={data.DPIntroImage} alt="Project" />
                 </div>
                 <div className="col-3 mx-auto no-padding">
-                  <img src={tempData.imageUrl2} alt="Project" />
+                  <img src={data.DPIntroImage} alt="Project" />
                 </div>
               </div>
             </div>

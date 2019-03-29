@@ -41,7 +41,7 @@ class ProjectsTemplate extends Component {
               <button className="watch-button-explore" type="button">
                 <div className="watch-icon" />
               </button>
-              <img src={this.props.imageUrl} alt={this.props.title} />
+              <img src={this.props.data.DPIntroImage ? this.props.data.DPIntroImage : this.props.imageUrl} alt={this.props.title} />
             </div>
           </NavLink>
           <div className="projects-description-box">

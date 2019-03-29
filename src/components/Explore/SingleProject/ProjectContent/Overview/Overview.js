@@ -1,9 +1,11 @@
 import React from "react";
+import "./Overview.scss";
 import ScrollableAnchor from "react-scrollable-anchor";
 import SummaryCards from "../../../../General/SummaryCards/SummaryCards";
 import caseToName from "../../../../../helpers/functions/replace-case-name";
 import ExecutiveSummary from "./constants";
 import contextMap from "../../../../../assets/images/project-context-map.svg";
+
 const Overview = props => {
   let cards = null;
   const tempData = props.tempData;
@@ -52,9 +54,14 @@ const Overview = props => {
           </div>
         </div>
 
-        <div className="full-image">
-          <img src={tempData.bannerImage} alt="summary banner" />
-        </div>
+        {data.OHeroImage ? (
+          <div className="full-image">
+            <img src={data.OHeroImage} alt="summary banner" />
+          </div>
+        ) : (
+          <div className="overview-separator"></div>
+        )}
+
         <div className="opportunity">
           <div className="container">
             <div className="row">
@@ -82,19 +89,19 @@ const Overview = props => {
                 </div>
               </div>
 
-              <div className="col-6 margin-top">
-                <div className="sub-image">
+              <div className="col-12 col-sm-6 margin-top">
+                <div className="opportunity-sub-image">
                   <img
-                    src={tempData.opportunity.partTwo[0].image}
-                    alt="placeholder"
+                    src={data.OImages && data.OImages[0]}
+                    alt="opportunity 1"
                   />
                 </div>
               </div>
-              <div className="col-6 margin-top">
-                <div className="sub-image">
+              <div className="col-12 col-sm-6 margin-top">
+                <div className="opportunity-sub-image">
                   <img
-                    src={tempData.opportunity.partTwo[1].image}
-                    alt="placeholder"
+                    src={data.OImages && data.OImages[1]}
+                    alt="opportunity 2"
                   />
                 </div>
               </div>
@@ -107,11 +114,7 @@ const Overview = props => {
           <div className="row">
             <div className="sub-text col-md-8">{data.Context}</div>
             <div className="context-map-image col-md-4">
-              <img
-                src={contextMap}
-                placeholder="context"
-                alt="world map"
-              />
+              <img src={contextMap} placeholder="context" alt="world map" />
             </div>
           </div>
         </div>

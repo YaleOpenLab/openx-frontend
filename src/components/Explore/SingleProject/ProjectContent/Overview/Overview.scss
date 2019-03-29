@@ -1,5 +1,12 @@
+@import "../../../../../styles/variables";
+
 .Overview {
   margin-top: 35px;
+
+  .overview-separator {
+    margin: $pixel-base * 8 0 $pixel-base * 3 0;
+    border-bottom: 1px solid silver;
+  }
   .title-yellow {
     color: $primary-color;
     text-transform: uppercase;
@@ -13,24 +20,37 @@
   }
 
   .full-image {
-      margin-top: 55px;
+    margin-top: 55px;
+    width: 100%;
+    height: 459px;
+    img {
       width: 100%;
-      img {
-        width: 100%;
-      }
+      height: 100%;
+      object-fit: cover;
+    }
   }
-  .context{
-      padding: 45px;
-      background: $project-content-background;
+  .context {
+    padding: 45px;
+    background: $project-content-background;
 
-      .context-map-image {
-        display: flex;
-        justify-content: center;
+    .context-map-image {
+      display: flex;
+      justify-content: center;
 
-        img {
-          max-height: 178px;
-          max-width: 291px;
-        }
+      img {
+        max-height: 178px;
+        max-width: 291px;
       }
+    }
+  }
+
+  .opportunity-sub-image{
+    height: 320px;
+    width: 100%;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
   }
 }
