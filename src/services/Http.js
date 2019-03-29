@@ -31,9 +31,19 @@ export class Http {
   }
 
   static projectAll() {
-    return this.get("project/all").pipe(map(result => result.data));
+    return this.get("project/all").pipe(
+      map(result => {
+        // Temporary filter out fake data
+        let output = [];
+        output = result.data.filter(data => {
+          return data.Index > 4;
+        });
+
+        return output;
+      })
+    );
   }
-  
+
   static originatorGet(id) {
     return this.get("public/user", { index: id });
   }

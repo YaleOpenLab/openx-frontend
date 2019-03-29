@@ -61,11 +61,18 @@ const StepsFormHeader = props => {
     <div className="col-12 col-md-10 col-lg-8 mx-auto">
       <div className="row steps-form-header">
         <div className="col-10 mx-auto">
-          <div className={`steps-container ${props.classes ? props.classes.join(" ") : ""}`}>
+          <div
+            className={`steps-container ${
+              props.classes ? props.classes.join(" ") : ""
+            }`}
+          >
             {items}
           </div>
         </div>
       </div>
+      {props.separator === false ? null : (
+        <div className="col-12 solar-form-separator" />
+      )}
     </div>
   );
 };

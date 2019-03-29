@@ -51,44 +51,46 @@ const ProjectDetails = props => {
                   <div className="component-title col-12">
                     <span>architecture</span> / project design
                   </div>
-                  <div className="col-sm-6 col-md-4 mg-top-15 flex-container">
-                    <div className="sub-title flex-1">
+                  <div className="col-sm-6 col-md-4 mg-top-15 ">
+                    <div className="project-detail-arch-title">
                       {tempData.architecture[0].title}
                     </div>
-                    <div className="sub-image flex-19">
+                    <div className="project-detail-arch-image-big ">
                       <img
-                        src={tempData.architecture[0].image}
+                        src={data.AImages[0]}
                         alt={tempData.architecture[0].title}
                       />
                     </div>
                   </div>
-                  <div className="col-sm-6 col-md-4 mg-top-15 flex-container">
-                    <div className="sub-title flex-1">
+                  <div className="col-sm-6 col-md-4 mg-top-15 ">
+                    <div className="project-detail-arch-title">
                       {tempData.architecture[1].title}
                     </div>
-                    <div className="sub-image flex-8">
+                    <div className="project-detail-arch-image-small">
                       <img
-                        src={tempData.architecture[1].image}
+                        src={data.AImages[1]}
                         alt={tempData.architecture[1].title}
                       />
                     </div>
-                    <div className="flex-11">
+                    <div className="">
                       <SolarCard items={tempData.architecture[1].list} />
                     </div>
                   </div>
-                  <div className="col-sm-12 col-md-4 mg-top-15 flex-container">
-                    <div className="sub-title flex-1">
+                  <div className="col-sm-12 col-md-4 mg-top-15 ">
+                    <div className="project-detail-arch-title">
                       {tempData.architecture[2].title}
                     </div>
-                    <div className="sub-text flex-11">
+                    <div className="project-detail-arch-text">
                       {tempData.architecture[2].text}
                     </div>
-                    <div className="sub-image flex-8">
-                      <img
-                        src={tempData.architecture[2].image}
-                        alt={tempData.architecture[2].title}
-                      />
-                    </div>
+                    {data.AImages[2] && (
+                      <div className="project-detail-arch-image-small">
+                        <img
+                          src={data.AImages[2]}
+                          alt={tempData.architecture[2].title}
+                        />
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
@@ -96,6 +98,7 @@ const ProjectDetails = props => {
             <div className="col-12">
               <div className="architecture margin-top">
                 <div className="row">
+                  {/*TODO: switch layout based on data.engineeringLayoutType property when it gets implemented*/}
                   <div className="component-title col-12">
                     <span>engineering</span> / solar layout
                   </div>

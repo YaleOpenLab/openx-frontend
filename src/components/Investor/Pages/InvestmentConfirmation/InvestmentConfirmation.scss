@@ -11,6 +11,9 @@
       font-size: 18px;
       color: $secondary-color;
     }
+    .-center {
+      text-align: center;
+    }
   }
 
   .invest-confirm-wrapper {
@@ -62,7 +65,7 @@
         align-self: center;
       }
     }
-    .solar-form-profile-sub-title{
+    .solar-form-profile-sub-title {
       color: $secondary-color;
       font-size: 15px;
       font-weight: 600;
@@ -80,8 +83,11 @@
       span {
         color: $third-color-light;
       }
+      .label-right {
+        text-align: right;
+      }
     }
-    .invest-confirm-profile-info{
+    .invest-confirm-profile-info {
       color: $secondary-color;
       font-size: 10px;
       font-weight: 600;
@@ -127,7 +133,11 @@
       font-weight: 300;
       color: $primary-color;
     }
+    .-no-align {
+      align-self: unset;
+    }
   }
+
   .invest-confirm-amount-wrapper {
     display: flex;
     justify-content: center;
@@ -149,5 +159,27 @@
       align-self: center;
       margin: 0 $pixel-base * 2;
     }
+  }
+
+  .invest-form-section {
+    margin-top: $pixel-base * 4;
+
+    .invest-input {
+      margin-bottom: 30px;
+    }
+    .invest-label {
+      margin-bottom: 14px;
+    }
+  }
+
+  .project-confirm-terms{
+    width: 100%;
+    section {
+      width: inherit;
+    }
+  }
+
+  .confirm-agree-terms{
+    margin-top: $pixel-base * 7;
   }
 }

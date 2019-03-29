@@ -4,6 +4,7 @@ import StepsForm from "../../../General/StepsForm/StepsForm";
 import AmountTab from "./AmountTab/AmountTab";
 import "./InvestmentConfirmation.scss";
 import ProfileTab from "./ProfileTab/ProfileTab";
+import ConfirmTab from "./ConfirmTab/ConfirmTab";
 
 class InvestmentConfirmation extends Component {
   constructor(props) {
@@ -23,37 +24,37 @@ class InvestmentConfirmation extends Component {
     });
   };
 
+  handleConfirm = () => {
+    //TODO: handle confirmation
+  }
+
   render() {
     return (
       <div className="investment-confirmation">
-        <div className="container">
-          <div className="row">
-            <div className="col-12 d-flex justify-content-center">
-              <ProjectInfo />
-            </div>
-            <div className="col-12">
-              <StepsForm
-                tabs={[
-                  { name: "amount", key: 1 },
-                  { name: "profile", key: 2 },
-                  { name: "config", key: 3 }
-                ]}
-                separator={false}
-                classes={["bigger-fonts"]}
-              >
-                <AmountTab
-                  key={1}
-                  handleChange={this.handleInvestmentChange}
-                  investmentValue={this.state.investmentAmount}
-                />
-                <ProfileTab
-                  key={2}
-                  investmentValue={this.state.investmentAmount}
-                />
-                <div key={3}>3</div>
-              </StepsForm>
-            </div>
-          </div>
+        <div className="d-flex justify-content-center">
+          <ProjectInfo />
+        </div>
+        <div className="">
+          <StepsForm
+            name="confirm"
+            tabs={[
+              { name: "amount", key: 1 },
+              { name: "profile", key: 2 },
+              { name: "confirm", key: 3 }
+            ]}
+            separator={false}
+            classes={["bigger-fonts"]}
+            saveText="confirm"
+            handleSave={this.handleConfirm}
+          >
+            <AmountTab
+              key={1}
+              handleChange={this.handleInvestmentChange}
+              investmentValue={this.state.investmentAmount}
+            />
+            <ProfileTab key={2} investmentValue={this.state.investmentAmount} />
+            <ConfirmTab key={3} investmentValue={this.state.investmentAmount} />
+          </StepsForm>
         </div>
       </div>
     );

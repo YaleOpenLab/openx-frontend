@@ -81,30 +81,30 @@ export const DATA = {
         table: [
           {
             index: 1,
-            variable: "security type",
-            value: "municipal bond",
-            relevantParty: "PR DofED",
-            note: "promoted by pr governor's office",
-            status: "demo",
-            supportDoc: "doc_url"
+            Variable: "security type",
+            Value: "municipal bond",
+            RelevantParty: "PR DofED",
+            Note: "promoted by pr governor's office",
+            Status: "demo",
+            SupportDoc: "doc_url"
           },
           {
             index: 2,
-            variable: "security type",
-            value: "municipal bond",
-            relevantParty: "PR DofED",
-            note: "promoted by pr governor's office",
-            status: "demo",
-            supportDoc: "doc_url"
+            Variable: "security type",
+            Value: "municipal bond2",
+            RelevantParty: "PR DofED",
+            Note: "promoted by pr governor's office",
+            Status: "demo",
+            SupportDoc: "doc_url"
           },
           {
             index: 3,
-            variable: "security type",
-            value: "municipal bond",
-            relevantParty: "PR DofED",
-            note: "promoted by pr governor's office",
-            status: "demo",
-            supportDoc: "doc_url"
+            Variable: "security type",
+            Value: "municipal bond3",
+            RelevantParty: "PR DofED",
+            Note: "promoted by pr governor's office",
+            Status: "demo",
+            SupportDoc: "doc_url"
           },
         ],
         securityNote:
@@ -203,7 +203,7 @@ export const DATA = {
           {
             title: "Design Description",
             image: "https://via.placeholder.com/450x250",
-            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus vulputate diam eu pretium. Mauris elit orci, ultricies id fermentum vel, porta et eros. Vestibulum condimentum lectus in convallis feugiat. Sed vulputate fringilla felis. Aliquam ut arcu et dui feugiat scelerisque eu quis diam. Mauris placerat congue dui sit amet blandit. Phasellus condimentum libero vel velit auctor, sit amet tincidunt velit varius. Mauris lacinia porta faucibus. Fusce eu est ac eros vulputate mollis in ac felis. Aenean commodo scelerisque mi sed imperdiet. Donec at hendrerit nisi, eget vestibulum nisi. Sed sit amet magna luctus, facilisis erat quis, sagittis ligula. Aenean dignissim velit quis leo consequat ultricies. Proin quis pretium justo. Vestibulum at eros nisl. Fusce lobortis erat ante, eu cursus sapien molestie at. Pellentesque placerat ante diam, et euismod lacus dictum vel. Phasellus vitae sollicitudin mi. In pulvinar eleifend convallis. Suspendisse elit erat, venenatis eget ullamcorper ut, laoreet iaculis nisl. Sed porta, felis id rhoncus aliquet, quam ipsum pellentesque metus, in sodales quam nunc vitae risus. Quisque in venenatis massa. Phasellus neque risus, ornare quis nisl ultricies, ullamcorper consectetur orci."
+            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus vulputate diam eu pretium. Mauris elit orci, ultricies id fermentum vel, porta et eros. Vestibulum condimentum lectus in convallis feugiat. Sed vulputate fringilla felis. Aliquam ut arcu et dui feugiat scelerisque eu quis diam. Mauris placerat congue dui sit amet blandit. Phasellus condimentum libero vel velit auctor, sit amet tincidunt velit varius. "
           }
         ],
         engineering: {
