@@ -1,15 +1,24 @@
-import React, { Component } from "react";
-import "./ProjectsToolsComponent.scss";
-import Select from "react-select";
-import Slider from "../../UI/SolarForms/Slider/Slider";
-import RadioButton from "../../UI/SolarForms/RadioButton/RadioButton";
-import connect from "react-redux/es/connect/connect";
+import React, { Component } from 'react';
+import './ProjectsToolsComponent.scss';
+import Select from 'react-select';
+import Slider from '../../UI/SolarForms/Slider/Slider';
+import RadioButton from '../../UI/SolarForms/RadioButton/RadioButton';
+import connect from 'react-redux/es/connect/connect';
 
 class ProjectsToolsComponent extends Component {
   filters = {};
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      Country: null,
+      State: null,
+    };
+  }
+
   handleCountryChange = value => {
-    this.updateFilters('Country', value.value);
+    this.setState({Country: value});
+    this.updateFilters('Country', value);
   };
 
   handleSearchChange = e => {
@@ -17,10 +26,12 @@ class ProjectsToolsComponent extends Component {
   };
 
   handleStateChange = value => {
-    this.updateFilters('State', value.value);
+    this.setState({State: value});
+    this.updateFilters('State', value);
   };
 
-  handleSliderChange = () => {};
+  handleSliderChange = () => {
+  };
 
   updateFilters(key, value) {
     this.filters[key] = value;
@@ -34,7 +45,7 @@ class ProjectsToolsComponent extends Component {
           <div className="col-sm-12 title">Explore Projects</div>
           <div className="box">
             <div className="search-box toolparts-3 col-sm-12 solar-input-inner-addon solar-right-addon">
-              <i className="solar-icon search-icon" />
+              <i className="solar-icon search-icon"/>
               <input
                 type="search"
                 className="solar-forms solar-form-search"
@@ -48,18 +59,26 @@ class ProjectsToolsComponent extends Component {
                   className="tool-default"
                   placeholder="Country"
                   options={this.props.countries}
-                  onChange={this.handleCountryChange}
+                  value={this.state.Country}
+                  onChange={value => this.handleCountryChange(value.value)}
                 />
-                <div className="location-result tool-default">USA</div>
+                {this.state.Country && (
+                  <div className="location-result tool-default"
+                       onClick={() => this.handleCountryChange(null)}>{this.state.Country}</div>
+                )}
               </div>
               <div className="separator">
                 <Select
                   className="tool-default"
                   placeholder="State or teritory"
                   options={this.props.states}
-                  onChange={this.handleStateChange}
+                  value={this.state.State}
+                  onChange={value => this.handleStateChange(value.value)}
                 />
-                <div className="location-result tool-default">Puerto Rico</div>
+                {this.state.State && (
+                  <div className="location-result tool-default"
+                       onClick={() => this.handleStateChange(null)}>{this.state.State}</div>
+                )}
               </div>
             </div>
             <div className="location-box toolparts project-filters">
@@ -70,21 +89,21 @@ class ProjectsToolsComponent extends Component {
                 <div className="filters-sub-header">Metrics</div>
                 <Slider
                   title="Project Size"
-                  value={{ min: 1, max: 5 }}
+                  value={{min: 1, max: 5}}
                   minValue={0}
                   maxValue={10}
                   onChange={this.handleSliderChange}
                 />
                 <Slider
                   title="Development Stage"
-                  value={{ min: 1, max: 5 }}
+                  value={{min: 1, max: 5}}
                   minValue={0}
                   maxValue={9}
                   onChange={this.handleSliderChange}
                 />
                 <Slider
                   title="Impact Metric"
-                  value={{ min: 1, max: 3 }}
+                  value={{min: 1, max: 3}}
                   minValue={0}
                   maxValue={6}
                   onChange={this.handleSliderChange}
@@ -93,19 +112,19 @@ class ProjectsToolsComponent extends Component {
               <div className="project-filters-box">
                 <div className="filters-sub-header">Project attributes</div>
                 <div className="filters-sub-content">
-                  <RadioButton name="test1" label="public infrastructure" />
-                  <RadioButton name="test2" label="certified low-carbon" />
-                  <RadioButton name="test3" label="microgrid-ready" />
-                  <RadioButton name="test4" label="grid-tied" />
+                  <RadioButton name="test1" label="public infrastructure"/>
+                  <RadioButton name="test2" label="certified low-carbon"/>
+                  <RadioButton name="test3" label="microgrid-ready"/>
+                  <RadioButton name="test4" label="grid-tied"/>
                 </div>
               </div>
               <div className="project-filters-box">
                 <div className="filters-sub-header">investment attributes</div>
                 <div className="filters-sub-content">
-                  <RadioButton name="test5" label="public infrastructure" />
-                  <RadioButton name="test6" label="certified low-carbon" />
-                  <RadioButton name="test7" label="microgrid-ready" />
-                  <RadioButton name="test8" label="grid-tied" />
+                  <RadioButton name="test5" label="public infrastructure"/>
+                  <RadioButton name="test6" label="certified low-carbon"/>
+                  <RadioButton name="test7" label="microgrid-ready"/>
+                  <RadioButton name="test8" label="grid-tied"/>
                 </div>
               </div>
             </div>
@@ -121,7 +140,7 @@ const reduceToCountries = projects => {
     .map(project => project.Country);
 
   return [...(new Set(countries))]
-    .map(country => ({ label: country, value: country }));
+    .map(country => ({label: country, value: country}));
 };
 
 const reduceToStates = projects => {
@@ -129,7 +148,7 @@ const reduceToStates = projects => {
     .map(project => project.State);
 
   return [...(new Set(states))]
-    .map(state => ({ label: state, value: state }));
+    .map(state => ({label: state, value: state}));
 };
 
 const mapStateToProps = state => ({
@@ -138,9 +157,7 @@ const mapStateToProps = state => ({
   states: reduceToStates(state.projects.items),
 });
 
-const mapDispatchToProps = () => ({
-
-});
+const mapDispatchToProps = () => ({});
 
 export default connect(
   mapStateToProps,
