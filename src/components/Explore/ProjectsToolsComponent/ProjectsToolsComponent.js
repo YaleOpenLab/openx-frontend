@@ -6,7 +6,26 @@ import RadioButton from "../../UI/SolarForms/RadioButton/RadioButton";
 import connect from "react-redux/es/connect/connect";
 
 class ProjectsToolsComponent extends Component {
+  filters = {};
+
+  handleCountryChange = value => {
+    this.updateFilters('Country', value.value);
+  };
+
+  handleSearchChange = e => {
+    this.updateFilters('Search', e.target.value);
+  };
+
+  handleStateChange = value => {
+    this.updateFilters('State', value.value);
+  };
+
   handleSliderChange = () => {};
+
+  updateFilters(key, value) {
+    this.filters[key] = value;
+    this.props.onFilterUpdate(this.filters);
+  }
 
   render() {
     return (
@@ -20,6 +39,7 @@ class ProjectsToolsComponent extends Component {
                 type="search"
                 className="solar-forms solar-form-search"
                 placeholder="Search/Keywords"
+                onChange={this.handleSearchChange}
               />
             </div>
             <div className="location-box toolparts-4">
@@ -28,6 +48,7 @@ class ProjectsToolsComponent extends Component {
                   className="tool-default"
                   placeholder="Country"
                   options={this.props.countries}
+                  onChange={this.handleCountryChange}
                 />
                 <div className="location-result tool-default">USA</div>
               </div>
@@ -36,6 +57,7 @@ class ProjectsToolsComponent extends Component {
                   className="tool-default"
                   placeholder="State or teritory"
                   options={this.props.states}
+                  onChange={this.handleStateChange}
                 />
                 <div className="location-result tool-default">Puerto Rico</div>
               </div>
