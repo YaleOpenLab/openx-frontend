@@ -6,6 +6,7 @@ import ProgressBar from "../../../General/ProgressBar/ProgressBar";
 import percentage from "../../../../helpers/functions/percentage";
 import { Http } from "../../../../services/Http";
 import ShowMoreText from "../../../General/ShowMoreText/ShowMoreText";
+import { STAGES } from '../../../../helpers/enums/stages';
 
 class ProjectsTemplate extends Component {
   constructor(props) {
@@ -41,13 +42,13 @@ class ProjectsTemplate extends Component {
               <button className="watch-button-explore" type="button">
                 <div className="watch-icon" />
               </button>
-              <img src={this.props.data.DPIntroImage ? this.props.data.DPIntroImage : this.props.imageUrl} alt={this.props.title} />
+              <img src={this.props.data.DPIntroImage} alt={this.props.data.Name} />
             </div>
           </NavLink>
           <div className="projects-description-box">
             <div className="row">
               <div className="col-12 desc-status">
-                Stage {this.props.data.Stage} | {this.props.status}
+                Stage {this.props.data.Stage} | {STAGES[this.props.data.Stage]}
               </div>
               <div className="col-12 desc-title">
                 <NavLink
@@ -59,7 +60,7 @@ class ProjectsTemplate extends Component {
               </div>
               <div className="desc-location col-12">
                 <div className="projects-location-icon location-icon" />
-                {this.props.data.State}
+                {this.props.data.State} {this.props.data.State && this.props.data.Country ? ', ' : ''} {this.props.data.Country}
               </div>
               <div className="col-6 desc-category">
                 {this.props.data.InvestmentType}
@@ -72,7 +73,7 @@ class ProjectsTemplate extends Component {
                     lessText="Show Less"
                     lines={5}
                   >
-                    {this.props.metadata}
+                    {this.props.data.Metadata}
                   </ShowMoreText>
                 </div>
                 <div className="desc-description-buttons">
