@@ -3,6 +3,7 @@ import "./ProjectsToolsComponent.scss";
 import Select from "react-select";
 import Slider from "../../UI/SolarForms/Slider/Slider";
 import RadioButton from "../../UI/SolarForms/RadioButton/RadioButton";
+import connect from "react-redux/es/connect/connect";
 
 class ProjectsToolsComponent extends Component {
   handleSliderChange = () => {};
@@ -23,13 +24,18 @@ class ProjectsToolsComponent extends Component {
             </div>
             <div className="location-box toolparts-4">
               <div className="separator">
-                <Select className="tool-default" placeholder="Country" />
+                <Select
+                  className="tool-default"
+                  placeholder="Country"
+                  options={this.props.countries}
+                />
                 <div className="location-result tool-default">USA</div>
               </div>
               <div className="separator">
                 <Select
                   className="tool-default"
                   placeholder="State or teritory"
+                  options={this.props.states}
                 />
                 <div className="location-result tool-default">Puerto Rico</div>
               </div>
@@ -88,4 +94,33 @@ class ProjectsToolsComponent extends Component {
   }
 }
 
-export default ProjectsToolsComponent;
+const reduceToCountries = projects => {
+  const countries = projects
+    .map(project => project.Country);
+
+  return [...(new Set(countries))]
+    .map(country => ({ label: country, value: country }));
+};
+
+const reduceToStates = projects => {
+  const states = projects
+    .map(project => project.State);
+
+  return [...(new Set(states))]
+    .map(state => ({ label: state, value: state }));
+};
+
+const mapStateToProps = state => ({
+  countries: reduceToCountries(state.projects.items),
+  projects: state.projects.items,
+  states: reduceToStates(state.projects.items),
+});
+
+const mapDispatchToProps = () => ({
+
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ProjectsToolsComponent);
