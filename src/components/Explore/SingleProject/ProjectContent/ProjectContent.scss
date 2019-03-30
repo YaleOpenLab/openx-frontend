@@ -5,25 +5,28 @@
     font-size: 34px;
     color: $secondary-color;
     font-weight: 500;
-    padding-bottom: $pixel-base;
+    padding: 66px 0 9px;
+    margin-bottom: 80px;
   }
 
   .text-description {
-    padding: 20px;
+    font-family: $secondary-font;
+    padding: 20px 20px 50px;
   }
 
   .sub-title {
     font-size: 18px;
     color: $secondary-color;
     font-weight: 600;
+    margin-bottom: 19px;
     text-transform: capitalize;
   }
 
   .sub-desc {
-    margin-top: $pixel-base;
     color: $secondary-color;
     font-size: 16px;
   }
+
   .sub-text {
     margin-top: $pixel-base;
     color: $secondary-color;
@@ -31,16 +34,19 @@
     padding-top: $pixel-base;
     padding-bottom: $pixel-base;
   }
+
   .text-bg {
     font-size: 16px;
   }
-  .sub-spacer{
+
+  .sub-spacer {
     margin-top: $pixel-base * 3;
   }
 
   .sub-image {
     width: 100%;
     margin-top: $pixel-base;
+
     img {
       height: 100%;
       width: 100%;
@@ -50,6 +56,7 @@
 
   .link-to-text {
     margin: $pixel-base * 5 0 $pixel-base * 2 0;
+
     a {
       font-size: 17px;
       font-weight: 600;
@@ -79,6 +86,7 @@
       font-weight: 300;
       color: $secondary-color;
     }
+
     .grid-body-description {
       font-size: 10px;
       color: $secondary-color-lighter;
@@ -103,17 +111,20 @@
         letter-spacing: 2px;
         color: $secondary-color;
         text-align: left;
+
         th {
           vertical-align: middle;
           border: none;
         }
       }
+
       .tbody-white {
         font-family: $secondary-font;
         font-size: 18px;
         font-weight: 300;
         color: $charcoal-grey-two;
         text-transform: capitalize;
+
         td {
           height: $pixel-base * 10;
           vertical-align: middle;

@@ -1,7 +1,7 @@
-import React from "react";
-import "./Terms.scss";
-import ScrollableAnchor, { configureAnchors } from "react-scrollable-anchor";
-import TermsTable from "./TermsTable/TermsTable";
+import React from 'react';
+import './Terms.scss';
+import ScrollableAnchor, { configureAnchors } from 'react-scrollable-anchor';
+import TermsTable from './TermsTable/TermsTable';
 
 configureAnchors({
   offset: -90,
@@ -10,13 +10,15 @@ configureAnchors({
 });
 
 const Terms = props => (
-  <ScrollableAnchor id={"terms"}>
+  <ScrollableAnchor id={'terms'}>
     <section className="Terms">
       <div className="container">
         <div className="row">
           <div className="col-12 title no-padding border-bottom">Terms</div>
           <div className="col-12 text-description">
-            <div className="sub-title">{props.tempData.title}</div>
+            <div className="sub-title">
+              {props.tempData.title}
+            </div>
             <div className="sub-desc">
               {props.tempData.description}
             </div>
@@ -29,8 +31,8 @@ const Terms = props => (
           <div className="col-12 security-note">
             <div className="security-title">security note</div>
             <div className="security-text">
-              {props.tempData.securityNote}
-              <span className="custom-link-to"> Link ></span>
+              These terms are for demonstration purpose only. The current project does not correspond to an actual issued security and offered by a registered broker dealer. If it was, this note would provide legal disclaimers and notes about the security asset.
+              <a href="#"> Learn more ></a>
             </div>
           </div>
         </div>

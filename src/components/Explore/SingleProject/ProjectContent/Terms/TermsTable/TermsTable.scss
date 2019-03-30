@@ -1,6 +1,10 @@
-@import  "../../../../../../styles/variables";
+@import "../../../../../../styles/variables";
 
 .terms-table {
+  th, td {
+    padding: 18px 30px;
+  }
+
   .terms-table-status {
     width: $pixel-base * 9;
     height: $pixel-base * 3;
@@ -19,6 +23,7 @@
   .text-with-icon {
     float: left;
   }
+
   .info-icon-img {
     float: left;
     margin-top: 8px;
