@@ -11,8 +11,8 @@ import {
 const fetchProjectsEpic = action$ =>
   action$.pipe(
     ofType(FETCH_PROJECTS),
-    switchMap(() =>
-      Http.projectAll().pipe(
+    switchMap(action =>
+      Http.projectAll(action.payload).pipe(
         map(projects => fetchProjectsSuccess(projects)),
         catchError(error => Observable.of(fetchProjectsFailure(error.message)))
       )

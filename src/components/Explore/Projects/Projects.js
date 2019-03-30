@@ -10,19 +10,28 @@ class Projects extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      noticeVisible: localStorage.getItem("exploreNotice") ? false : true
-    }
+      noticeVisible: !localStorage.getItem("exploreNotice"),
+      type: null
+    };
   }
 
   componentDidMount() {
-    this.props.fetchProjects();
+    this.setState({type: this.props.match.params.type});
+    this.props.fetchProjects(this.props.match.params.type);
+  }
+
+  componentDidUpdate() {
+    if (this.state.type !== this.props.match.params.type) {
+      this.setState({type: this.props.match.params.type});
+      this.props.fetchProjects(this.props.match.params.type);
+    }
   }
 
   handleNotice = () => {
     this.setState({
       noticeVisible: false
     })
-  }
+  };
 
   render() {
     return (
@@ -41,10 +50,6 @@ class Projects extends Component {
                       key={project.Index}
                       index={project.Index}
                       location={project.Location}
-                      metadata={project.Metadata}
-                      imageUrl="https://i.imgur.com/rHwhDpL.png"
-                      title="Pasto Public School - Poc 1kW"
-                      status="installed"
                     />
                   ))}
                 </div>
@@ -59,8 +64,8 @@ class Projects extends Component {
 
 const mapStateToProps = state => ({ projects: state.projects.items });
 
-const mapDispatchToProps = dispatch => ({
-  fetchProjects: () => dispatch(fetchProjects())
+const mapDispatchToProps = (dispatch) => ({
+  fetchProjects: type => dispatch(fetchProjects(type))
 });
 
 export default connect(
