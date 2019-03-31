@@ -1,7 +1,6 @@
 import React from 'react';
 import ProgressBar from '../../../General/ProgressBar/ProgressBar';
 import './ProjectMain.scss';
-import DescriptionGrid from '../../../General/DescriptionGrid/DescriptionGrid';
 import percentage from '../../../../helpers/functions/percentage';
 import { STAGES } from '../../../../helpers/enums/stages';
 
