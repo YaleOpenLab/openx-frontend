@@ -59,7 +59,7 @@ const Overview = props => {
             <img src={data.OHeroImage} alt="summary banner" />
           </div>
         ) : (
-          <div className="overview-separator"></div>
+          <div className="overview-separator" />
         )}
 
         <div className="opportunity">
@@ -105,6 +105,42 @@ const Overview = props => {
                   />
                 </div>
               </div>
+              {data.OOImages && (
+                <div className="col-12 obligator-pannel">
+                  <div className="row">
+                    <div className="col-12 col-sm-5">
+                      <div className="opportunity-sub-image">
+                        <img
+                          src={data.OOImages && data.OOImages[1]}
+                          alt="opportunity 2"
+                        />
+                      </div>
+                    </div>
+                    <div className="col-12 col-sm-7">
+                      <div className="obligator-title">
+                        Originator’s Message
+                      </div>
+                      <div className="obligator-text">
+                        Together, we bring a combined 30 years of professional
+                        experience working on energy, environmental and climate
+                        change issues, from government, to non-profits and the
+                        private sector. <br /> Our team is comprised of
+                        experienced professionals with a track-record of
+                        delivering results on a wide-variety of projects and
+                        programs. We are also recent graduates of the Yale
+                        School of Forestry and Environmental Studies with a
+                        renewed mission to deploy clean energy, combat climate
+                        change and fight for social justice through
+                        entrepreneurial solutions. We are relentlessly
+                        passionate about using financial technology to
+                        democratize the ownership of renewable energy, create
+                        new income streams, reduce greenhouse emissions, and
+                        empower communities to drive change.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>

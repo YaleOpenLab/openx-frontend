@@ -32,7 +32,7 @@ const Terms = props => (
             <div className="security-title">security note</div>
             <div className="security-text">
               These terms are for demonstration purpose only. The current project does not correspond to an actual issued security and offered by a registered broker dealer. If it was, this note would provide legal disclaimers and notes about the security asset.
-              <a href="#"> Learn more ></a>
+              <a href="/"> Learn more ></a>
             </div>
           </div>
         </div>

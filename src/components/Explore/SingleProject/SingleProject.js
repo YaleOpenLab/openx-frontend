@@ -58,7 +58,7 @@ class SingleProject extends Component {
   };
 
   render() {
-    if(!this.state.data.Index){
+    if(!this.state.data.Index || this.state.data.Index < 5){
       return <div>No entry</div>
     }
 
