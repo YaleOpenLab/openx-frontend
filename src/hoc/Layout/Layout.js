@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../../components/Layout/Header/Header";
 import Footer from "../../components/Layout/Footer/Footer";
 
-const layoutHoc = props => (
+const LayoutHoc = props => (
   <React.Fragment>
     <Header />
     {props.children}
@@ -10,4 +10,4 @@ const layoutHoc = props => (
   </React.Fragment>
 );
 
-export default layoutHoc;
+export default LayoutHoc;

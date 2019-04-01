@@ -1,19 +1,19 @@
 import React, { Component } from "react";
 import LayoutHoc from "../../hoc/Layout/Layout";
-import ReceiverComponent from "../../components/Receiver/ReceiverComponent";
 import SubNavigationComponent from "../../components/General/SubNavigationComponent/SubNavigationComponent";
+import DeveloperComponent from "../../components/Developer/Developer";
 
-class ReceiverContainer extends Component {
+class DeveloperContainer extends Component {
   render() {
     return (
       <LayoutHoc>
-        <div className="component-content Receiver">
-          <SubNavigationComponent />
-          <ReceiverComponent />
+        <div className="component-content Developer">
+        <SubNavigationComponent />
+        <DeveloperComponent />
         </div>
       </LayoutHoc>
     );
   }
 }
 
-export default ReceiverContainer;
+export default DeveloperContainer;

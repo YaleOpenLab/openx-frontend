@@ -66,7 +66,7 @@ class SingleProject extends Component {
     const tempData = DATA.project[0];
     return (
       <div className="SingleProject">
-        {this.state.loading ? (
+        {loading ? (
           <PageLoading />
         ) : (
           <React.Fragment>
