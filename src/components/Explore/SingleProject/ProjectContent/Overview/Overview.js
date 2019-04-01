@@ -5,6 +5,7 @@ import SummaryCards from "../../../../General/SummaryCards/SummaryCards";
 import caseToName from "../../../../../helpers/functions/replace-case-name";
 import ExecutiveSummary from "./constants";
 import contextMap from "../../../../../assets/images/project-context-map.svg";
+import CustomSections from '../../../../General/CustomSections/CustomSections';
 
 const Overview = props => {
   let cards = null;
@@ -64,14 +65,10 @@ const Overview = props => {
 
         <div className="opportunity">
           <div className="container">
+            {data.extra && data.extra.opportunity && (
+              <CustomSections sections={data.extra.opportunity} />
+            )}
             <div className="row">
-              {data.extra && data.extra.opportunity && data.extra.opportunity.map(section => (
-                <div className={`col-md-${section.width} custom-section`}>
-                  {section.content && section.content.map(subSection => (
-                    <p>{subSection.value}</p>
-                  ))}
-                </div>
-              ))}
               <div className="col-12 title-yellow margin-top">Opportunity</div>
               <div className="col-sm-12 col-md-8 margin-top">
                 <div className="sub-title margin-bottom-x4">
