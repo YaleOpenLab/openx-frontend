@@ -643,5 +643,24 @@ export const extraProjectData = [
         ]
       },
     ],
+    stages: {
+      graph: {
+        imageUrl: 'https://via.placeholder.com/50x50',
+        stages: [
+          {index: 0, date: 'May 2018'},
+          {index: 1, date: 'Jul 2018'},
+          {index: 2, date: 'Oct 2018'},
+          {index: 3, date: 'Dec 2018'},
+          {index: 4, date: 'Jan 2019'},
+          {index: 5, date: 'Feb 2019'},
+          {index: 6, date: 'Mar 2019'},
+          {index: 7, date: 'Apr 2019'},
+          {index: 8, date: 'May 2019'}
+        ],
+        stageDescription:
+          'This project is in stage 4, meaning all major contracts and quotes relating to total project cost have been processed and signed. Your investment at this stage has less risk since financial projection are more detailed that with early stages. However, risks may occur during construction periods, and some solar contracts do not have warranties against these. '
+      },
+      url: '#'
+    },
   }
 ];
