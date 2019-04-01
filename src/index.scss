@@ -9,8 +9,11 @@
 
 
 body {
+  font-family: $secondary-font;
   margin: 0;
   padding: 0;
   height: 100%;
-  font-family: $primary-font;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }

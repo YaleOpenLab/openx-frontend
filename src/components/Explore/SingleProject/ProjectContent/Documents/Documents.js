@@ -13,13 +13,7 @@ const Documents = props => (
           <div className="col-12 ">
             <div className="col-12 mg-top-15">
               <div className="sub-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
-                dapibus vulputate diam eu pretium. Mauris elit orci, ultricies
-                id fermentum vel, porta et eros. Vestibulum condimentum lectus
-                in convallis feugiat. Sed vulputate fringilla felis. Aliquam ut
-                arcu et dui feugiat scelerisque eu quis diam. Mauris placerat
-                congue dui sit amet blandit. Phasellus condimentum libero vel
-                velit auctor, sit amet tincidunt velit varius.
+                {props.description}
               </div>
             </div>
             <div className="col-12 row document-list">

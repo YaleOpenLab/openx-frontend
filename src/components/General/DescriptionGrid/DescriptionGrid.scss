@@ -1,7 +1,7 @@
 @import "../../../styles/variables";
 
 .specifics-box {
-  border-top: 1px solid $white;
+  border-top: 2px solid $white;
   padding-top: $pixel-base * 2;
   padding-bottom: $pixel-base * 2;
   font-family: $secondary-font;
@@ -9,16 +9,19 @@
   .spec-cont {
     font-size: 18px;
     font-weight: 300;
+    color: $charcoal-grey-two;
     margin-bottom: $pixel-base;
   }
   .spec-desc {
     text-transform: uppercase;
     font-size: 10px;
-    font-size: 10px;
     font-weight: 600;
-    letter-spacing: 2;
     letter-spacing: 2px;
     color: $secondary-color-lighter;
+  }
+  .spec-icon-info {
+    margin: 0px auto;
+    width: 50%
   }
   .base {
     color: $primary-color;
@@ -37,5 +40,8 @@
     font-size: 12px;
     color: $secondary-color-lighter;
     text-align: right;
+  }
+  .spec-price-bigger {
+    font-size: 17px;
   }
 }

@@ -1,8 +1,54 @@
-.ProjectDetails {
-    margin-top: 35px;
+@import "../../../../../styles/variables";
 
-    .community{
-        background: $secondary-color-very-light;
-        padding: 20px;
+.ProjectDetails {
+  .community {
+    background: $secondary-color-very-light;
+    padding: 20px;
+  }
+
+  .project-detail-arch-title {
+    font-size: 18px;
+    color: $secondary-color;
+    font-weight: 600;
+    height: $pixel-base * 4;
+    line-height: $pixel-base * 4;
+    text-transform: capitalize;
+    margin-bottom: $pixel-base * 2;
+  }
+  .project-detail-arch-image-big {
+    height: 532px;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
     }
+  }
+  .project-detail-arch-image-small {
+    height: 215px;
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+  .project-detail-arch-text{
+      min-height: 315px;
+      font-family: $secondary-font;
+      font-size: 17px;
+      color: $secondary-color;
+  }
+  .details-engineering-image{
+    width: 100%;
+    height: 540px;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+  .details-engineering-text{
+    font-family: $secondary-font;
+    font-size: 17px;
+    color: $secondary-color;
+    margin-top: $pixel-base * 3;
+  }
 }

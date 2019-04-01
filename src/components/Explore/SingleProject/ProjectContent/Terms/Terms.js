@@ -1,82 +1,71 @@
-import React from "react";
-import ScrollableAnchor, { configureAnchors } from "react-scrollable-anchor";
+import React from 'react';
+import './Terms.scss';
+import IcKeyboard from '../../../../../assets/images/ic_keyboard.png';
+import ScrollableAnchor, { configureAnchors } from 'react-scrollable-anchor';
+import TermsTable from './TermsTable/TermsTable';
+
 configureAnchors({
   offset: -90,
   scrollDuration: 200,
   keepLastAnchorHash: true
 });
 
-const Terms = props => (
-  <ScrollableAnchor id={"terms"}>
-    <section className="Terms">
-      <div className="container">
-        <div className="row">
-          <div className="col-12 title no-padding border-bottom">Terms</div>
-          <div className="col-12 text-description">
-            <div className="sub-title">Purpose</div>
-            <div className="sub-desc">
-              Proceeds from this project's raise are invested in the development
-              of a Proof-of-Concept installation in the Segunda Unidad Pasto
-              School in Aibonito, Puerto Rico. The PoC is part of research
-              initiative of the Yale OpenLab and the Digital Currency Initiative
-              of the MIT Media Lab.
+class Terms extends React.Component {
+
+  state = {
+    collapsed: true,
+  };
+
+  handleCollapse = () => {
+    this.setState(prevState => ({
+      collapsed: !prevState.collapsed,
+    }));
+  };
+
+  render() {
+    return (
+      <ScrollableAnchor id={'terms'}>
+        <section className="Terms">
+          <div className="container">
+            <div className="row">
+              <div className="col-12 title no-padding border-bottom">Terms</div>
+              <div className="col-12 text-description">
+                <div className="sub-title">
+                  Purpose
+                </div>
+                {
+                  this.props.data.extra && this.props.data.extra.terms && this.props.data.extra.terms.description && (
+                    <div className="sub-desc">
+                      {this.props.data.extra.terms.description}
+                    </div>
+                  )
+                }
+              </div>
+              <div className={(this.state.collapsed ? '' : '-minimized ') + "col-12 project-table no-padding"}>
+              <div className="table-wrapper">
+                <TermsTable
+                  data={this.props.data.Terms}
+                />
+                <button className="collapse-button" onClick={() => this.handleCollapse()}>
+                  <img src={IcKeyboard} alt="keyboard" />
+                </button>
+              </div>
+              </div>
+              <div className="col-12 security-note">
+                <div className="security-title">security note</div>
+                <div className="security-text">
+                  These terms are for demonstration purpose only. The current project does not correspond to an actual
+                  issued security and offered by a registered broker dealer. If it was, this note would provide legal
+                  disclaimers and notes about the security asset.
+                  <a href="/"> Learn more ></a>
+                </div>
+              </div>
             </div>
           </div>
-          <div className="col-12 project-table no-padding">
-            <div className="table-responsive">
-              <table className="table">
-                <thead className="thead-white">
-                  <tr>
-                    <th scope="col">variable</th>
-                    <th scope="col">value</th>
-                    <th scope="col">relevant party</th>
-                    <th scope="col">note</th>
-                    <th scope="col">status</th>
-                    <th scope="col">support doc</th>
-                  </tr>
-                </thead>
-                <tbody className="tbody-white">
-                  <tr>
-                    <td>Security Type</td>
-                    <td>Municipal Bond</td>
-                    <td>PR DofEd</td>
-                    <td>Promoted by PR governor's office</td>
-                    <td>
-                      <span>demo</span>
-                    </td>
-                    <td>
-                      <span className="terms-doc-icon" />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Security Type</td>
-                    <td>Municipal Bond</td>
-                    <td>PR DofEd</td>
-                    <td>Promoted by PR governor's office</td>
-                    <td>
-                      <span>demo</span>
-                    </td>
-                    <td>
-                      <span className="terms-doc-icon" />
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <div className="col-12 security-note">
-            <div className="security-title">security note</div>
-            <div className="security-text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
-              dapibus vulputate diam eu pretium. Mauris elit orci, ultricies id
-              fermentum vel, porta et eros. Vestibulum condimentum lectus in
-              convallis feugiat. Sed vulputate fringilla felis. Link >
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </ScrollableAnchor>
-);
+        </section>
+      </ScrollableAnchor>
+    )
+  }
+};
 
 export default Terms;

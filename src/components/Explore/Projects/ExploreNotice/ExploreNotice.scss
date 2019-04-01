@@ -1,0 +1,24 @@
+@import "../../../../styles/variables";
+
+.explore-notice {
+  text-align: center;
+  background: $secondary-color-very-light;
+  color: $secondary-color;
+  padding-top: $pixel-base * 2;
+  padding-bottom: $pixel-base * 2;
+
+  .explore-notice-title {
+    font-size: 18px;
+    font-weight: 500;
+  }
+  .explore-notice-text {
+    font-size: 13px;
+    font-family: $secondary-font;
+  }
+  .explore-notice-action {
+    font-size: 12px;
+    font-weight: 600;
+    color: $primary-color;
+    cursor: pointer;
+  }
+}

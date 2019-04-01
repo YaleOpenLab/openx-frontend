@@ -1,20 +1,25 @@
-.Terms{
-    background: $project-content-background;
-    padding: 25px; 
+@import "../../../../../styles/variables";
 
-    .security-note{
-        color: $secondary-color;
-        .security-title{
-            font-family: $secondary-font;
-            margin-top: $pixel-base * 4;
-            font-size: 16px;
-            font-weight: 300;
-            text-transform: uppercase;
-        }
-        .security-text{
-            margin-top: $pixel-base * 2;
-            font-size: 14px;
-            margin-bottom: $pixel-base * 4;
-        }
+.Terms {
+  background: $project-content-background;
+  font-family: $secondary-font;
+
+  .security-note {
+    color: $secondary-color;
+
+    .security-title {
+      font-size: 16px;
+      font-weight: 300;
+      margin-top: $pixel-base * 4;
+      text-transform: uppercase;
     }
+
+    .security-text {
+      color: $secondary-color;
+      font-size: 14px;
+      line-height: 1.43;
+      margin-top: $pixel-base * 2;
+      margin-bottom: 28px;
+    }
+  }
 }

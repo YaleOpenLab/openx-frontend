@@ -9,7 +9,15 @@
 
     .progress-success {
         height: 100%;
-        background: orange;
+        background: $primary-color;
         border-radius: 5px;
+    }
+    
+    .progress-label {
+        font-size: 8px;
+        font-weight: 600;
+        color: $primary-color;
+        position: absolute;
+        left: $pixel-base * 4;
     }
 }

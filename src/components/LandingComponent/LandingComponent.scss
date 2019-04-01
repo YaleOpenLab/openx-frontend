@@ -4,58 +4,44 @@
   .header {
     position: relative;
     text-align: center;
-    background: url("../../assets/images/HeroBar.png");
+    background: url("../../assets/images/landingHeader.png");
     background-size: cover;
-    min-height: 353px;
+    min-height: 709px;
 
     .header-text {
-      font-family: AvenirNext;
-      text-transform: uppercase;
-      top: 50%;
-      left: 50%;
-      color: $primary-color-light;
-      font-weight: bold;
-      font-size: $base-font * 1.125;
-      background: $white;
-      font-style: normal;
-      font-stretch: normal;
-      line-height: 1.44;
-      letter-spacing: normal;
-      padding: $pixel-base * 0.5 $pixel-base * 2;
-    }
-    .part-1 {
+      font-family: $secondary-font;
       position: absolute;
       transform: translate(-50%, -100%);
+      top: 50%;
+      left: 50%;
+      color: $white;
+      .header-text-normal {
+        font-size: 18px;
+        text-transform: capitalize;
+      }
+      .header-text-bold {
+        font-size: 35px;
+        font-weight: bold;
+      }
+      .header-text-upper {
+        margin-top: $pixel-base * 3;
+        font-size: 15px;
+        text-transform: uppercase;
+      }
     }
-    .part-2 {
-      position: absolute;
-      transform: translate(-50%, 0%);
-    }
+  }
 
-    @media #{$md-scren} {
+  @media #{$sm-screen} {
+    .header {
+      min-height: 350px;
       .header-text {
-        font-size: $base-font * 1.2;
-      }
-    }
-    @media #{$sm-scren} {
-      .header-text {
-        font-size: $base-font;
-      }
-    }
-    @media #{$xs-scren} {
-      .header-text {
-        font-size: $base-font / 1.7;
-      }
-    }
-    @media #{$lg-scren} {
-      .header-text {
-        font-size: $base-font * 1.125;
+        transform: translate(-50%, -50%);
       }
     }
   }
 
   .content {
-    margin-bottom: 20px;
+    margin-bottom: $pixel-base * 10;
 
     .item {
       margin-top: 24px;
@@ -93,17 +79,70 @@
   }
 
   .landing-info {
-    margin: 25px 0px 35px 0px;
+    margin: $pixel-base * 9 0px $pixel-base * 9 0px;
     text-align: center;
+    color: $secondary-color;
+    font-family: $secondary-font;
 
-    h1 {
-      color: $secondary-color;
-      font-size: 34px;
-    }
-
-    p {
-      color: $secondary-color;
+    .landing-section {
       font-size: 14px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    .landing-title {
+      font-size: 34px;
+      font-weight: 300;
+      margin-top: $pixel-base;
+    }
+    .landing-text {
+      font-size: 18px;
+      font-weight: 600;
+      margin-top: $pixel-base * 4;
+    }
+    .landing-action-link {
+      margin-top: $pixel-base * 3;
+      font-size: 18px;
+      font-weight: 600;
+
+      a {
+        color: $primary-color;
+      }
+    }
+  }
+  .landing-board {
+    min-height: 283px;
+    background: $sub-navigation-background;
+    font-family: $secondary-font;
+    text-align: center;
+    color: $secondary-color;
+    padding: $pixel-base * 5;
+
+    .landing-item-block {
+      justify-content: center;
+    }
+    .landing-board-item {
+      .landing-board-icon {
+        height: 78px;
+        width: 63px;
+        margin: 0px auto;
+        display: flex;
+        img {
+          max-height: 100%;
+          max-width: 100%;
+          object-fit: cover;
+          align-self: flex-end;
+        }
+      }
+      .landing-board-title {
+        font-size: 28px;
+        font-weight: 300;
+        text-transform: capitalize;
+      }
+      .landing-board-desc {
+        font-size: 14px;
+        font-weight: 600;
+        margin-top: $pixel-base * 2;
+      }
     }
   }
 }

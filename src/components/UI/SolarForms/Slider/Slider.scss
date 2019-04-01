@@ -9,7 +9,7 @@
     margin-bottom: $pixel-base;
   }
   .slider-container {
-    height: $pixel-base * 6;
+    height: $pixel-base * 7;
 
     .input-range__track {
       height: 6px;
@@ -26,6 +26,12 @@
     .input-range__slider {
       background: $primary-color;
       border: 1px $primary-color;
+    }
+    .input-range__label {
+      color: $secondary-color-lighter;
+      font-family: $secondary-font;
+      font-size: 10px;
+      font-weight: 600;
     }
     .input-range__label--value {
       top: 5px;

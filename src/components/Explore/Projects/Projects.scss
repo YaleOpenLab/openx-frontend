@@ -1,10 +1,16 @@
 @import "../../../styles/variables";
 
+.explore-wrapper {
+  margin-top: $pixel-base * 3;
+}
 .Projects {
-  margin-top: 32px;
+  margin-top: $pixel-base * 4;
 
   .projects-box {
-    margin-bottom: 15px;
+    margin-bottom: $pixel-base * 2;
+  }
+  .projects-box-explore {
+    margin-bottom: $pixel-base * 4;
   }
 
   .projects-image-box {
@@ -18,4 +24,20 @@
     }
   }
 
+  .projects-location-icon {
+    float: left;
+    margin-top: 2px;
+    padding-left: $pixel-base * 2;
+  }
+  .specifics-box-no-mg {
+    border-top: 2px solid $white;
+    padding-bottom: $pixel-base * 2;
+    font-family: $secondary-font;
+  }
+  .stats-units {
+    font-size: 9px;
+    position: absolute;
+    margin-top: 13px;
+    margin-left: -30px;
+  }
 }
