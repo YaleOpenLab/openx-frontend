@@ -1,6 +1,52 @@
 @import "../../styles/variables";
 
 .ExploreComponent {
+  .specifics-box {
+    border-top: 2px solid $white;
+    padding-top: $pixel-base * 2;
+    padding-bottom: $pixel-base * 2;
+    font-family: $secondary-font;
+
+    .spec-cont {
+      font-size: 18px;
+      font-weight: 300;
+      color: $charcoal-grey-two;
+      margin-bottom: $pixel-base;
+    }
+    .spec-desc {
+      text-transform: uppercase;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      color: $secondary-color-lighter;
+    }
+    .spec-icon-info {
+      margin: 0px auto;
+      width: 50%;
+    }
+    .base {
+      color: $primary-color;
+    }
+    .blue {
+      color: $third-color-light;
+    }
+
+    .spec-first-price {
+      font-size: 12px;
+      color: $secondary-color;
+      font-family: $secondary-font;
+    }
+    .spec-second-price {
+      font-family: $secondary-font;
+      font-size: 12px;
+      color: $secondary-color-lighter;
+      text-align: right;
+    }
+    .spec-price-bigger {
+      font-size: 17px;
+    }
+  }
+
   .projects-description-box {
     background: $projects-background;
     padding: 15px 35px;
@@ -44,21 +90,21 @@
       text-transform: capitalize;
     }
 
-    .desc-category-separator{
+    .desc-category-separator {
       border-bottom: 2px solid $white;
       padding-bottom: $pixel-base / 2;
     }
 
     .desc-description {
       color: $secondary-color;
-      .desc-description-text{
-        min-height: 120px
+      .desc-description-text {
+        min-height: 120px;
       }
       span {
         font-weight: 500;
         font-size: 13px;
       }
-      .desc-description-buttons{
+      .desc-description-buttons {
         min-height: 100px;
         display: flex;
         ul {
@@ -69,8 +115,6 @@
           }
         }
       }
-
-
     }
 
     .projects-description__spread {
@@ -79,7 +123,7 @@
       margin-bottom: 8px;
       width: 100%;
 
-      >* {
+      > * {
         width: 100%;
       }
     }
@@ -92,8 +136,14 @@
       > div {
         text-align: center;
 
-        &.-primary-color p, &.-primary-color h6 {
+        &.-primary-color p,
+        &.-primary-color h6 {
           color: $primary-color;
+        }
+
+        &.-blue-color p,
+        &.-blue-color h6 {
+          color: $third-color-light;
         }
 
         &.-dark-color h6 {
@@ -122,7 +172,7 @@
       }
     }
   }
-  
+
   .watch-button-explore {
     position: absolute;
     border: none;

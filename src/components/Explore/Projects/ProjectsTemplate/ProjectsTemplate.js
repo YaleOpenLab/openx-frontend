@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import { NavLink } from "mdbreact";
 import ROUTES from "../../../../routes/routes";
-import DescriptionGrid from "../../../General/DescriptionGrid/DescriptionGrid";
 import ProgressBar from "../../../General/ProgressBar/ProgressBar";
 import percentage from "../../../../helpers/functions/percentage";
 import { Http } from "../../../../services/Http";
 import ShowMoreText from "../../../General/ShowMoreText/ShowMoreText";
-import { STAGES } from '../../../../helpers/enums/stages';
+import { STAGES } from "../../../../helpers/enums/stages";
 
 class ProjectsTemplate extends Component {
   constructor(props) {
@@ -33,7 +32,7 @@ class ProjectsTemplate extends Component {
   render() {
     return (
       <div className="col-sm-12 col-md-6">
-        <div className="projects-box">
+        <div className="projects-box-explore">
           <NavLink
             to={ROUTES.PROJECT_BASE + this.props.data.Index}
             className="no-padding"
@@ -42,7 +41,10 @@ class ProjectsTemplate extends Component {
               <button className="watch-button-explore" type="button">
                 <div className="watch-icon" />
               </button>
-              <img src={this.props.data.DPIntroImage} alt={this.props.data.Name} />
+              <img
+                src={this.props.data.DPIntroImage}
+                alt={this.props.data.Name}
+              />
             </div>
           </NavLink>
           <div className="projects-description-box">
@@ -60,7 +62,9 @@ class ProjectsTemplate extends Component {
               </div>
               <div className="desc-location col-12">
                 <div className="projects-location-icon location-icon" />
-                {this.props.data.State} {this.props.data.State && this.props.data.Country ? ', ' : ''} {this.props.data.Country}
+                {this.props.data.State}
+                {this.props.data.State && this.props.data.Country ? ", " : ""}
+                {this.props.data.Country}
               </div>
               <div className="col-6 desc-category">
                 {this.props.data.InvestmentType}
@@ -84,29 +88,53 @@ class ProjectsTemplate extends Component {
                   </ul>
                 </div>
               </div>
-              <DescriptionGrid
-                list={[
-                  { value: "3 kW", desc: "solar", type: "base" },
-                  { value: "0 kWh", desc: "storage" },
-                  { value: "0.0", desc: "tariff" },
-                  { value: "1/7", desc: "stage" }
-                ]}
-              />
-              <DescriptionGrid
-                list={[
-                  { value: "0%", desc: "return", type: "blue" },
-                  { value: "n/a", desc: "rating" },
-                  { value: "n/a", desc: "tax" },
-                  { value: "2008", desc: "eta", icon: true }
-                ]}
-              />
+              <div className="col-12 specifics-box-no-mg">
+                <div className="projects-description__stats">
+                  <div className="-primary-color">
+                    <p>{this.props.data.ExplorePageSummary.Solar}</p>
+                    <h6>Solar</h6>
+                  </div>
+                  <div>
+                    <p>{this.props.data.ExplorePageSummary.Storage}</p>
+                    <h6>Storage</h6>
+                  </div>
+                  <div>
+                    <p>{this.props.data.ExplorePageSummary.Tariff}</p>
+                    <h6>Tariff</h6>
+                  </div>
+                  <div>
+                    <p>{this.props.data.ExplorePageSummary.Stage}</p>
+                    <h6>Stage</h6>
+                  </div>
+                </div>
+              </div>
+              <div className="col-12 specifics-box-no-mg">
+                <div className="projects-description__stats">
+                  <div className="-blue-color">
+                    <p>{this.props.data.ExplorePageSummary.Return}</p>
+                    <h6>Return</h6>
+                  </div>
+                  <div>
+                    <p>{this.props.data.ExplorePageSummary.Rating}</p>
+                    <h6>Rating</h6>
+                  </div>
+                  <div>
+                    <p>{this.props.data.ExplorePageSummary.Tax}</p>
+                    <h6>Tax</h6>
+                  </div>
+                  <div>
+                    <p>{this.props.data.ExplorePageSummary.ETA}</p>
+                    <h6>ETA</h6>
+                  </div>
+                </div>
+              </div>
               <div className="col-12 specifics-box">
                 <div className="row">
                   <div className="col-6 spec-first-price">
-                    {this.props.data.MoneyRaised}
+                    ${this.props.data.MoneyRaised}
                   </div>
                   <div className="col-6 spec-second-price">
-                    {this.props.data.TotalValue}
+                    ${this.props.data.TotalValue}
                   </div>
                   <div className="col-12 ">
                     <ProgressBar
