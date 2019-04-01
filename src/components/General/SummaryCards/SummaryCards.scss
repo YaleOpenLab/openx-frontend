@@ -1,10 +1,13 @@
 @import "../../../styles/variables";
 
 .summary-card {
+  margin-bottom: 55px;
+
   .card-header {
     color: $primary-color;
     height: 50px;
     display: flex;
+
     .card-header-title {
       align-self: center;
       letter-spacing: 2px;
@@ -16,22 +19,26 @@
       text-align: center;
       margin-left: $pixel-base * 2;
     }
-    .card-header-icon{
-        height: 21px;
-        width: 21px;
+
+    .card-header-icon {
+      height: 21px;
+      width: 21px;
     }
   }
+
   .card-body {
     background: $white-three;
     padding: $pixel-base * 3;
     font-family: $secondary-font;
     min-height: 82px;
     border-bottom: 1px solid $pale-grey;
+
     .card-body-content {
       font-size: 24px;
       font-weight: 300;
       color: $secondary-color;
     }
+
     .card-body-description {
       font-size: 10px;
       color: $secondary-color-lighter;
@@ -40,12 +47,12 @@
       text-transform: uppercase;
     }
   }
-  
 
 
   @media #{$md-scren} {
     .card-body {
       padding: $pixel-base * 2;
+
       .card-body-content {
         font-size: 18px;
       }
@@ -54,6 +61,7 @@
   @media #{$xs-scren} {
     .card-body {
       padding: $pixel-base * 2;
+
       .card-body-content {
         font-size: 24px;
       }
