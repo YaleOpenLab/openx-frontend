@@ -4,7 +4,7 @@
   padding-top: 35px;
   
   .CustomSection {
-    margin-bottom: 60px;
+    margin-bottom: 40px;
 
     h3 {
       color: $primary-color;
@@ -12,7 +12,7 @@
       text-transform: uppercase;
       font-size: 24px;
       font-weight: bold;
-      margin: 0;
+      margin: 0 20px 20px 0;
     }
 
     h4 {
@@ -29,12 +29,13 @@
       font-family: $secondary-font;
       font-size: 16px;
       line-height: 1.25;
-      margin: 0 0 20px;
+      margin: 0 20px 20px 0;
     }
 
     .-image {
       background-position: center;
       background-size: cover;
+      margin: 0 20px 20px 0;
     }
   }
 }
