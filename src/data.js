@@ -338,59 +338,25 @@ export const extraProjectData = [
 
 
     ],
-    stageAndForecast: {
+    stages: {
       graph: {
         imageUrl: 'https://via.placeholder.com/50x50',
         stages: [
-          {index: 0, title: 'handshake', date: 'Date'},
-          {index: 1, title: 'engagement', date: 'Date'},
-          {index: 2, title: 'quotes', date: 'Date'},
-          {index: 3, title: 'contracts', date: 'Date'},
-          {index: 4, title: 'the raise', date: 'Date'},
-          {index: 5, title: 'Construction', date: 'Date'},
-          {index: 6, title: 'interconnection', date: 'Date'},
-          {index: 7, title: 'legacy', date: 'Date'},
-          {index: 8, title: 'the flip', date: 'Date'}
+          {index: 0, date: 'May 2018'},
+          {index: 1, date: 'Jul 2018'},
+          {index: 2, date: 'Oct 2018'},
+          {index: 3, date: 'Dec 2018'},
+          {index: 4, date: 'Jan 2019'},
+          {index: 5, date: 'Feb 2019'},
+          {index: 6, date: 'Mar 2019'},
+          {index: 7, date: 'Apr 2019'},
+          {index: 8, date: 'May 2019'}
         ],
-        currentStage: 7,
-        stageName: 'Legacy',
         stageDescription:
           'The project is in the legacy stage, also known as O&M for Operations & Management. This means the system has been successfully funded and deployment, and the receiver is making appropriate schedule.'
       },
-      fullTimelineRecords: 'https://www.someurl.com'
+      url: '#'
     },
-    documents: {
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus vulputate diam eu pretium. Mauris elit orci, ultricies id fermentum vel, porta et eros. Vestibulum condimentum lectus in convallis feugiat. Sed vulputate fringilla felis. Aliquam ut arcu et dui feugiat scelerisque eu quis diam. Mauris placerat congue dui sit amet blandit. Phasellus condimentum libero vel velit auctor, sit amet tincidunt velit varius.',
-      docs: [
-        {
-          url: 'https://www.documenturl.com',
-          title: 'project overview',
-          category: 'project portfolio'
-        },
-        {
-          url: 'https://www.documenturl.com',
-          title: 'ppa',
-          category: 'contract'
-        },
-        {
-          url: 'https://www.documenturl.com',
-          title: 're certification agreement',
-          category: 'RECS'
-        },
-        {
-          url: 'https://www.documenturl.com',
-          title: 'guarantor agreement',
-          category: 'investor protection'
-        }
-      ],
-      links: [
-        {url: 'https://www.somelink.com', title: 'optional title'},
-        {url: 'https://www.somelink.com', title: 'optional title'},
-        {url: 'https://www.somelink.com', title: 'optional title'},
-        {url: 'https://www.somelink.com', title: 'optional title'}
-      ]
-    }
   },
   {
     id: 6,

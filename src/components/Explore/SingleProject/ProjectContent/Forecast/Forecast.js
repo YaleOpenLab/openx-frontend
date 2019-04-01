@@ -3,6 +3,7 @@ import DevelopmentStage from "./DevelopmentStage/DevelopmentStage";
 import { NavLink } from "react-router-dom";
 import ROUTES from "../../../../../routes/routes";
 import ScrollableAnchor from "react-scrollable-anchor";
+import { STAGES } from '../../../../../helpers/enums/stages';
 
 const Forecast = props => (
   <ScrollableAnchor id={"stageforecast"}>
@@ -18,17 +19,29 @@ const Forecast = props => (
                 <span>development stage</span>
               </div>
               <div className="col-12">
-                <DevelopmentStage data={props.tempData.graph} currentStage={props.data.Stage} />
+                {
+                  props.data.extra && props.data.extra.stages && props.data.extra.stages.graph && (
+                    <DevelopmentStage data={props.data.extra.stages.graph} currentStage={props.data.Stage} />
+                  )
+                }
               </div>
               <div className="col-12 col-sm-7 mx-auto mg-top-15 forecast-info">
-                <div className="forecast-info-title">{props.tempData.graph.stageName}</div>
+                <div className="forecast-info-title">{STAGES[props.data.Stage]}</div>
                 <div className="forecast-info-sub-title">current stage</div>
-                <div className="forecast-info-content">
-                  {props.tempData.graph.stageDescription} Larn more>
-                </div>
+                {
+                  props.data.extra && props.data.extra.stages && props.data.extra.stages.graph && (
+                    <div className="forecast-info-content">
+                      {props.data.extra.stages.graph.stageDescription} Learn more>
+                    </div>
+                  )
+                }
               </div>
               <div className="col-12 mg-top-15 link-to-records">
-                <NavLink to={props.tempData.fullTimelineRecords} className="small">FULL TIMELINE RECORDS ></NavLink>
+                {
+                  props.data.extra && props.data.extra.stages && props.data.extra.stages.url && (
+                    <NavLink to={props.data.extra.stages.url} className="small">FULL TIMELINE RECORDS ></NavLink>
+                  )
+                }
               </div>
             </div>
           </div>

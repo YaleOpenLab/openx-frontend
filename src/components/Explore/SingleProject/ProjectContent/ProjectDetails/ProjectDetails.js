@@ -7,35 +7,7 @@ import SolarCard from "./SolarCard/SolarCard";
 import CustomSections from '../../../../General/CustomSections/CustomSections';
 
 const ProjectDetails = props => {
-  const tempData = props.tempData;
   const data = props.data;
-  let communityItems = null;
-  let businessItems = null;
-
-  if (data.CommunityEngagement) {
-    communityItems = data.CommunityEngagement.map((item, i) => {
-      return (
-        <CommunitySection
-          key={item.Title}
-          title={item.Title}
-          text={item.Content}
-          imageUrl={data.CEImages[i]}
-        />
-      );
-    });
-  }
-  if (tempData.businessAndPayment) {
-    businessItems = tempData.businessAndPayment.content.map(item => {
-      return (
-        <BusinessPaymentSection
-          key={item.title}
-          title={item.title}
-          text={item.text}
-          imageUrl={item.image}
-        />
-      );
-    });
-  }
 
   return (
     <ScrollableAnchor id={"project"}>

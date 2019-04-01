@@ -18,10 +18,10 @@ configureAnchors({
 const ProjectContent = props => (
   <div className="ProjectContent">
     <AnchorNavigation list={props.navigation} active={props.active} />
-    <Terms tempData={props.tempData.terms} data={props.data} />
-    <Overview tempData={props.tempData.projectOverview} data={props.data} />
-    <ProjectDetails tempData={props.tempData.project} data={props.data} />
-    <Forecast tempData={props.tempData.stageAndForecast} data={props.data} />
+    <Terms data={props.data} />
+    <Overview data={props.data} />
+    <ProjectDetails data={props.data} />
+    <Forecast data={props.data} />
     <Documents data={props.tempData.documents} />
     <Invest />
     <SupportOpenX />
