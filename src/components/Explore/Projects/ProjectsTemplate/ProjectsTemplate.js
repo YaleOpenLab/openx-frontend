@@ -99,7 +99,12 @@ class ProjectsTemplate extends Component {
                     <h6>Storage</h6>
                   </div>
                   <div>
-                    <p>{this.props.data.ExplorePageSummary.Tariff}</p>
+                    <p>
+                      {this.props.data.ExplorePageSummary.Tariff.split(" ")[0]}
+                      <span className="stats-units">
+                        {this.props.data.ExplorePageSummary.Tariff.split(" ")[1]}
+                      </span>
+                    </p>
                     <h6>Tariff</h6>
                   </div>
                   <div>

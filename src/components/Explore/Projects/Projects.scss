@@ -4,12 +4,12 @@
   margin-top: $pixel-base * 3;
 }
 .Projects {
-  margin-top:  $pixel-base * 4;
+  margin-top: $pixel-base * 4;
 
   .projects-box {
     margin-bottom: $pixel-base * 2;
   }
-  .projects-box-explore{
+  .projects-box-explore {
     margin-bottom: $pixel-base * 4;
   }
 
@@ -29,9 +29,15 @@
     margin-top: 2px;
     padding-left: $pixel-base * 2;
   }
-  .specifics-box-no-mg{
+  .specifics-box-no-mg {
     border-top: 2px solid $white;
     padding-bottom: $pixel-base * 2;
     font-family: $secondary-font;
+  }
+  .stats-units {
+    font-size: 9px;
+    position: absolute;
+    margin-top: 13px;
+    margin-left: -30px;
   }
 }

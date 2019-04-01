@@ -1,34 +1,35 @@
-import React, { Component } from 'react';
-import './Projects.scss';
-import ProjectsToolsComponent from '../ProjectsToolsComponent/ProjectsToolsComponent';
-import ProjectsTemplate from './ProjectsTemplate/ProjectsTemplate';
-import connect from 'react-redux/es/connect/connect';
-import { fetchProjects } from './store/actions';
-import ExploreNotice from './ExploreNotice/ExploreNotice';
+import React, { Component } from "react";
+import "./Projects.scss";
+import ProjectsToolsComponent from "../ProjectsToolsComponent/ProjectsToolsComponent";
+import ProjectsTemplate from "./ProjectsTemplate/ProjectsTemplate";
+import connect from "react-redux/es/connect/connect";
+import { fetchProjects } from "./store/actions";
+import ExploreNotice from "./ExploreNotice/ExploreNotice";
+import PageLoading from "../../General/Loading/Loading";
 
 class Projects extends Component {
   constructor(props) {
     super(props);
     this.state = {
       filters: {},
-      noticeVisible: !localStorage.getItem('exploreNotice'),
+      noticeVisible: !localStorage.getItem("exploreNotice"),
       type: null
     };
   }
 
   componentDidMount() {
-    this.setState({type: this.props.match.params.type});
+    this.setState({ type: this.props.match.params.type });
     this.props.fetchProjects(this.props.match.params.type);
   }
 
   componentDidUpdate() {
     if (this.state.type !== this.props.match.params.type) {
-      this.setState({type: this.props.match.params.type});
+      this.setState({ type: this.props.match.params.type });
       this.props.fetchProjects(this.props.match.params.type);
     }
   }
 
-  filter = project => (
+  filter = project =>(
     (!this.state.filters.Search || JSON.stringify(project).includes(this.state.filters.Search))
     && (!this.state.filters.Country || project.Country === this.state.filters.Country)
     && (!this.state.filters.State || project.State === this.state.filters.State)
@@ -37,27 +38,30 @@ class Projects extends Component {
   handleNotice = () => {
     this.setState({
       noticeVisible: false
-    })
+    });
   };
 
   onFilterUpdate = filters => {
-    this.setState({filters})
+    this.setState({ filters });
   };
 
   render() {
     return (
       <React.Fragment>
-        {this.state.noticeVisible ? <ExploreNotice handleNotice={this.handleNotice}/> : null}
+        {this.state.noticeVisible ? (
+          <ExploreNotice handleNotice={this.handleNotice} />
+        ) : null}
 
         <div className="container explore-wrapper">
           <div className="row">
-            <ProjectsToolsComponent onFilterUpdate={this.onFilterUpdate}/>
+            <ProjectsToolsComponent onFilterUpdate={this.onFilterUpdate} />
             <div className="col-sm-12 col-md-8 col-lg-9">
               <div className="Projects">
-                <div className="row">
-                  {this.props.projects
-                    .filter(this.filter)
-                    .map(project => (
+                {this.props.loading ? (
+                  <PageLoading />
+                ) : (
+                  <div className="row">
+                    {this.props.projects.filter(this.filter).map(project => (
                       <ProjectsTemplate
                         data={project}
                         key={project.Index}
@@ -65,7 +69,8 @@ class Projects extends Component {
                         location={project.Location}
                       />
                     ))}
-                </div>
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -75,9 +80,12 @@ class Projects extends Component {
   }
 }
 
-const mapStateToProps = state => ({projects: state.projects.items});
+const mapStateToProps = state => ({
+  projects: state.projects.items,
+  loading: state.projects.isLoading
+});
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
   fetchProjects: type => dispatch(fetchProjects(type))
 });
 
