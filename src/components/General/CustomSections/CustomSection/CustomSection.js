@@ -16,17 +16,17 @@ const display = (section, index) => {
       );
     case 'image':
       return (
-        <>
+        <React.Fragment key={index} >
           <div className="-image" key={index} style={{
-            'background-image': `url('${section.value}')`,
-            'height': (section.height ? section.height : 300) + 'px',
+            backgroundImage: `url('${section.value}')`,
+            height: (section.height ? section.height : 300) + 'px',
           }} />
           {section.imageTitle !== '' && <span className='subtitle'>{section.imageTitle}</span>}
-        </>
+        </React.Fragment>
       );
     case 'link':
       return (
-        <a href={section.link}>{section.value}</a>
+        <a key={index} href={section.link}>{section.value}</a>
       );
     default:
       return (
