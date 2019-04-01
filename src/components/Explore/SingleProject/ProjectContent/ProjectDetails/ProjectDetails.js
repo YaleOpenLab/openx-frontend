@@ -4,6 +4,7 @@ import ScrollableAnchor from "react-scrollable-anchor";
 import CommunitySection from "./CommunitySection/CommunitySection";
 import BusinessPaymentSection from "./BusinessPaymentSection/BusinessPaymentSection";
 import SolarCard from "./SolarCard/SolarCard";
+import CustomSections from '../../../../General/CustomSections/CustomSections';
 
 const ProjectDetails = props => {
   const tempData = props.tempData;
@@ -46,52 +47,9 @@ const ProjectDetails = props => {
             </div>
             <div className="col-12">
               <div className="architecture margin-top">
-                <div className="row">
-                  <div className="component-title col-12">
-                    <span>architecture</span> / project design
-                  </div>
-                  <div className="col-sm-6 col-md-4 mg-top-15 ">
-                    <div className="project-detail-arch-title">
-                      {tempData.architecture[0].title}
-                    </div>
-                    <div className="project-detail-arch-image-big ">
-                      <img
-                        src={data.AImages[0]}
-                        alt={tempData.architecture[0].title}
-                      />
-                    </div>
-                  </div>
-                  <div className="col-sm-6 col-md-4 mg-top-15 ">
-                    <div className="project-detail-arch-title">
-                      {tempData.architecture[1].title}
-                    </div>
-                    <div className="project-detail-arch-image-small">
-                      <img
-                        src={data.AImages[1]}
-                        alt={tempData.architecture[1].title}
-                      />
-                    </div>
-                    <div className="">
-                      <SolarCard items={tempData.architecture[1].list} />
-                    </div>
-                  </div>
-                  <div className="col-sm-12 col-md-4 mg-top-15 ">
-                    <div className="project-detail-arch-title">
-                      {tempData.architecture[2].title}
-                    </div>
-                    <div className="project-detail-arch-text">
-                      {tempData.architecture[2].text}
-                    </div>
-                    {data.AImages[2] && (
-                      <div className="project-detail-arch-image-small">
-                        <img
-                          src={data.AImages[2]}
-                          alt={tempData.architecture[2].title}
-                        />
-                      </div>
-                    )}
-                  </div>
-                </div>
+                {data.extra && data.extra.projectDetails && (
+                  <CustomSections sections={data.extra.projectDetails} />
+                )}
               </div>
             </div>
             <div className="col-12">
