@@ -3,7 +3,6 @@ import Routes from "./routes/routes";
 import PrivateRoute from "./components/PrivateRouterComponent/PrivateRouterComponent";
 import { Switch, Route } from "react-router-dom";
 import LandingContainer from "./pages/LandingContainer/LandingContainer";
-import TestComponent from "./pages/TestComponent/TestComponent";
 import AuthPageContainer from "./pages/AuthPageContainer/AuthPageContainer";
 import NotFoundPageContainer from "./pages/NotFoundPageContainer/NotFoundPageContainer";
 import ExploreContainer from "./pages/Explore/ExploreContainer";
@@ -11,6 +10,7 @@ import InvestorContainer from "./pages/Investor/InvestorContainer";
 import ProfileContainer from "./pages/Profile/ProfileContainer";
 import ReceiverContainer from "./pages/Receiver/ReceiverContainer";
 import AboutContainer from "./pages/About/AboutContainer";
+import DeveloperContainer from "./pages/Developer/DeveloperContainer";
 
 class App extends Component {
   render() {
@@ -26,7 +26,7 @@ class App extends Component {
         <PrivateRoute path={Routes.PROFILE} component={ProfileContainer} />
         <PrivateRoute path={Routes.INVESTOR} component={InvestorContainer} />
         <PrivateRoute path={Routes.RECEIVER} component={ReceiverContainer} />
-        <PrivateRoute path={Routes.DEVELOPER} component={TestComponent} />
+        <PrivateRoute path={Routes.DEVELOPER} component={DeveloperContainer} />
         <Route path="*" exact component={NotFoundPageContainer} />
       </Switch>
     );

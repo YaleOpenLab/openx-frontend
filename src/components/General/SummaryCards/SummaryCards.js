@@ -15,7 +15,7 @@ const SummaryCards = props => {
   }
 
   return (
-    <div className={`summary-card ${props.theme && props.theme}`}>
+    <div className={`summary-card ${props.theme ? props.theme : ""}`}>
       {!props.title ? null : (
         <div className="card-header">
           <div
