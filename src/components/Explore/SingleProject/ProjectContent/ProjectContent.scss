@@ -98,9 +98,13 @@
 
   .project-table {
     margin-top: 5px;
+    position: relative;
+    max-height: max-content;
+    height: 800px;
+    transition: height 0.25s;
 
     table {
-      border-spacing: 0px;
+      border-spacing: 0;
 
       .thead-white {
         background: $white;
@@ -124,6 +128,8 @@
         font-weight: 300;
         color: $charcoal-grey-two;
         text-transform: capitalize;
+        opacity: 1;
+        transition: 0.25s;
 
         td {
           height: $pixel-base * 10;
@@ -131,6 +137,40 @@
         }
       }
     }
+  }
+
+  .collapse-button {
+    position: absolute;
+    top: 22px;
+    right: 0;
+    border: none;
+    background: transparent;
+    outline: none;
+    cursor: pointer;
+
+    img {
+      width: 16px;
+      height: 9px;
+    }
+  }
+
+  .-minimized {
+    height: 65px;
+    overflow: hidden;
+    width: calc(100% + 40px);
+    transition: height 0.25s;
+    table {
+      border-spacing: 0;
+
+      .tbody-white {
+        opacity: 0;
+        transition: 0.25s;
+      }
+    }
+  }
+
+  .table-wrapper {
+    width: calc(100% - 28px);
   }
 
   .component-title {
