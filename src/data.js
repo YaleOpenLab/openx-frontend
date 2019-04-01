@@ -179,7 +179,10 @@ export const extraProjectData = [
         content: [
           {type: 'header', value: 'Consultation'},
           {type: 'image', value: 'https://via.placeholder.com/450x350', height: 162},
-          {type: 'text', value: 'The MIT and Yale team convened a meeting with the Parent-Teacher Organisation, led by principal Janice Alejandro. Over 50 members of the community gathered to discuss the project, with unanimous approval and significant interest for its replication.'},
+          {
+            type: 'text',
+            value: 'The MIT and Yale team convened a meeting with the Parent-Teacher Organisation, led by principal Janice Alejandro. Over 50 members of the community gathered to discuss the project, with unanimous approval and significant interest for its replication.'
+          },
         ]
       },
       {
@@ -187,7 +190,10 @@ export const extraProjectData = [
         content: [
           {type: 'header', value: 'Participation'},
           {type: 'image', value: 'https://via.placeholder.com/450x350', height: 162},
-          {type: 'text', value: 'The principal, deputy principal, janitor, two teachers and one parent have volunteered as caretakers of the system to monitor its status, report any qualitative information and coordinate with the operation & maintenance required.'},
+          {
+            type: 'text',
+            value: 'The principal, deputy principal, janitor, two teachers and one parent have volunteered as caretakers of the system to monitor its status, report any qualitative information and coordinate with the operation & maintenance required.'
+          },
         ]
       },
       {
@@ -195,7 +201,10 @@ export const extraProjectData = [
         content: [
           {type: 'header', value: 'Outreach'},
           {type: 'image', value: 'https://via.placeholder.com/450x350', height: 162},
-          {type: 'text', value: 'The system has been installed with instructions so that it can act as a pedagogical site for students to learn about the merits of solar energy, electricity and basic electronics. Talk about solar energy will be given every semester in the context of climate change communication to the community.'},
+          {
+            type: 'text',
+            value: 'The system has been installed with instructions so that it can act as a pedagogical site for students to learn about the merits of solar energy, electricity and basic electronics. Talk about solar energy will be given every semester in the context of climate change communication to the community.'
+          },
         ]
       },
       {
@@ -203,92 +212,132 @@ export const extraProjectData = [
         content: [
           {type: 'header', value: 'Governance'},
           {type: 'image', value: 'https://via.placeholder.com/450x350', height: 162},
-          {type: 'text', value: 'The board of the Parent-Teacher Organisation, composed of 5 chairs, will coordinate with the director of the Yale Openlab and the head of strategy at the MIT DCI to define any governance steps that the system requires.'},
+          {
+            type: 'text',
+            value: 'The board of the Parent-Teacher Organisation, composed of 5 chairs, will coordinate with the director of the Yale Openlab and the head of strategy at the MIT DCI to define any governance steps that the system requires.'
+          },
         ]
       },
     ],
-    project: {
-      architecture: [
-        {
-          title: 'map layout',
-          image: 'https://via.placeholder.com/450x450'
-        },
-        {
-          title: 'solar output',
-          image: 'https://via.placeholder.com/450x250',
-          list: [
-            {value: 'XXX', desc: 'item name'},
-            {value: 'Text', desc: 'item name'},
-            {value: '000', desc: 'item name'},
-            {value: 'Text', desc: 'item name'}
-          ]
-        },
-        {
-          title: 'Design Description',
-          image: 'https://via.placeholder.com/450x250',
-          text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus vulputate diam eu pretium. Mauris elit orci, ultricies id fermentum vel, porta et eros. Vestibulum condimentum lectus in convallis feugiat. Sed vulputate fringilla felis. Aliquam ut arcu et dui feugiat scelerisque eu quis diam. Mauris placerat congue dui sit amet blandit. Phasellus condimentum libero vel velit auctor, sit amet tincidunt velit varius. '
-        }
-      ],
-      linkToDocument: 'https://www.someurl.com',
-      communityEngagement: {
+    business: [
+      {
+        width: 12,
         content: [
-          {
-            title: 'consultation',
-            image: 'https://via.placeholder.com/450x350',
-            text:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Crasdapibus vulputate diam eu pretium'
-          },
-          {
-            title: 'participation',
-            image: 'https://via.placeholder.com/450x350',
-            text:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Crasdapibus vulputate diam eu pretium'
-          },
-          {
-            title: 'outreach',
-            image: 'https://via.placeholder.com/450x350',
-            text:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Crasdapibus vulputate diam eu pretium'
-          },
-          {
-            title: 'governance',
-            image: 'https://via.placeholder.com/450x350',
-            text:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Crasdapibus vulputate diam eu pretium'
-          }
-        ],
-        linkToDocument: 'https://www.someurl.com'
+          {type: 'title', value: 'Business Numbers & Payment Scheme'},
+        ]
       },
-      businessAndPayment: {
+      {
+        width: 12,
+        content: [
+          {type: 'header', value: 'General Payment Logic'},
+        ]
+      },
+      {
+        width: 7,
+        content: [
+          {type: 'image', value: 'https://via.placeholder.com/450x450'},
+        ]
+      },
+      {
+        width: 5,
         content: [
           {
-            title: 'General Payment Logic',
-            image: 'https://via.placeholder.com/550x150',
-            text:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Crasdapibus vulputate diam eu pretium'
+            type: 'text',
+            value: 'The bond issued by the PR Department of Education covered the principle cost, used for labor and materials. The PPA revenue accrues to pay coupons and mature the bond. The MIT is registered as a first-loss guarantor.'
           },
+        ]
+      },
+      {
+        width: 12,
+        content: [
+          {type: 'header', value: 'Capital Expenditure'},
+        ]
+      },
+      {
+        width: 9,
+        content: [
+          {type: 'image', value: 'https://via.placeholder.com/450x450'},
+        ]
+      },
+      {
+        width: 3,
+        content: [
+          {type: 'header', value: 'Note'},
           {
-            title: 'Capital Expenditure',
-            image: 'https://via.placeholder.com/550x150',
-            text:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Crasdapibus vulputate diam eu pretium'
+            type: 'text',
+            value: 'The expected capital cost of the project were met with a superavit of $3000 thanks to the low-cost labor provided by Genmoji Solar.'
           },
+        ]
+      },
+      {
+        width: 12,
+        content: [
+          {type: 'header', value: 'Project Revenue'},
+        ]
+      },
+      {
+        width: 9,
+        content: [
+          {type: 'image', value: 'https://via.placeholder.com/450x450'},
+        ]
+      },
+      {
+        width: 3,
+        content: [
+          {type: 'header', value: 'Note'},
           {
-            title: 'Project Revenue',
-            image: 'https://via.placeholder.com/550x150',
-            text:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Crasdapibus vulputate diam eu pretium'
+            type: 'text',
+            value: 'The bond issued by the PR Department of Education covered the principle cost, used for labor and materials. The PPA revenue accrues to pay coupons and mature the bond. The MIT is registered as a first-loss guarantor.'
           },
+        ]
+      },
+      {
+        width: 12,
+        content: [
+          {type: 'header', value: 'Project Expenses'},
+        ]
+      },
+      {
+        width: 9,
+        content: [
+          {type: 'image', value: 'https://via.placeholder.com/450x450'},
+        ]
+      },
+      {
+        width: 3,
+        content: [
+          {type: 'header', value: 'Note'},
           {
-            title: 'Net Income',
-            image: 'https://via.placeholder.com/550x150',
-            text:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Crasdapibus vulputate diam eu pretium'
-          }
-        ],
-        linkToDocument: 'https://www.someurl.com'
-      }
-    },
+            type: 'text',
+            value: 'The project has an allocated O&M (Operation & Management) expense of $1000 every six months with roll-overs.'
+          },
+        ]
+      },
+      {
+        width: 12,
+        content: [
+          {type: 'header', value: 'Net Income'},
+        ]
+      },
+      {
+        width: 9,
+        content: [
+          {type: 'image', value: 'https://via.placeholder.com/450x450'},
+        ]
+      },
+      {
+        width: 3,
+        content: [
+          {type: 'header', value: 'Note'},
+          {
+            type: 'text',
+            value: 'At the present rate of payments, the DofEd is expected to pay off the bond and become full owner of the system by 2025.'
+          },
+        ]
+      },
+
+
+    ],
     stageAndForecast: {
       graph: {
         imageUrl: 'https://via.placeholder.com/50x50',
