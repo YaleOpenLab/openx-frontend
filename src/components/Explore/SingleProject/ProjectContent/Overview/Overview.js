@@ -41,7 +41,7 @@ const Overview = props => {
             <div className="col-12 title border-bottom no-padding">
               Project Overview
             </div>
-            <div className="col-12 summary">
+            <div className="col-12 summary no-padding">
               <div className="col-12 title-yellow no-padding">
                 Executive Summary
               </div>
@@ -55,8 +55,8 @@ const Overview = props => {
         </div>
 
         {data.OHeroImage ? (
-          <div className="full-image">
-            <img src={data.OHeroImage} alt="summary banner" />
+          <div className="full-image" style={{'background-image': `url('${data.OHeroImage}')`}}>
+
           </div>
         ) : (
           <div className="overview-separator"></div>
@@ -65,10 +65,15 @@ const Overview = props => {
         <div className="opportunity">
           <div className="container">
             <div className="row">
+              {data.extra && data.extra.opportunity && data.extra.opportunity.map(section => (
+                <div className={`col-md-${section.width} custom-section`}>
+                  Test
+                </div>
+              ))}
               <div className="col-12 title-yellow margin-top">Opportunity</div>
               <div className="col-sm-12 col-md-8 margin-top">
                 <div className="sub-title margin-bottom-x4">
-                  {tempData.opportunity.partOne[0].title}
+                  Description
                 </div>
                 <div className="sub-text text-bg">
                   {tempData.opportunity.partOne[0].content1}
@@ -79,7 +84,7 @@ const Overview = props => {
 
               <div className="col-sm-12 col-md-4 margin-top">
                 <div className="sub-title margin-bottom-x4">
-                  {tempData.opportunity.partOne[1].title}
+                  Badges & Characteristics
                 </div>
                 <div className="sub-image">
                   <img
