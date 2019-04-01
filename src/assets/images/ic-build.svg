@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="44px" height="44px" viewBox="0 0 44 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>ic_build_48px</title>
+    <desc>Created with Sketch.</desc>
+    <g id="OpenSolar" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Under-Development" transform="translate(-698.000000, -294.000000)" fill="#7C7777" fill-rule="nonzero">
+            <g id="ic_build_48px" transform="translate(698.000000, 294.000000)">
+                <path d="M43.4,35.9 L25.1,17.6 C26.9,13 25.9,7.5 22.2,3.8 C18.2,-0.2 12.2,-1 7.4,1.3 L16.1,10 L10,16.1 L1.3,7.4 C-1,12.2 -0.2,18.2 3.8,22.2 C7.5,25.9 13,26.9 17.6,25.1 L35.9,43.4 C36.7,44.2 38,44.2 38.7,43.4 L43.4,38.7 C44.2,38 44.2,36.7 43.4,35.9 L43.4,35.9 Z" id="Path"></path>
+            </g>
+        </g>
+    </g>
+</svg>
