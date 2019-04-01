@@ -70,7 +70,7 @@ $footer-background: rgba(216, 216, 216, 0.38);
     }
   }
 
-  @media #{$sm-scren} {
+  @media #{$sm-screen} {
     .footer-sources {
       display: block;
       .footer-project-logo-div {

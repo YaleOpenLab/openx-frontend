@@ -2,8 +2,10 @@
 
 .Toolbar {
     width: 100%;
+    min-height: 54px;
 }
 
 .Toolbar nav {
     height: 100%;
+    display: flex;
 }

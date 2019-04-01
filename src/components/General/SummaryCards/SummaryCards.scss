@@ -1,8 +1,6 @@
 @import "../../../styles/variables";
 
 .summary-card {
-  margin-bottom: 55px;
-
   .card-header {
     color: $primary-color;
     height: 50px;
@@ -48,8 +46,7 @@
     }
   }
 
-
-  @media #{$md-scren} {
+  @media #{$md-screen} {
     .card-body {
       padding: $pixel-base * 2;
 
@@ -58,13 +55,30 @@
       }
     }
   }
-  @media #{$xs-scren} {
+  @media #{$xs-screen} {
     .card-body {
       padding: $pixel-base * 2;
 
       .card-body-content {
         font-size: 24px;
       }
+    }
+  }
+}
+
+.-main-cards {
+  .card-header {
+    .card-header-title {
+      align-self: center;
+      letter-spacing: normal;
+      text-transform: capitalize;
+      font-family: $primary-font;
+      color: $secondary-color;
+      font-size: 17px;
+      font-weight: 500;
+      height: unset;
+      text-align: left;
+      margin-left: $pixel-base * 2;
     }
   }
 }
