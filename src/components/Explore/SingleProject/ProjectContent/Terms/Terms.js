@@ -19,9 +19,13 @@ const Terms = props => (
             <div className="sub-title">
               Purpose
             </div>
-            <div className="sub-desc">
-              {props.tempData.description}
-            </div>
+            {
+              props.data.extra && props.data.extra.terms && props.data.extra.terms.description && (
+                <div className="sub-desc">
+                  {props.data.extra.terms.description}
+                </div>
+              )
+            }
           </div>
           <div className="col-12 project-table no-padding">
             <TermsTable
