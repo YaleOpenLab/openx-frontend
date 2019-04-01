@@ -6,6 +6,14 @@ export const extraProjectData = [
     },
     opportunity: [
       {
+        width: 12,
+        content: [
+          {
+            type: 'title', value: 'Opportunity'
+          }
+        ]
+      },
+      {
         width: 8,
         content: [
           {type: 'header', value: 'Description'},
@@ -23,19 +31,19 @@ export const extraProjectData = [
         width: 4,
         content: [
           {type: 'header', value: 'Badges & Characteristics'},
-          {type: 'image', value: 'https://via.placeholder.com/450x450'},
+          {type: 'image', value: 'https://via.placeholder.com/450x450', height: 348},
         ]
       },
       {
         width: 6,
         content: [
-          {type: 'image', value: 'https://images.openx.solar/OpenSolarProjects/7_YaleMIT/2.jpg'},
+          {type: 'image', value: 'https://images.openx.solar/OpenSolarProjects/7_YaleMIT/2.jpg', height: 319},
         ]
       },
       {
         width: 6,
         content: [
-          {type: 'image', value: 'https://images.openx.solar/OpenSolarProjects/7_YaleMIT/5.jpg'},
+          {type: 'image', value: 'https://images.openx.solar/OpenSolarProjects/7_YaleMIT/5.jpg', height: 319},
         ]
       },
     ],
