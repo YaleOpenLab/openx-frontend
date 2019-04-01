@@ -4,12 +4,10 @@ import ScrollableAnchor from "react-scrollable-anchor";
 import SummaryCards from "../../../../General/SummaryCards/SummaryCards";
 import caseToName from "../../../../../helpers/functions/replace-case-name";
 import ExecutiveSummary from "./constants";
-import contextMap from "../../../../../assets/images/project-context-map.svg";
 import CustomSections from '../../../../General/CustomSections/CustomSections';
 
 const Overview = props => {
   let cards = null;
-  const tempData = props.tempData;
   const data = props.data;
 
   if (data.ExecutiveSummary) {
