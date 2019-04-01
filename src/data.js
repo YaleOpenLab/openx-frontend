@@ -167,6 +167,46 @@ export const extraProjectData = [
         ]
       },
     ],
+    community: [
+      {
+        width: 12,
+        content: [
+          {type: 'title', value: 'Community Engagement'},
+        ]
+      },
+      {
+        width: 3,
+        content: [
+          {type: 'header', value: 'Consultation'},
+          {type: 'image', value: 'https://via.placeholder.com/450x350', height: 162},
+          {type: 'text', value: 'The MIT and Yale team convened a meeting with the Parent-Teacher Organisation, led by principal Janice Alejandro. Over 50 members of the community gathered to discuss the project, with unanimous approval and significant interest for its replication.'},
+        ]
+      },
+      {
+        width: 3,
+        content: [
+          {type: 'header', value: 'Participation'},
+          {type: 'image', value: 'https://via.placeholder.com/450x350', height: 162},
+          {type: 'text', value: 'The principal, deputy principal, janitor, two teachers and one parent have volunteered as caretakers of the system to monitor its status, report any qualitative information and coordinate with the operation & maintenance required.'},
+        ]
+      },
+      {
+        width: 3,
+        content: [
+          {type: 'header', value: 'Outreach'},
+          {type: 'image', value: 'https://via.placeholder.com/450x350', height: 162},
+          {type: 'text', value: 'The system has been installed with instructions so that it can act as a pedagogical site for students to learn about the merits of solar energy, electricity and basic electronics. Talk about solar energy will be given every semester in the context of climate change communication to the community.'},
+        ]
+      },
+      {
+        width: 3,
+        content: [
+          {type: 'header', value: 'Governance'},
+          {type: 'image', value: 'https://via.placeholder.com/450x350', height: 162},
+          {type: 'text', value: 'The board of the Parent-Teacher Organisation, composed of 5 chairs, will coordinate with the director of the Yale Openlab and the head of strategy at the MIT DCI to define any governance steps that the system requires.'},
+        ]
+      },
+    ],
     project: {
       architecture: [
         {
