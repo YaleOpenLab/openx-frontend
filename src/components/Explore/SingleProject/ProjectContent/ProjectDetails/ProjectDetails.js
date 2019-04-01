@@ -64,20 +64,9 @@ const ProjectDetails = props => {
 
         <div className="community margin-top">
           <div className="container">
-            <div className="row">
-              <div className="component-title col-12">
-                <span>community engagement</span>
-              </div>
-              {communityItems}
-              <div className="col-12 link-to-text">
-                <NavLink
-                  to={tempData.communityEngagement.linkToDocument}
-                  className="big"
-                >
-                  Link to specific document for this section >
-                </NavLink>
-              </div>
-            </div>
+            {data.extra && data.extra.community && (
+              <CustomSections sections={data.extra.community} />
+            )}
           </div>
         </div>
         <div className="business margin-top">
