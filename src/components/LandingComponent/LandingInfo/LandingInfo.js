@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import ROUTES from "../../../routes/routes";
 
 const LandingInfo = props => (
   <div className="row">
@@ -24,7 +25,7 @@ const LandingInfo = props => (
         </p>
       </div>
       <div className="landing-action-link">
-        <NavLink to="#"> Learn more ></NavLink>
+        <NavLink to={ROUTES.ABOUT}> Learn more ></NavLink>
       </div>
     </div>
   </div>

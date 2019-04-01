@@ -6,7 +6,6 @@ import { extraProjectData } from '../data';
 
 const addExtraData = projects => {
   if (projects.constructor === Array) {
-    console.log(projects);
     projects = projects.map(project => {
       project.extra = extraProjectData.find(record => record.id === project.Index);
       return project;
