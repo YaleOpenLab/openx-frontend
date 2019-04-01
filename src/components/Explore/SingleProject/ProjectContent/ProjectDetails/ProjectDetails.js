@@ -71,20 +71,9 @@ const ProjectDetails = props => {
         </div>
         <div className="business margin-top">
           <div className="container">
-            <div className="row">
-              <div className="component-title col-12">
-                <span>business numbers & payment scheme</span>
-              </div>
-              {businessItems}
-              <div className="col-12 link-to-text">
-                <NavLink
-                  to={tempData.businessAndPayment.linkToDocument}
-                  className="big"
-                >
-                  Link to specific document for this section >
-                </NavLink>
-              </div>
-            </div>
+            {data.extra && data.extra.business && (
+              <CustomSections sections={data.extra.business} />
+            )}
           </div>
         </div>
       </section>
