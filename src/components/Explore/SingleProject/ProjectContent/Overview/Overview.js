@@ -68,48 +68,6 @@ const Overview = props => {
             {data.extra && data.extra.opportunity && (
               <CustomSections sections={data.extra.opportunity} />
             )}
-            <div className="row">
-              <div className="col-12 title-yellow margin-top">Opportunity</div>
-              <div className="col-sm-12 col-md-8 margin-top">
-                <div className="sub-title margin-bottom-x4">
-                  Description
-                </div>
-                <div className="sub-text text-bg">
-                  {tempData.opportunity.partOne[0].content1}
-                  <div className="sub-spacer" />
-                  {tempData.opportunity.partOne[0].content2}
-                </div>
-              </div>
-
-              <div className="col-sm-12 col-md-4 margin-top">
-                <div className="sub-title margin-bottom-x4">
-                  Badges & Characteristics
-                </div>
-                <div className="sub-image">
-                  <img
-                    src={tempData.opportunity.partOne[1].content}
-                    alt="placeholder"
-                  />
-                </div>
-              </div>
-
-              <div className="col-12 col-sm-6 margin-top">
-                <div className="opportunity-sub-image">
-                  <img
-                    src={data.OImages && data.OImages[0]}
-                    alt="opportunity 1"
-                  />
-                </div>
-              </div>
-              <div className="col-12 col-sm-6 margin-top">
-                <div className="opportunity-sub-image">
-                  <img
-                    src={data.OImages && data.OImages[1]}
-                    alt="opportunity 2"
-                  />
-                </div>
-              </div>
-            </div>
           </div>
         </div>
 

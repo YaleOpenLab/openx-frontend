@@ -2,6 +2,10 @@ import React from "react";
 
 const display = section => {
   switch(section.type) {
+    case 'title':
+      return (
+        <h3>{section.value}</h3>
+      );
     case 'header':
       return (
         <h4>{section.value}</h4>
@@ -12,7 +16,10 @@ const display = section => {
       );
     case 'image':
       return (
-        <img src={section.value} />
+        <div className="-image" style={{
+          'background-image': `url('${section.value}')`,
+          'height': (section.height ? section.height : 300) + 'px',
+        }} />
       );
     default:
       return (
