@@ -47,11 +47,59 @@ export const extraProjectData = [
         ]
       },
     ],
-    context: {
-      text:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus vulputate diam eu pretium. Mauris elit orci, ultricies id fermentum vel, porta et eros. Vestibulum condimentum lectus in convallis feugiat. Sed vulputate fringilla felis. Aliquam ut arcu et dui feugiat scelerisque eu quis diam. Mauris placerat congue dui sit amet blandit. Phasellus condimentum libero vel velit auctor, sit amet tincidunt velit varius. Mauris lacinia porta faucibus. Fusce eu est ac eros vulputate mollis in ac felis. Aenean commodo scelerisque mi sed imperdiet. Donec at hendrerit nisi, eget vestibulum nisi. Sed sit amet magna luctus, facilisis erat quis, sagittis ligula. Aenean dignissim velit quis leo consequat ultricies. Proin quis pretium justo. Vestibulum at eros nisl.',
-      image: 'https://via.placeholder.com/450x250'
-    },
+    context: [
+      {
+        width: 12,
+        content: [
+          {type: 'title', value: 'Context'},
+        ]
+      },
+      {
+        width: 8,
+        content: [
+          {type: 'text', value: 'One and a half years after hurricane Maria hit the island, schools are still exposed to a centralized and high-carbon energy system vulnerable to climate impacts. At the same time, most schools are becoming grass roots community centers facilitating discussions of concerned parents on how to increase climate & social resilience in the whole community.'},
+          {type: 'text', value: 'The Puerto Rican (PR) government and the department of education are working to appoint schools as emergency shelters —nodes with robust energy and communication systems— for the community to reach out in the event of unavoidable climate shocks. Financing is a key gap.'},
+          {type: 'text', value: 'This project acts as a proof-of-concept finance mechanism and school that be one of emergency shelter school appointed by the government. Its strong role in the Aibonito community also makes it eligible for the solar system to expand into a community microgrid system.'},
+        ]
+      },
+      {
+        width: 4,
+        content: [
+          {type: 'image', value: 'https://via.placeholder.com/450x450', height: 248},
+        ]
+      },
+    ],
+    projectDetails: [
+      {
+        width: 12,
+        content: [
+          {type: 'title', value: 'Architecture / Project Design'},
+        ]
+      },
+      {
+        width: 5,
+        content: [
+          {type: 'header', value: 'Map Layout'},
+          {type: 'image', value: 'https://images.openx.solar/OpenSolarProjects/7_YaleMIT/7.png', height: 538},
+        ]
+      },
+      {
+        width: 3,
+        content: [
+          {type: 'header', value: 'Solar Output'},
+          {type: 'image', value: 'https://images.openx.solar/OpenSolarProjects/7_YaleMIT/9.png', height: 538},
+        ]
+      },
+      {
+        width: 4,
+        content: [
+          {type: 'header', value: 'Design Description'},
+          {type: 'text', value: 'The installation was performed over the administration building where the principal office and the representative of the Department of Education sit.. The school has 14 buildings connected to a 300kW substation. The solar system is expected to cover 20% of the admin building for critical loads only.'},
+          {type: 'text', value: 'The system size can be expanded from 1 kW up to 5kW to cover a greater % of the building load.'},
+          {type: 'image', value: 'https://images.openx.solar/OpenSolarProjects/7_YaleMIT/normal.jpg', height: 203},
+        ]
+      },
+    ],
     project: {
       architecture: [
         {
