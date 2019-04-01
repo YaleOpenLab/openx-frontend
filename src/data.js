@@ -357,37 +357,5 @@ export const extraProjectData = [
       },
       url: '#'
     },
-    documents: {
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus vulputate diam eu pretium. Mauris elit orci, ultricies id fermentum vel, porta et eros. Vestibulum condimentum lectus in convallis feugiat. Sed vulputate fringilla felis. Aliquam ut arcu et dui feugiat scelerisque eu quis diam. Mauris placerat congue dui sit amet blandit. Phasellus condimentum libero vel velit auctor, sit amet tincidunt velit varius.',
-      docs: [
-        {
-          url: 'https://www.documenturl.com',
-          title: 'project overview',
-          category: 'project portfolio'
-        },
-        {
-          url: 'https://www.documenturl.com',
-          title: 'ppa',
-          category: 'contract'
-        },
-        {
-          url: 'https://www.documenturl.com',
-          title: 're certification agreement',
-          category: 'RECS'
-        },
-        {
-          url: 'https://www.documenturl.com',
-          title: 'guarantor agreement',
-          category: 'investor protection'
-        }
-      ],
-      links: [
-        {url: 'https://www.somelink.com', title: 'optional title'},
-        {url: 'https://www.somelink.com', title: 'optional title'},
-        {url: 'https://www.somelink.com', title: 'optional title'},
-        {url: 'https://www.somelink.com', title: 'optional title'}
-      ]
-    }
   }
 ];
