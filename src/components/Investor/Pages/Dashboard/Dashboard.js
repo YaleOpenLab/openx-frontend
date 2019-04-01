@@ -3,7 +3,7 @@ import InvestedProjects from "./InvestedProjects/InvestedProjects";
 import InvestmentSummary from "./InvestmentSummary/InvestmentSummary";
 import "./Dashboard.scss";
 
-const Dashboard = props => (
+const Dashboard = () => (
   <div className="investor-dashboard">
     <InvestmentSummary />
     <InvestedProjects />

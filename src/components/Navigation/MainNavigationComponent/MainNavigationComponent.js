@@ -72,7 +72,7 @@ class MainNavigationComponent extends Component {
                     </MDBDropdownToggle>
                     <MDBDropdownMenu className="dropdown-default">
                       <MDBNavLink
-                        to={Routes.PROFILE}
+                        to={Routes.PROFILE_PAGES.SETTINGS}
                         activeClassName="is-active"
                       >
                         profile

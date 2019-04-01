@@ -12,7 +12,7 @@ class ProfileComponent extends Component {
     super(props);
     this.state = {
       menu: [
-        { name: "dashboard", link: ROUTES.PROFILE_PAGES.DASHBOARD },
+        { name: "dashboard", link: ROUTES.INVESTOR_PAGES.DASHBOARD },
         { name: "settings", link: ROUTES.PROFILE_PAGES.SETTINGS }
       ]
     };
