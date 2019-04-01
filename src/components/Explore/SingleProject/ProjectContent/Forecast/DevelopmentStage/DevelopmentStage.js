@@ -1,4 +1,5 @@
 import React from "react";
+import { STAGES } from '../../../../../../helpers/enums/stages';
 
 const DevelopmentStage = props => {
   const data = props.data;
@@ -19,9 +20,9 @@ const DevelopmentStage = props => {
         <div className="col-xs-1-10" key={stage.index}>
           <div className="ds-count">{stage.index}</div>
           <div className={`ds-ball ${stageClass}`} />
-          {stage.index < 7 ? (
+          {stage.index < props.currentStage ? (
             <div className="ds-line" />
-          ) : stage.index === 7 ? (
+          ) : stage.index === props.currentStage ? (
             <React.Fragment>
               <div className="ds-line-half" />
               <div className="ds-dashed-line-half-right" />
@@ -29,7 +30,7 @@ const DevelopmentStage = props => {
           ) : (
             <div className="ds-dashed-line-half-left" />
           )}
-          <div className="ds-title">{stage.title}</div>
+          <div className="ds-title">{STAGES[stage.index]}</div>
           <div className="ds-date">{stage.date}</div>
         </div>
       );
