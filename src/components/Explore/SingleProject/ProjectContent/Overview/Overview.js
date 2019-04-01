@@ -67,7 +67,9 @@ const Overview = props => {
             <div className="row">
               {data.extra && data.extra.opportunity && data.extra.opportunity.map(section => (
                 <div className={`col-md-${section.width} custom-section`}>
-                  Test
+                  {section.content && section.content.map(subSection => (
+                    <p>{subSection.value}</p>
+                  ))}
                 </div>
               ))}
               <div className="col-12 title-yellow margin-top">Opportunity</div>
