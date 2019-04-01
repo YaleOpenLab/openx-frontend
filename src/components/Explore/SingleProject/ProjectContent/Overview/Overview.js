@@ -60,7 +60,7 @@ const Overview = props => {
 
           </div>
         ) : (
-          <div className="overview-separator"></div>
+          <div className="overview-separator" />
         )}
 
         <div className="opportunity">
@@ -72,12 +72,10 @@ const Overview = props => {
         </div>
 
         <div className="context margin-top">
-          <div className="title-yellow">context</div>
-          <div className="row">
-            <div className="sub-text col-md-8">{data.Context}</div>
-            <div className="context-map-image col-md-4">
-              <img src={contextMap} placeholder="context" alt="world map" />
-            </div>
+          <div className="container">
+            {data.extra && data.extra.context && (
+              <CustomSections sections={data.extra.context} />
+            )}
           </div>
         </div>
       </section>

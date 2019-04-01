@@ -55,4 +55,19 @@
       object-fit: cover;
     }
   }
+
+  .obligator-pannel{
+    margin-top: $pixel-base * 11;
+    color: $secondary-color;
+    font-family: $secondary-font;
+
+    .obligator-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: $pixel-base *2;
+    }
+    .obligator-text {
+      font-size: 16px;
+    }
+  }
 }
