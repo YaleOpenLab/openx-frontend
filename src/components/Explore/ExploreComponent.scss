@@ -97,15 +97,12 @@
 
     .desc-description {
       color: $secondary-color;
-      .desc-description-text {
-        min-height: 120px;
-      }
       span {
         font-weight: 500;
         font-size: 13px;
       }
-      .desc-description-buttons {
-        min-height: 100px;
+      .desc-description-bullets {
+        min-height: 90px;
         display: flex;
         ul {
           font-size: 12px;

@@ -13,13 +13,13 @@
   color: $primary-color-light;
   font-weight: bold;
   font-size: 18px;
-  @include margin-mix("bottom", 4);
+  margin-bottom: $pixel-base * 4;
 }
 .component-sub-header {
   color: $primary-color-light;
   font-weight: bold;
   font-size: 18px;
-  @include margin-mix("bottom", 4);
+  margin-bottom: $pixel-base * 4;
 }
 
 .solar-forms {
@@ -103,7 +103,7 @@
 }
 .label-right {
   text-align: right;
-  .default-open-label{
+  .default-open-label {
     text-align: right;
   }
 }
@@ -125,7 +125,7 @@
   font-size: 13px;
   color: $secondary-color;
 }
-.solar-input-div-field{
+.solar-input-div-field {
   height: $pixel-base * 6;
   border-radius: 5px;
   width: 100%;
@@ -214,11 +214,11 @@
   font-weight: lighter;
   text-align: center;
 }
-.default-open-label{
+.default-open-label {
   text-align: center;
 }
 .-left-align {
-  .solar-input-text-label{
+  .solar-input-text-label {
     text-align: left;
   }
 }
@@ -436,7 +436,8 @@
     font-weight: 600;
     text-transform: uppercase;
     padding-left: 8px;
-    color: #4a4a4a;}
+    color: #4a4a4a;
+  }
 }
 
 .inner-addon {

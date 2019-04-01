@@ -26,7 +26,7 @@ const Overview = props => {
 
       return (
         <div className="col-sm-6 col-lg-3" key={title}>
-          <SummaryCards title={title} items={items} icon={icon} />
+          <SummaryCards title={title} items={items} icon={icon} iconSize="29px" theme="-main-cards" />
         </div>
       );
     });
@@ -54,7 +54,7 @@ const Overview = props => {
         </div>
 
         {data.OHeroImage ? (
-          <div className="full-image" style={{'background-image': `url('${data.OHeroImage}')`}}>
+          <div className="full-image" style={{backgroundImage: `url('${data.OHeroImage}')`}}>
 
           </div>
         ) : (

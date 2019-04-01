@@ -15,10 +15,17 @@ const SummaryCards = props => {
   }
 
   return (
-    <div className="summary-card">
+    <div className={`summary-card ${props.theme && props.theme}`}>
       {!props.title ? null : (
         <div className="card-header">
-          <div className={`card-header-icon ${props.icon}`} />
+          <div
+            className={`card-header-icon ${props.icon}`}
+            style={
+              props.iconSize
+                ? { height: props.iconSize, width: props.iconSize }
+                : {}
+            }
+          />
           <div className="card-header-title">{props.title}</div>
         </div>
       )}

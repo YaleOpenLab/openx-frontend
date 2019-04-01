@@ -58,23 +58,24 @@ class SingleProject extends Component {
   };
 
   render() {
-    if(!this.state.data.Index || this.state.data.Index < 5){
+    const { data, loading } = this.state;
+     if((!data.Index || data.Index < 5) && !loading){
       return <div>No entry</div>
     }
 
-    const data = DATA.project[0];
+    const tempData = DATA.project[0];
     return (
       <div className="SingleProject">
         {this.state.loading ? (
           <PageLoading />
         ) : (
           <React.Fragment>
-            <ProjectMain tempData={data.main} data={this.state.data} />
+            <ProjectMain tempData={tempData.main} data={data} />
             <ProjectContent
               navigation={this.state.menu}
               active={this.state.selectedItem}
-              tempData={data}
-              data={this.state.data}
+              tempData={tempData}
+              data={data}
             />
           </React.Fragment>
         )}

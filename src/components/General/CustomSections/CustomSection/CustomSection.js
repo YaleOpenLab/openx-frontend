@@ -1,29 +1,29 @@
 import React from "react";
 
-const display = section => {
+const display = (section, index) => {
   switch(section.type) {
     case 'title':
       return (
-        <h3>{section.value}</h3>
+        <h3 key={index}>{section.value}</h3>
       );
     case 'header':
       return (
-        <h4>{section.value}</h4>
+        <h4 key={index}>{section.value}</h4>
       );
     case 'text':
       return (
-        <p>{section.value}</p>
+        <p key={index}>{section.value}</p>
       );
     case 'image':
       return (
-        <div className="-image" style={{
-          'background-image': `url('${section.value}')`,
-          'height': (section.height ? section.height : 300) + 'px',
+        <div className="-image" key={index} style={{
+          backgroundImage: `url('${section.value}')`,
+          height: (section.height ? section.height : 300) + 'px',
         }} />
       );
     default:
       return (
-        <p>{section.value}</p>
+        <p key={index}>{section.value}</p>
       );
   }
 };
