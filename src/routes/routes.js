@@ -5,7 +5,8 @@ const ROUTES = {
     PV_SOLAR: "/explore/pv-solar",
     STORAGE: "/explore/storage",
     WIND: "/explore/wind",
-    SYSTEMS: "/explore/systems"
+    MICROGRIDS: "/explore/microgrids",
+    MAPS: "/explore/maps"
   },
   PROJECT_BASE: "/project/",
   PROJECT: "/project/:projectId",

@@ -50,7 +50,7 @@ $error-color: #d0021b;
 }
 
 $xs-scren: "(max-width: 575px)";
-$sm-scren: "(max-width: 768px)";
+$sm-scren: "only screen and (max-width: 768px)";
 $smd-scren: "(max-width: 990px)";
 $md-scren: "(max-width: 1199px)";
 $lg-scren: "(min-width: 1200px)";

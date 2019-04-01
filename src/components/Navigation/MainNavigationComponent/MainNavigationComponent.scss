@@ -4,52 +4,84 @@
   background: $white;
   padding: 0 $pixel-base * 5;
 
+  .main-nav-menu {
+    align-self: stretch;
+    .nav-item-dropdown {
+      .is-active {
+        color: $primary-color-light;
+        font-weight: bold;
+      }
+    }
+  }
   .navbar-nav {
     margin: 0;
+    align-self: stretch;
+
+    .navigation-link {
+      display: flex;
+    }
 
     .nav-item {
       font-weight: 500;
       font-size: 16px;
       text-transform: uppercase;
       padding: 0 $pixel-base * 3 0 $pixel-base * 3;
-      .auth-nav-text {
+      display: flex;
+      color: $secondary-color;
+      align-self: center;
+
+      a,
+      .dropdown {
         color: $secondary-color;
-      }
-      a {
-        color: $secondary-color;
-      }
-      .is-active {
-        font-weight: bold;
-        background: rgba(155, 155, 155, 0.11);
-        color: $primary-color-light;
       }
     }
 
-    .profile-nav-container {
-      font-size: 18;
-      font-weight: 500;
-      text-transform: capitalize;
-      padding: 0 $pixel-base * 3 0 $pixel-base * 3;
-      .auth-nav-text {
-        color: $secondary-color;
-      }
-      a {
-        color: $charcoal-grey-two;
+    .is-active {
+      background: rgba(155, 155, 155, 0.11);
+      .nav-item {
+        color: $primary-color-light;
+        font-weight: bold;
       }
     }
-    .profile-nav-avatar {
-      width: 30px;
-      height: 30px;
-      img {
-        height: 100%;
-        widows: 100%;
-        border-radius: 15px;
+
+    .nav-border-diveider {
+      margin: 12px 0px;
+      border-left: 1px solid $warm-grey-two;
+    }
+    .profile-nav-box {
+      display: flex;
+      .profile-nav-container {
+        font-size: 18px;
+        font-weight: 500;
+        text-transform: capitalize;
+        padding: 0 $pixel-base * 3 0 $pixel-base * 3;
+        .auth-nav-text {
+          color: $secondary-color;
+        }
+        a {
+          color: $charcoal-grey-two;
+        }
+      }
+      .profile-nav-avatar {
+        width: 30px;
+        height: 30px;
+        margin: 12px 0;
+        img {
+          height: 100%;
+          widows: 100%;
+          border-radius: 15px;
+        }
       }
     }
 
     @media #{$lg-scren} {
       .nav-item {
         padding: 0 $pixel-base * 2.5 0 $pixel-base * 2.5;
+      }
+      .profile-nav-box {
+        .profile-nav-container {
+          padding: 0 $pixel-base * 2.5 0 $pixel-base * 2.5;
+        }
       }
     }
     @media #{$md-scren} {
@@ -61,6 +93,20 @@
       .nav-item {
         padding: 0;
         font-size: 15px;
+      }
+      .profile-nav-box {
+        .profile-nav-container {
+          padding: 0;
+          font-size: 15px;
+        }
+        .profile-nav-avatar {
+          display: none;
+        }
+      }
+    }
+    @media #{$sm-scren} {
+      .nav-item-dropdown {
+        align-self: flex-start;
       }
     }
 
