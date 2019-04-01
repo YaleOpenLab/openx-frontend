@@ -65,7 +65,38 @@ export const extraProjectData = [
       {
         width: 4,
         content: [
-          {type: 'image', value: 'https://via.placeholder.com/450x450'},
+          {type: 'image', value: 'https://via.placeholder.com/450x450', height: 248},
+        ]
+      },
+    ],
+    projectDetails: [
+      {
+        width: 12,
+        content: [
+          {type: 'title', value: 'Architecture / Project Design'},
+        ]
+      },
+      {
+        width: 5,
+        content: [
+          {type: 'header', value: 'Map Layout'},
+          {type: 'image', value: 'https://images.openx.solar/OpenSolarProjects/7_YaleMIT/7.png', height: 538},
+        ]
+      },
+      {
+        width: 3,
+        content: [
+          {type: 'header', value: 'Solar Output'},
+          {type: 'image', value: 'https://images.openx.solar/OpenSolarProjects/7_YaleMIT/9.png', height: 538},
+        ]
+      },
+      {
+        width: 4,
+        content: [
+          {type: 'header', value: 'Design Description'},
+          {type: 'text', value: 'The installation was performed over the administration building where the principal office and the representative of the Department of Education sit.. The school has 14 buildings connected to a 300kW substation. The solar system is expected to cover 20% of the admin building for critical loads only.'},
+          {type: 'text', value: 'The system size can be expanded from 1 kW up to 5kW to cover a greater % of the building load.'},
+          {type: 'image', value: 'https://images.openx.solar/OpenSolarProjects/7_YaleMIT/normal.jpg', height: 203},
         ]
       },
     ],
