@@ -75,7 +75,7 @@ const Overview = props => {
               <CustomSections sections={data.extra.context} />
             )}
           </div>
-        </div>
+          </div>
       </section>
     </ScrollableAnchor>
   );
