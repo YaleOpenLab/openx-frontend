@@ -17,7 +17,7 @@ const Terms = props => (
           <div className="col-12 title no-padding border-bottom">Terms</div>
           <div className="col-12 text-description">
             <div className="sub-title">
-              {props.tempData.title}
+              Purpose
             </div>
             <div className="sub-desc">
               {props.tempData.description}

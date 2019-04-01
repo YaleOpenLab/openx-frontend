@@ -6,6 +6,7 @@ import { STAGES } from '../../../../helpers/enums/stages';
 
 const ProjectMain = props => {
   const data = props.data;
+  const batteryArray = data.Batteries.split(' ');
 
   return (
     <div className="container project-main">
@@ -83,11 +84,11 @@ const ProjectMain = props => {
                   <div className="col-12">
                     <div className="projects-description__stats">
                       <div className="-primary-color">
-                        <p>{data.ExplorePageSummary.Solar}</p>
+                        <p>{data.PanelSize}</p>
                         <h6>Solar</h6>
                       </div>
                       <div className="-dark-color">
-                        <p>{data.ExplorePageSummary.Storage}</p>
+                        <p>{batteryArray ? batteryArray[batteryArray.length - 1] : ''}</p>
                         <h6>Storage</h6>
                       </div>
                       <div>
@@ -95,11 +96,11 @@ const ProjectMain = props => {
                         <h6>Return</h6>
                       </div>
                       <div>
-                        <p>{data.ExplorePageSummary.Rating}</p>
+                        <p>{data.Rating}</p>
                         <h6>Rating</h6>
                       </div>
                       <div>
-                        <p>{data.ExplorePageSummary.ETA}</p>
+                        <p>2025</p>
                         <h6>Maturity</h6>
                       </div>
                     </div>
