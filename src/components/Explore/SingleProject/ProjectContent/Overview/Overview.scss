@@ -1,8 +1,6 @@
 @import "../../../../../styles/variables";
 
 .Overview {
-  margin-top: 35px;
-
   .overview-separator {
     margin: $pixel-base * 8 0 $pixel-base * 3 0;
     border-bottom: 1px solid silver;
@@ -19,7 +17,7 @@
     margin-top: $pixel-base * 4;
 
     .summary-grid {
-      margin-bottom: 30px;
+      margin-bottom: 87px;
     }
   }
 

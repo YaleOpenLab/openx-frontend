@@ -26,34 +26,12 @@ $white: #ffffff;
 $white-three: #f3f3f3;
 $error-color: #d0021b;
 
-@mixin margin-mix($position, $times) {
-  @if $position == "top" {
-    margin-top: $pixel-base * $times;
-  } @else if $position == "bottom" {
-    margin-bottom: $pixel-base * $times;
-  } @else if $position == "left" {
-    margin-left: $pixel-base * $times;
-  } @else {
-    margin-right: $pixel-base * $times;
-  }
-}
-@mixin padding-mix($position, $times) {
-  @if $position == "top" {
-    padding-top: $pixel-base * $times;
-  } @else if $position == "bottom" {
-    padding-bottom: $pixel-base * $times;
-  } @else if $position == "left" {
-    padding-left: $pixel-base * $times;
-  } @else {
-    padding-right: $pixel-base * $times;
-  }
-}
-
-$xs-scren: "(max-width: 575px)";
-$sm-scren: "(max-width: 768px)";
-$smd-scren: "(max-width: 990px)";
-$md-scren: "(max-width: 1199px)";
-$lg-scren: "(min-width: 1200px)";
+// media screen sizes
+$xs-screen: "(max-width: 575px)";
+$sm-screen: "only screen and (max-width: 768px)";
+$smd-screen: "(max-width: 990px)";
+$md-screen: "(max-width: 1199px)";
+$lg-screen: "(min-width: 1200px)";
 
 //TODO: refactor and get rid of the unneccesary colors
 $input-placeholder-color: rgba(74, 74, 74, 0.36);
