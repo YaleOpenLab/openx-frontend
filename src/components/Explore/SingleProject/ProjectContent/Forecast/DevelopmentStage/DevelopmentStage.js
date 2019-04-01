@@ -1,81 +1,52 @@
 import React from "react";
+import { STAGES } from '../../../../../../helpers/enums/stages';
 
-const DevelopmentStage = props => (
-  <div className="DevelopmentStage">
-    <div className="row ds-chart">
-      <div className="col-xs-1-10">
-        <img
-          className="ds-image"
-          src="https://via.placeholder.com/50x50"
-          alt="placeholder"
-        />
-      </div>
-      <div className="col-xs-1-10">
-        <div className="ds-count">0</div>
-        <div className="ds-ball ds-full" />
-        <div className="ds-line" />
-        <div className="ds-title">Handshake</div>
-        <div className="ds-date">Date</div>
-      </div>
-      <div className="col-xs-1-10">
-        <div className="ds-count">1</div>
-        <div className="ds-ball ds-full" />
-        <div className="ds-line" />
-        <div className="ds-title">Engagement</div>
-        <div className="ds-date">Date</div>
-      </div>
-      <div className="col-xs-1-10">
-        <div className="ds-count">2</div>
-        <div className="ds-ball ds-full" />
-        <div className="ds-line" />
-        <div className="ds-title">Quotes</div>
-        <div className="ds-date">Date</div>
-      </div>
-      <div className="col-xs-1-10">
-        <div className="ds-count">3</div>
-        <div className="ds-ball ds-full" />
-        <div className="ds-line" />
-        <div className="ds-title">contracts</div>
-        <div className="ds-date">Date</div>
-      </div>
-      <div className="col-xs-1-10">
-        <div className="ds-count">4</div>
-        <div className="ds-ball ds-full" />
-        <div className="ds-line" />
-        <div className="ds-title">the raise</div>
-        <div className="ds-date">Date</div>
-      </div>
-      <div className="col-xs-1-10">
-        <div className="ds-count">5</div>
-        <div className="ds-ball ds-current" />
-        <div className="ds-line" />
-        <div className="ds-title">construction</div>
-        <div className="ds-date">Date</div>
-      </div>
-      <div className="col-xs-1-10">
-        <div className="ds-count">6</div>
-        <div className="ds-ball ds-empty" />
-        <div className="ds-line" />
-        <div className="ds-title">interconnection</div>
-        <div className="ds-date">Date</div>
-      </div>
-      <div className="col-xs-1-10">
-        <div className="ds-count">7</div>
-        <div className="ds-ball ds-empty" />
-        <div className="ds-line-half" />
-        <div className="ds-dashed-line-half-right" />
-        <div className="ds-title">legacy</div>
-        <div className="ds-date">Date</div>
-      </div>
-      <div className="col-xs-1-10">
-        <div className="ds-count">8</div>
-        <div className="ds-ball ds-empty" />
-        <div className="ds-dashed-line-half-left" />
-        <div className="ds-title">the flip</div>
-        <div className="ds-date">Date</div>
+const DevelopmentStage = props => {
+  const data = props.data;
+  let stageItems = null;
+
+  if (data.stages) {
+    stageItems = data.stages.map(stage => {
+      let stageClass = "ds-full";
+
+      if (stage.index < props.currentStage) {
+        stageClass = "ds-full";
+      } else if (stage.index === props.currentStage) {
+        stageClass = "ds-current";
+      } else {
+        stageClass = "ds-empty";
+      }
+      return (
+        <div className="col-xs-1-10" key={stage.index}>
+          <div className="ds-count">{stage.index}</div>
+          <div className={`ds-ball ${stageClass}`} />
+          {stage.index < props.currentStage ? (
+            <div className="ds-line" />
+          ) : stage.index === props.currentStage ? (
+            <React.Fragment>
+              <div className="ds-line-half" />
+              <div className="ds-dashed-line-half-right" />
+            </React.Fragment>
+          ) : (
+            <div className="ds-dashed-line-half-left" />
+          )}
+          <div className="ds-title">{STAGES[stage.index]}</div>
+          <div className="ds-date">{stage.date}</div>
+        </div>
+      );
+    });
+  }
+
+  return (
+    <div className="DevelopmentStage">
+      <div className="row ds-chart">
+        <div className="col-xs-1-10">
+          <img className="ds-image" src={data.imageUrl} alt="placeholder" />
+        </div>
+        {stageItems}
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default DevelopmentStage;

@@ -4,6 +4,12 @@
   .toolparts {
     margin-bottom: $pixel-base;
   }
+  .toolparts-3 {
+    margin-bottom: $pixel-base * 3;
+  }
+  .toolparts-4 {
+    margin-bottom: $pixel-base * 4;
+  }
 
   .tool-default {
     height: $pixel-base * 5;
@@ -20,6 +26,22 @@
       text-transform: uppercase;
       padding-left: $pixel-base;
       color: $secondary-color;
+    }
+    .css-d8oujb,
+    .css-19bqh2r {
+      display: none;
+    }
+    .css-1wy0on6 {
+      width: $pixel-base * 5;
+      justify-content: center;
+      .css-1ep9fjw {
+        height: 8px;
+        width: 8px;
+        background: url("../../../assets/images/ic-rectangle.svg");
+        background-size: 8px;
+        background-repeat: no-repeat;
+        align-self: center;
+      }
     }
   }
 
@@ -69,6 +91,10 @@
       color: $secondary-color;
       font-size: 12px;
       font-weight: 600;
+      padding-left: $pixel-base * 2;
+      margin-bottom: $pixel-base * 2;
+    }
+    .filters-sub-content {
       padding-left: $pixel-base * 2;
       margin-bottom: $pixel-base * 2;
     }

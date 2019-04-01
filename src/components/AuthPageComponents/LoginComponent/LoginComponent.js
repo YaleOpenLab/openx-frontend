@@ -24,7 +24,8 @@ const LoginSchema = Yup.object().shape({
 class LoginComponent extends Component {
   componentDidUpdate(prevProps) {
     if (this.props.authorized !== prevProps.authorized) {
-      Storage.set("token", "token");
+      Storage.set("token", this.props.pwhash);
+      Storage.set("username", this.props.username);
       this.props.enqueueSnackbar("Logged In.", {
         variant: "success",
         autoHideDuration: 1500
@@ -117,7 +118,9 @@ class LoginComponent extends Component {
 const mapStateToProps = state => ({
   error: state.auth.error,
   loading: state.auth.isLoading,
-  authorized: state.auth.authorized
+  authorized: state.auth.authorized,
+  pwhash: state.auth.info.Pwhash,
+  username: state.auth.info.Username,
 });
 
 const mapDispatchToProps = dispatch =>

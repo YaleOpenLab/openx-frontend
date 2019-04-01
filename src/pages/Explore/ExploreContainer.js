@@ -3,8 +3,6 @@ import LayoutHoc from "../../hoc/Layout/Layout";
 import ExploreComponent from "../../components/Explore/ExploreComponent";
 import SubNavigationComponent from "../../components/General/SubNavigationComponent/SubNavigationComponent";
 import ROUTES from "../../routes/routes";
-import { connect } from "react-redux";
-import { fetchProjects } from "../../components/Explore/Projects/store/actions";
 
 class ExplorePageContainer extends Component {
   constructor(props) {
@@ -14,13 +12,10 @@ class ExplorePageContainer extends Component {
         { name: "pv solar", link: ROUTES.EXPLORE_PAGES.PV_SOLAR },
         { name: "storage", link: ROUTES.EXPLORE_PAGES.STORAGE },
         { name: "wind", link: ROUTES.EXPLORE_PAGES.WIND },
-        { name: "systems", link: ROUTES.EXPLORE_PAGES.SYSTEMS }
+        { name: "microgrids", link: ROUTES.EXPLORE_PAGES.MICROGRIDS },
+        { name: "maps", link: ROUTES.EXPLORE_PAGES.MAPS }
       ]
     };
-  }
-
-  componentDidMount() {
-    this.props.fetchProjects();
   }
 
   render() {
@@ -35,13 +30,4 @@ class ExplorePageContainer extends Component {
   }
 }
 
-const mapStateToProps = state => ({ ...state });
-
-const mapDispatchToProps = dispatch => ({
-  fetchProjects: () => dispatch(fetchProjects())
-});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ExplorePageContainer);
+export default ExplorePageContainer;

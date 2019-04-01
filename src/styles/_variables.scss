@@ -15,42 +15,23 @@ $third-color: #294a70;
 $third-color-light: #2961a2;
 $third-color-lighter: #4a90e2;
 $status-color: #417505;
+$charcoal-grey: #474b4f;
 $charcoal-grey-two: #393c40;
+$charcoal-grey-three: #393a3c;
 $pale-grey: rgba(245, 246, 248, 0.48);
 $grey-light: #ecedef;
 $warm-grey: #9b9b9b;
-$charcoal-grey-two: #393c40;
+$warm-grey-two: #979797;
 $white: #ffffff;
-$error-color: #da3b3b;
+$white-three: #f3f3f3;
+$error-color: #d0021b;
 
-@mixin margin-mix($position, $times) {
-  @if $position == "top" {
-    margin-top: $pixel-base * $times;
-  } @else if $position == "bottom" {
-    margin-bottom: $pixel-base * $times;
-  } @else if $position == "left" {
-    margin-left: $pixel-base * $times;
-  } @else {
-    margin-right: $pixel-base * $times;
-  }
-}
-@mixin padding-mix($position, $times) {
-  @if $position == "top" {
-    padding-top: $pixel-base * $times;
-  } @else if $position == "bottom" {
-    padding-bottom: $pixel-base * $times;
-  } @else if $position == "left" {
-    padding-left: $pixel-base * $times;
-  } @else {
-    padding-right: $pixel-base * $times;
-  }
-}
-
-$xs-scren: "(max-width: 575px)";
-$sm-scren: "(max-width: 768px)";
-$smd-scren: "(max-width: 990px)";
-$md-scren: "(max-width: 1199px)";
-$lg-scren: "(min-width: 1200px)";
+// media screen sizes
+$xs-screen: "(max-width: 575px)";
+$sm-screen: "only screen and (max-width: 768px)";
+$smd-screen: "(max-width: 990px)";
+$md-screen: "(max-width: 1199px)";
+$lg-screen: "(min-width: 1200px)";
 
 //TODO: refactor and get rid of the unneccesary colors
 $input-placeholder-color: rgba(74, 74, 74, 0.36);
@@ -61,9 +42,10 @@ $sub-navigation-background: #d8d8d8;
 $anchor-navigation-background: #f6f7f7;
 $project-content-background: #f0eeee;
 $profile-navbar-background: #f6f7f7;
+$explore-location: #b8babc;
 $profile-navbar-border: #bfbdbd;
 $projects-background: rgba(0, 0, 0, 0.07);
-$input-color-focus: #474b4f;
 $input-color-light: #c6c9cf;
 $input-color-lighter: #dfe1e3;
 $input-color-active-slider: #b3b6bb;
+$pale-grey: #ecedef;

@@ -6,22 +6,52 @@ $footer-background: rgba(216, 216, 216, 0.38);
 
 .Footer {
   background: $footer-background;
-  height: 444px;
   width: 100%;
   width: 100%;
-  .Sources {
+  .footer-content {
+    min-height: 425px;
+    padding: $pixel-base * 2 0;
+    .logo-container{
+      width: 130px;
+    }
+    .footer-info{
+      padding: $pixel-base;
+      margin-top: $pixel-base * 2;
+      .footer-info-title{
+        font-size: 25px;
+        font-weight: 500;
+        color: $charcoal-grey-three;
+        border-bottom: 2px solid #979797;
+        min-height: 34px;
+      }
+      .footer-info-sub-title {
+        margin-top: $pixel-base * 3;
+        font-family: $secondary-font;
+        font-size: 15px;
+        font-weight: bold;
+        color: $secondary-color;
+        text-transform: capitalize;
+      }
+      .footer-info-text {
+        color: $secondary-color;
+        font-family: $secondary-font;
+        font-size: 14px;
+        margin-top: $pixel-base / 2;
+      }
+    }
+  }
+  .footer-sources {
     background: $primary-color;
-    margin-top: 350px;
     display: flex;
 
     .footer-text-div {
       font-size: 16px;
       font-weight: 500;
       color: $white;
-      height: 49px;
-      line-height: 49px;
+      min-height: 49px;
       flex: 1;
       text-align: center;
+      padding: $pixel-base * 2;
     }
     .footer-project-logo-div {
       display: flex;
@@ -40,8 +70,8 @@ $footer-background: rgba(216, 216, 216, 0.38);
     }
   }
 
-  @media #{$sm-scren} {
-    .Sources {
+  @media #{$sm-screen} {
+    .footer-sources {
       display: block;
       .footer-project-logo-div {
         .footer-project-logo {

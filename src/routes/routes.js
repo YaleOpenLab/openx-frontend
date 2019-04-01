@@ -5,10 +5,18 @@ const ROUTES = {
     PV_SOLAR: "/explore/pv-solar",
     STORAGE: "/explore/storage",
     WIND: "/explore/wind",
-    SYSTEMS: "/explore/systems"
+    MICROGRIDS: "/explore/microgrids",
+    MAPS: "/explore/maps"
   },
-  PROJECT: "/project",
+  PROJECT_BASE: "/project/",
+  PROJECT: "/project/:projectId",
   INVESTOR: "/investor",
+  INVESTOR_PAGES: {
+    DASHBOARD: "/investor/dashboard",
+    PROFILE: "/investor/porofile",
+    NOTIFICATIONS: "/investor/notifications",
+    CONFIRMATION: "/investor/confirm",
+  },
   RECEIVER: "/receiver",
   DEVELOPER: "/developer",
   PROFILE: "/profile",
@@ -24,6 +32,7 @@ const ROUTES = {
       LEGAL: "/profile/settings/legal",
     }
   },
+  ABOUT: "/about",
   LOGIN: "/login",
   SIGNUP: "/signup",
   LOGOUT: "/logout",

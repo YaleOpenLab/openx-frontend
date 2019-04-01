@@ -1,0 +1,32 @@
+@import "../../../../../../styles/variables";
+
+.terms-table {
+  th, td {
+    padding: 18px 30px;
+  }
+
+  .terms-table-status {
+    width: $pixel-base * 9;
+    height: $pixel-base * 3;
+    line-height: $pixel-base * 3;
+    border-radius: $pixel-base * 3;
+    background: $secondary-color-lighter;
+    font-family: $secondary-font;
+    font-weight: 600;
+    color: $white;
+    font-size: 10px;
+    width: 71px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .text-with-icon {
+    float: left;
+  }
+
+  .info-icon-img {
+    float: left;
+    margin-top: 8px;
+    margin-left: 16px;
+  }
+}

@@ -1,4 +1,6 @@
+@import "../../../styles/variables";
+
 .Content {
-    margin-top: 72px;
-    min-height:100%;
+  margin-top: $pixel-base * 9;
+  min-height: 100%;
 }

@@ -1,0 +1,43 @@
+@import "../../styles/variables";
+
+.about-container {
+  font-family: $secondary-font;
+  .about-notice {
+    height: 250px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    .about-notice-text {
+      align-self: center;
+      font-size: 18px;
+      text-transform: uppercase;
+      color: $primary-color;
+    }
+  }
+  .about-content {
+    width: 100%;
+    text-align: center;
+    color: $secondary-color;
+    margin-bottom: $pixel-base * 20;
+    .about-content-notice {
+      font-size: 14px;
+      font-weight: bold;
+    }
+    .about-content-title {
+      font-size: 34px;
+      font-weight: 300;
+      margin-top: $pixel-base;
+    }
+    .about-content-text {
+      font-size: 18px;
+      font-weight: 600;
+      margin-top: $pixel-base * 4;
+    }
+  }
+  .about-fixed-width {
+      width: 184px;
+      margin: 0px auto;
+      margin-top: $pixel-base * 4;
+  }
+}

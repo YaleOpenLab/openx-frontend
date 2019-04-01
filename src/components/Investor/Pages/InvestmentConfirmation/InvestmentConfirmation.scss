@@ -1,0 +1,185 @@
+@import "../../../../styles/variables";
+
+.investment-confirmation {
+  font-family: $secondary-font;
+  .invest-confirm-header {
+    font-size: 20px;
+    color: $primary-color;
+    font-weight: 600;
+    margin-bottom: $pixel-base * 4;
+    .–dark {
+      font-size: 18px;
+      color: $secondary-color;
+    }
+    .-center {
+      text-align: center;
+    }
+  }
+
+  .invest-confirm-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: $pixel-base * 4;
+
+    .invest-confirm-text {
+      align-self: center;
+      font-size: 18px;
+      color: $secondary-color;
+      font-weight: 600;
+    }
+
+    .invest-confirm-input {
+      font-family: $secondary-font;
+      text-align: right;
+      font-size: 22px;
+      font-weight: 300;
+      padding-left: $pixel-base * 8;
+    }
+
+    .invest-confirm-input-icon {
+      position: absolute;
+      top: 35px;
+      left: 35px;
+      color: $secondary-color;
+      font-size: 14px;
+      font-weight: 300;
+    }
+
+    .invest-confirm-label {
+      text-align: right;
+    }
+    .invest-confirm-value {
+      display: flex;
+      justify-content: flex-end;
+      font-size: 18px;
+      font-weight: 300;
+      color: $charcoal-grey-two;
+
+      .confirm-icon {
+        height: 22px;
+        width: 22px;
+        margin-right: $pixel-base * 7;
+      }
+      .invest-confirm-value-text {
+        height: fit-content;
+        align-self: center;
+      }
+    }
+    .solar-form-profile-sub-title {
+      color: $secondary-color;
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: $pixel-base * 2;
+    }
+    .invest-confirm-profile-items {
+      font-family: $primary-font;
+      font-size: 14px;
+      color: $secondary-color;
+      margin-bottom: $pixel-base * 2;
+      text-align: center;
+      line-height: 2;
+      padding: 0;
+
+      span {
+        color: $third-color-light;
+      }
+      .label-right {
+        text-align: right;
+      }
+    }
+    .invest-confirm-profile-info {
+      color: $secondary-color;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-align: center;
+      margin: 15px 0;
+    }
+    .invest-confirm-profile-values {
+      font-size: 18px;
+      font-weight: 300;
+      color: $secondary-color;
+      margin-bottom: $pixel-base * 2;
+      word-break: break-word;
+      text-align: right;
+
+      .-bigger {
+        font-size: 22px;
+      }
+    }
+    @media #{$sm-screen} {
+      .invest-confirm-profile-items {
+        font-size: 12px;
+      }
+      .invest-confirm-profile-values {
+        font-size: 14px;
+
+        .-bigger {
+          font-size: 16px;
+        }
+      }
+    }
+
+    .invest-confirm-flex {
+      display: flex;
+    }
+
+    .uppercase {
+      text-transform: uppercase;
+    }
+    .total {
+      font-size: 33px;
+      font-weight: 300;
+      color: $primary-color;
+    }
+    .-no-align {
+      align-self: unset;
+    }
+  }
+
+  .invest-confirm-amount-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: $pixel-base * 4;
+
+    .amount-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      color: $charcoal-grey;
+      font-weight: 600;
+      align-self: center;
+      letter-spacing: 2px;
+      margin: 0 $pixel-base * 2;
+    }
+    .amount-value {
+      font-size: 24px;
+      font-weight: 300;
+      color: $primary-color;
+      align-self: center;
+      margin: 0 $pixel-base * 2;
+    }
+  }
+
+  .invest-form-section {
+    margin-top: $pixel-base * 4;
+
+    .invest-input {
+      margin-bottom: 30px;
+    }
+    .invest-label {
+      margin-bottom: 14px;
+    }
+  }
+
+  .project-confirm-terms{
+    width: 100%;
+    section {
+      width: inherit;
+    }
+  }
+
+  .confirm-agree-terms{
+    margin-top: $pixel-base * 7;
+  }
+}

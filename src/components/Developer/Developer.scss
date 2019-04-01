@@ -1,0 +1,12 @@
+@import "../../styles/variables";
+
+.developerComponent{
+    .under-development {
+        font-size: 36px;
+        font-weight: 200;
+        font-family: $primary-font;
+        text-align: center;
+        margin: 200px 0;
+        color: $error-color;
+    }
+}

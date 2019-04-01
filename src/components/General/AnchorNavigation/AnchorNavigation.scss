@@ -7,7 +7,33 @@
   position: sticky;
   top: 0;
   z-index: 999;
+  min-height: 68px;
 
+  .anchor-cont {
+    height: inherit;
+  }
+  .anchor-row {
+    width: 100%;
+    height: inherit;
+    .navbar-collapse {
+      height: inherit;
+    }
+  }
+  .anchor-nav-link-item {
+    width: 20%;
+    display: flex;
+    height: 100%;
+    color: $secondary-color;
+  }
+
+  .anchor-nav-link-item:hover {
+    color: $secondary-color;
+    border-bottom: 3px solid $secondary-color;
+    box-sizing: border-box;
+  }
+  .annchor-toggle-icon {
+    align-self: baseline;
+  }
   .navbar-nav {
     margin: 0;
     display: flex;
@@ -15,25 +41,30 @@
     height: 100%;
 
     .nav-item {
-      padding: $pixel-base $pixel-base * 2 $pixel-base $pixel-base * 2;
       font-weight: 600;
       font-size: 20px;
       text-transform: capitalize;
-
-      a {
-        color: $secondary-color;
-      }
-
-      a:hover {
-        color: $sub-navigation-font-action;
-        border-bottom: 3px solid $primary-color-light;
-        box-sizing: border-box;
-      }
+      align-self: center;
     }
     .active-nav-item {
-      color: $sub-navigation-font-action;
-      border-bottom: 3px solid $primary-color-light;
+      color: $secondary-color;
+      border-bottom: 3px solid $secondary-color;
       box-sizing: border-box;
+    }
+  }
+}
+@media #{$sm-screen} {
+  .anchor-navbar {
+    height: auto;
+
+    .anchor-nav-link-item {
+      width: 35%;
+      justify-content: center;
+      height: 35px;
+
+      .nav-item {
+        font-size: 15px;
+      }
     }
   }
 }

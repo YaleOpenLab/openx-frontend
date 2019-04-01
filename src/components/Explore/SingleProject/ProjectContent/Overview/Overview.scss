@@ -1,5 +1,10 @@
+@import "../../../../../styles/variables";
+
 .Overview {
-  margin-top: 35px;
+  .overview-separator {
+    margin: $pixel-base * 8 0 $pixel-base * 3 0;
+    border-bottom: 1px solid silver;
+  }
   .title-yellow {
     color: $primary-color;
     text-transform: uppercase;
@@ -10,17 +15,57 @@
 
   .summary {
     margin-top: $pixel-base * 4;
+
+    .summary-grid {
+      margin-bottom: 87px;
+    }
   }
 
   .full-image {
-      margin-top: 55px;
-      width: 100%;
-      img {
-        width: 100%;
-      }
+    background-size: cover;
+    background-position: center;
+    height: 459px;
+    margin-bottom: 35px;
+    width: 100%;
   }
-  .context{
-      padding: 45px;
-      background: $project-content-background;
+
+  .context {
+    padding: 45px;
+    background: $project-content-background;
+
+    .context-map-image {
+      display: flex;
+      justify-content: center;
+
+      img {
+        max-height: 178px;
+        max-width: 291px;
+      }
+    }
+  }
+
+  .opportunity-sub-image{
+    height: 320px;
+    width: 100%;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .obligator-pannel{
+    margin-top: $pixel-base * 11;
+    color: $secondary-color;
+    font-family: $secondary-font;
+
+    .obligator-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: $pixel-base *2;
+    }
+    .obligator-text {
+      font-size: 16px;
+    }
   }
 }

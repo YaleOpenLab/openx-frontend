@@ -1,11 +1,55 @@
 @import "../../styles/variables";
 
 .ExploreComponent {
-  padding: 25px 0 25px 0;
+  .specifics-box {
+    border-top: 2px solid $white;
+    padding-top: $pixel-base * 2;
+    padding-bottom: $pixel-base * 2;
+    font-family: $secondary-font;
+
+    .spec-cont {
+      font-size: 18px;
+      font-weight: 300;
+      color: $charcoal-grey-two;
+      margin-bottom: $pixel-base;
+    }
+    .spec-desc {
+      text-transform: uppercase;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      color: $secondary-color-lighter;
+    }
+    .spec-icon-info {
+      margin: 0px auto;
+      width: 50%;
+    }
+    .base {
+      color: $primary-color;
+    }
+    .blue {
+      color: $third-color-light;
+    }
+
+    .spec-first-price {
+      font-size: 12px;
+      color: $secondary-color;
+      font-family: $secondary-font;
+    }
+    .spec-second-price {
+      font-family: $secondary-font;
+      font-size: 12px;
+      color: $secondary-color-lighter;
+      text-align: right;
+    }
+    .spec-price-bigger {
+      font-size: 17px;
+    }
+  }
 
   .projects-description-box {
     background: $projects-background;
-    padding: 15px;
+    padding: 15px 35px;
 
     .desc-status {
       text-transform: uppercase;
@@ -38,11 +82,17 @@
     }
 
     .desc-category {
-      color: #aaaeb3;
+      color: $explore-location;
       font-size: 12px;
       font-weight: 600;
       font-family: $secondary-font;
       margin-bottom: $pixel-base;
+      text-transform: capitalize;
+    }
+
+    .desc-category-separator {
+      border-bottom: 2px solid $white;
+      padding-bottom: $pixel-base / 2;
     }
 
     .desc-description {
@@ -51,13 +101,87 @@
         font-weight: 500;
         font-size: 13px;
       }
-      ul {
-        margin: $pixel-base * 2 0 $pixel-base * 2 0;
-        font-size: 12px;
-        li {
-          line-height: 16px;
+      .desc-description-bullets {
+        min-height: 90px;
+        display: flex;
+        ul {
+          font-size: 12px;
+          align-self: center;
+          li {
+            line-height: 16px;
+          }
         }
       }
+    }
+
+    .projects-description__spread {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      width: 100%;
+
+      > * {
+        width: 100%;
+      }
+    }
+
+    .projects-description__stats {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+
+      > div {
+        text-align: center;
+
+        &.-primary-color p,
+        &.-primary-color h6 {
+          color: $primary-color;
+        }
+
+        &.-blue-color p,
+        &.-blue-color h6 {
+          color: $third-color-light;
+        }
+
+        &.-dark-color h6 {
+          color: $charcoal-grey;
+        }
+
+        p {
+          color: $charcoal-grey-two;
+          font-family: $secondary-font;
+          font-size: 18px;
+          font-weight: 300;
+          line-height: 24px;
+          margin-bottom: 10px;
+          min-height: 24px;
+        }
+
+        h6 {
+          color: $secondary-color-lighter;
+          font-family: $secondary-font;
+          font-size: 10px;
+          font-weight: 600;
+          letter-spacing: 2px;
+          line-height: 14px;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+
+  .watch-button-explore {
+    position: absolute;
+    border: none;
+    background: none;
+    width: -moz-fit-content;
+    padding: 0;
+    cursor: pointer;
+    transition: opacity 0.25s;
+    bottom: 8px;
+    left: 8px;
+    &:hover {
+      opacity: 0.5;
     }
   }
 }

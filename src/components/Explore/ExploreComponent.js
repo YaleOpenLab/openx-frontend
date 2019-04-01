@@ -10,6 +10,7 @@ const ExploreComponent = () => {
     <React.Fragment>
       <div className="ExploreComponent">
         <Switch>
+          <Route path={`${ROUTES.EXPLORE}/:type`} component={Projects} />
           <Route path={ROUTES.EXPLORE} component={Projects} />
           <Route path={ROUTES.PROJECT} component={SingleProject} />
         </Switch>

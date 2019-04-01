@@ -2,7 +2,7 @@
 
 .support {
   text-align: center;
-  background-color: $primary-color;
+  background-color: $secondary-color-light;
   height: 141px;
 
   .content{
@@ -11,14 +11,18 @@
 
   .text {
     color: $white;
+    font-family: $secondary-font;
+    font-size: 20px;
+    font-weight: 600;
   }
 
   .text-box {
-    background: $white;
-    color: $primary-color-light;
+    color: $primary-color;
+    min-height: 23px;
     font-size: 14px;
     font-weight: 600;
     border-radius: 11.5px;
+    border: solid 1px $primary-color;
     text-transform: uppercase;
     padding: 2px 7px 2px 7px;
     float: none;

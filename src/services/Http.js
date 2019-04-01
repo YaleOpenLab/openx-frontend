@@ -1,7 +1,21 @@
 import Storage from "./Storage";
 import * as axios from "axios";
 import { from } from "rxjs";
-import { map } from "rxjs/operators";
+import { filter, map } from "rxjs/operators";
+import { extraProjectData } from '../data';
+
+const addExtraData = projects => {
+  if (projects.constructor === Array) {
+    projects = projects.map(project => {
+      project.extra = extraProjectData.find(record => record.id === project.Index);
+      return project;
+    });
+    return projects;
+  } else {
+    projects.data.extra = extraProjectData.find(record => record.id === projects.data.Index);
+    return projects;
+  }
+};
 
 export class Http {
   // todo: verify whether seed password should be equal to password
@@ -30,12 +44,25 @@ export class Http {
     });
   }
 
-  static projectAll() {
-    return this.get("project/all").pipe(map(result => result.data));
+  static projectAll(type) {
+    return this.get("project/all").pipe(
+      // filter out empty projects
+      map(result => result.data.filter(data => data.Index > 4)),
+      // TODO: fix when type is defined
+      // filter out all projects if not solar
+      filter(() => !type || type === 'pv-solar'),
+      map(addExtraData),
+    );
+  }
+
+  static originatorGet(id) {
+    return this.get("public/user", { index: id });
   }
 
   static projectGet(id) {
-    return this.get("project/get", { index: id });
+    return this.get("project/get", { index: id }).pipe(
+      map(addExtraData),
+    );
   }
 
   static investorRegister(name, username, pwd, seedpwd) {

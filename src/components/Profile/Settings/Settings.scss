@@ -1,30 +1,30 @@
 @import "../../../styles/variables";
 
 .ProfileSettings {
-  @include padding-mix("top", 6);
-  @include padding-mix("bottom", 4);
+  padding-top: $pixel-base * 6;
+  padding-bottom: $pixel-base * 4;
 
   .settings-content {
     .ProfileAccount,
     .ProfileSecurity {
-      @include margin-mix("top", 21);
+      margin-top: $pixel-base * 21;
 
-      @media #{$xs-scren} {
-        @include margin-mix("top", 5);
+      @media #{$xs-screen} {
+        margin-top: $pixel-base * 5;
       }
     }
 
     .ProfilePreferences {
-      @include margin-mix("top", 14);
+      margin-top: $pixel-base * 14;
 
-      @media #{$xs-scren} {
-        @include margin-mix("top", 5);
+      @media #{$xs-screen} {
+        margin-top: $pixel-base * 5;
       }
     }
 
     .ProfileEntity,
     .ProfileUsers {
-      @include margin-mix("top", 5);
+      margin-top: $pixel-base * 5;
     }
   }
 }
