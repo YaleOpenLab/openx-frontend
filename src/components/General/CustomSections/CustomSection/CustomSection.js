@@ -12,14 +12,21 @@ const display = section => {
       );
     case 'text':
       return (
-        <p>{section.value}</p>
+        <p className={section.highlight ? '-highlight' : ''}>{section.value}</p>
       );
     case 'image':
       return (
-        <div className="-image" style={{
-          'background-image': `url('${section.value}')`,
-          'height': (section.height ? section.height : 300) + 'px',
-        }} />
+        <>
+          <div className="-image" style={{
+            'background-image': `url('${section.value}')`,
+            'height': (section.height ? section.height : 300) + 'px',
+          }} />
+          {section.imageTitle !== '' && <span className='subtitle'>{section.imageTitle}</span>}
+        </>
+      );
+    case 'link':
+      return (
+        <a href={section.link}>{section.value}</a>
       );
     default:
       return (
