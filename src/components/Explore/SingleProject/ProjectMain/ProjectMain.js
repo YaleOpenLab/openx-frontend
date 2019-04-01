@@ -17,7 +17,7 @@ const ProjectMain = props => {
           </div>
         </div>
 
-        <div className="col-sm-12 col-md-7 order-md-3 order-sm-2 no-padding">
+        {/* <div className="col-sm-12 col-md-7 order-md-3 order-sm-2 no-padding">
           <div className="project-main-image project-main-choose-image">
             <div className="container">
               <div className="row mx-auto">
@@ -33,7 +33,8 @@ const ProjectMain = props => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
+        
         <div className="col-sm-12 col-md-5 order-md-2 order-sm-3  no-padding">
           <button className="watch-button">
             <div className="watch-icon"/>
@@ -59,7 +60,7 @@ const ProjectMain = props => {
 
             <div className="desc-description">
               {data.Metadata}
-              <div className="desc-description-buttons">
+              <div className="desc-description-bullets">
                 <ul>
                   <li>{data.Bullets.Bullet1}</li>
                   <li>{data.Bullets.Bullet2}</li>

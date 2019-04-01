@@ -26,15 +26,15 @@ h6 {
 }
 
 .margin-bottom-x4 {
-  @include margin-mix("bottom", 4);
+  margin-bottom: $pixel-base * 4;
 }
 
 .margin-top {
-  @include margin-mix("top", 4);
+  margin-top: $pixel-base * 4;
 }
 
 .mg-top-15 {
-  @include margin-mix("top", 2);
+  margin-top: $pixel-base * 2;
 }
 
 .center-al {

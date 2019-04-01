@@ -75,12 +75,12 @@ class ProjectsTemplate extends Component {
                   <ShowMoreText
                     moreText="Show More"
                     lessText="Show Less"
-                    lines={5}
+                    lines={3}
                   >
                     {this.props.data.Metadata}
                   </ShowMoreText>
                 </div>
-                <div className="desc-description-buttons">
+                <div className="desc-description-bullets">
                   <ul>
                     <li>{this.props.data.Bullets.Bullet1}</li>
                     <li>{this.props.data.Bullets.Bullet2}</li>

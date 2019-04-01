@@ -1,9 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import ScrollableAnchor from "react-scrollable-anchor";
-import CommunitySection from "./CommunitySection/CommunitySection";
-import BusinessPaymentSection from "./BusinessPaymentSection/BusinessPaymentSection";
-import SolarCard from "./SolarCard/SolarCard";
 import CustomSections from '../../../../General/CustomSections/CustomSections';
 
 const ProjectDetails = props => {
@@ -18,14 +14,14 @@ const ProjectDetails = props => {
               Project Details
             </div>
             <div className="col-12">
-              <div className="architecture margin-top">
+              <div className="architecture">
                 {data.extra && data.extra.engineering && (
                   <CustomSections sections={data.extra.engineering} />
                 )}
               </div>
             </div>
             <div className="col-12">
-              <div className="architecture margin-top">
+              <div className="architecture">
                 {data.extra && data.extra.architecture && (
                   <CustomSections sections={data.extra.architecture} />
                 )}
