@@ -12,7 +12,8 @@ class ExplorePageContainer extends Component {
         { name: "pv solar", link: ROUTES.EXPLORE_PAGES.PV_SOLAR },
         { name: "storage", link: ROUTES.EXPLORE_PAGES.STORAGE },
         { name: "wind", link: ROUTES.EXPLORE_PAGES.WIND },
-        { name: "systems", link: ROUTES.EXPLORE_PAGES.SYSTEMS }
+        { name: "microgrids", link: ROUTES.EXPLORE_PAGES.MICROGRIDS },
+        { name: "maps", link: ROUTES.EXPLORE_PAGES.MAPS }
       ]
     };
   }

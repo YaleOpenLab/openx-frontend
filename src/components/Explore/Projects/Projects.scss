@@ -9,6 +9,9 @@
   .projects-box {
     margin-bottom: $pixel-base * 2;
   }
+  .projects-box-explore{
+    margin-bottom: $pixel-base * 4;
+  }
 
   .projects-image-box {
     height: 210px;
@@ -25,5 +28,10 @@
     float: left;
     margin-top: 2px;
     padding-left: $pixel-base * 2;
+  }
+  .specifics-box-no-mg{
+    border-top: 2px solid $white;
+    padding-bottom: $pixel-base * 2;
+    font-family: $secondary-font;
   }
 }
