@@ -176,13 +176,10 @@
 
   .component-title {
     font-size: 24px;
+    font-weight: bold;
     color: $primary-color;
     text-transform: uppercase;
     margin-bottom: 18px;
-
-    span {
-      font-weight: bold;
-    }
   }
 
   @import "./ProjectDetails/ProjectDetails.scss";
