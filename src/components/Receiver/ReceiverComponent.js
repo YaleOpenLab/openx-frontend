@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Component} from "react";
 import IconBenef from "../../assets/images/ic-beneficiary.svg";
 import IconWallet from "../../assets/images/ic-wallet.svg";
 import IconSolar from "../../assets/images/ic-solar-panel.svg";
@@ -26,7 +26,7 @@ import ContractReview from "../General/ContractReview";
 import { mockData } from "./mockData";
 import SummaryCards from "../General/SummaryCards/SummaryCards";
 
-class ReceiverComponent extends React.Component {
+class ReceiverComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {

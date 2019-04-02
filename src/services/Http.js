@@ -1,7 +1,7 @@
 import Storage from "./Storage";
 import * as axios from "axios";
-import { from } from "rxjs";
-import { filter, map } from "rxjs/operators";
+import { from } from 'rxjs';
+import { filter, map, mergeMap } from "rxjs/operators";
 import { extraProjectData } from '../data';
 
 const addExtraData = projects => {
@@ -18,14 +18,12 @@ const addExtraData = projects => {
 };
 
 export class Http {
-  // todo: verify whether seed password should be equal to password
   static userRegister(name, username, pwd) {
-    return this.get("user/register", {
-      name: name,
-      username: username,
-      pwd: pwd,
-      seedpwd: pwd
-    });
+    const data = {name: name, username: username, pwd: pwd, seedpwd: pwd};
+    return this.get("user/register", data).pipe(
+      mergeMap(() => this.get("investor/register", data)),
+      mergeMap(() => this.get("recipient/register", data)),
+    )
   }
 
   static userValidate(username, pwhash) {
@@ -63,6 +61,15 @@ export class Http {
     return this.get("project/get", { index: id }).pipe(
       map(addExtraData),
     );
+  }
+
+  static investorValidate() {
+    return this.get("investor/validate", {
+      // username: Storage.get('username'), // todo remove this
+      username: 'varun@visscher.io',
+      // pwhash: Storage.get('token')
+      pwhash: 'e9a75486736a550af4fea861e2378305c4a555a05094dee1dca2f68afea49cc3a50e8de6ea131ea521311f4d6fb054a146e8282f8e35ff2e6368c1a62e909716'
+    })
   }
 
   static investorRegister(name, username, pwd, seedpwd) {

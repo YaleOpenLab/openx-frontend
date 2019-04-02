@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {Component} from 'react';
 import LayoutHoc from '../../hoc/Layout/Layout';
 import './UnderDevelopment.scss';
 import IconBuild from '../../assets/images/ic-build.svg';
 
-class UnderDevelopment extends React.Component {
+class UnderDevelopment extends Component {
   render() {
     return (
       <LayoutHoc>
