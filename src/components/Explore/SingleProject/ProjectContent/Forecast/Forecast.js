@@ -9,7 +9,7 @@ import Title from '../../../../General/Title/Title';
 const Forecast = props => (
   <ScrollableAnchor id={"stageforecast"}>
     <section className="Forecast">
-      <Title title="Project Details" />
+      <Title title="Project Stage & Forecast" />
       <div className="container">
         <div className="row">
           <div className="col-12">
