@@ -1,32 +1,34 @@
-import React, {Component} from "react";
-import IconBenef from "../../assets/images/ic-beneficiary.svg";
-import IconWallet from "../../assets/images/ic-wallet.svg";
-import IconSolar from "../../assets/images/ic-solar-panel.svg";
-import IconSolarAlt from "../../assets/images/ic-solar-alt.svg";
-import Placeholder from "../../assets/images/solars.png";
-import IconGps from "../../assets/images/ic-location-min.svg";
-import iconWatch from "../../assets/images/ic-watch.svg";
-import IconTools from "../../assets/images/ic-tools.svg";
-import IconCerf from "../../assets/images/ic-certified.svg";
-import IconCalendar from "../../assets/images/ic-calendar.svg";
-import IconDeveloper from "../../assets/images/ic-developer.svg";
-import IconContractor from "../../assets/images/ic-contractor.svg";
-import IconBox from "../../assets/images/ic-solarbox.svg";
-import IconArchive from "../../assets/images/ic-doc-archive.svg";
-import IconSingle from "../../assets/images/ic-single.svg";
-import IconChecked from "../../assets/images/ic-doc-checked.svg";
-import IconUnChecked from "../../assets/images/ic-doc-unchecked.svg";
-import AvatarPlaceholder from "../../assets/images/avatarplaceholder.png";
-import GraphPlaceholder from "../../assets/images/graph-placeholder.png";
+import React, { Component } from "react";
+import IconBenef from "../../../../assets/images/ic-beneficiary.svg";
+import IconWallet from "../../../../assets/images/ic-wallet.svg";
+import IconSolar from "../../../../assets/images/ic-solar-panel.svg";
+import IconSolarAlt from "../../../../assets/images/ic-solar-alt.svg";
+import Placeholder from "../../../../assets/images/solars.png";
+import IconGps from "../../../../assets/images/ic-location-min.svg";
+import iconWatch from "../../../../assets/images/ic-watch.svg";
+import IconTools from "../../../../assets/images/ic-tools.svg";
+import IconCerf from "../../../../assets/images/ic-certified.svg";
+import IconCalendar from "../../../../assets/images/ic-calendar.svg";
+import IconDeveloper from "../../../../assets/images/ic-developer.svg";
+import IconContractor from "../../../../assets/images/ic-contractor.svg";
+import IconBox from "../../../../assets/images/ic-solarbox.svg";
+import IconArchive from "../../../../assets/images/ic-doc-archive.svg";
+import IconSingle from "../../../../assets/images/ic-single.svg";
+import IconChecked from "../../../../assets/images/ic-doc-checked.svg";
+import IconUnChecked from "../../../../assets/images/ic-doc-unchecked.svg";
+import AvatarPlaceholder from "../../../../assets/images/avatarplaceholder.png";
+import GraphPlaceholder from "../../../../assets/images/graph-placeholder.png";
 import ProgressBar from "./ProgressBar";
 import DetailContainer from "./DetailContainer";
-import "./ReceiverComponent.scss";
-import DocumentationContainer from "../General/DocumentationContainer";
-import ContractReview from "../General/ContractReview";
+import "./Dashboard.scss";
+import DocumentationContainer from "../../../General/DocumentationContainer";
+import ContractReview from "../../../General/ContractReview";
 import { mockData } from "./mockData";
-import SummaryCards from "../General/SummaryCards/SummaryCards";
+import SummaryCards from "../../../General/SummaryCards/SummaryCards";
+import { connect } from "react-redux";
+import { fetchReceiver } from "../../../../pages/Receiver/store/actions";
 
-class ReceiverComponent extends Component {
+class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -34,77 +36,81 @@ class ReceiverComponent extends Component {
       dropdown: false,
       documentation: [
         {
-          title: 'Project Overview',
-          sub: 'PROJECT PORTFOLIO',
-          icon: IconArchive,
+          title: "Project Overview",
+          sub: "PROJECT PORTFOLIO",
+          icon: IconArchive
         },
         {
-          title: 'PPA',
-          sub: 'CONTRACT',
-          icon: IconSingle,
+          title: "PPA",
+          sub: "CONTRACT",
+          icon: IconSingle
         },
         {
-          title: 'RE Certification Agreement',
-          sub: 'RECs',
-          icon: IconSingle,
+          title: "RE Certification Agreement",
+          sub: "RECs",
+          icon: IconSingle
         },
         {
-          title: 'Guarantor Agreements',
-          sub: 'INVESTOR PROTECTIONS',
-          icon: IconArchive,
+          title: "Guarantor Agreements",
+          sub: "INVESTOR PROTECTIONS",
+          icon: IconArchive
         },
         {
-          title: 'Contractors Agreement',
-          sub: 'DEVELOPER',
-          icon: IconArchive,
+          title: "Contractors Agreement",
+          sub: "DEVELOPER",
+          icon: IconArchive
         },
         {
-          title: 'Stakeholder Agreement',
-          sub: 'STAKEHOLDERS',
-          icon: IconSingle,
+          title: "Stakeholder Agreement",
+          sub: "STAKEHOLDERS",
+          icon: IconSingle
         },
         {
-          title: 'Community Energy Charter',
-          sub: 'INVESTOR PROTECTIONS',
-          icon: IconSingle,
+          title: "Community Energy Charter",
+          sub: "INVESTOR PROTECTIONS",
+          icon: IconSingle
         },
         {
-          title: 'Financial Reportings',
-          sub: 'PROJECT FINANCIALS',
-          icon: IconArchive,
-        },
+          title: "Financial Reportings",
+          sub: "PROJECT FINANCIALS",
+          icon: IconArchive
+        }
       ],
       review: [
         {
           icon: IconChecked,
-          label: 'Link >',
+          label: "Link >"
         },
         {
           icon: IconChecked,
-          label: 'Link >',
+          label: "Link >"
         },
         {
           icon: IconChecked,
-          label: 'Link >',
+          label: "Link >"
         },
         {
           icon: IconChecked,
-          label: 'Link >',
+          label: "Link >"
         },
         {
           icon: IconUnChecked,
-          label: 'Developer >',
+          label: "Developer >"
         },
         {
           icon: IconUnChecked,
-          label: 'Developer >',
+          label: "Developer >"
         },
         {
           icon: IconUnChecked,
-          label: 'Developer >',
-        },
+          label: "Developer >"
+        }
       ]
     };
+  }
+
+  componentDidMount = () => {
+    this.props.fetchReceiver();
   }
 
   onButtonClick = active => {
@@ -123,7 +129,7 @@ class ReceiverComponent extends Component {
     const receiver = mockData.receiverData;
     const receiverProject = mockData.project;
     return (
-      <div className="ReceiverComponent">
+      <div className="receiver-dashboard">
         <div className="title-container -border">
           <div className="container">
             <h3 className="container-title">Summary</h3>
@@ -381,9 +387,12 @@ class ReceiverComponent extends Component {
               <h4 className="sub-title">PASTO PUBLIC SCHOOL - POC 1KW</h4>
               <div className="container">
                 <h5>LEGAL CONTRACTUAL DOCUMENTATION</h5>
-                <DocumentationContainer data={this.state.documentation}/>
+                <DocumentationContainer data={this.state.documentation} />
                 <h5>BLOCKCHAIN-BASED SMART CONTRACTS</h5>
-                    <ContractReview data={this.state.review} title={'REVIEW SMART CONTRACTS'}/>
+                <ContractReview
+                  data={this.state.review}
+                  title={"REVIEW SMART CONTRACTS"}
+                />
                 <h6>HOW TO REVIEW BLOCKCHAIN-BASED SMART CONTRACT</h6>
                 <p className="-small">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
@@ -409,4 +418,15 @@ class ReceiverComponent extends Component {
   }
 }
 
-export default ReceiverComponent;
+const mapStateToProps = state => ({
+  receiver: state.receiver
+});
+
+const mapDispatchToProps = dispatch => ({
+  fetchReceiver: () => dispatch(fetchReceiver())
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Dashboard);
