@@ -73,7 +73,7 @@ export class Http {
 
   static investorValidate() {
     return this.get("investor/validate", {
-      username: Storage.get('username'), // todo remove this
+      username: Storage.get('username'),
       pwhash: Storage.get('token')
     })
   }

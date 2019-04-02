@@ -10,8 +10,8 @@ const documents = [
   {icon: 1, name: 'Investor Protections', description: 'Guarantor Agreements', url: '#'},
   {icon: 1, name: 'Developer', description: 'Contractors Agreement', url: '#'},
   {icon: 2, name: 'Stakeholders', description: 'Stakeholder Agreement', url: '#'},
-  {icon: 2, name: 'Receiver', description: 'Community Energy Charter', url: '#'},
-  {icon: 1, name: 'Project Financials', description: 'Financial Reportings', url: '#'}
+  // {icon: 2, name: 'Receiver', description: 'Community Energy Charter', url: '#'},
+  // {icon: 1, name: 'Project Financials', description: 'Financial Reportings', url: '#'}
 ];
 
 const Documents = props => (
@@ -25,7 +25,7 @@ const Documents = props => (
             <h4>Legal Contractual Documentation</h4>
             <div className="row -documentation">
               { documents && documents.map(document => (
-                <div className="col">
+                <div className="col" key={'document-' + document.name}>
                   { document.icon === 1 ? (
                     <span className="icon-doc-archive" />
                   ) : (
@@ -46,7 +46,7 @@ const Documents = props => (
                     <button>Review Smart Contracts</button>
                   </div>
                   { documents && documents.slice(1).map(document => (
-                    <div className="col">
+                    <div className="col" key={'contract-' + document.name}>
                       <div className="icon-check-box">
                         <div className="">
                           <span className="icon-doc-checked" />
