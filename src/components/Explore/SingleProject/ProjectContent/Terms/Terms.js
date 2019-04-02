@@ -12,9 +12,9 @@ configureAnchors({
 
 class Terms extends Component {
 
-  state = {
-    collapsed: true,
-  };
+    state = {
+      collapsed: true,
+    };
 
   handleCollapse = () => {
     this.setState(prevState => ({
@@ -45,8 +45,9 @@ class Terms extends Component {
               <div className="table-wrapper">
                 <TermsTable
                   data={this.props.data.Terms}
+                  handleCollapse={this.handleCollapse}
                 />
-                <button className="collapse-button" onClick={() => this.handleCollapse()}>
+                <button className="collapse-button" onClick={this.handleCollapse}>
                   <img src={IcKeyboard} alt="keyboard" />
                 </button>
               </div>
