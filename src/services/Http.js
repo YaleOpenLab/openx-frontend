@@ -30,7 +30,11 @@ export class Http {
     return this.get("user/validate", {
       username: username,
       pwhash: pwhash
-    });
+    }).pipe(map(value => {
+      Storage.set("token", pwhash);
+      Storage.set("username", username);
+      return value;
+    }));
   }
   static updateUserAccount(username, pwhash, data) {
     let userInfo = {
