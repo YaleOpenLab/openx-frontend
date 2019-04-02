@@ -33,6 +33,7 @@ class Projects extends Component {
     (!this.state.filters.Search || JSON.stringify(project).includes(this.state.filters.Search))
     && (!this.state.filters.Country || project.Country === this.state.filters.Country)
     && (!this.state.filters.State || project.State === this.state.filters.State)
+    && (!this.state.filters.Stage || (project.Stage >= this.state.filters.Stage.min && project.Stage <= this.state.filters.Stage.max))
   );
 
   handleNotice = () => {
