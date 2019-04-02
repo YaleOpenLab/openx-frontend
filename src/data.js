@@ -37,13 +37,13 @@ export const extraProjectData = [
       {
         width: 6,
         content: [
-          {type: 'image', value: 'https://images.openx.solar/OpenSolarProjects/7_YaleMIT/2.jpg', height: 319},
+          {type: 'image', value: 'https://images.openx.solar/demo/pasto-public-school-project-page1.png', height: 319},
         ]
       },
       {
         width: 6,
         content: [
-          {type: 'image', value: 'https://images.openx.solar/OpenSolarProjects/7_YaleMIT/5.jpg', height: 319},
+          {type: 'image', value: 'https://images.openx.solar/demo/pasto-public-school-project-page2.png', height: 319},
         ]
       },
     ],
@@ -89,14 +89,14 @@ export const extraProjectData = [
         width: 5,
         content: [
           {type: 'header', value: 'Map Layout'},
-          {type: 'image', value: 'https://images.openx.solar/OpenSolarProjects/7_YaleMIT/7.png', height: 538},
+          {type: 'image', value: 'https://images.openx.solar/demo/pasto-page-architecture-section.png', height: 538},
         ]
       },
       {
         width: 3,
         content: [
           {type: 'header', value: 'Solar Output'},
-          {type: 'image', value: 'https://images.openx.solar/OpenSolarProjects/7_YaleMIT/9.png', height: 538},
+          {type: 'image', value: 'https://images.openx.solar/demo/pasto-page-solar-generation.png', height: 193},
         ]
       },
       {
@@ -111,7 +111,7 @@ export const extraProjectData = [
             type: 'text',
             value: 'The system size can be expanded from 1 kW up to 5kW to cover a greater % of the building load.'
           },
-          {type: 'image', value: 'https://images.openx.solar/OpenSolarProjects/7_YaleMIT/normal.jpg', height: 203},
+          {type: 'image', value: 'https://images.openx.solar/demo/pasto-page-design-description.png', height: 203},
         ]
       },
     ],
@@ -126,7 +126,7 @@ export const extraProjectData = [
         width: 5,
         content: [
           {type: 'header', value: 'Installation Archetype'},
-          {type: 'image', value: 'https://images.openx.solar/OpenSolarProjects/7_YaleMIT/6.jpg', height: 230},
+          {type: 'image', value: 'https://images.openx.solar/demo/pasto-page-installation1.png', height: 230},
           {
             type: 'text',
             value: 'This is a model installation in that the solar and battery support only a subpanel of the building circuitry, where only critical loads have been connected. The system is configured as a grid-tied installation, in that the main grid can also support other loads in the panel, and can also be used to power the battery bank. The installation allows for the interconnection of an emergency generator but it is currently not permanently linked to the system.'
@@ -137,7 +137,7 @@ export const extraProjectData = [
         width: 7,
         content: [
           {type: 'header', value: 'Engineering Layout'},
-          {type: 'image', value: 'https://images.openx.solar/OpenSolarProjects/7_YaleMIT/8.png', height: 431},
+          {type: 'image', value: 'https://images.openx.solar/demo/pasto-page-installation2.png', height: 431},
         ]
       },
       {
@@ -153,7 +153,7 @@ export const extraProjectData = [
       {
         width: 4,
         content: [
-          {type: 'image', value: 'https://images.openx.solar/OpenSolarProjects/7_YaleMIT/10.jpg'},
+          {type: 'image', value: 'https://images.openx.solar/demo/pasto-page-it-infrastructure.png'},
           {
             type: 'text',
             value: 'IoT meters include a Schneider Commbox and the Yale Open Powermer devices equiped with WiFi and Zigbee transfer protocol. A Rasberry Pi acts as a light clients'
@@ -163,7 +163,7 @@ export const extraProjectData = [
       {
         width: 4,
         content: [
-          {type: 'image', value: 'https://images.openx.solar/OpenSolarProjects/7_YaleMIT/11.png', height: 303},
+          {type: 'image', value: 'https://images.openx.solar/demo/pasto-page-it-infrastructure2.png', height: 303},
         ]
       },
     ],
@@ -200,7 +200,7 @@ export const extraProjectData = [
         width: 3,
         content: [
           {type: 'header', value: 'Outreach'},
-          {type: 'image', value: 'https://via.placeholder.com/450x350', height: 162},
+          {type: 'image', value: 'http://images.openx.solar/demo/pasto-page-outreach.png', height: 162},
           {
             type: 'text',
             value: 'The system has been installed with instructions so that it can act as a pedagogical site for students to learn about the merits of solar energy, electricity and basic electronics. Talk about solar energy will be given every semester in the context of climate change communication to the community.'
@@ -792,13 +792,13 @@ export const extraProjectData = [
       {
         width: 5,
         content: [
-          {type: 'image', value: 'https://images.openx.solar/OpenSolarProjects/8_NewHaven/9.jpg', height: 437},
+          {type: 'image', value: 'http://images.openx.solar/demo/rwanda-engineering-1.png', height: 437},
         ]
       },
       {
         width: 7,
         content: [
-          {type: 'image', value: 'https://images.openx.solar/OpenSolarProjects/8_NewHaven/10.jpg', height: 437},
+          {type: 'image', value: 'http://images.openx.solar/demo/rwanda-engineering-2.png', height: 437},
         ]
       },
       {
@@ -1094,7 +1094,7 @@ export const extraProjectData = [
         width: 3,
         content: [
           {type: 'header', value: 'Outreach'},
-          {type: 'image', value: 'https://via.placeholder.com/450x350', height: 162},
+          {type: 'image', value: 'http://images.openx.solar/demo/pasto-page-outreach.png', height: 162},
           {
             type: 'text',
             value: 'The system has been installed with instructions so that it can act as a pedagogical site for students to learn about the merits of solar energy, electricity and basic electronics. Talk about solar energy will be given every semester in the context of climate change communication to the community.'

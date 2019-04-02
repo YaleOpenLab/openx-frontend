@@ -49,7 +49,7 @@ class Terms extends Component {
                       data={this.props.data.Terms}
                       handleCollapse={this.handleCollapse}
                     />
-                    <button className="collapse-button" onClick={this.handleCollapse}>
+                    <button className={(this.state.collapsed ? '' : '-closed ') + "collapse-button"} onClick={this.handleCollapse}>
                       <img src={IcKeyboard} alt="keyboard" />
                     </button>
                   </div>
