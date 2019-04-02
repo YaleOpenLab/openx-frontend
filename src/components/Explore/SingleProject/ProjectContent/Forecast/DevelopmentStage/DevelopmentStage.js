@@ -20,9 +20,9 @@ const DevelopmentStage = props => {
         <div className="col-xs-1-10" key={stage.index}>
           <div className="ds-count">{stage.index}</div>
           <div className={`ds-ball ${stageClass}`} />
-          {stage.index < props.currentStage ? (
+          {stage.index < 7 ? (
             <div className="ds-line" />
-          ) : stage.index === props.currentStage ? (
+          ) : stage.index === 7 ? (
             <React.Fragment>
               <div className="ds-line-half" />
               <div className="ds-dashed-line-half-right" />

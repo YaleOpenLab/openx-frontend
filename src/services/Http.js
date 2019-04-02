@@ -32,6 +32,14 @@ export class Http {
       pwhash: pwhash
     });
   }
+  static updateUserAccount(username, pwhash, data) {
+    let userInfo = {
+      username: username,
+      pwhash: pwhash
+    }
+    let additionalParams = data;
+    return this.get("user/validate", {...userInfo, ...additionalParams });
+  }
 
   static userBalanceXlm() {
     const session = Storage.session;
@@ -65,10 +73,8 @@ export class Http {
 
   static investorValidate() {
     return this.get("investor/validate", {
-      // username: Storage.get('username'), // todo remove this
-      username: 'varun@visscher.io',
-      // pwhash: Storage.get('token')
-      pwhash: 'e9a75486736a550af4fea861e2378305c4a555a05094dee1dca2f68afea49cc3a50e8de6ea131ea521311f4d6fb054a146e8282f8e35ff2e6368c1a62e909716'
+      username: Storage.get('username'), // todo remove this
+      pwhash: Storage.get('token')
     })
   }
 
@@ -88,6 +94,13 @@ export class Http {
       pwd: pwd,
       seedpwd: seedpwd
     });
+  }
+
+  static recipientValidate() {
+    return this.get("recipient/validate", {
+      username: Storage.get('username'), // todo remove this
+      pwhash: Storage.get('token')
+    })
   }
 
   static get(path, data) {
