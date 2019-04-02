@@ -115,6 +115,7 @@
         letter-spacing: 2px;
         color: $secondary-color;
         text-align: left;
+        cursor: pointer;
 
         th {
           vertical-align: middle;
@@ -170,7 +171,7 @@
   }
 
   .table-wrapper {
-    width: calc(100% - 28px);
+    width: calc(100% - 32px);
   }
 
   .component-title {
