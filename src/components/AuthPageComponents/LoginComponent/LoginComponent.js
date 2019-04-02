@@ -24,8 +24,6 @@ const LoginSchema = Yup.object().shape({
 class LoginComponent extends Component {
   componentDidUpdate(prevProps) {
     if (this.props.authorized !== prevProps.authorized) {
-      Storage.set("token", this.props.pwhash);
-      Storage.set("username", this.props.username);
       this.props.enqueueSnackbar("Logged In.", {
         variant: "success",
         autoHideDuration: 1500
