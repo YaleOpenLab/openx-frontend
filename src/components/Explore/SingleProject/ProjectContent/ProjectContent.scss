@@ -116,6 +116,12 @@
         color: $secondary-color;
         text-align: left;
         cursor: pointer;
+        transition: 0.15s;
+
+        &:active{
+         transform: scale(0.995);
+          box-shadow: 0 0 2px 1px rgba(0,0,0,0.1);
+        }
 
         th {
           vertical-align: middle;
@@ -148,6 +154,11 @@
     background: transparent;
     outline: none;
     cursor: pointer;
+    transition: 0.25s;
+
+    &.-closed {
+      transform: rotate(180deg);
+    }
 
     img {
       width: 16px;
