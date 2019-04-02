@@ -26,9 +26,4 @@ export const fetchLoginEpic = action$ =>
     })
   );
 
-// export const fetchLoginFailureEpic = action$ =>
-//   action$.pipe(
-//     ofType(LOGIN_FAILURE),
-//   );
-
 export default fetchLoginEpic;

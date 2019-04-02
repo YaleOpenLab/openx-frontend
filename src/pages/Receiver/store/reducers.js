@@ -1,7 +1,7 @@
 import {
-  FETCH_INVESTOR,
-  FETCH_INVESTOR_SUCCESS,
-  FETCH_INVESTOR_FAILURE
+  FETCH_RECEIVER,
+  FETCH_RECEIVER_SUCCESS,
+  FETCH_RECEIVER_FAILURE
 } from "./actions";
 
 const initialState = {
@@ -10,21 +10,21 @@ const initialState = {
   error: null
 };
 
-const investorReducer = (state = initialState, action) => {
+const receiverReducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_INVESTOR:
+    case FETCH_RECEIVER:
       return {
         ...state,
         isLoading: true,
         error: null
       };
-    case FETCH_INVESTOR_SUCCESS:
+    case FETCH_RECEIVER_SUCCESS:
       return {
         items: action.payload.data,
         isLoading: false,
         error: null
       };
-    case FETCH_INVESTOR_FAILURE:
+    case FETCH_RECEIVER_FAILURE:
       return {
         ...state,
         isLoading: false,
@@ -35,4 +35,4 @@ const investorReducer = (state = initialState, action) => {
   }
 };
 
-export default investorReducer;
+export default receiverReducer;
