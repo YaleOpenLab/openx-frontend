@@ -4,15 +4,14 @@ import { NavLink } from "react-router-dom";
 import ROUTES from "../../../../../routes/routes";
 import ScrollableAnchor from "react-scrollable-anchor";
 import { STAGES } from '../../../../../helpers/enums/stages';
+import Title from '../../../../General/Title/Title';
 
 const Forecast = props => (
   <ScrollableAnchor id={"stageforecast"}>
     <section className="Forecast">
+      <Title title="Project Details" />
       <div className="container">
         <div className="row">
-          <div className="col-12 title border-bottom no-padding">
-            Project Stage & Forecast
-          </div>
           <div className="col-12">
             <div className="row mx-auto">
               <div className="component-title col-12 no-padding margin-top">

@@ -3,8 +3,9 @@
 .summary-card {
   .card-header {
     color: $primary-color;
-    height: 50px;
     display: flex;
+    height: 50px;
+    padding-left: 20px;
 
     .card-header-title {
       align-self: center;
