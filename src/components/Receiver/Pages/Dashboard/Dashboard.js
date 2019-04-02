@@ -111,7 +111,7 @@ class Dashboard extends Component {
 
   componentDidMount = () => {
     this.props.fetchReceiver();
-  }
+  };
 
   onButtonClick = active => {
     this.setState({
