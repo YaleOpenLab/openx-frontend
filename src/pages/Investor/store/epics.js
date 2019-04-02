@@ -13,8 +13,8 @@ const fetchInvestorEpic = action$ =>
     ofType(FETCH_INVESTOR),
     switchMap(() =>
       Http.investorValidate().pipe(
-        map(investor => fetchInvestorFailure(investor)),
-        catchError(error => Observable.of(fetchInvestorSuccess(error.message)))
+        map(investor => fetchInvestorSuccess(investor)),
+        catchError(error => Observable.of(fetchInvestorFailure(error.message)))
       )
     )
   );

@@ -9,8 +9,17 @@ import Preferences from "./Pages/Preferences/Preferences";
 import Entity from "./Pages/Entity/Entity";
 import Profiles from "./Pages/Profiles/Profiles";
 import PrivateRoute from "../../PrivateRouterComponent/PrivateRouterComponent";
+import Storage from "../../../services/Storage";
 
 class Settings extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: Storage.get("username"),
+      password: Storage.get("token")
+    }
+  }
+  
   render() {
     return (
       <div className="ProfileSettings">
@@ -21,7 +30,7 @@ class Settings extends Component {
               <Switch>
                 <Redirect from={ROUTES.PROFILE_PAGES.SETTINGS} exact to={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.ACCOUNT} />
                 <PrivateRoute path={ROUTES.PROFILE_PAGES.SETTINGS} exact component={Account} />
-                <PrivateRoute path={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.ACCOUNT} component={Account} />
+                <PrivateRoute path={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.ACCOUNT} component={Account} username={this.state.username} password={this.state.password} />
                 <PrivateRoute path={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.SECURITY} component={Security} />
                 <PrivateRoute path={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.ENTITY_PROFILE} component={Entity} />
                 <PrivateRoute path={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.USER_PROFILES} component={Profiles} />

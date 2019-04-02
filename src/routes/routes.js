@@ -18,6 +18,9 @@ const ROUTES = {
     CONFIRMATION: "/investor/confirm",
   },
   RECEIVER: "/receiver",
+  RECEIVER_PAGES: {
+    DASHBOARD: "/receiver/dashboard"
+  },
   DEVELOPER: "/developer",
   PROFILE: "/profile",
   PROFILE_PAGES: {

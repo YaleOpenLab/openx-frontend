@@ -12,9 +12,6 @@ const Slider = props => (
         maxValue={props.maxValue}
         minValue={props.minValue}
         onChange={props.onChange}
-        onChangeComplete={value => {
-          // TODO: handle input change
-        }}
         value={props.value}
       />
     </div>
