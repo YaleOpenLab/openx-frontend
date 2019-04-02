@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './Terms.scss';
 import IcKeyboard from '../../../../../assets/images/ic_keyboard.png';
 import ScrollableAnchor, { configureAnchors } from 'react-scrollable-anchor';
 import TermsTable from './TermsTable/TermsTable';
+import Title from '../../../../General/Title/Title';
 
 configureAnchors({
   offset: -90,
@@ -10,11 +11,11 @@ configureAnchors({
   keepLastAnchorHash: true
 });
 
-class Terms extends React.Component {
+class Terms extends Component {
 
-  state = {
-    collapsed: true,
-  };
+    state = {
+      collapsed: true,
+    };
 
   handleCollapse = () => {
     this.setState(prevState => ({
@@ -26,9 +27,9 @@ class Terms extends React.Component {
     return (
       <ScrollableAnchor id={'terms'}>
         <section className="Terms">
+          <Title className="-no-border" title="Terms" />
           <div className="container">
             <div className="row">
-              <div className="col-12 title no-padding border-bottom">Terms</div>
               <div className="col-12 text-description">
                 <div className="sub-title">
                   Purpose
@@ -42,15 +43,18 @@ class Terms extends React.Component {
                 }
               </div>
               <div className={(this.state.collapsed ? '' : '-minimized ') + "col-12 project-table no-padding"}>
-              <div className="table-wrapper">
-                <TermsTable
-                  data={this.props.data.Terms}
-                />
-                <button className="collapse-button" onClick={() => this.handleCollapse()}>
-                  <img src={IcKeyboard} alt="keyboard" />
-                </button>
-              </div>
-              </div>
+                <div className="col-12">
+                  <div className="table-wrapper">
+                    <TermsTable
+                      data={this.props.data.Terms}
+                      handleCollapse={this.handleCollapse}
+                    />
+                    <button className={(this.state.collapsed ? '' : '-closed ') + "collapse-button"} onClick={this.handleCollapse}>
+                      <img src={IcKeyboard} alt="keyboard" />
+                    </button>
+                  </div>
+                </div>
+                </div>
               <div className="col-12 security-note">
                 <div className="security-title">security note</div>
                 <div className="security-text">

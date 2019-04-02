@@ -13,6 +13,7 @@
       color: $charcoal-grey-two;
       margin-bottom: $pixel-base;
     }
+
     .spec-desc {
       text-transform: uppercase;
       font-size: 10px;
@@ -20,13 +21,16 @@
       letter-spacing: 2px;
       color: $secondary-color-lighter;
     }
+
     .spec-icon-info {
       margin: 0px auto;
       width: 50%;
     }
+
     .base {
       color: $primary-color;
     }
+
     .blue {
       color: $third-color-light;
     }
@@ -36,12 +40,14 @@
       color: $secondary-color;
       font-family: $secondary-font;
     }
+
     .spec-second-price {
       font-family: $secondary-font;
       font-size: 12px;
       color: $secondary-color-lighter;
       text-align: right;
     }
+
     .spec-price-bigger {
       font-size: 17px;
     }
@@ -65,10 +71,12 @@
       font-weight: bold;
       line-height: 25px;
       text-transform: capitalize;
+
       a {
         color: $primary-color;
       }
     }
+
     .desc-title:hover {
       opacity: 0.7;
     }
@@ -97,16 +105,21 @@
 
     .desc-description {
       color: $secondary-color;
+
       span {
         font-weight: 500;
         font-size: 13px;
       }
+
       .desc-description-bullets {
         min-height: 90px;
         display: flex;
+
         ul {
-          font-size: 12px;
           align-self: center;
+          font-size: 12px;
+          padding-left: 16px;
+
           li {
             line-height: 16px;
           }
@@ -180,6 +193,7 @@
     transition: opacity 0.25s;
     bottom: 8px;
     left: 8px;
+
     &:hover {
       opacity: 0.5;
     }

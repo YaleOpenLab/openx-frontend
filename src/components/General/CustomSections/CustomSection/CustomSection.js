@@ -21,7 +21,7 @@ const display = (section, index) => {
             backgroundImage: `url('${section.value}')`,
             height: (section.height ? section.height : 300) + 'px',
           }} />
-          {section.imageTitle !== '' && <span className='subtitle'>{section.imageTitle}</span>}
+          {section.imageTitle && <span className='subtitle'>{section.imageTitle}</span>}
         </React.Fragment>
       );
     case 'link':
