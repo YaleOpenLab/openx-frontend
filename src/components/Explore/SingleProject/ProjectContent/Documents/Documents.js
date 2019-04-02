@@ -1,15 +1,14 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import ScrollableAnchor from "react-scrollable-anchor";
+import Title from '../../../../General/Title/Title';
 
 const Documents = props => (
   <ScrollableAnchor id={"documents"}>
     <section className="Documents">
+      <Title title="Documents & Contracts" />
       <div className="container">
         <div className="row">
-          <div className="col-12 title border-bottom no-padding">
-            Documents & Contracts
-          </div>
           <div className="col-12 ">
             <div className="col-12 mg-top-15">
               <div className="sub-text">

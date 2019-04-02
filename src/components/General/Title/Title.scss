@@ -1,0 +1,16 @@
+@import "../../../styles/variables";
+
+.Title {
+  border-bottom: 1px solid $warm-grey;
+  padding: 29px 0 9px;
+
+  &.-no-border {
+    border-bottom: none;
+  }
+
+  h2 {
+    font-size: 34px;
+    color: $secondary-color;
+    font-weight: 500;
+  }
+}
