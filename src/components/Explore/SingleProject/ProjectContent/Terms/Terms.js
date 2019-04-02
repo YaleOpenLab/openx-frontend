@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './Terms.scss';
 import IcKeyboard from '../../../../../assets/images/ic_keyboard.png';
 import ScrollableAnchor, { configureAnchors } from 'react-scrollable-anchor';
@@ -10,7 +10,7 @@ configureAnchors({
   keepLastAnchorHash: true
 });
 
-class Terms extends React.Component {
+class Terms extends Component {
 
   state = {
     collapsed: true,

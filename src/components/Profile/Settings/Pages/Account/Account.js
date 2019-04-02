@@ -6,9 +6,8 @@ const Account = props => (
     <Formik
       initialValues={{
         userName: "",
-        firstName: "",
+        fullName: "",
         email: "",
-        lastName: "",
         address: "",
         country: "",
         city: "",
@@ -35,11 +34,11 @@ const Account = props => (
                     <Field
                       type="text"
                       className="solar-form-input"
-                      name="firstName"
+                      name="fullName"
                       required
                     />
-                    <label htmlFor="firstName" className="solar-form-label">
-                      first name
+                    <label htmlFor="fullName" className="solar-form-label">
+                      full name
                     </label>
                   </div>
                 </div>
@@ -56,17 +55,6 @@ const Account = props => (
                     />
                     <label htmlFor="email" className="solar-form-label">
                       email
-                    </label>
-                  </div>
-                  <div className="col-6 solar-input-div">
-                    <Field
-                      type="text"
-                      className="solar-form-input"
-                      name="lastName"
-                      required
-                    />
-                    <label htmlFor="lastName" className="solar-form-label">
-                      last name
                     </label>
                   </div>
                 </div>
