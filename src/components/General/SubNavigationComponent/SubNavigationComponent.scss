@@ -16,15 +16,44 @@
       display: flex;
     }
 
+    a {
+      position: relative;
+
+      &:after {
+        content: '';
+        width: 100%;
+        position: absolute;
+        left:0;
+        bottom: 0;
+        height: 2px;
+        background: $primary-color-light;
+        opacity: 0;
+        transition: 0.1s;
+      }
+    }
+
     a:hover {
       color: $primary-color-light;
-      border-bottom: 2px solid $primary-color-light;
-      box-sizing: border-box;
+
+      &:after {
+        opacity: 1;
+      }
     }
+
     .is-active {
       color: $primary-color-light;
-      border-bottom: 2px solid $primary-color-light;
-      box-sizing: border-box;
+
+      &:after {
+        content: '';
+        width: 100%;
+        position: absolute;
+        left:0;
+        bottom: 0;
+        height: 3px;
+        background: $primary-color-light;
+        opacity: 1;
+        transition: 0.1s;
+      }
     }
     .nav-item {
       font-weight: bold;
