@@ -29,7 +29,7 @@ const TermsTable = props => {
   return (
     <div className="table-responsive">
       <table className="table terms-table">
-        <thead className="thead-white">
+        <thead className="thead-white" onClick={() => props.handleCollapse()}>
           <tr>
             <th scope="col">variable</th>
             <th scope="col">value</th>
