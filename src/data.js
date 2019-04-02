@@ -178,7 +178,7 @@ export const extraProjectData = [
         width: 3,
         content: [
           {type: 'header', value: 'Consultation'},
-          {type: 'image', value: 'https://via.placeholder.com/450x350', height: 162},
+          {type: 'image', value: 'https://images.openx.solar/demo/puerto-rico-consultation.png', height: 162},
           {
             type: 'text',
             value: 'The MIT and Yale team convened a meeting with the Parent-Teacher Organisation, led by principal Janice Alejandro. Over 50 members of the community gathered to discuss the project, with unanimous approval and significant interest for its replication.'
@@ -189,7 +189,7 @@ export const extraProjectData = [
         width: 3,
         content: [
           {type: 'header', value: 'Participation'},
-          {type: 'image', value: 'https://via.placeholder.com/450x350', height: 162},
+          {type: 'image', value: 'https://images.openx.solar/demo/puerto-rico-participation.png', height: 162},
           {
             type: 'text',
             value: 'The principal, deputy principal, janitor, two teachers and one parent have volunteered as caretakers of the system to monitor its status, report any qualitative information and coordinate with the operation & maintenance required.'
@@ -211,7 +211,7 @@ export const extraProjectData = [
         width: 3,
         content: [
           {type: 'header', value: 'Governance'},
-          {type: 'image', value: 'https://via.placeholder.com/450x350', height: 162},
+          {type: 'image', value: 'https://images.openx.solar/demo/puerto-rico-governance.png', height: 162},
           {
             type: 'text',
             value: 'The board of the Parent-Teacher Organisation, composed of 5 chairs, will coordinate with the director of the Yale Openlab and the head of strategy at the MIT DCI to define any governance steps that the system requires.'
@@ -235,7 +235,7 @@ export const extraProjectData = [
       {
         width: 7,
         content: [
-          {type: 'image', value: 'https://via.placeholder.com/450x450'},
+          {type: 'image', value: 'https://images.openx.solar/demo/puerto-rico-payment-login.png', height: 157},
         ]
       },
       {
@@ -566,7 +566,7 @@ export const extraProjectData = [
       {
         width: 7,
         content: [
-          {type: 'image', value: 'https://via.placeholder.com/450x450'},
+          {type: 'image', value: 'https://images.openx.solar/demo/puerto-rico-payment-login.png', height: 157},
         ]
       },
       {
@@ -1072,7 +1072,7 @@ export const extraProjectData = [
         width: 3,
         content: [
           {type: 'header', value: 'Consultation'},
-          {type: 'image', value: 'https://via.placeholder.com/450x350', height: 162},
+          {type: 'image', value: 'https://images.openx.solar/demo/puerto-rico-consultation.png', height: 162},
           {
             type: 'text',
             value: 'The MIT and Yale team convened a meeting with the Parent-Teacher Organisation, led by principal Janice Alejandro. Over 50 members of the community gathered to discuss the project, with unanimous approval and significant interest for its replication.'
@@ -1083,7 +1083,7 @@ export const extraProjectData = [
         width: 3,
         content: [
           {type: 'header', value: 'Participation'},
-          {type: 'image', value: 'https://via.placeholder.com/450x350', height: 162},
+          {type: 'image', value: 'https://images.openx.solar/demo/puerto-rico-participation.png', height: 162},
           {
             type: 'text',
             value: 'The principal, deputy principal, janitor, two teachers and one parent have volunteered as caretakers of the system to monitor its status, report any qualitative information and coordinate with the operation & maintenance required.'
@@ -1105,7 +1105,7 @@ export const extraProjectData = [
         width: 3,
         content: [
           {type: 'header', value: 'Governance'},
-          {type: 'image', value: 'https://via.placeholder.com/450x350', height: 162},
+          {type: 'image', value: 'https://images.openx.solar/demo/puerto-rico-governance.png', height: 162},
           {
             type: 'text',
             value: 'The board of the Parent-Teacher Organisation, composed of 5 chairs, will coordinate with the director of the Yale Openlab and the head of strategy at the MIT DCI to define any governance steps that the system requires.'
@@ -1129,7 +1129,7 @@ export const extraProjectData = [
       {
         width: 7,
         content: [
-          {type: 'image', value: 'https://via.placeholder.com/450x450'},
+          {type: 'image', value: 'https://images.openx.solar/demo/puerto-rico-payment-login.png', height: 157},
         ]
       },
       {
