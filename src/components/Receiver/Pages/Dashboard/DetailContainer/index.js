@@ -1,6 +1,6 @@
 import React from 'react';
-import IconInfo from '../../../assets/images/ic-info.svg';
-import IconDoc from '../../../assets/images/ic-terms-doc.svg';
+import IconInfo from '../../../../../assets/images/ic-info.svg';
+import IconDoc from '../../../../../assets/images/ic-terms-doc.svg';
 import './DetailContainer.scss';
 
 const DetailContainer = (props) => {

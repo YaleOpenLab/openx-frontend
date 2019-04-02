@@ -1,13 +1,20 @@
 class storageClass {
-  storage = sessionStorage;
+  storage = localStorage;
 
   get session() {
-    // must contain password & pwhash
     return this.get("session");
   }
 
   set session(value) {
     return this.set("session", value);
+  }
+
+  constructor () {
+    if (!storageClass.instance) {
+      storageClass.instance = this
+    }
+
+    return storageClass.instance
   }
 
   get(key) {
@@ -23,5 +30,6 @@ class storageClass {
   }
 }
 const Storage = new storageClass();
+Object.freeze(Storage);
 
 export default Storage;

@@ -13,6 +13,8 @@
     height: inherit;
   }
   .anchor-row {
+    display: flex;
+    flex-wrap: wrap;
     width: 100%;
     height: inherit;
     .navbar-collapse {

@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import "./AnchorNavigation.scss";
+import React, { Component } from 'react';
+import './AnchorNavigation.scss';
 import {
   MDBNavbar,
   MDBNavbarNav,
   MDBCollapse,
   MDBNavbarToggler
-} from "mdbreact";
-import AnchorNavigationItem from "./AnchorNavigationItem/AnchorNavigationItem";
+} from 'mdbreact';
+import AnchorNavigationItem from './AnchorNavigationItem/AnchorNavigationItem';
 
 class AnchorNavigation extends Component {
   navItems = null;
@@ -40,12 +40,12 @@ class AnchorNavigation extends Component {
 
     return (
       <MDBNavbar className="anchor-navbar" expand="md">
-        <MDBNavbarToggler onClick={this.toggleCollapse} className="annchor-toggle-icon" />
+        <MDBNavbarToggler onClick={this.toggleCollapse} className="annchor-toggle-icon"/>
         <div className="container anchor-cont">
-        <div className="row anchor-row">
-          <MDBCollapse isOpen={this.state.isOpen} navbar>
-            <MDBNavbarNav>{this.navItems}</MDBNavbarNav>
-          </MDBCollapse>
+          <div className="anchor-row">
+            <MDBCollapse isOpen={this.state.isOpen} navbar>
+              <MDBNavbarNav>{this.navItems}</MDBNavbarNav>
+            </MDBCollapse>
           </div>
         </div>
       </MDBNavbar>

@@ -10,7 +10,7 @@ import InvestorContainer from "./pages/Investor/InvestorContainer";
 import ProfileContainer from "./pages/Profile/ProfileContainer";
 import ReceiverContainer from "./pages/Receiver/ReceiverContainer";
 import AboutContainer from "./pages/About/AboutContainer";
-import DeveloperContainer from "./pages/Developer/DeveloperContainer";
+import UnderDevelopment from './pages/UnderDevelopment/UnderDevelopment';
 
 class App extends Component {
   render() {
@@ -26,7 +26,7 @@ class App extends Component {
         <PrivateRoute path={Routes.PROFILE} component={ProfileContainer} />
         <PrivateRoute path={Routes.INVESTOR} component={InvestorContainer} />
         <PrivateRoute path={Routes.RECEIVER} component={ReceiverContainer} />
-        <PrivateRoute path={Routes.DEVELOPER} component={DeveloperContainer} />
+        <PrivateRoute path={Routes.DEVELOPER} component={UnderDevelopment} />
         <Route path="*" exact component={NotFoundPageContainer} />
       </Switch>
     );
