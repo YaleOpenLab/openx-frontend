@@ -14,7 +14,8 @@ class InvestmentConfirmation extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      investmentAmount: 0
+      investmentAmount: 0,
+      availableBalance: 35052.4
     };
   }
 
@@ -44,6 +45,14 @@ class InvestmentConfirmation extends Component {
     //TODO: handle confirmation
   };
 
+  validateForm = value => {
+    if(value > this.state.availableBalance || value < 100) {
+      return false;
+    }else{
+      return true;
+    }
+  }
+
   render() {
     const { investor, loading, project } = this.state;
     return (
@@ -67,6 +76,7 @@ class InvestmentConfirmation extends Component {
                 classes={["bigger-fonts"]}
                 saveText="confirm"
                 handleSave={this.handleConfirm}
+            disabled={!this.validateForm(this.state.investmentAmount)}
               >
                 <AmountTab
                   key={1}
@@ -74,9 +84,14 @@ class InvestmentConfirmation extends Component {
                   investmentValue={this.state.investmentAmount}
                 />
                 <ProfileTab key={2} investmentValue={this.state.investmentAmount} />
-                <ConfirmTab key={3} investmentValue={this.state.investmentAmount} />
-              </StepsForm>
-            </div>
+            <ConfirmTab
+              key={3}
+              investmentValue={this.state.investmentAmount}
+              data={project}
+              loading={loading || project.length === 0}
+            />
+          </StepsForm>
+        </div>
           </>
         )}
       </div>
