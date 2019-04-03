@@ -21,24 +21,25 @@ const AccountSummary = ({investor}) => (
             classes={['investor-marginer big-box']}
           />
         </div>
+        {/*todo: integrate*/}
         <div className="col-12 col-md-8">
           <DivBox
             type="long-open"
             list={[
               {
-                text: 'GCFONE23AB7Y6C5YZOMKUKGETP',
+                text: investor.U.PublicKey,
                 label: 'main wallet',
                 leftIcon: 'wallet-icon',
                 actionLabel: 'edit wallet name >',
                 type: 'primary'
               },
               {
-                text: '$ 350’018.3',
+                text: '$350,018',
                 label: 'ACCOUNT BALANCE',
                 actionLabel: 'Transaction History >'
               },
               {
-                text: '$ 330’552.4',
+                text: '$330,552',
                 label: 'AVAILABLE FUNDS',
                 actionLabel: 'Load More Funds >',
                 type: 'last'
@@ -48,23 +49,24 @@ const AccountSummary = ({investor}) => (
             iconSize="16px"
             classes={['investor-marginer big-box']}
           />
+          {/*todo: integrate*/}
           <DivBox
             type="long-open"
             list={[
               {
-                text: 'GCFONE23AB7Y6C5YZOMKUKGETP',
+                text: investor.U.SecondaryWallet ? investor.U.SecondaryWallet.PublicKey : 'N/A',
                 label: 'INFLOWS WALLET',
                 leftIcon: 'wallet-icon',
                 actionLabel: 'edit wallet name >',
                 type: 'primary'
               },
               {
-                text: '$ 350’018.3',
+                text: '$350,018',
                 label: 'ACCOUNT BALANCE',
                 actionLabel: 'Transaction History >'
               },
               {
-                text: '$ 330’552.4',
+                text: '$330,552',
                 label: 'AVAILABLE FUNDS',
                 actionLabel: 'Load More Funds >',
                 type: 'last'
@@ -79,7 +81,8 @@ const AccountSummary = ({investor}) => (
       <div className="investor-separator"/>
       <div className="summary-sum">
         <span className="sum-label">net position</span>
-        <span className="sum-price">$ 360’070.7</span>
+        {/*todo: integrate*/}
+        <span className="sum-price">$360,070</span>
       </div>
     </div>
   </React.Fragment>
