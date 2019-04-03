@@ -45,6 +45,13 @@ export class Http {
     return this.get("user/validate", {...userInfo, ...additionalParams });
   }
 
+  static userAskXlm(username, hash) {
+    return this.get("user/askxlm", {
+      username: username ? username : Storage.get('username'),
+      pwhash: hash ? hash : Storage.get('token'),
+    })
+  }
+
   static userBalanceXlm() {
     const session = Storage.session;
 
