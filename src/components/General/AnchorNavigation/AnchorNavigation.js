@@ -32,6 +32,7 @@ class AnchorNavigation extends Component {
           link={item.link}
           key={item.link}
           type={item.type}
+          data={this.props.data}
         >
           {item.name}
         </AnchorNavigationItem>
