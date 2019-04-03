@@ -5,7 +5,7 @@ const RegisterNewEntity = props => (
   <React.Fragment>
     <div className="col-12">
       <div className="component-box-title component-header">
-        Register a New Entity
+      <span className="-darker">Register a New Entity</span>
       </div>
     </div>
 
