@@ -86,7 +86,7 @@ export class Http {
   static projectAll(type) {
     return this.get('project/all').pipe(
       // filter out empty projects
-      map(result => result.data.filter(data => data.Index > 4)),
+      map(result => result.data.filter(data => data.Index > 4 && data.Index < 9)),
       // TODO: fix when type is defined
       map(data => {
         if (!type || type === 'pv-solar') {
