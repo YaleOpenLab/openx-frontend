@@ -8,7 +8,7 @@ const AmountTab = props => (
         <div className="row">
           <div className="col-12 solar-form-separator" />
           <div className="col-12 invest-confirm-header">
-            Deine your investment amount
+            Define your investment amount
           </div>
           <div className="col-12 invest-confirm-wrapper">
             <div className="col-4 invest-confirm-text">I want to invest:</div>
