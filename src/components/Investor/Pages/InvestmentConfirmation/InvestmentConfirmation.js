@@ -9,6 +9,8 @@ import { fetchProject } from '../../../Explore/SingleProject/store/actions';
 import connect from 'react-redux/es/connect/connect';
 import PageLoading from '../../../General/Loading/Loading';
 import { fetchInvestor } from '../../../../pages/Investor/store/actions';
+import { Http } from '../../../../services/Http';
+import { withSnackbar } from "notistack";
 
 class InvestmentConfirmation extends Component {
   constructor(props) {
@@ -42,16 +44,25 @@ class InvestmentConfirmation extends Component {
   };
 
   handleConfirm = () => {
-    //TODO: handle confirmation
+    Http.investorInvest(this.props.match.params.id, this.state.investmentAmount).subscribe(
+      () => this.props.enqueueSnackbar("Transaction completed!", {
+        variant: "success",
+        autoHideDuration: 3000
+      }),
+      error =>this.props.enqueueSnackbar('Transaction failed!', {
+        variant: "error",
+        autoHideDuration: 3000
+      })
+    );
+    this.props.enqueueSnackbar("Transaction is being sent. Please allow up to 30 seconds for a confirmation.", {
+      variant: "warning",
+      autoHideDuration: 3000
+    });
   };
 
   validateForm = value => {
-    if(value > this.state.availableBalance || value < 100) {
-      return false;
-    }else{
-      return true;
-    }
-  }
+    return !(value > this.state.availableBalance || value < 100)
+  };
 
   render() {
     const { investor, loading, project } = this.state;
@@ -109,4 +120,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(InvestmentConfirmation);
+)(withSnackbar(InvestmentConfirmation));

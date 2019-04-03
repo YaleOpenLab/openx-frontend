@@ -48,7 +48,7 @@ class LoginComponent extends Component {
           onSubmit={(values, actions) => {
             const payload = {
               username: values.email,
-              password: sha3_512(values.password)
+              password: values.password
             };
             this.props.fetchLogin(payload);
           }}
