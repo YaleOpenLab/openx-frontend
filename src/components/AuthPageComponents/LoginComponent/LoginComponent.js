@@ -7,7 +7,6 @@ import { connect } from "react-redux";
 import { fetchLogin } from "./store/actions";
 import { bindActionCreators } from "redux";
 import { sha3_512 } from "js-sha3";
-import Storage from "../../../services/Storage";
 import history from "../../../helpers/history";
 import { withSnackbar } from "notistack";
 

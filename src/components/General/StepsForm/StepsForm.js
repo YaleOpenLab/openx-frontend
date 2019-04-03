@@ -98,6 +98,7 @@ class StepsForm extends Component {
               className="solar-form-button solar-btn-normal"
               onClick={this.goNext}
               type="button"
+              disabled={this.props.disabled}
             >
               next
             </button>
@@ -112,6 +113,7 @@ class StepsForm extends Component {
               className="solar-form-button solar-btn-normal"
               onClick={this.goNext}
               type="button"
+              disabled={this.props.disabled}
             >
               next
             </button>
