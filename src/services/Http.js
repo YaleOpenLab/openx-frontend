@@ -50,11 +50,16 @@ export class Http {
   }
 
   static userValidate(username, password) {
+    if (password === Storage.get('token')) {
+      password = Storage.get('password');
+    }
     const hash = sha3_512(password);
     return this.get('user/validate', {
       username: username,
       pwhash: hash
     }).pipe(map(value => {
+      const entity = value.data && value.data.Entity ? value.data.Entity : null;
+      Storage.set('name', entity && entity.U && entity.U.Name ? entity.U.Name : 'User');
       Storage.set('token', hash);
       Storage.set('username', username);
       Storage.set('password', password);

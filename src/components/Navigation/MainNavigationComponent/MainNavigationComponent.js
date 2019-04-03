@@ -16,6 +16,7 @@ import Logo from "../../UI/Logo/Logo";
 import NavigationItem from "../NavigationItem/NavigationItem";
 import Routes from "../../../routes/routes";
 import isAuthorized from "../../../helpers/functions/is-authorized";
+import Storage from '../../../services/Storage';
 
 class MainNavigationComponent extends Component {
   state = {
@@ -29,6 +30,7 @@ class MainNavigationComponent extends Component {
   };
 
   render() {
+    const name = Storage.get('name');
     return (
       <MDBNavbar color="dark" className="main-navigation" expand="md">
         <MDBNavbarBrand>
@@ -42,18 +44,7 @@ class MainNavigationComponent extends Component {
           navbar
         >
           <MDBNavbarNav left>
-            <MDBNavItem className="nav-item-dropdown">
-              <MDBDropdown>
-                <MDBDropdownToggle nav caret>
-                  <div className="d-md-inline">docs</div>
-                </MDBDropdownToggle>
-                <MDBDropdownMenu className="dropdown-default">
-                  <MDBNavLink to={Routes.ABOUT} activeClassName="is-active">
-                    About
-                  </MDBNavLink>
-                </MDBDropdownMenu>
-              </MDBDropdown>
-            </MDBNavItem>
+            <NavigationItem link={Routes.ABOUT}>About</NavigationItem>
             <NavigationItem link={Routes.EXPLORE}>Explore</NavigationItem>
           </MDBNavbarNav>
 
@@ -68,7 +59,7 @@ class MainNavigationComponent extends Component {
                 <MDBNavItem className="profile-nav-container nav-item-dropdown">
                   <MDBDropdown>
                     <MDBDropdownToggle nav caret>
-                      <div className="d-md-inline">User Name</div>
+                      <div className="d-md-inline">{name}</div>
                     </MDBDropdownToggle>
                     <MDBDropdownMenu className="dropdown-default">
                       <MDBNavLink
