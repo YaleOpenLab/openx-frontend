@@ -3,6 +3,7 @@ import DivBox from "../../../../General/DivBox/DivBox";
 import TermsTable from "../../../../Explore/SingleProject/ProjectContent/Terms/TermsTable/TermsTable";
 import { DATA } from "../../../../../helpers/enums/temporary-data";
 import SwitchButton from "../../../../General/SwitchButton/SwitchButton";
+import PageLoading from "../../../../General/Loading/Loading";
 
 const ConfirmTab = props => (
   <div className="invest-confirm-confirm">
@@ -49,28 +50,33 @@ const ConfirmTab = props => (
     </div>
     <div className="row">
       <div className="ProjectContent project-confirm-terms">
-        <section className="Terms">
-          <div className="container">
-            <div className="row">
-              <div className="col-12 text-description">
-                <div className="sub-title">{DATA.project[0].terms.title}</div>
-                <div className="sub-desc">
-                  {DATA.project[0].terms.description}
+        {props.loading ? (
+          <PageLoading />
+        ) : (
+          <section className="Terms">
+            <div className="container">
+              <div className="row">
+                <div className="col-12 text-description">
+                  <div className="sub-title">Purpose</div>
+                  <div className="sub-desc">
+                    {props.data.extra.terms.description}
+                  </div>
                 </div>
-              </div>
-              <div className="col-12 project-table no-padding">
-                <TermsTable data={DATA.project[0].terms.table} />
-              </div>
-              <div className="col-12 security-note">
-                <div className="security-title">security note</div>
-                <div className="security-text">
-                  {DATA.project[0].terms.securityNote}
-                  <span className="custom-link-to"> Link ></span>
+                {console.log(props.data)}
+                <div className="col-12 project-table no-padding">
+                  <TermsTable data={props.data && props.data.Terms} />
+                </div>
+                <div className="col-12 security-note">
+                  <div className="security-title">security note</div>
+                  <div className="security-text">
+                    {DATA.project[0].terms.securityNote}
+                    <span className="custom-link-to"> Link ></span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
       </div>
     </div>
     <div className="container confirm-agree-terms">
