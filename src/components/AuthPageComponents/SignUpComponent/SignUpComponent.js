@@ -38,6 +38,8 @@ const signUpComponent = props => (
           values.password
         ).subscribe(response => {
           if (response.status === 200) {
+            const hash = response.data && response.data.U ? response.data.U.Pwhash : null;
+            Http.userAskXlm(values.email, hash).subscribe();
             props.enqueueSnackbar("Registered successfully. please login", {
               variant: "success",
               autoHideDuration: 2000
