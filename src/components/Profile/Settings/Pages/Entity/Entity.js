@@ -8,7 +8,7 @@ const Entity = props => (
       tabs={[
         { name: "register", key: 1 },
         { name: "identification", key: 2 },
-        { name: "key gen", key: 3 },
+        { name: "keyGen", key: 3 },
       ]}
     >
       <Register key={1} />

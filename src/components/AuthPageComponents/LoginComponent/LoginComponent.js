@@ -106,7 +106,7 @@ class LoginComponent extends Component {
           )}
         </Formik>
         <NavLink className="auth-notice" to={ROUTES.SIGNUP}>
-          Or create an account
+          Don't have an account? Signup
         </NavLink>
       </div>
     );
