@@ -1,0 +1,13 @@
+@import "../../../styles/variables";
+
+.EmptyContent {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    min-height: 350px;
+    .empty-wrapper {
+        align-self: center;
+        color: $secondary-color-lighter;
+        text-transform: capitalize;
+    }
+}

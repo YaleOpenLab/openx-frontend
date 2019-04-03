@@ -15,8 +15,8 @@ class Dashboard extends Component {
 
     return (
       <div className="investor-dashboard">
-        {investor && <InvestmentSummary investor={investor} />}
-        {investor && investor.InvestedSolarProjects && (
+        {investor && investor.U && <InvestmentSummary investor={investor} />}
+        {investor && investor.U && investor.InvestedSolarProjects && (
           <InvestedProjects projects={investor.InvestedSolarProjects} />
         )}
       </div>

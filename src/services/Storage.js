@@ -28,6 +28,10 @@ class storageClass {
   clear() {
     return this.storage.clear();
   }
+
+  remove(key) {
+    return this.storage.removeItem(key);
+  }
 }
 const Storage = new storageClass();
 Object.freeze(Storage);
