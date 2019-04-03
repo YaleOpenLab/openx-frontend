@@ -22,6 +22,7 @@ const navigationItem = props => {
         <Link to={props.link}>
           <button
             className="solar-form-button solar-btn-normal"
+            disabled={props.data && props.data.Stage && props.data.Stage > 4}
           >
             {props.children}
           </button>
