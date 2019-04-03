@@ -5,8 +5,8 @@ import { connect } from "react-redux";
 import { fetchUserAccount, updateUserAccount } from "../../../store/actions";
 import { withSnackbar } from "notistack";
 
-const LoginSchema = Yup.object().shape({
-  fullName: Yup.string().required("Required"),
+const AccountSchema = Yup.object().shape({
+  name: Yup.string().required("Required"),
   email: Yup.string()
     .email("Invalid email")
     .required("Required")
@@ -17,13 +17,13 @@ class Account extends Component {
     super(props);
     this.state = {
       initialValues: {
-        userName: "",
-        fullName: "",
+        username: "",
+        name: "",
         email: "",
         address: "",
         country: "",
         city: "",
-        ZipCode: ""
+        zipcode: 0
       }
     };
   }
@@ -39,17 +39,25 @@ class Account extends Component {
     if (this.props.account !== prevProps.account) {
       const account = this.props.account;
       let newValues = {
-        userName: account.Username,
-        fullName: account.Name,
+        username: account.Username,
+        name: account.Name,
         email: account.Email,
         address: account.Address,
         country: account.Country,
         city: account.City,
-        ZipCode: account.ZipCode
+        zipcode: account.ZipCode
       };
       this.setState({
         initialValues: newValues
       });
+    }
+    if (this.props.updateStatus !== prevProps.updateStatus) {
+      if (this.props.updateStatus && this.props.updateStatus.Code === 200) {
+        this.props.enqueueSnackbar("User Account Updated", {
+          variant: "success",
+          autoHideDuration: 1500
+        });
+      }
     }
   };
 
@@ -67,7 +75,7 @@ class Account extends Component {
         <Formik
           initialValues={this.state.initialValues}
           onSubmit={(values, actions) => this.handleSubmit(values, actions)}
-          validationSchema={LoginSchema}
+          validationSchema={AccountSchema}
           enableReinitialize
         >
           {({ errors, touched, resetForm }) => (
@@ -79,14 +87,14 @@ class Account extends Component {
                       <Field
                         type="text"
                         className={`solar-form-input ${
-                          errors.userName && touched.userName
+                          errors.username && touched.username
                             ? "solar-form-input-error"
                             : ""
                         }`}
-                        name="userName"
+                        name="username"
                         disabled
                       />
-                      <label htmlFor="userName" className="solar-form-label">
+                      <label htmlFor="username" className="solar-form-label">
                         user name
                       </label>
                     </div>
@@ -98,9 +106,9 @@ class Account extends Component {
                             ? "solar-form-input-error"
                             : ""
                         }`}
-                        name="fullName"
+                        name="name"
                       />
-                      <label htmlFor="fullName" className="solar-form-label">
+                      <label htmlFor="name" className="solar-form-label">
                         full name
                       </label>
                       {errors.fullName && touched.fullName && (
@@ -183,9 +191,9 @@ class Account extends Component {
                       <Field
                         type="number"
                         className="solar-form-input"
-                        name="ZipCode"
+                        name="zipcode"
                       />
-                      <label htmlFor="ZipCode" className="solar-form-label">
+                      <label htmlFor="zipcode" className="solar-form-label">
                         zip code
                       </label>
                     </div>
@@ -204,7 +212,7 @@ class Account extends Component {
                       <button
                         type="button"
                         className="solar-form-button solar-btn-white"
-                        onClick={() => resetForm(this.initialValues)}
+                        onClick={() => resetForm(this.state.initialValues)}
                       >
                         reset
                       </button>
@@ -216,7 +224,7 @@ class Account extends Component {
                         disabled={
                           this.props.loading ||
                           (errors.email && touched.email) ||
-                          (errors.fullName && touched.fullName)
+                          (errors.name && touched.name)
                         }
                       >
                         save
@@ -235,7 +243,8 @@ class Account extends Component {
 
 const mapStateToProps = state => ({
   account: state.profile.account.items,
-  loading: state.profile.account.isLoading
+  loading: state.profile.account.isLoading,
+  updateStatus: state.profile.account.updateStatus
 });
 
 const mapDispatchToProps = dispatch => ({

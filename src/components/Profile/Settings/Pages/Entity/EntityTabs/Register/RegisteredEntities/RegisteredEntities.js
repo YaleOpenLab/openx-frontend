@@ -5,13 +5,13 @@ const RegisteredEntities = props => (
   <React.Fragment>
     <div className="col-12">
       <div className="component-box-title component-header">
-        Your Registered Profiles
+        Your Entity Profiles
       </div>
     </div>
 
     <DivBox
       type="full"
-      text="jennifer sun"
+      text="martin wainstein"
       label="individual"
       leftIcon="profile-user-icon"
       rightIcon="profile-edit-icon"

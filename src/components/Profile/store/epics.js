@@ -2,6 +2,7 @@ import { Http } from "../../../services/Http";
 import { catchError, switchMap, map } from "rxjs/operators";
 import { ofType } from "redux-observable";
 import { Observable } from "rxjs";
+import "rxjs/add/observable/of";
 import {
   USER_ACCOUNT,
   fetchUserAccountSuccess,
@@ -24,9 +25,9 @@ export const fetchUserAccountEpic = action$ =>
             return fetchUserAccountSuccess(user.data);
           }
         }),
-        catchError(error =>
-          Observable.of(fetchUserAccountFailure(error.message))
-        )
+        catchError(error => {
+          return Observable.of(fetchUserAccountFailure(error.message));
+        })
       );
     })
   );

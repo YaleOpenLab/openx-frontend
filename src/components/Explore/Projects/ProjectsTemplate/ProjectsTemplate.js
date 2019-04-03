@@ -147,7 +147,7 @@ class ProjectsTemplate extends Component {
                         this.props.data.MoneyRaised,
                         this.props.data.TotalValue
                       )}
-                      label={"4" + ' Backers'}
+                      label={`${this.props.data.InvestorIndices.length} backers`}
                     />
                   </div>
                 </div>

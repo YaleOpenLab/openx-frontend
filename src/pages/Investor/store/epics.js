@@ -2,6 +2,7 @@ import { Observable } from 'rxjs';
 import { switchMap, catchError, map } from 'rxjs/operators';
 import { ofType } from 'redux-observable';
 import { Http } from '../../../services/Http';
+import 'rxjs/add/observable/of';
 import {
   FETCH_INVESTOR,
   fetchInvestorFailure,
