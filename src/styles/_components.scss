@@ -14,6 +14,9 @@
   font-weight: bold;
   font-size: 18px;
   margin-bottom: $pixel-base * 4;
+  .-darker {
+    color: $secondary-color;
+  }
 }
 .component-sub-header {
   color: $primary-color-light;

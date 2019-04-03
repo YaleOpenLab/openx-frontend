@@ -5,7 +5,7 @@ const RegisterNewProfile = props => (
   <React.Fragment>
     <div className="col-12">
       <div className="component-box-title component-header">
-        Register a New User Profile
+        <span className="-darker">Register a New User Profile</span>
       </div>
     </div>
 

@@ -113,7 +113,7 @@ const DivBox = props => {
           {props.actionLabel ? (
             <div className="solar-form-action-label">{props.actionLabel}</div>
           ) : null}
-          <div className="solar-input-div-box open-box">
+          <div className="solar-input-div-box open-box-light">
             <div className="solar-input-div-left-icon ">
               <div
                 className={`solar-icon ${props.leftIcon}`}
@@ -143,7 +143,7 @@ const DivBox = props => {
           {props.actionLabel ? (
             <div className="solar-form-action-label">{props.actionLabel}</div>
           ) : null}
-          <div className="solar-input-div-box open-box">
+          <div className="solar-input-div-box open-box-light">
             <div className="solar-input-div-left-icon ">
               <div
                 className={`solar-icon ${props.leftIcon}`}

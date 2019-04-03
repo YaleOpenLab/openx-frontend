@@ -46,7 +46,7 @@ const AccountSummary = ({investor}) => (
               }
             ]}
             col="12"
-            iconSize="16px"
+            iconSize="20px"
             classes={['investor-marginer big-box']}
           />
           {/*todo: integrate*/}
@@ -73,12 +73,12 @@ const AccountSummary = ({investor}) => (
               }
             ]}
             col="12"
-            iconSize="16px"
+            iconSize="20px"
             classes={['investor-marginer big-box']}
           />
         </div>
       </div>
-      <div className="investor-separator"/>
+      <div className="summary-sepparator"/>
       <div className="summary-sum">
         <span className="sum-label">net position</span>
         {/*todo: integrate*/}
