@@ -36,5 +36,8 @@
     .input-range__label--value {
       top: 5px;
     }
+    .input-range__label--max, .input-range__label--min {
+      display: none;
+    }
   }
 }
