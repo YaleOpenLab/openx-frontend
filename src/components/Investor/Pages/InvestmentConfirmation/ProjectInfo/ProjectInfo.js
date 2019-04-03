@@ -1,17 +1,17 @@
-import React from "react";
-import "./ProjectInfo.scss";
+import React from 'react';
+import './ProjectInfo.scss';
 
-const ProjectInfo = props => (
+const ProjectInfo = ({project}) => (
   <div className="confirm-project-info">
     <div className="confirm-project-type">invest in</div>
-    <div className="confirm-project-title">pasto public school PoC</div>
+    <div className="confirm-project-title">{project.Name}</div>
     <div className="confirm-project-location">
-      <div className="confirm-project-location-icon location-icon" />
-      Aibonito, Puerto Rico, USA.
+      <div className="confirm-project-location-icon location-icon"/>
+      {project.State}, {project.Country}
     </div>
-    <div className="confirm-project-desc">1 kW solar</div>
+    <div className="confirm-project-desc">{project.PanelSize} solar</div>
     <div className="confirm-project-image">
-        <img src="https://i.imgur.com/rHwhDpL.png" alt="pasto public school PoC" />
+      <img src={project.DPIntroImage} alt={project.Name} />
     </div>
   </div>
 );
