@@ -1,0 +1,44 @@
+@import "../../styles/variables";
+@import "../../styles/functions";
+
+.AccessDemo {
+  background: $secondary-color-very-light;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  .demo-wrapper {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    align-self: center;
+
+    .demo-title {
+      font-size: 26px;
+      font-weight: 300;
+      color: #383c41;
+      text-align: center;
+      margin-bottom: 37px;
+    }
+    .demo-input {
+      input {
+        color: $secondary-color;
+        border: 1px solid $charcoal-grey-two;
+        font-size: 15px;
+      }
+      @include placeholder {
+        font-family: $primary-font;
+        color: $secondary-color;
+        font-size: 13px;
+      }
+    }
+    .demo-button {
+        width: 136px;
+        align-self: center;
+        margin-top: 6px;
+    }
+  }
+}

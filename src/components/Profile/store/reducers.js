@@ -23,7 +23,7 @@ const userAccountReducer = (state = initialState, action) => {
       };
     case USER_ACCOUNT_SUCCESS:
       return {
-        items: action.payload,
+        items: action.payload.Entity.U,
         isLoading: false,
         error: null
       };
@@ -41,7 +41,8 @@ const userAccountReducer = (state = initialState, action) => {
       };
     case USER_ACCOUNT_UPDATE_SUCCESS:
       return {
-        items: action.payload,
+        ...state,
+        updateStatus: action.payload,
         isLoading: false,
         error: null
       };

@@ -7,7 +7,6 @@ import { connect } from "react-redux";
 import { fetchLogin } from "./store/actions";
 import { bindActionCreators } from "redux";
 import { sha3_512 } from "js-sha3";
-import Storage from "../../../services/Storage";
 import history from "../../../helpers/history";
 import { withSnackbar } from "notistack";
 
@@ -49,7 +48,7 @@ class LoginComponent extends Component {
           onSubmit={(values, actions) => {
             const payload = {
               username: values.email,
-              password: sha3_512(values.password)
+              password: values.password
             };
             this.props.fetchLogin(payload);
           }}
@@ -106,7 +105,7 @@ class LoginComponent extends Component {
           )}
         </Formik>
         <NavLink className="auth-notice" to={ROUTES.SIGNUP}>
-          Or create an account
+          Don't have an account? Signup
         </NavLink>
       </div>
     );

@@ -256,6 +256,16 @@
   background-repeat: no-repeat;
   align-self: center;
 }
+.is-active {
+  .profile-settings-icon {
+    height: 25px;
+    width: 25px;
+    background: url("./assets/images/ic-something.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    align-self: center;
+  }
+}
 
 .search-icon {
   height: 20px;

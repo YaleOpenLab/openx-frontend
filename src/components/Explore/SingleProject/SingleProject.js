@@ -22,7 +22,7 @@ class SingleProject extends Component {
           id: "stageforecast-nav"
         },
         { name: "documents", link: "#documents", id: "documents-nav" },
-        { name: "invest", link: "#", type: "button" }
+        { name: "invest", link: `/investor/${this.props.match.params.projectId}/confirm`, type: "button" }
       ],
       data: {},
       loading: true,

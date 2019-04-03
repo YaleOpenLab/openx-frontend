@@ -6,13 +6,14 @@ import connect from "react-redux/es/connect/connect";
 import { fetchProjects } from "./store/actions";
 import ExploreNotice from "./ExploreNotice/ExploreNotice";
 import PageLoading from "../../General/Loading/Loading";
+import EmptyContent from "../../General/EmptyContent/EmptyContent";
 
 class Projects extends Component {
   constructor(props) {
     super(props);
     this.state = {
       filters: {},
-      noticeVisible: !localStorage.getItem("exploreNotice"),
+      noticeVisible: !localStorage.getItem("explore-notice"),
       type: null
     };
   }
@@ -29,12 +30,15 @@ class Projects extends Component {
     }
   }
 
-  filter = project =>(
-    (!this.state.filters.Search || JSON.stringify(project).includes(this.state.filters.Search))
-    && (!this.state.filters.Country || project.Country === this.state.filters.Country)
-    && (!this.state.filters.State || project.State === this.state.filters.State)
-    && (!this.state.filters.Stage || (project.Stage >= this.state.filters.Stage.min && project.Stage <= this.state.filters.Stage.max))
-  );
+  filter = project =>
+    (!this.state.filters.Search ||
+      JSON.stringify(project).includes(this.state.filters.Search)) &&
+    (!this.state.filters.Country ||
+      project.Country === this.state.filters.Country) &&
+    (!this.state.filters.State || project.State === this.state.filters.State) &&
+    (!this.state.filters.Stage ||
+      (project.Stage >= this.state.filters.Stage.min &&
+        project.Stage <= this.state.filters.Stage.max));
 
   handleNotice = () => {
     this.setState({
@@ -62,6 +66,12 @@ class Projects extends Component {
                   <PageLoading />
                 ) : (
                   <div className="row">
+                    {this.props.projects.length === 0 && (
+                      <EmptyContent>no entry</EmptyContent>
+                    )}
+                    {this.props.projects.length !== 0 && this.props.projects.filter(this.filter).length === 0 && (
+                      <EmptyContent>No project fits this criteria</EmptyContent>
+                    )}
                     {this.props.projects.filter(this.filter).map(project => (
                       <ProjectsTemplate
                         data={project}

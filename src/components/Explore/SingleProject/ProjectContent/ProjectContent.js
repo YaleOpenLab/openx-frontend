@@ -17,13 +17,13 @@ configureAnchors({
 
 const ProjectContent = props => (
   <div className="ProjectContent">
-    <AnchorNavigation list={props.navigation} active={props.active} />
+    <AnchorNavigation list={props.navigation} active={props.active} data={props.data} />
     <Terms data={props.data} />
     <Overview data={props.data} />
     <ProjectDetails data={props.data} />
     <Forecast data={props.data} />
     <Documents data={props.tempData.documents} />
-    <Invest />
+    <Invest data={props.data} />
     <SupportOpenX />
   </div>
 );

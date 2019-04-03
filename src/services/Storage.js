@@ -1,5 +1,5 @@
 class storageClass {
-  storage = localStorage;
+  storage = sessionStorage;
 
   get session() {
     return this.get("session");
@@ -27,6 +27,10 @@ class storageClass {
 
   clear() {
     return this.storage.clear();
+  }
+
+  remove(key) {
+    return this.storage.removeItem(key);
   }
 }
 const Storage = new storageClass();

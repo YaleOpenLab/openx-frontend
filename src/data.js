@@ -31,7 +31,7 @@ export const extraProjectData = [
         width: 4,
         content: [
           {type: 'header', value: 'Badges & Characteristics'},
-          {type: 'image', value: 'https://via.placeholder.com/450x450', height: 348},
+          {type: 'image', value: 'https://s3.amazonaws.com/cz-public-images/openx/pasto-badges-characteristics.png', height: 348},
         ]
       },
       {
@@ -74,7 +74,7 @@ export const extraProjectData = [
       {
         width: 4,
         content: [
-          {type: 'image', value: 'https://via.placeholder.com/450x450', height: 248},
+          {type: 'image', value: 'https://s3.amazonaws.com/cz-public-images/openx/Map.png', height: 200},
         ]
       },
     ],
@@ -96,7 +96,7 @@ export const extraProjectData = [
         width: 3,
         content: [
           {type: 'header', value: 'Solar Output'},
-          {type: 'image', value: 'https://images.openx.solar/demo/pasto-page-solar-generation.png', height: 193},
+          {type: 'image', value: 'https://s3.amazonaws.com/cz-public-images/openx/Pasto-SolarGen.png', height: 538},
         ]
       },
       {
@@ -256,7 +256,7 @@ export const extraProjectData = [
       {
         width: 9,
         content: [
-          {type: 'image', value: 'https://via.placeholder.com/450x450'},
+          {type: 'image', value: 'https://s3.amazonaws.com/cz-public-images/openx/pasto-public-expenditure-resized.png', height: 230},
         ]
       },
       {
@@ -278,7 +278,7 @@ export const extraProjectData = [
       {
         width: 9,
         content: [
-          {type: 'image', value: 'https://via.placeholder.com/450x450'},
+          {type: 'image', value: 'https://s3.amazonaws.com/cz-public-images/openx/pasto-page-project-revenue.png', height: 170},
         ]
       },
       {
@@ -300,7 +300,7 @@ export const extraProjectData = [
       {
         width: 9,
         content: [
-          {type: 'image', value: 'https://via.placeholder.com/450x450'},
+          {type: 'image', value: 'https://s3.amazonaws.com/cz-public-images/openx/pasto-page-project-expenses.png', height: 133},
         ]
       },
       {
@@ -322,7 +322,7 @@ export const extraProjectData = [
       {
         width: 9,
         content: [
-          {type: 'image', value: 'https://via.placeholder.com/450x450'},
+          {type: 'image', value: 'https://s3.amazonaws.com/cz-public-images/openx/pasto-net-income.png', height: 253},
         ]
       },
       {
@@ -453,7 +453,7 @@ export const extraProjectData = [
       {
         width: 4,
         content: [
-          {type: 'image', value: 'https://via.placeholder.com/450x450', height: 248},
+          {type: 'image', value: 'https://s3.amazonaws.com/cz-public-images/openx/Map.png', height: 200},
         ]
       },
     ],
@@ -475,7 +475,7 @@ export const extraProjectData = [
         width: 3,
         content: [
           {type: 'header', value: 'Solar Output'},
-          {type: 'image', value: 'https://images.openx.solar/OpenSolarProjects/4_NH_Lancaster/normal.png', height: 169},
+          {type: 'image', value: 'https://s3.amazonaws.com/cz-public-images/openx/new-hampshire-solargen.png', height: 538},
         ]
       },
       {
@@ -591,7 +591,7 @@ export const extraProjectData = [
       {
         width: 8,
         content: [
-          {type: 'image', value: 'https://via.placeholder.com/450x450'},
+          {type: 'image', value: 'https://s3.amazonaws.com/cz-public-images/openx/new-hampshire-capital-expenditure.png', height: 200},
         ]
       },
       {
@@ -749,7 +749,7 @@ export const extraProjectData = [
       {
         width: 4,
         content: [
-          {type: 'image', value: 'https://via.placeholder.com/450x450', height: 248},
+          {type: 'image', value: 'https://s3.amazonaws.com/cz-public-images/openx/Map.png', height: 200},
         ]
       },
     ],
@@ -968,7 +968,7 @@ export const extraProjectData = [
       {
         width: 4,
         content: [
-          {type: 'image', value: 'https://via.placeholder.com/450x450', height: 248},
+          {type: 'image', value: 'https://s3.amazonaws.com/cz-public-images/openx/Map.png', height: 200},
         ]
       },
     ],
