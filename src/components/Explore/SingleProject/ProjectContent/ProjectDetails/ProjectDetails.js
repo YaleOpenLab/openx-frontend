@@ -8,7 +8,7 @@ const ProjectDetails = props => {
 
   return (
     <ScrollableAnchor id={'project'}>
-      <>
+      <section>
         <section className="ProjectDetails -architecture">
           <Title title="Project Details" />
           <div className="container">
@@ -51,7 +51,7 @@ const ProjectDetails = props => {
             </div>
           </div>
         </section>
-      </>
+      </section>
     </ScrollableAnchor>
   );
 };
