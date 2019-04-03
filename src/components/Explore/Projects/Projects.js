@@ -69,7 +69,7 @@ class Projects extends Component {
                     {this.props.projects.length === 0 && (
                       <EmptyContent>no entry</EmptyContent>
                     )}
-                    {this.props.projects.filter(this.filter).length === 0 && (
+                    {this.props.projects.length !== 0 && this.props.projects.filter(this.filter).length === 0 && (
                       <EmptyContent>No project fits this criteria</EmptyContent>
                     )}
                     {this.props.projects.filter(this.filter).map(project => (
