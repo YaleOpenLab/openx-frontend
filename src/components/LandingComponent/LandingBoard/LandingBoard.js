@@ -11,7 +11,7 @@ const LandingBoard = props => (
         <LandingBoardItem
           image={landingSolar}
           title="invest"
-          description="build a low risk & low carbon securitized portfolio with certified
+          description="Build a low risk & low carbon securitized portfolio with certified
             impact metrics"
         />
         <LandingBoardItem
