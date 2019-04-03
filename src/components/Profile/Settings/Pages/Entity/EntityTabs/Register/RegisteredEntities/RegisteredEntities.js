@@ -5,7 +5,7 @@ const RegisteredEntities = props => (
   <React.Fragment>
     <div className="col-12">
       <div className="component-box-title component-header">
-        Your Registered Profiles
+        Your Entity Profiles
       </div>
     </div>
 

@@ -5,8 +5,10 @@ import AmountTab from "./AmountTab/AmountTab";
 import "./InvestmentConfirmation.scss";
 import ProfileTab from "./ProfileTab/ProfileTab";
 import ConfirmTab from "./ConfirmTab/ConfirmTab";
-import { connect } from "react-redux";
-import { fetchProject } from "../../../Explore/SingleProject/store/actions";
+import { fetchProject } from '../../../Explore/SingleProject/store/actions';
+import connect from 'react-redux/es/connect/connect';
+import PageLoading from '../../../General/Loading/Loading';
+import { fetchInvestor } from '../../../../pages/Investor/store/actions';
 
 class InvestmentConfirmation extends Component {
   constructor(props) {
@@ -20,6 +22,17 @@ class InvestmentConfirmation extends Component {
   componentDidMount = () => {
     window.scrollTo(0, 0);
     this.props.fetchProject(this.props.match.params.id);
+    this.props.fetchInvestor();
+  };
+
+  componentDidUpdate = prevProps => {
+    if (this.props.project.isLoading !== prevProps.project.isLoading) {
+      this.setState({
+        investor: this.props.investor.items,
+        loading: this.props.project.isLoading || this.props.investor.isLoading,
+        project: this.props.project.items,
+      });
+    }
   };
 
   handleInvestmentChange = el => {
@@ -41,53 +54,55 @@ class InvestmentConfirmation extends Component {
   }
 
   render() {
+    const { investor, loading, project } = this.state;
     return (
       <div className="investment-confirmation">
-        <div className="d-flex justify-content-center">
-          <ProjectInfo
-            data={this.props.project}
-            loading={this.props.loading || this.props.project.length === 0}
-          />
-        </div>
-        <div className="">
-          <StepsForm
-            name="confirm"
-            tabs={[
-              { name: "amount", key: 1 },
-              { name: "profile", key: 2 },
-              { name: "confirm", key: 3 }
-            ]}
-            separator={false}
-            classes={["bigger-fonts"]}
-            saveText="confirm"
-            handleSave={this.handleConfirm}
+        {!project || loading ? (
+          <PageLoading />
+        ) : (
+          <>
+            <div className="d-flex justify-content-center">
+              <ProjectInfo project={project} />
+            </div>
+            <div className="">
+              <StepsForm
+                name="confirm"
+                tabs={[
+                  { name: "amount", key: 1 },
+                  { name: "profile", key: 2 },
+                  { name: "confirm", key: 3 }
+                ]}
+                separator={false}
+                classes={["bigger-fonts"]}
+                saveText="confirm"
+                handleSave={this.handleConfirm}
             disabled={!this.validateForm(this.state.investmentAmount)}
-          >
-            <AmountTab
-              key={1}
-              handleChange={this.handleInvestmentChange}
-              investmentValue={this.state.investmentAmount}
-            />
-            <ProfileTab key={2} investmentValue={this.state.investmentAmount} />
+              >
+                <AmountTab
+                  key={1}
+                  handleChange={this.handleInvestmentChange}
+                  investmentValue={this.state.investmentAmount}
+                />
+                <ProfileTab key={2} investmentValue={this.state.investmentAmount} />
             <ConfirmTab
               key={3}
               investmentValue={this.state.investmentAmount}
-              data={this.props.project}
-              loading={this.props.loading || this.props.project.length === 0}
+              data={project}
+              loading={loading || project.length === 0}
             />
           </StepsForm>
         </div>
+          </>
+        )}
       </div>
     );
   }
 }
 
-const mapStateToProps = state => ({
-  project: state.project.items,
-  loading: state.project.isLoading
-});
+const mapStateToProps = state => ({ ...state });
 
 const mapDispatchToProps = dispatch => ({
+  fetchInvestor: () => dispatch(fetchInvestor()),
   fetchProject: id => dispatch(fetchProject(id))
 });
 
