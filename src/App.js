@@ -10,10 +10,24 @@ import InvestorContainer from "./pages/Investor/InvestorContainer";
 import ProfileContainer from "./pages/Profile/ProfileContainer";
 import ReceiverContainer from "./pages/Receiver/ReceiverContainer";
 import AboutContainer from "./pages/About/AboutContainer";
-import UnderDevelopment from './pages/UnderDevelopment/UnderDevelopment';
+import UnderDevelopment from "./pages/UnderDevelopment/UnderDevelopment";
+import AccessDemo from "./components/AccessDemo/AccessDemo";
+import Storage from "./services/Storage";
 
 class App extends Component {
+  state = {
+    displayDemo: !Storage.get("access-granted")
+  };
+
+  checkAccess = value => {
+    this.setState({ displayDemo: !value });
+  };
+
   render() {
+    if (this.state.displayDemo) {
+      return <AccessDemo grantAccess={this.checkAccess} />;
+    }
+
     return (
       <Switch>
         <Route path={Routes.HOME} exact component={LandingContainer} />

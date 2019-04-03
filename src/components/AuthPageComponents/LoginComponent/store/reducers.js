@@ -21,7 +21,7 @@ const loginReducer = (state = initialState, action) => {
       };
     case LOGIN_SUCCESS:
       return {
-        info: action.payload,
+        info: action.payload.Entity.U,
         isLoading: false,
         authorized: true,
         error: null
