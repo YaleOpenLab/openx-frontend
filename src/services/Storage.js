@@ -1,5 +1,5 @@
 class storageClass {
-  storage = localStorage;
+  storage = sessionStorage;
 
   get session() {
     return this.get("session");

@@ -1,8 +1,9 @@
-import Storage from "./Storage";
-import * as axios from "axios";
-import { from } from "rxjs";
-import { map, mergeMap } from "rxjs/operators";
-import { extraProjectData } from "../data";
+import Storage from './Storage';
+import * as axios from 'axios';
+import { from } from 'rxjs';
+import { map, mergeMap } from 'rxjs/operators';
+import { extraProjectData } from '../data';
+import { sha3_512 } from 'js-sha3';
 
 const addExtraData = projects => {
   if (projects.constructor === Array) {
@@ -22,56 +23,68 @@ const addExtraData = projects => {
 };
 
 export class Http {
+  static investorInvest(id, amount) {
+    return this.get('investor/invest', {
+      username: Storage.get('username'),
+      pwhash: Storage.get('token'),
+      seedpwd: Storage.get('password'),
+      projIndex: id,
+      amount: amount,
+    }).pipe(
+      map(response => {
+        if (response.data && response.data.Code && response.data.Code === 404) {
+          throw new Error('Transaction failed.');
+        }
+
+        return response;
+      })
+    )
+  }
+
   static userRegister(name, username, pwd) {
-    const data = { name: name, username: username, pwd: pwd, seedpwd: pwd };
-    return this.get("user/register", data).pipe(
-      mergeMap(() => this.get("investor/register", data)),
-      mergeMap(() => this.get("recipient/register", data))
+    const data = {name: name, username: username, pwd: pwd, seedpwd: pwd};
+    return this.get('user/register', data).pipe(
+      mergeMap(() => this.get('investor/register', data)),
+      mergeMap(() => this.get('recipient/register', data))
     );
   }
 
-  static userValidate(username, pwhash) {
-    return this.get("user/validate", {
+  static userValidate(username, password) {
+    const hash = sha3_512(password);
+    return this.get('user/validate', {
       username: username,
-      pwhash: pwhash
+      pwhash: hash
     }).pipe(map(value => {
-      Storage.set("token", pwhash);
-      Storage.set("username", username);
+      Storage.set('token', hash);
+      Storage.set('username', username);
+      Storage.set('password', password);
       return value;
     }));
   }
+
   static updateUserAccount(username, pwhash, data) {
     let userInfo = {
       username: username,
       pwhash: pwhash
     };
     let additionalParams = data;
-    return this.get("user/update", { ...userInfo, ...additionalParams });
+    return this.get('user/update', {...userInfo, ...additionalParams});
   }
 
   static userAskXlm(username, hash) {
-    return this.get("user/askxlm", {
+    return this.get('user/askxlm', {
       username: username ? username : Storage.get('username'),
       pwhash: hash ? hash : Storage.get('token'),
     })
   }
 
-  static userBalanceXlm() {
-    const session = Storage.session;
-
-    return this.get("user/balance/xlm", {
-      username: session.username,
-      pwhash: session.pwhash
-    });
-  }
-
   static projectAll(type) {
-    return this.get("project/all").pipe(
+    return this.get('project/all').pipe(
       // filter out empty projects
       map(result => result.data.filter(data => data.Index > 4)),
       // TODO: fix when type is defined
       map(data => {
-        if (!type || type === "pv-solar") {
+        if (!type || type === 'pv-solar') {
           return data;
         } else {
           // Return empty array for now to display empty content in other type projects
@@ -83,22 +96,22 @@ export class Http {
   }
 
   static originatorGet(id) {
-    return this.get("public/user", { index: id });
+    return this.get('public/user', {index: id});
   }
 
   static projectGet(id) {
-    return this.get("project/get", { index: id }).pipe(map(addExtraData));
+    return this.get('project/get', {index: id}).pipe(map(addExtraData));
   }
 
   static investorValidate() {
-    return this.get("investor/validate", {
-      username: Storage.get("username"),
-      pwhash: Storage.get("token")
+    return this.get('investor/validate', {
+      username: Storage.get('username'),
+      pwhash: Storage.get('token')
     });
   }
 
   static investorRegister(name, username, pwd, seedpwd) {
-    return this.get("investor/register", {
+    return this.get('investor/register', {
       name: name,
       username: username,
       pwd: pwd,
@@ -107,7 +120,7 @@ export class Http {
   }
 
   static recipientRegister(name, username, pwd, seedpwd) {
-    return this.get("recipient/register", {
+    return this.get('recipient/register', {
       name: name,
       username: username,
       pwd: pwd,
@@ -116,20 +129,20 @@ export class Http {
   }
 
   static recipientValidate() {
-    return this.get("recipient/validate", {
-      username: Storage.get("username"), // todo remove this
-      pwhash: Storage.get("token")
+    return this.get('recipient/validate', {
+      username: Storage.get('username'), // todo remove this
+      pwhash: Storage.get('token')
     });
   }
 
   static get(path, data) {
     return from(
       axios({
-        method: "GET",
+        method: 'GET',
         url: `http://34.73.202.205:8080/${path}`,
         params: data,
         headers: {
-          "Content-Type": "application/x-www-form/urlencoded"
+          'Content-Type': 'application/x-www-form/urlencoded'
         }
       })
     );
