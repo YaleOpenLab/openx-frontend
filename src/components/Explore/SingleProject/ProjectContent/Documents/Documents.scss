@@ -2,102 +2,11 @@
 
 .Documents {
   font-family: $secondary-font;
-  margin-top: 35px;
 
   p {
     color: $secondary-color;
     font-size: 14px;
     line-height: 1.43;
     margin-top: 0;
-  }
-
-  h4 {
-    color: $charcoal-grey-three;
-    font-family: $primary-font;
-    font-size: 17px;
-    font-weight: 600;
-    margin-bottom: 35px;
-    text-transform: uppercase;
-  }
-
-  h5 {
-    color: $charcoal-grey-three;
-    font-family: $primary-font;
-    font-size: 13px;
-    font-weight: 600;
-    line-height: 18px;
-    margin-bottom: 6px;
-    text-transform: uppercase;
-  }
-
-  .-documentation {
-    margin-bottom: 40px;
-
-    span {
-      height: 60px;
-      margin-bottom: 28px;
-      text-align: center;
-      width: 44px;
-    }
-
-    h6 {
-      font-size: 18px;
-      font-weight: 300;
-      line-height: 24px;
-      margin-bottom: 13px;
-      min-height: 72px;
-      text-align: center;
-      color: $charcoal-grey-two;
-    }
-
-    p {
-      font-size: 12px;
-      font-weight: 600;
-      line-height: 17px;
-      text-align: center;
-      text-transform: uppercase;
-      color: $charcoal-grey-two;
-    }
-  }
-
-  .-smart-contracts-container {
-    border-radius: 19px;
-    border: solid 2px #000000;
-    margin-bottom: 36px;
-    padding: 20px 0;
-
-    button {
-      background-color: $primary-color-light;
-      border-radius: 5px;
-      border: solid 2px #000000;
-      color: $white;
-      font-family: $primary-font;
-      font-size: 13px;
-      font-weight: bold;
-      line-height: 1.08;
-      letter-spacing: 1.3px;
-      padding: 18px 15px;
-      text-transform: uppercase;
-    }
-
-    .icon-check-box {
-      text-align: center;
-
-      span {
-        margin-top: 10px;
-        margin-bottom: 12px;
-      }
-
-      p a {
-        color: $secondary-color;
-        font-family: $primary-font;
-        font-size: 13px;
-        font-weight: bold;
-        letter-spacing: 1.3px;
-        line-height: 18px;
-        margin: 0;
-        text-decoration: underline;
-      }
-    }
   }
 }
