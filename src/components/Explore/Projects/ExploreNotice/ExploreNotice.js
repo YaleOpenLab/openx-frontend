@@ -3,7 +3,7 @@ import "./ExploreNotice.scss";
 
 const ExploreNotice = props => {
   const handleDontShow = () => {
-    localStorage.setItem("exploreNotice", true);
+    localStorage.setItem("explore-notice", true);
     props.handleNotice();
   };
 
