@@ -19,7 +19,9 @@ const SummaryCards = props => {
       {!props.title ? null : (
         <div className="card-header">
           <div
-            className={`card-header-icon ${props.icon}`}
+            className={`card-header-icon ${props.icon} ${
+              props.classes ? props.classes.join(" ") : ""
+            }`}
             style={
               props.iconSize
                 ? { height: props.iconSize, width: props.iconSize }

@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { fetchUserAccount, updateUserAccount } from "../../../store/actions";
 import { withSnackbar } from "notistack";
 
-const LoginSchema = Yup.object().shape({
+const AccountSchema = Yup.object().shape({
   name: Yup.string().required("Required"),
   email: Yup.string()
     .email("Invalid email")
@@ -61,16 +61,6 @@ class Account extends Component {
     }
   };
 
-  handleInputChange = e => {
-    const name = e.target.name;
-    const value = e.target.value;
-    let inputValues = { ...this.state.initialValues };
-    inputValues[name] = value;
-    this.setState({
-      initialValues: inputValues
-    });
-  };
-
   handleSubmit = values => {
     this.props.updateUserAccount({
       username: this.props.username,
@@ -85,7 +75,7 @@ class Account extends Component {
         <Formik
           initialValues={this.state.initialValues}
           onSubmit={(values, actions) => this.handleSubmit(values, actions)}
-          validationSchema={LoginSchema}
+          validationSchema={AccountSchema}
           enableReinitialize
         >
           {({ errors, touched, resetForm }) => (

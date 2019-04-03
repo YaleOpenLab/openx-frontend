@@ -1,14 +1,21 @@
 @import "../../../../../../styles/variables";
 
+.summary-sepparator{ 
+  border-bottom: 1px solid $warm-grey-two;
+}
 .summary-sum {
   font-family: $secondary-font;
   text-align: right;
+  color: $secondary-color;
+  display: flex;
+  justify-content: flex-end;
   .sum-label {
     font-size: 10px;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 2px;
     padding: $pixel-base;
+    align-self: center;
   }
   .sum-price {
     font-size: 24px;

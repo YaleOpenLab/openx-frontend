@@ -10,10 +10,20 @@ const SwitchButton = props => (
     <div className="col-9 solar-input-text-label">{props.label}</div>
     <div className="col-3 solar-form-checkbox-switch">
       <label className="solar-input-switch">
-        <input type="checkbox" defaultChecked={props.checked ? true : false} />{" "}
+        <input
+          type="checkbox"
+          checked={props.checked}
+          onChange={props.handleChange ? e => props.handleChange() : null}
+        />
         <div />
         <span>
-          {props.checked ? (props.onLabel ? props.onLabel : "On") : (props.offLabel ? props.offLabel : "Off")}
+          {props.checked
+            ? props.onLabel
+              ? props.onLabel
+              : "On"
+            : props.offLabel
+            ? props.offLabel
+            : "Off"}
         </span>
       </label>
     </div>
