@@ -1,10 +1,13 @@
 @import "../../../../styles/variables";
 
-.investor-dashboard{
-    .investment-summary {
-        margin-bottom: $pixel-base * 6;
-    }
-    .invested-projects {
-        margin-top: $pixel-base * 16;
-    }
+.investor-dashboard {
+  .investment-summary {
+    margin-bottom: $pixel-base * 6;
+  }
+  .invested-projects {
+    margin-top: $pixel-base * 16;
+  }
+  .solar-icon-adjust {
+    margin-top: 9px;
+  }
 }

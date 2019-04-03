@@ -50,6 +50,8 @@ const InvestmentSummary = ({investor}) => {
                   {value: '10,150 MWh', desc: 'all time'}
                 ]}
                 icon="solar-panel-icon"
+                iconSize="30px"
+                classes={["solar-icon-adjust"]}
               />
             </div>
           </div>
