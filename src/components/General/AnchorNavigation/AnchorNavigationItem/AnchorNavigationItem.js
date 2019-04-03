@@ -1,15 +1,16 @@
-import React from "react";
+import React from 'react';
 
-import { MDBNavItem } from "mdbreact";
+import { MDBNavItem } from 'mdbreact';
+import { Link } from 'react-router-dom';
 
 const navigationItem = props => {
   let items = null;
   if (!props.type) {
     items = (
       <a
-        className={`anchor-nav-link-item ${props.divider ? "border-right" : ""} ${
-          props.active ? "active-nav-item" : ""
-        }`}
+        className={`anchor-nav-link-item ${props.divider ? 'border-right' : ''} ${
+          props.active ? 'active-nav-item' : ''
+          }`}
         href={props.link}
       >
         <MDBNavItem>{props.children}</MDBNavItem>
@@ -18,12 +19,13 @@ const navigationItem = props => {
   } else {
     items = (
       <div className="solar-button-fixed-width">
-        <button
-          className="solar-form-button solar-btn-normal"
-          link={props.link}
-        >
-          {props.children}
-        </button>
+        <Link to={props.link}>
+          <button
+            className="solar-form-button solar-btn-normal"
+          >
+            {props.children}
+          </button>
+        </Link>
       </div>
     );
   }

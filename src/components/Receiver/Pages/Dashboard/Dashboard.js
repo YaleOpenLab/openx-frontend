@@ -21,7 +21,7 @@ import GraphPlaceholder from '../../../../assets/images/graph-placeholder.png';
 import ProgressBar from './ProgressBar';
 import DetailContainer from './DetailContainer';
 import './Dashboard.scss';
-import DocumentationContainer from '../../../General/DocumentationContainer';
+import DocumentationContainer from '../../../General/DocumentationContainer/DocumentationContainer';
 import ContractReview from '../../../General/ContractReview';
 import { mockData } from './mockData';
 import SummaryCards from '../../../General/SummaryCards/SummaryCards';
@@ -388,28 +388,12 @@ class Dashboard extends Component {
               </div>
             </div>
             <div className="contracts-container">
-              <h3 className="title-primary">
-                YOUR PROJECT’s SMART SOLAR CONTRACTS
-              </h3>
-              <h4 className="sub-title">PASTO PUBLIC SCHOOL - POC 1KW</h4>
               <div className="container">
-                <h5>LEGAL CONTRACTUAL DOCUMENTATION</h5>
-                <DocumentationContainer data={this.state.documentation}/>
-                <h5>BLOCKCHAIN-BASED SMART CONTRACTS</h5>
-                <ContractReview
-                  data={this.state.review}
-                  title={'REVIEW SMART CONTRACTS'}
-                />
-                <h6>HOW TO REVIEW BLOCKCHAIN-BASED SMART CONTRACT</h6>
-                <p className="-small">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
-                  dapibus vulputate diam eu pretium. Mauris elit orci, ultricies
-                  id fermentum vel, porta et eros. Vestibulum condimentum lectus
-                  in convallis feugiat. Sed vulputate fringilla felis. Aliquam
-                  ut arcu et dui feugiat scelerisque eu quis diam. Mauris
-                  placerat congue dui sit amet blandit. Phasellus condimentum
-                  libero vel velit auctor, sit amet tincidunt velit varius.
-                </p>
+                <h3 className="title-primary">
+                  YOUR PROJECT’s SMART SOLAR CONTRACTS
+                </h3>
+                {/*todo: integrate*/}
+                <DocumentationContainer documents={[]} />
               </div>
             </div>
           </div>

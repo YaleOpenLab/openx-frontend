@@ -5,7 +5,8 @@ import ROUTES from "../../../routes/routes";
 
 class LogoutPage extends Component {
   componentWillMount() {
-    Storage.clear();
+    Storage.remove("token");
+    Storage.remove("username");
     history.push(ROUTES.LOGIN);
   }
 
