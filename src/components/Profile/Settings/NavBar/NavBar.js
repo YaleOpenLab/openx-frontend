@@ -5,6 +5,7 @@ import "./NavBar.scss";
 import { connect } from "react-redux";
 import { fetchUserAccount } from "../../store/actions";
 import { withRouter } from "react-router-dom";
+import ProfileImage from "../../../../assets/images/user-profile-icon.svg"
 
 const NavBar = props => (
   <div className="col-12 col-sm-4 col-lg-3">
@@ -12,8 +13,8 @@ const NavBar = props => (
       <div className="profile-nav-info-section">
         <div className="proile-nav-image">
           <img
-            src="https://i1.rgstatic.net/ii/profile.image/722704944607235-1549317694495_Q512/Martin_Wainstein.jpg"
-            alt="placeholder"
+            src={ProfileImage}
+            alt="user profile"
           />
         </div>
         <div className="profile-nav-user-name">{props.account.Name}</div>

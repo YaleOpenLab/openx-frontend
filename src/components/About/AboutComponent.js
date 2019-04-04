@@ -29,9 +29,24 @@ const AboutComponent = () => (
             </p>
           </div>
           <div className="about-fixed-width">
-            <button className="solar-form-button solar-btn-normal">
-              go to openx wiki
-            </button>
+            <a
+              href="https://apidocs.openx.solar"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button className="solar-form-button solar-btn-normal">
+                go to openx wiki
+              </button>
+            </a>
+            <a
+              href="https://github.com/YaleOpenLab"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button className="solar-form-button solar-btn-normal">
+                visit the gitHub
+              </button>
+            </a>
           </div>
         </div>
       </div>
