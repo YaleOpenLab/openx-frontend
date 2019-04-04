@@ -36,6 +36,7 @@ const ROUTES = {
     }
   },
   ABOUT: "/about",
+  DEVELOPMENT: "/development",
   LOGIN: "/login",
   SIGNUP: "/signup",
   LOGOUT: "/logout",
