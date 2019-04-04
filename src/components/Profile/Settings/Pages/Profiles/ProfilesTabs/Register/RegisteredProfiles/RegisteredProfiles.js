@@ -11,7 +11,7 @@ const RegisteredProfiles = props => (
 
     <DivBox
       type="full"
-      text="jennifer sun"
+      text={props.account.Name}
       label="investor"
       leftIcon="investor-icon"
       rightIcon="profile-edit-icon"
@@ -23,7 +23,7 @@ const RegisteredProfiles = props => (
     />
     <DivBox
       type="full"
-      text="jennifer sun"
+      text={props.account.Name}
       label="BENEFICIARY"
       leftIcon="beneficiary-icon"
       rightIcon="profile-edit-icon"

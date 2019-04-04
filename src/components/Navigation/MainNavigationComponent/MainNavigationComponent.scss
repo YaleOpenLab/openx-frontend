@@ -54,7 +54,7 @@
         font-size: 18px;
         font-weight: 500;
         text-transform: capitalize;
-        padding: 0 $pixel-base * 3 0 $pixel-base * 3;
+        padding: 0 0 0 $pixel-base * 3;
         .auth-nav-text {
           color: $secondary-color;
         }
@@ -74,13 +74,25 @@
       }
     }
 
+    .dropdown-default{
+      position: absolute;
+      will-change: transform;
+      top: 0px;
+      left: 0px;
+      width: 150px;
+      transform: translate3d(-20px, 45px, 0px) !important;
+      span {
+        padding: 0 10px;
+      }
+    }
+
     @media #{$lg-screen} {
       .nav-item {
         padding: 0 $pixel-base * 2.5 0 $pixel-base * 2.5;
       }
       .profile-nav-box {
         .profile-nav-container {
-          padding: 0 $pixel-base * 2.5 0 $pixel-base * 2.5;
+          padding: 0 0 0 $pixel-base * 2.5;
         }
       }
     }

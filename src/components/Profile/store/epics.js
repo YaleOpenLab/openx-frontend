@@ -9,7 +9,7 @@ import {
   fetchUserAccountFailure,
   USER_ACCOUNT_UPDATE,
   updateUserAccountSuccess,
-  updateUserAccountFailure
+  updateUserAccountFailure,
 } from "./actions";
 
 export const fetchUserAccountEpic = action$ =>
@@ -38,7 +38,7 @@ export const updateUserAccountEpic = action$ =>
     switchMap(action => {
       const { username, password, data } = action.payload;
       return Http.updateUserAccount(username, password, data).pipe(
-        map(user => updateUserAccountSuccess(user.data)),
+        map(user => updateUserAccountSuccess(user.data, data)),
         catchError(error =>
           Observable.of(updateUserAccountFailure(error.message))
         )

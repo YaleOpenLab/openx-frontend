@@ -10,13 +10,15 @@ import InvestorContainer from "./pages/Investor/InvestorContainer";
 import ProfileContainer from "./pages/Profile/ProfileContainer";
 import ReceiverContainer from "./pages/Receiver/ReceiverContainer";
 import AboutContainer from "./pages/About/AboutContainer";
-import UnderDevelopment from "./pages/UnderDevelopment/UnderDevelopment";
+import DeveloperContainer from "./pages/Developer/DeveloperContainer";
 import AccessDemo from "./components/AccessDemo/AccessDemo";
-import Storage from "./services/Storage";
+import Storage from './services/Storage';
+import UnderDevelopmentPage from './pages/UnderDevelopmentPage/DeveloperContainer';
+
 
 class App extends Component {
   state = {
-    displayDemo: !Storage.get("access-granted")
+    displayDemo: !localStorage.getItem("access-granted")
   };
 
   checkAccess = value => {
@@ -24,6 +26,8 @@ class App extends Component {
   };
 
   render() {
+    Storage.clearIfRequired();
+
     if (this.state.displayDemo) {
       return <AccessDemo grantAccess={this.checkAccess} />;
     }
@@ -40,7 +44,8 @@ class App extends Component {
         <PrivateRoute path={Routes.PROFILE} component={ProfileContainer} />
         <PrivateRoute path={Routes.INVESTOR} component={InvestorContainer} />
         <PrivateRoute path={Routes.RECEIVER} component={ReceiverContainer} />
-        <PrivateRoute path={Routes.DEVELOPER} component={UnderDevelopment} />
+        <PrivateRoute path={Routes.DEVELOPER} component={DeveloperContainer} />
+        <Route path={Routes.DEVELOPMENT} exact component={UnderDevelopmentPage} />
         <Route path="*" exact component={NotFoundPageContainer} />
       </Switch>
     );

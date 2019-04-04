@@ -11,7 +11,7 @@ const RegisteredEntities = props => (
 
     <DivBox
       type="full"
-      text="martin wainstein"
+      text={props.account.Name}
       label="individual"
       leftIcon="profile-user-icon"
       rightIcon="profile-edit-icon"

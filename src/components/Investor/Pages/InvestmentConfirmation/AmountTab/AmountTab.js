@@ -80,7 +80,7 @@ const AmountTab = props => {
             <div className="col-12 invest-confirm-wrapper">
               <DivBox
                 type="full"
-                text="martin wainstein"
+                text={props.account.Name}
                 leftIcon="investor-icon"
                 label="investor profile"
                 rightIcon="profile-edit-icon"

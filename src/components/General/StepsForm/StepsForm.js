@@ -68,7 +68,7 @@ class StepsForm extends Component {
               className="solar-form-button solar-btn-normal"
               onClick={this.goNext}
               type="button"
-              disabled={this.props.disabled}
+              disabled={this.props.disabledNext}
             >
               next
             </button>
@@ -83,7 +83,7 @@ class StepsForm extends Component {
               className="solar-form-button solar-btn-normal"
               onClick={this.goNext}
               type="button"
-              disabled={this.props.disabled}
+              disabled={this.props.disabledNext}
             >
               next
             </button>
@@ -98,6 +98,7 @@ class StepsForm extends Component {
               className="solar-form-button solar-btn-normal"
               onClick={this.goBack}
               type="button"
+              disabled={this.props.loading}
             >
               previous
             </button>
@@ -107,6 +108,7 @@ class StepsForm extends Component {
               className="solar-form-button solar-btn-normal"
               onClick={this.props.handleSave}
               type="button"
+              disabled={this.props.disabledConfirm || this.props.loading}
             >
               {this.props.saveText ? this.props.saveText : "save"}
             </button>

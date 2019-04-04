@@ -117,6 +117,12 @@
       font-size: 14px;
       color: $secondary-color;
       margin-top: $pixel-base * 2;
+      .learn-more {
+        margin-top: $pixel-base * 2;
+        color: $primary-color;
+        font-size: 18px;
+        font-weight: 600;
+      }
     }
   }
   .link-to-records {
