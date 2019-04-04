@@ -26,13 +26,28 @@
     display: flex;
     height: 100%;
     color: $secondary-color;
+    transition: 0.15s;
+    position: relative;
+
+    &:after {
+      content: '';
+      width: 100%;
+      height: 0;
+      left: 0;
+      bottom: 0;
+      display: block;
+      position: absolute;
+      background: $secondary-color;
+      transition: 0.15s;
+    }
+
+    &:hover {
+      &:after {
+        height: 3px;
+      }
+    }
   }
 
-  .anchor-nav-link-item:hover {
-    color: $secondary-color;
-    border-bottom: 3px solid $secondary-color;
-    box-sizing: border-box;
-  }
   .annchor-toggle-icon {
     align-self: baseline;
   }
@@ -50,8 +65,20 @@
     }
     .active-nav-item {
       color: $secondary-color;
-      border-bottom: 3px solid $secondary-color;
       box-sizing: border-box;
+      transition: 0.25s;
+
+      &:after {
+        content: '';
+        width: 100%;
+        height: 4px;
+        left: 0;
+        bottom: 0;
+        display: block;
+        position: absolute;
+        background: $secondary-color;
+        transition: 0.15s;
+      }
     }
   }
 }
