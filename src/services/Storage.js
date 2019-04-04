@@ -29,6 +29,16 @@ class storageClass {
     return this.storage.clear();
   }
 
+  clearIfRequired() {
+    const version = 1;
+    const current = this.get('version');
+
+    if (!current || current < version) {
+      this.clear();
+      this.set('version', version);
+    }
+  }
+
   remove(key) {
     return this.storage.removeItem(key);
   }
