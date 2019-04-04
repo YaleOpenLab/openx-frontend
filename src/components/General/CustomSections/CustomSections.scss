@@ -43,11 +43,23 @@
       }
     }
 
+    a {
+      display: block;
+      padding-top: 60px;
+    }
+
     .-image {
       background-position: center;
       background-repeat: no-repeat;
       background-size: contain;
       margin: 0 20px 20px 0;
+    }
+
+    &.col-md-12 {
+      h4 {
+        padding-top: 25px;
+        margin-bottom: 15px;
+      }
     }
   }
 
