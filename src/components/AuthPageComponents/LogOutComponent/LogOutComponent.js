@@ -4,7 +4,7 @@ import history from "../../../helpers/history";
 import ROUTES from "../../../routes/routes";
 import { logoutUserAccount } from "../../Profile/store/actions";
 import { connect } from "react-redux";
-import { bindActionCreators } from "C:/Users/pc/AppData/Local/Microsoft/TypeScript/3.3/node_modules/redux";
+import { bindActionCreators } from "redux";
 
 class LogoutPage extends Component {
   componentDidMount = () => {
