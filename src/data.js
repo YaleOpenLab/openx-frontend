@@ -1364,7 +1364,7 @@ export const extraProjectData = [
       {
         width: 4,
         content: [
-          {type: 'image', value: 'https://via.placeholder.com/450x450', height: 248},
+          {type: 'image', value: 'https://s3.amazonaws.com/cz-public-images/openx/Map.png', height: 248},
         ]
       },
     ],
@@ -1386,7 +1386,7 @@ export const extraProjectData = [
         width: 3,
         content: [
           {type: 'header', value: 'Solar Output'},
-          {type: 'image', value: 'https://images.openx.solar/OpenSolarProjects/4_NH_Lancaster/normal.png', height: 169},
+          {type: 'image', value: 'https://s3.amazonaws.com/cz-public-images/openx/rwanda-solargen.png', height: 538},
         ]
       },
       {
