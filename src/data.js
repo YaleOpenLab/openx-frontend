@@ -218,6 +218,12 @@ export const extraProjectData = [
           },
         ]
       },
+      {
+        width: 12,
+        content: [
+          {type: 'link', link: '#', value: 'Link to specific document for this section >'},
+        ]
+      },
     ],
     business: [
       {
@@ -335,8 +341,12 @@ export const extraProjectData = [
           },
         ]
       },
-
-
+      {
+        width: 12,
+        content: [
+          {type: 'link', link: '#', value: 'Link to specific document for this section >'},
+        ]
+      },
     ],
     stages: {
       graph: {
@@ -1118,6 +1128,12 @@ export const extraProjectData = [
           },
         ]
       },
+      {
+        width: 12,
+        content: [
+          {type: 'link', link: '#', value: 'Link to specific document for this section >'},
+        ]
+      },
     ],
     business: [
       {
@@ -1235,8 +1251,12 @@ export const extraProjectData = [
           },
         ]
       },
-
-
+      {
+        width: 12,
+        content: [
+          {type: 'link', link: '#', value: 'Link to specific document for this section >'},
+        ]
+      },
     ],
     stages: {
       graph: {
