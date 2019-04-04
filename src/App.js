@@ -16,7 +16,7 @@ import Storage from "./services/Storage";
 
 class App extends Component {
   state = {
-    displayDemo: !Storage.get("access-granted")
+    displayDemo: !localStorage.getItem("access-granted")
   };
 
   checkAccess = value => {
