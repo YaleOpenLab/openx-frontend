@@ -9,6 +9,22 @@ class AccessDemo extends Component {
     accessCode: "demodemo"
   };
 
+  componentDidMount() {
+    document.addEventListener("keyup", event => {
+      if (event.key === 'Enter') {
+       this.handleAccessGrant();
+      }
+    });
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keyup',event => {
+      if (event.key === 'Enter') {
+        this.handleAccessGrant();
+      }
+    });
+  }
+
   handleInputChange = e => {
     this.setState({
       userInput: e.target.value
