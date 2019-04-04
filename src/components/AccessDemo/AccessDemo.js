@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./AccessDemo.scss";
-import Storage from "../../services/Storage";
 import { withSnackbar } from "notistack";
 
 class AccessDemo extends Component {
@@ -33,7 +32,7 @@ class AccessDemo extends Component {
 
   handleAccessGrant = () => {
     if (this.state.userInput === this.state.accessCode) {
-      Storage.set("access-granted", true);
+      localStorage.setItem("access-granted", true);
       this.props.grantAccess(true);
       this.props.enqueueSnackbar("Demo Access Granted!", {
         variant: "success",

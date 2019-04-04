@@ -12,11 +12,10 @@ import ReceiverContainer from "./pages/Receiver/ReceiverContainer";
 import AboutContainer from "./pages/About/AboutContainer";
 import DeveloperContainer from "./pages/Developer/DeveloperContainer";
 import AccessDemo from "./components/AccessDemo/AccessDemo";
-import Storage from "./services/Storage";
 
 class App extends Component {
   state = {
-    displayDemo: !Storage.get("access-granted")
+    displayDemo: !localStorage.getItem("access-granted")
   };
 
   checkAccess = value => {
