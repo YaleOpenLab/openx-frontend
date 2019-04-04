@@ -191,7 +191,7 @@ class Dashboard extends Component {
             </div>
           </div>
         )}
-        {false && (
+        {true && (
           <>
             <div className="title-container -border">
               <div className="container">
