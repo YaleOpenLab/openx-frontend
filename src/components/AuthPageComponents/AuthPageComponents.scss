@@ -1,12 +1,18 @@
 @import "../../styles/variables";
 
 .AuthPage {
+  .grey-bar {
+    background-color: #d8d8d8;
+    height: 27px;
+    width: 100%;
+  }
+
   .container {
     margin: 0;
     max-width: 100%;
   }
   .auth-image {
-    background-image: url("../../assets/images/background-login.png");
+    background-image: url("https://s3.amazonaws.com/cz-public-images/openx/theearth.png");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
