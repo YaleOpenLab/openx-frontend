@@ -4,19 +4,18 @@ import { NavLink } from "react-router-dom";
 import ROUTES from "../../../routes/routes";
 import * as Yup from "yup";
 import { connect } from "react-redux";
-import { fetchLogin } from "./store/actions";
 import { bindActionCreators } from "redux";
-import { sha3_512 } from "js-sha3";
 import history from "../../../helpers/history";
 import { withSnackbar } from "notistack";
+import { fetchUserAccount } from "../../Profile/store/actions";
 
 // Move validation rules into separate file
 const LoginSchema = Yup.object().shape({
-  email: Yup.string()
-    .email("Invalid email")
+  username: Yup.string()
+    .min(3,"Too Short!")
     .required("Required"),
   password: Yup.string()
-    .min(2, "Too Short!")
+    .min(3, "Too Short!")
     .required("Required")
 });
 
@@ -44,13 +43,13 @@ class LoginComponent extends Component {
       <div className="col-sm-10 col-md-6 auth-form  my-auto">
         <div className="auth-title">Log In</div>
         <Formik
-          initialValues={{ email: "", password: "" }}
+          initialValues={{ username: "", password: "" }}
           onSubmit={(values, actions) => {
             const payload = {
-              username: values.email,
+              username: values.username,
               password: values.password
             };
-            this.props.fetchLogin(payload);
+            this.props.fetchUserAccount(payload);
           }}
           validationSchema={LoginSchema}
         >
@@ -59,17 +58,17 @@ class LoginComponent extends Component {
               <div className="inner-addon left-addon">
                 <i className="solar-icon user-icon" />
                 <Field
-                  type="email"
+                  type="text"
                   className={`solar-form-input ${
-                    errors.email && touched.email
+                    errors.username && touched.username
                       ? "solar-form-input-error"
                       : ""
                   }`}
-                  name="email"
-                  placeholder="Email"
+                  name="username"
+                  placeholder="Username"
                 />
-                {errors.email && touched.email && (
-                  <div className="solar-form-error-text">{errors.email}</div>
+                {errors.username && touched.username && (
+                  <div className="solar-form-error-text">{errors.username}</div>
                 )}
               </div>
               <div className="inner-addon left-addon">
@@ -94,7 +93,7 @@ class LoginComponent extends Component {
                   className="solar-form-button solar-btn-normal"
                   disabled={
                     this.props.loading ||
-                    (errors.email && touched.email) ||
+                    (errors.username && touched.username) ||
                     (errors.password && touched.password)
                   }
                 >
@@ -113,15 +112,15 @@ class LoginComponent extends Component {
 }
 
 const mapStateToProps = state => ({
-  error: state.auth.error,
-  loading: state.auth.isLoading,
-  authorized: state.auth.authorized,
-  pwhash: state.auth.info.Pwhash,
-  username: state.auth.info.Username,
+  error: state.profile.account.error,
+  loading: state.profile.account.isLoading,
+  authorized: state.profile.account.authorized,
+  pwhash: state.profile.account.items.Pwhash,
+  username: state.profile.account.items.Username,
 });
 
 const mapDispatchToProps = dispatch =>
-  bindActionCreators({ fetchLogin }, dispatch);
+  bindActionCreators({ fetchUserAccount }, dispatch);
 
 export default connect(
   mapStateToProps,

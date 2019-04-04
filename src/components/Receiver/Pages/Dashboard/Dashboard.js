@@ -22,7 +22,6 @@ import ProgressBar from './ProgressBar';
 import DetailContainer from './DetailContainer';
 import './Dashboard.scss';
 import DocumentationContainer from '../../../General/DocumentationContainer/DocumentationContainer';
-import ContractReview from '../../../General/ContractReview';
 import { mockData } from './mockData';
 import SummaryCards from '../../../General/SummaryCards/SummaryCards';
 import { connect } from 'react-redux';
@@ -192,7 +191,7 @@ class Dashboard extends Component {
             </div>
           </div>
         )}
-        {false && (
+        {true && (
           <>
             <div className="title-container -border">
               <div className="container">

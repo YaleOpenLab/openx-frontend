@@ -7,6 +7,7 @@ import { fetchProjects } from "./store/actions";
 import ExploreNotice from "./ExploreNotice/ExploreNotice";
 import PageLoading from "../../General/Loading/Loading";
 import EmptyContent from "../../General/EmptyContent/EmptyContent";
+import UnderDevelopment from "../../General/UnderDevelopment/UnderDevelopment";
 
 class Projects extends Component {
   constructor(props) {
@@ -67,7 +68,7 @@ class Projects extends Component {
                 ) : (
                   <div className="row">
                     {this.props.projects.length === 0 && (
-                      <EmptyContent>no entry</EmptyContent>
+                      <UnderDevelopment />
                     )}
                     {this.props.projects.length !== 0 && this.props.projects.filter(this.filter).length === 0 && (
                       <EmptyContent>No project fits this criteria</EmptyContent>

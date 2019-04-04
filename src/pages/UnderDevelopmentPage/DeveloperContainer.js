@@ -3,11 +3,11 @@ import LayoutHoc from "../../hoc/Layout/Layout";
 import SubNavigationComponent from "../../components/General/SubNavigationComponent/SubNavigationComponent";
 import UnderDevelopment from "../../components/General/UnderDevelopment/UnderDevelopment";
 
-class DeveloperContainer extends Component {
+class UnderDevelopmentPage extends Component {
   render() {
     return (
       <LayoutHoc>
-        <div className="component-content Developer">
+        <div className="component-content Development">
         <SubNavigationComponent />
         <UnderDevelopment />
         </div>
@@ -16,4 +16,4 @@ class DeveloperContainer extends Component {
   }
 }
 
-export default DeveloperContainer;
+export default UnderDevelopmentPage;

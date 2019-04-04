@@ -7,7 +7,7 @@ const Register = props => (
     <div className="container">
       <div className="col-12 col-md-10 col-lg-8 mx-auto">
         <div className="row solar-form">
-          <RegisteredEntities />
+          <RegisteredEntities {...props} />
           <div className="col-12 solar-form-separator" />
           <RegisterNewEntity />
           <div className="col-12 solar-form-separator" />

@@ -8,6 +8,7 @@ import LogOutComponent from "./LogOutComponent/LogOutComponent";
 
 const AuthPageComponents = props => (
   <div className="AuthPage">
+    <div className="grey-bar" />
     <div className="container">
       <div className="row">
         <div className="col-lg-6 col-md-4 col-sm-2 col-2 auth-image" />

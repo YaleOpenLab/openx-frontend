@@ -18,8 +18,9 @@ const Overview = props => {
       let items = [];
       if (data.ExecutiveSummary[key]) {
         for (let item of Object.entries(data.ExecutiveSummary[key])) {
+          //todo: remove this check when data changes
           items.push({
-            value: item[1],
+            value: item[0] === "Capex" ? "$ " + item[1] : item[1],
             desc: caseToName(item[0])
           });
         }

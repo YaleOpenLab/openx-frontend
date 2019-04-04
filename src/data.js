@@ -218,6 +218,12 @@ export const extraProjectData = [
           },
         ]
       },
+      {
+        width: 12,
+        content: [
+          {type: 'link', link: '#', value: 'Link to specific document for this section >'},
+        ]
+      },
     ],
     business: [
       {
@@ -335,8 +341,12 @@ export const extraProjectData = [
           },
         ]
       },
-
-
+      {
+        width: 12,
+        content: [
+          {type: 'link', link: '#', value: 'Link to specific document for this section >'},
+        ]
+      },
     ],
     stages: {
       graph: {
@@ -771,7 +781,612 @@ export const extraProjectData = [
         width: 3,
         content: [
           {type: 'header', value: 'Solar Output'},
-          {type: 'image', value: 'https://images.openx.solar/OpenSolarProjects/4_NH_Lancaster/normal.png', height: 169},
+          {type: 'image', value: 'https://s3.amazonaws.com/cz-public-images/openx/new-haven-solargen.png', height: 538},
+        ]
+      },
+      {
+        width: 4,
+        content: [
+          {type: 'header', value: 'Design Description'},
+          {type: 'text', value: 'New Haven Shelter Solar is a 10 kW community solar project located on Battel Street in New Haven, Connecticut. The lot on Battel Street is the site of the annual Jim Vlock First Year Building Project – a partnership between the Yale School of Architecture and Columbia House. Columbia House is a nonprofit organization based in New Haven that serves people who are homeless or at risk of becoming homeless by providing shelter and housing and by fostering their personal growth and independence. This project structure a predictable set of future cash flows for investors and provide Columbia House access to low-cost electricity to further their mission.'},
+        ]
+      },
+    ],
+    architecture: [
+      {
+        width: 12,
+        content: [
+          {type: 'title', value: 'ENGINEERING / SOLAR PROPERTIES'},
+        ]
+      },
+      {
+        width: 5,
+        content: [
+          {type: 'image', value: 'http://images.openx.solar/demo/rwanda-engineering-1.png', height: 437},
+        ]
+      },
+      {
+        width: 7,
+        content: [
+          {type: 'image', value: 'http://images.openx.solar/demo/rwanda-engineering-2.png', height: 437},
+        ]
+      },
+      {
+        width: 12,
+        content: [
+          {
+            type: 'text',
+            value: 'This 10 kW system was installed in a Grid-Tied design by CT solar Developers. It has a 15 kW smart solarEdge inverter, and an Itron revenue grade REC meter. The system is roof-mounted on a 55 degree angle on a SE facing view. However, its high efficient Jingko panels provide a 78% efficiency rating. '
+          },
+        ]
+      },
+    ],
+    community: [
+      {
+        width: 12,
+        content: [
+          {type: 'title', value: 'Community Engagement'},
+        ]
+      },
+      {
+        width: 3,
+        content: [
+          {type: 'image', value: 'https://images.openx.solar/OpenSolarProjects/8_NewHaven/12.jpg', height: 162},
+        ]
+      },
+      {
+        width: 9,
+        content: [
+          {
+            type: 'text',
+            value: 'This project provides CNH Homeless Shelter access to low-cost electricity to further their mission. We believe this project will result in inexpensive power being provided to lower income residents in a state with one of the highest energy costs in the United States. In addition to providing environmental benefits, this project frees up much needed income for its beneficiaries. In a society where income is the greatest social determinant of health, we believe that this project will have significant health-oriented cobenefits as well. We will document environmental, social and financial impacts carefully to steward your investment with the utmost integrity and transparency.'
+          },
+        ]
+      },
+      {
+        width: 8,
+        content: [
+          {
+            type: 'link',
+            link: '#',
+            value: 'Link to community impact report >',
+          },
+        ]
+      },
+    ],
+    business: [
+      {
+        width: 12,
+        content: [
+          {type: 'title', value: 'INVESTMENT OVERVIEW & PAYMENT SCHEME'},
+        ]
+      },
+      {
+        width: 12,
+        content: [
+          {type: 'header', value: 'How this equity investment opportunity works'},
+        ]
+      },
+      {
+        width: 12,
+        content: [
+          {type: 'text', value: 'Individuals that choose to invest in NHCS will become owners of the project, participating in a collective effort to provide cheaper, cleaner power to low income tenants in Connecticut where residential utility prices are double the national average. Investors begin by going to startengine.com and choosing to invest in New Haven Community Solar. Investors can go here to learn details of the offering.'},
+          {type: 'text', value: 'The 20 year power purchase agreement signed between Columbus House and New Haven Community Solar will ensure that the Columbus House can further its mission by having access to low-cost electricity well into the future.'},
+          {type: 'text', value: 'Until recently, only people with access to a lot of money could own and earn money from solar projects. NHCS offers the opportunity to benefit from solar to everyday people, while also bringing benefits to people in the community.'},
+          {type: 'text', value: 'In addition to the opportunity to own a part of this project, there are significant environmental and social benefits to investing in this project.'}
+        ]
+      },
+      {
+        width: 12,
+        content: [
+          {type: 'link',link: '#', value: 'Access projects annual reports >'},
+        ]
+      },
+      {
+        width: 5,
+        content: [
+          {type: 'image', value: 'https://images.openx.solar/demo/rwanda-invesment-overview.png'},
+        ]
+      },
+    ],
+    stages: {
+      graph: {
+        imageUrl: 'https://s3.amazonaws.com/cz-public-images/openx/new-haven-development-stage.png',
+        stages: [
+          {index: 0, date: 'May 2018'},
+          {index: 1, date: 'Jul 2018'},
+          {index: 2, date: 'Oct 2018'},
+          {index: 3, date: 'Dec 2018'},
+          {index: 4, date: 'Jan 2019'},
+          {index: 5, date: 'Feb 2019'},
+          {index: 6, date: 'Mar 2019'},
+          {index: 7, date: 'Apr 2019'},
+          {index: 8, date: 'May 2019'}
+        ],
+        stageDescription:
+          'The project is in stage 8, which means there has been an ownership. Ownership flips can happen when a tax equity investor is involved in a project company, when a pay-to-owned model is able to cover the investment principle, when a bond matures, or when an equity based investment with convertible notes allows premium stock holders (normally community members) to buy the position of equity investors. '
+      },
+      url: '#'
+    },
+  },
+  {
+    id: 8,
+    terms: {
+      description: 'Proceeds from this project\'s raise are invested in the development of a Proof-of-Concept installation in the Segunda Unidad Pasto School in Aibonito, Puerto Rico. The PoC is part of research initiative of the Yale OpenLab and the Digital Currency Initiative of the MIT Media Lab.',
+    },
+    opportunity: [
+      {
+        width: 12,
+        content: [
+          {
+            type: 'title', value: 'Opportunity'
+          }
+        ]
+      },
+      {
+        width: 8,
+        content: [
+          {type: 'header', value: 'Description'},
+          {
+            type: 'text',
+            value: 'The public school of SU Pasto is a Montessori-based school located in the town of Aibonito, Puerto Rico and operated by the Instituto Nueva Escuela. After hurricanes Maria and Irma affected the island of Puerto Rico, the school was out of power for over 6 months. However, it operated as a defacto community shelter since its Parent-Teacher Association is a strong cohesive group in the Aibonito community. The school had an emergency generator and was able to cater to community needs during the aftermath. The most important aspect missing for the school was a resilient telecommunication system to connect with first responders.'
+          },
+          {
+            type: 'text',
+            value: 'The current project entails the installation of a 1kW system connected to the administrative building’s subpanel. The solar system powers critical loads in the admin building, including emergency lights, a telecommunication system, the principal\'s computer and a mini fridge for first aids. The project is a proof-of-concept installation design and developed by the Yale Openlab and the DCI at the MIT Media Lab. The object is to test the interconnection of the system and the internet connected sensors powering simulated payment mechanisms.'
+          },
+        ]
+      },
+      {
+        width: 4,
+        content: [
+          {type: 'header', value: 'Badges & Characteristics'},
+          {type: 'image', value: 'https://s3.amazonaws.com/cz-public-images/openx/puerto-rico-badges-characteristics.png', height: 348},
+        ]
+      },
+      {
+        width: 6,
+        content: [
+          {type: 'image', value: 'https://images.openx.solar/OpenSolarProjects/7_YaleMIT/5.jpg', height: 319},
+        ]
+      },
+      {
+        width: 6,
+        content: [
+          {type: 'image', value: 'https://images.openx.solar/OpenSolarProjects/7_YaleMIT/2.jpg', height: 319},
+        ]
+      },
+    ],
+    context: [
+      {
+        width: 12,
+        content: [
+          {type: 'title', value: 'Context'},
+        ]
+      },
+      {
+        width: 8,
+        content: [
+          {
+            type: 'text',
+            value: 'One and a half years after hurricane Maria hit the island, schools are still exposed to a centralized and high-carbon energy system vulnerable to climate impacts. At the same time, most schools are becoming grass roots community centers facilitating discussions of concerned parents on how to increase climate & social resilience in the whole community.'
+          },
+          {
+            type: 'text',
+            value: 'The Puerto Rican (PR) government and the department of education are working to appoint schools as emergency shelters —nodes with robust energy and communication systems— for the community to reach out in the event of unavoidable climate shocks. Financing is a key gap.'
+          },
+          {
+            type: 'text',
+            value: 'This project acts as a proof-of-concept finance mechanism and school that be one of emergency shelter school appointed by the government. Its strong role in the Aibonito community also makes it eligible for the solar system to expand into a community microgrid system.'
+          },
+        ]
+      },
+      {
+        width: 4,
+        content: [
+          {type: 'image', value: 'https://s3.amazonaws.com/cz-public-images/openx/Map.png', height: 200},
+        ]
+      },
+    ],
+    engineering: [
+      {
+        width: 12,
+        content: [
+          {type: 'title', value: 'Architecture / Project Design'},
+        ]
+      },
+      {
+        width: 5,
+        content: [
+          {type: 'header', value: 'Map Layout'},
+          {type: 'image', value: 'https://s3.amazonaws.com/cz-public-images/openx/puerto-rico-architecture.png', height: 538},
+        ]
+      },
+      {
+        width: 3,
+        content: [
+          {type: 'header', value: 'Solar Output'},
+          {type: 'image', value: 'https://s3.amazonaws.com/cz-public-images/openx/puerto-rico-solargen.png', height: 538},
+        ]
+      },
+      {
+        width: 4,
+        content: [
+          {type: 'header', value: 'Design Description'},
+          {
+            type: 'text',
+            value: 'The installation was performed over the administration building where the principal office and the representative of the Department of Education sit.. The school has 14 buildings connected to a 300kW substation. The solar system is expected to cover 20% of the admin building for critical loads only.'
+          },
+          {
+            type: 'text',
+            value: 'The system size can be expanded from 1 kW up to 5kW to cover a greater % of the building load.'
+          },
+          {type: 'image', value: 'https://s3.amazonaws.com/cz-public-images/openx/puerto-rico-design-description.png', height: 203},
+        ]
+      },
+    ],
+    architecture: [
+      {
+        width: 12,
+        content: [
+          {type: 'title', value: 'Engineering / Solar Layout'},
+        ]
+      },
+      {
+        width: 5,
+        content: [
+          {type: 'header', value: 'Installation Archetype'},
+          {type: 'image', value: 'https://s3.amazonaws.com/cz-public-images/openx/puerto-rico-installation.png', height: 230},
+          {
+            type: 'text',
+            value: 'This is a model installation in that the solar and battery support only a subpanel of the building circuitry, where only critical loads have been connected. The system is configured as a grid-tied installation, in that the main grid can also support other loads in the panel, and can also be used to power the battery bank. The installation allows for the interconnection of an emergency generator but it is currently not permanently linked to the system.'
+          },
+        ]
+      },
+      {
+        width: 7,
+        content: [
+          {type: 'header', value: 'Engineering Layout'},
+          {type: 'image', value: 'https://images.openx.solar/OpenSolarProjects/7_YaleMIT/8.png', height: 431},
+        ]
+      },
+      {
+        width: 4,
+        content: [
+          {type: 'header', value: 'IT Infrastructure'},
+          {
+            type: 'text',
+            value: 'Different layers of IoT energy monitoring devices informs of the energy generated by the solar system and the energy consumed by the end-user. This energy data that will eventually use an intermediary oracle, activates payment transactions per kWh at a specified tariff rate and at specific intervals. Energy payment transactions occur between the end-users wallet/account and a main escrow smart contract that accrues the funds and issues payment of interests (i.e. coupons) to investors. Once the accrued funds can cover the original principle, the contracts pays off investors and the bonds matures.'
+          },
+        ]
+      },
+      {
+        width: 4,
+        content: [
+          {type: 'image', value: 'https://s3.amazonaws.com/cz-public-images/openx/puerto-rico-it-infrastructure.png', height: 222},
+          {
+            type: 'text',
+            value: 'IoT meters include a Schneider Commbox and the Yale Open Powermer devices equiped with WiFi and Zigbee transfer protocol. A Rasberry Pi acts as a light clients'
+          },
+        ]
+      },
+      {
+        width: 4,
+        content: [
+          {type: 'image', value: 'https://images.openx.solar/OpenSolarProjects/7_YaleMIT/11.png', height: 303},
+        ]
+      },
+    ],
+    community: [
+      {
+        width: 12,
+        content: [
+          {type: 'title', value: 'Community Engagement'},
+        ]
+      },
+      {
+        width: 3,
+        content: [
+          {type: 'header', value: 'Consultation'},
+          {type: 'image', value: 'https://images.openx.solar/demo/puerto-rico-consultation.png', height: 162},
+          {
+            type: 'text',
+            value: 'The MIT and Yale team convened a meeting with the Parent-Teacher Organisation, led by principal Janice Alejandro. Over 50 members of the community gathered to discuss the project, with unanimous approval and significant interest for its replication.'
+          },
+        ]
+      },
+      {
+        width: 3,
+        content: [
+          {type: 'header', value: 'Participation'},
+          {type: 'image', value: 'https://images.openx.solar/demo/puerto-rico-participation.png', height: 162},
+          {
+            type: 'text',
+            value: 'The principal, deputy principal, janitor, two teachers and one parent have volunteered as caretakers of the system to monitor its status, report any qualitative information and coordinate with the operation & maintenance required.'
+          },
+        ]
+      },
+      {
+        width: 3,
+        content: [
+          {type: 'header', value: 'Outreach'},
+          {type: 'image', value: 'http://images.openx.solar/demo/pasto-page-outreach.png', height: 162},
+          {
+            type: 'text',
+            value: 'The system has been installed with instructions so that it can act as a pedagogical site for students to learn about the merits of solar energy, electricity and basic electronics. Talk about solar energy will be given every semester in the context of climate change communication to the community.'
+          },
+        ]
+      },
+      {
+        width: 3,
+        content: [
+          {type: 'header', value: 'Governance'},
+          {type: 'image', value: 'https://images.openx.solar/demo/puerto-rico-governance.png', height: 162},
+          {
+            type: 'text',
+            value: 'The board of the Parent-Teacher Organisation, composed of 5 chairs, will coordinate with the director of the Yale Openlab and the head of strategy at the MIT DCI to define any governance steps that the system requires.'
+          },
+        ]
+      },
+      {
+        width: 12,
+        content: [
+          {type: 'link', link: '#', value: 'Link to specific document for this section >'},
+        ]
+      },
+    ],
+    business: [
+      {
+        width: 12,
+        content: [
+          {type: 'title', value: 'Business Numbers & Payment Scheme'},
+        ]
+      },
+      {
+        width: 12,
+        content: [
+          {type: 'header', value: 'General Payment Logic'},
+        ]
+      },
+      {
+        width: 7,
+        content: [
+          {type: 'image', value: 'https://images.openx.solar/demo/puerto-rico-payment-login.png', height: 157},
+        ]
+      },
+      {
+        width: 5,
+        content: [
+          {
+            type: 'text',
+            value: 'The bond issued by the PR Department of Education covered the principle cost, used for labor and materials. The PPA revenue accrues to pay coupons and mature the bond. The MIT is registered as a first-loss guarantor.'
+          },
+        ]
+      },
+      {
+        width: 12,
+        content: [
+          {type: 'header', value: 'Capital Expenditure'},
+        ]
+      },
+      {
+        width: 9,
+        content: [
+          {type: 'image', value: 'https://s3.amazonaws.com/cz-public-images/openx/puerto-rico-capital-expenditure-resized.png', height: 230},
+        ]
+      },
+      {
+        width: 3,
+        content: [
+          {type: 'header', value: 'Note'},
+          {
+            type: 'text',
+            value: 'The expected capital cost of the project were met with a superavit of $3000 thanks to the low-cost labor provided by Genmoji Solar.'
+          },
+        ]
+      },
+      {
+        width: 12,
+        content: [
+          {type: 'header', value: 'Project Revenue'},
+        ]
+      },
+      {
+        width: 9,
+        content: [
+          {type: 'image', value: 'https://s3.amazonaws.com/cz-public-images/openx/puerto-rico-project-revenue.png', height: 170},
+        ]
+      },
+      {
+        width: 3,
+        content: [
+          {type: 'header', value: 'Note'},
+          {
+            type: 'text',
+            value: 'The bond issued by the PR Department of Education covered the principle cost, used for labor and materials. The PPA revenue accrues to pay coupons and mature the bond. The MIT is registered as a first-loss guarantor.'
+          },
+        ]
+      },
+      {
+        width: 12,
+        content: [
+          {type: 'header', value: 'Project Expenses'},
+        ]
+      },
+      {
+        width: 9,
+        content: [
+          {type: 'image', value: 'https://s3.amazonaws.com/cz-public-images/openx/puerto-rico-project-expenses.png', height: 130},
+        ]
+      },
+      {
+        width: 3,
+        content: [
+          {type: 'header', value: 'Note'},
+          {
+            type: 'text',
+            value: 'The project has an allocated O&M (Operation & Management) expense of $1000 every six months with roll-overs.'
+          },
+        ]
+      },
+      {
+        width: 12,
+        content: [
+          {type: 'header', value: 'Net Income'},
+        ]
+      },
+      {
+        width: 9,
+        content: [
+          {type: 'image', value: 'https://s3.amazonaws.com/cz-public-images/openx/puerto-rico-net-income.png', height: 245},
+        ]
+      },
+      {
+        width: 3,
+        content: [
+          {type: 'header', value: 'Note'},
+          {
+            type: 'text',
+            value: 'At the present rate of payments, the DofEd is expected to pay off the bond and become full owner of the system by 2025.'
+          },
+        ]
+      },
+      {
+        width: 12,
+        content: [
+          {type: 'link', link: '#', value: 'Link to specific document for this section >'},
+        ]
+      },
+    ],
+    stages: {
+      graph: {
+        imageUrl: 'https://s3.amazonaws.com/cz-public-images/openx/new-haven-development-stage.png',
+        stages: [
+          {index: 0, date: 'May 2018'},
+          {index: 1, date: 'Jul 2018'},
+          {index: 2, date: 'Oct 2018'},
+          {index: 3, date: 'Dec 2018'},
+          {index: 4, date: 'Jan 2019'},
+          {index: 5, date: 'Feb 2019'},
+          {index: 6, date: 'Mar 2019'},
+          {index: 7, date: 'Apr 2019'},
+          {index: 8, date: 'May 2019'}
+        ],
+        stageDescription:
+          'The project is in the legacy stage, also known as O&M for Operations & Management. This means the system has been successfully funded and deployment, and the receiver is making appropriate schedule.'
+      },
+      url: '#'
+    },
+  },
+  {
+    id: 9,
+    terms: {
+      description: 'Proceeds from this project covered the development of the 10 kW grid-tied solar array, vehicle company cost and O&M. ',
+    },
+    opportunity: [
+      {
+        width: 12,
+        content: [
+          {
+            type: 'title', value: 'OPPORTUNITY'
+          }
+        ]
+      },
+      {
+        width: 12,
+        content: [
+          {type: 'header', value: 'Description'},
+          {
+            type: 'text',
+            value: 'The project has financed a 10 kW community solar project for a New Haven Homeless Shelter, and will provide returns through a long-term contract to sell discounted electricity to the building. Additionally, future revenue may be generated through the sale of the project, or through selling renewable energy credits from the clean energy generated by the solar array.'
+          },
+          {
+            type: 'text',
+            value: 'Buying stock in this proejct company gives you an ownership stake in a community solar array with contracted cash flows for 20 years.'
+          },
+          {
+            type: 'text',
+            value: 'Put your money to work making the world a better place. This investment will influence positive change in the lives of low-income residents through reduced utility bills, produce environmental and social impacts, and demonstrate  alternative investment pathways to accelerate the transition to a clean energy economy.'
+          },
+          {
+            type: 'text',
+            value: 'Renewable energy infrastructure is only going to grow in coming years. An estimated one trillion dollars of investment in renewable infrastructure is needed every year to achieve the goals set forth in the Paris Agreement on climate change. '
+          },
+          {type: 'header', value: 'An investment in NHCS is a way to own a piece of the renewable energy future, an investment in a better future, and an investment in community'},
+        ]
+      },
+      {
+        width: 6,
+        content: [
+          {type: 'image', value: 'https://images.openx.solar/OpenSolarProjects/8_NewHaven/12.jpg', height: 319},
+        ]
+      },
+      {
+        width: 6,
+        content: [
+          {type: 'image', value: 'https://images.openx.solar/OpenSolarProjects/8_NewHaven/4.jpg', height: 319},
+        ]
+      },
+      {
+        width: 5,
+        content: [
+          {type: 'image', value: 'https://images.openx.solar/OpenSolarProjects/8_NewHaven/6.jpg', height: 319},
+        ]
+      },
+      {
+        width: 7,
+        content: [
+          {type: 'header', value: 'Originator’s Message'},
+          {type: 'text', value: 'Together, we bring a combined 30 years of professional experience working on energy, environmental and climate change issues, from government, to non-profits and the private sector.'},
+          {type: 'text', value: 'Our team is comprised of experienced professionals with a track-record of delivering results on a wide-variety of projects and programs. We are also recent graduates of the Yale School of Forestry and Environmental Studies with a renewed mission to deploy clean energy, combat climate change and fight for social justice through entrepreneurial solutions. We are relentlessly passionate about using financial technology to democratize the ownership of renewable energy, create new income streams, reduce greenhouse emissions, and empower communities to drive change.'}
+        ]
+      },
+    ],
+    context: [
+      {
+        width: 12,
+        content: [
+          {type: 'title', value: 'Context'},
+        ]
+      },
+      {
+        width: 8,
+        content: [
+          {type: 'header', value: 'Mitigating Connecticut’s high power costs'},
+          {type: 'text', value: 'In Connecticut, a state that typically has some of the highest energy costs, this project will greatly reduce the electricity bills of its residents. In a country where income is the largest social determinant of health, freeing up income through decreasing electricity bills becomes a health co-benefit.'},
+          {type: 'text', value: '- Customers in Connecticut on average pay 17.24 cents per kilowatt hour of electricity, almost seven cents higher than the national average of 10.41 cents.'},
+          {type: 'text', value: '- On a standard monthly residential bill of 750 kilowatt hours of energy, Connecticut residents pay $51 dollars more than the national average.'},
+          {type: 'text', value: '- Electricity rates across the Northeast are higher than other areas of the country..'},
+          {type: 'text', value: '- All six New England states and New York rank in the top-ten. '},
+          {type: 'text', value: '- All of the New England states, except Vermont, have mandated renewable portfolio standards (RPS) that require part of the power sold in these states to come from renewable energy'},
+        ]
+      },
+      {
+        width: 4,
+        content: [
+          {type: 'image', value: 'https://s3.amazonaws.com/cz-public-images/openx/Map.png', height: 248},
+        ]
+      },
+    ],
+    engineering: [
+      {
+        width: 12,
+        content: [
+          {type: 'title', value: 'Architecture / Project Design'},
+        ]
+      },
+      {
+        width: 5,
+        content: [
+          {type: 'header', value: 'Map Layout'},
+          {type: 'image', value: 'https://images.openx.solar/OpenSolarProjects/8_NewHaven/7.jpg', height: 538},
+        ]
+      },
+      {
+        width: 3,
+        content: [
+          {type: 'header', value: 'Solar Output'},
+          {type: 'image', value: 'https://s3.amazonaws.com/cz-public-images/openx/rwanda-solargen.png', height: 538},
         ]
       },
       {
@@ -872,6 +1487,12 @@ export const extraProjectData = [
           {type: 'link',link: '#', value: 'Access projects annual reports >'},
         ]
       },
+      {
+        width: 5,
+        content: [
+          {type: 'image', value: 'https://images.openx.solar/demo/rwanda-invesment-overview.png'},
+        ]
+      },
     ],
     stages: {
       graph: {
@@ -889,365 +1510,6 @@ export const extraProjectData = [
         ],
         stageDescription:
           'The project is in stage 8, which means there has been an ownership. Ownership flips can happen when a tax equity investor is involved in a project company, when a pay-to-owned model is able to cover the investment principle, when a bond matures, or when an equity based investment with convertible notes allows premium stock holders (normally community members) to buy the position of equity investors. '
-      },
-      url: '#'
-    },
-  },
-  {
-    id: 8,
-    terms: {
-      description: 'Proceeds from this project\'s raise are invested in the development of a Proof-of-Concept installation in the Segunda Unidad Pasto School in Aibonito, Puerto Rico. The PoC is part of research initiative of the Yale OpenLab and the Digital Currency Initiative of the MIT Media Lab.',
-    },
-    opportunity: [
-      {
-        width: 12,
-        content: [
-          {
-            type: 'title', value: 'Opportunity'
-          }
-        ]
-      },
-      {
-        width: 8,
-        content: [
-          {type: 'header', value: 'Description'},
-          {
-            type: 'text',
-            value: 'The public school of SU Pasto is a Montessori-based school located in the town of Aibonito, Puerto Rico and operated by the Instituto Nueva Escuela. After hurricanes Maria and Irma affected the island of Puerto Rico, the school was out of power for over 6 months. However, it operated as a defacto community shelter since its Parent-Teacher Association is a strong cohesive group in the Aibonito community. The school had an emergency generator and was able to cater to community needs during the aftermath. The most important aspect missing for the school was a resilient telecommunication system to connect with first responders.'
-          },
-          {
-            type: 'text',
-            value: 'The current project entails the installation of a 1kW system connected to the administrative building’s subpanel. The solar system powers critical loads in the admin building, including emergency lights, a telecommunication system, the principal\'s computer and a mini fridge for first aids. The project is a proof-of-concept installation design and developed by the Yale Openlab and the DCI at the MIT Media Lab. The object is to test the interconnection of the system and the internet connected sensors powering simulated payment mechanisms.'
-          },
-        ]
-      },
-      {
-        width: 4,
-        content: [
-          {type: 'header', value: 'Badges & Characteristics'},
-          {type: 'image', value: 'https://via.placeholder.com/450x450', height: 348},
-        ]
-      },
-      {
-        width: 6,
-        content: [
-          {type: 'image', value: 'https://images.openx.solar/OpenSolarProjects/7_YaleMIT/2.jpg', height: 319},
-        ]
-      },
-      {
-        width: 6,
-        content: [
-          {type: 'image', value: 'https://images.openx.solar/OpenSolarProjects/7_YaleMIT/5.jpg', height: 319},
-        ]
-      },
-    ],
-    context: [
-      {
-        width: 12,
-        content: [
-          {type: 'title', value: 'Context'},
-        ]
-      },
-      {
-        width: 8,
-        content: [
-          {
-            type: 'text',
-            value: 'One and a half years after hurricane Maria hit the island, schools are still exposed to a centralized and high-carbon energy system vulnerable to climate impacts. At the same time, most schools are becoming grass roots community centers facilitating discussions of concerned parents on how to increase climate & social resilience in the whole community.'
-          },
-          {
-            type: 'text',
-            value: 'The Puerto Rican (PR) government and the department of education are working to appoint schools as emergency shelters —nodes with robust energy and communication systems— for the community to reach out in the event of unavoidable climate shocks. Financing is a key gap.'
-          },
-          {
-            type: 'text',
-            value: 'This project acts as a proof-of-concept finance mechanism and school that be one of emergency shelter school appointed by the government. Its strong role in the Aibonito community also makes it eligible for the solar system to expand into a community microgrid system.'
-          },
-        ]
-      },
-      {
-        width: 4,
-        content: [
-          {type: 'image', value: 'https://s3.amazonaws.com/cz-public-images/openx/Map.png', height: 200},
-        ]
-      },
-    ],
-    engineering: [
-      {
-        width: 12,
-        content: [
-          {type: 'title', value: 'Architecture / Project Design'},
-        ]
-      },
-      {
-        width: 5,
-        content: [
-          {type: 'header', value: 'Map Layout'},
-          {type: 'image', value: 'https://images.openx.solar/OpenSolarProjects/7_YaleMIT/7.png', height: 538},
-        ]
-      },
-      {
-        width: 3,
-        content: [
-          {type: 'header', value: 'Solar Output'},
-          {type: 'image', value: 'https://images.openx.solar/OpenSolarProjects/7_YaleMIT/9.png', height: 538},
-        ]
-      },
-      {
-        width: 4,
-        content: [
-          {type: 'header', value: 'Design Description'},
-          {
-            type: 'text',
-            value: 'The installation was performed over the administration building where the principal office and the representative of the Department of Education sit.. The school has 14 buildings connected to a 300kW substation. The solar system is expected to cover 20% of the admin building for critical loads only.'
-          },
-          {
-            type: 'text',
-            value: 'The system size can be expanded from 1 kW up to 5kW to cover a greater % of the building load.'
-          },
-          {type: 'image', value: 'https://images.openx.solar/OpenSolarProjects/7_YaleMIT/normal.jpg', height: 203},
-        ]
-      },
-    ],
-    architecture: [
-      {
-        width: 12,
-        content: [
-          {type: 'title', value: 'Engineering / Solar Layout'},
-        ]
-      },
-      {
-        width: 5,
-        content: [
-          {type: 'header', value: 'Installation Archetype'},
-          {type: 'image', value: 'https://images.openx.solar/OpenSolarProjects/7_YaleMIT/6.jpg', height: 230},
-          {
-            type: 'text',
-            value: 'This is a model installation in that the solar and battery support only a subpanel of the building circuitry, where only critical loads have been connected. The system is configured as a grid-tied installation, in that the main grid can also support other loads in the panel, and can also be used to power the battery bank. The installation allows for the interconnection of an emergency generator but it is currently not permanently linked to the system.'
-          },
-        ]
-      },
-      {
-        width: 7,
-        content: [
-          {type: 'header', value: 'Engineering Layout'},
-          {type: 'image', value: 'https://images.openx.solar/OpenSolarProjects/7_YaleMIT/8.png', height: 431},
-        ]
-      },
-      {
-        width: 4,
-        content: [
-          {type: 'header', value: 'IT Infrastructure'},
-          {
-            type: 'text',
-            value: 'Different layers of IoT energy monitoring devices informs of the energy generated by the solar system and the energy consumed by the end-user. This energy data that will eventually use an intermediary oracle, activates payment transactions per kWh at a specified tariff rate and at specific intervals. Energy payment transactions occur between the end-users wallet/account and a main escrow smart contract that accrues the funds and issues payment of interests (i.e. coupons) to investors. Once the accrued funds can cover the original principle, the contracts pays off investors and the bonds matures.'
-          },
-        ]
-      },
-      {
-        width: 4,
-        content: [
-          {type: 'image', value: 'https://images.openx.solar/OpenSolarProjects/7_YaleMIT/10.jpg'},
-          {
-            type: 'text',
-            value: 'IoT meters include a Schneider Commbox and the Yale Open Powermer devices equiped with WiFi and Zigbee transfer protocol. A Rasberry Pi acts as a light clients'
-          },
-        ]
-      },
-      {
-        width: 4,
-        content: [
-          {type: 'image', value: 'https://images.openx.solar/OpenSolarProjects/7_YaleMIT/11.png', height: 303},
-        ]
-      },
-    ],
-    community: [
-      {
-        width: 12,
-        content: [
-          {type: 'title', value: 'Community Engagement'},
-        ]
-      },
-      {
-        width: 3,
-        content: [
-          {type: 'header', value: 'Consultation'},
-          {type: 'image', value: 'https://images.openx.solar/demo/puerto-rico-consultation.png', height: 162},
-          {
-            type: 'text',
-            value: 'The MIT and Yale team convened a meeting with the Parent-Teacher Organisation, led by principal Janice Alejandro. Over 50 members of the community gathered to discuss the project, with unanimous approval and significant interest for its replication.'
-          },
-        ]
-      },
-      {
-        width: 3,
-        content: [
-          {type: 'header', value: 'Participation'},
-          {type: 'image', value: 'https://images.openx.solar/demo/puerto-rico-participation.png', height: 162},
-          {
-            type: 'text',
-            value: 'The principal, deputy principal, janitor, two teachers and one parent have volunteered as caretakers of the system to monitor its status, report any qualitative information and coordinate with the operation & maintenance required.'
-          },
-        ]
-      },
-      {
-        width: 3,
-        content: [
-          {type: 'header', value: 'Outreach'},
-          {type: 'image', value: 'http://images.openx.solar/demo/pasto-page-outreach.png', height: 162},
-          {
-            type: 'text',
-            value: 'The system has been installed with instructions so that it can act as a pedagogical site for students to learn about the merits of solar energy, electricity and basic electronics. Talk about solar energy will be given every semester in the context of climate change communication to the community.'
-          },
-        ]
-      },
-      {
-        width: 3,
-        content: [
-          {type: 'header', value: 'Governance'},
-          {type: 'image', value: 'https://images.openx.solar/demo/puerto-rico-governance.png', height: 162},
-          {
-            type: 'text',
-            value: 'The board of the Parent-Teacher Organisation, composed of 5 chairs, will coordinate with the director of the Yale Openlab and the head of strategy at the MIT DCI to define any governance steps that the system requires.'
-          },
-        ]
-      },
-    ],
-    business: [
-      {
-        width: 12,
-        content: [
-          {type: 'title', value: 'Business Numbers & Payment Scheme'},
-        ]
-      },
-      {
-        width: 12,
-        content: [
-          {type: 'header', value: 'General Payment Logic'},
-        ]
-      },
-      {
-        width: 7,
-        content: [
-          {type: 'image', value: 'https://images.openx.solar/demo/puerto-rico-payment-login.png', height: 157},
-        ]
-      },
-      {
-        width: 5,
-        content: [
-          {
-            type: 'text',
-            value: 'The bond issued by the PR Department of Education covered the principle cost, used for labor and materials. The PPA revenue accrues to pay coupons and mature the bond. The MIT is registered as a first-loss guarantor.'
-          },
-        ]
-      },
-      {
-        width: 12,
-        content: [
-          {type: 'header', value: 'Capital Expenditure'},
-        ]
-      },
-      {
-        width: 9,
-        content: [
-          {type: 'image', value: 'https://via.placeholder.com/450x450'},
-        ]
-      },
-      {
-        width: 3,
-        content: [
-          {type: 'header', value: 'Note'},
-          {
-            type: 'text',
-            value: 'The expected capital cost of the project were met with a superavit of $3000 thanks to the low-cost labor provided by Genmoji Solar.'
-          },
-        ]
-      },
-      {
-        width: 12,
-        content: [
-          {type: 'header', value: 'Project Revenue'},
-        ]
-      },
-      {
-        width: 9,
-        content: [
-          {type: 'image', value: 'https://via.placeholder.com/450x450'},
-        ]
-      },
-      {
-        width: 3,
-        content: [
-          {type: 'header', value: 'Note'},
-          {
-            type: 'text',
-            value: 'The bond issued by the PR Department of Education covered the principle cost, used for labor and materials. The PPA revenue accrues to pay coupons and mature the bond. The MIT is registered as a first-loss guarantor.'
-          },
-        ]
-      },
-      {
-        width: 12,
-        content: [
-          {type: 'header', value: 'Project Expenses'},
-        ]
-      },
-      {
-        width: 9,
-        content: [
-          {type: 'image', value: 'https://via.placeholder.com/450x450'},
-        ]
-      },
-      {
-        width: 3,
-        content: [
-          {type: 'header', value: 'Note'},
-          {
-            type: 'text',
-            value: 'The project has an allocated O&M (Operation & Management) expense of $1000 every six months with roll-overs.'
-          },
-        ]
-      },
-      {
-        width: 12,
-        content: [
-          {type: 'header', value: 'Net Income'},
-        ]
-      },
-      {
-        width: 9,
-        content: [
-          {type: 'image', value: 'https://via.placeholder.com/450x450'},
-        ]
-      },
-      {
-        width: 3,
-        content: [
-          {type: 'header', value: 'Note'},
-          {
-            type: 'text',
-            value: 'At the present rate of payments, the DofEd is expected to pay off the bond and become full owner of the system by 2025.'
-          },
-        ]
-      },
-
-
-    ],
-    stages: {
-      graph: {
-        imageUrl: 'https://via.placeholder.com/50x50',
-        stages: [
-          {index: 0, date: 'May 2018'},
-          {index: 1, date: 'Jul 2018'},
-          {index: 2, date: 'Oct 2018'},
-          {index: 3, date: 'Dec 2018'},
-          {index: 4, date: 'Jan 2019'},
-          {index: 5, date: 'Feb 2019'},
-          {index: 6, date: 'Mar 2019'},
-          {index: 7, date: 'Apr 2019'},
-          {index: 8, date: 'May 2019'}
-        ],
-        stageDescription:
-          'The project is in the legacy stage, also known as O&M for Operations & Management. This means the system has been successfully funded and deployment, and the receiver is making appropriate schedule.'
       },
       url: '#'
     },

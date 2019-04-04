@@ -21,7 +21,7 @@ const ProfileTab = props => (
           <div className="col-12 invest-confirm-wrapper">
             <DivBox
               type="full"
-              text="martin wainstein"
+              text={props.account.Name}
               leftIcon="investor-icon"
               label="investor profile"
               rightIcon="profile-edit-icon"
@@ -247,14 +247,16 @@ const ProfileTab = props => (
                 <div className="col-12">
                   <SwitchButton
                     label="Are you, or a member of your family, a member of a broker dealer?"
-                    checked={false}
+                    checked={props.brokeDeal}
+                    handleChange={() => props.handleToggle("brokeDeal")}
                     classes={["-left-align"]}
                     onLabel="Yes"
                     offLabel="No"
                   />
                   <SwitchButton
                     label="Are you, or a member of your family, part of the investee category in this project ?"
-                    checked={true}
+                    checked={props.investCategory}
+                    handleChange={() => props.handleToggle("investCategory")}
                     classes={["-left-align"]}
                     onLabel="Yes"
                     offLabel="No"
