@@ -7,7 +7,7 @@ import SummaryCards from "../../../../../General/SummaryCards/SummaryCards";
 const InvestorProjectCard = props => (
   <div className="col-12 col-sm-6 col-md-4 investor-project-card">
     <div className="projects-box">
-      <NavLink to={ROUTES.INVESTOR_PAGES.CONFIRMATION} className="no-padding">
+      <NavLink to={ROUTES.EXPLORE} className="no-padding">
         <div className="projects-image-box">
           <button className="watch-button-explore" type="button">
             <div className="watch-icon" />
@@ -19,7 +19,7 @@ const InvestorProjectCard = props => (
         <div className="row">
           <div className="col-12 desc-status">Stage 7 - Legacy</div>
           <div className="col-12 desc-title">
-            <NavLink className="no-padding" to={ROUTES.INVESTOR_PAGES.CONFIRMATION}>
+            <NavLink className="no-padding" to={ROUTES.EXPLORE}>
               Pasto Public School PoC
             </NavLink>
           </div>

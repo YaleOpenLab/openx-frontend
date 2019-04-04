@@ -1,31 +1,24 @@
-import React from 'react';
-import './AboutComponent.scss';
-import '../../pages/UnderDevelopment/UnderDevelopment.scss';
-import IconBuild from '../../assets/images/ic-build.svg';
+import React from "react";
+import "./AboutComponent.scss";
+import UnderDevelopment from "../General/UnderDevelopment/UnderDevelopment";
 
 const AboutComponent = () => (
-  <>
-    <div className="container UnderDevelopment">
-      <img src={IconBuild} alt="Build Icon"/>
-      <h2>This Section is Under Development</h2>
-      <p>The current platform is in prototype stage.
-        Many features that we wish to build will be deployed in the second phase of development.
-        With more support, we will build faster</p>
-    </div>
+  <React.Fragment>
+    <UnderDevelopment />
     <div className="container">
       <div className="about-container">
         <div className="about-content">
           <div className="about-content-notice">ABOUT THE PROJECT</div>
           <div className="about-content-title">
-            Open & Frictionless <br/>
+            Open & Frictionless <br />
             Project Finance for a Low Carbon Planet
           </div>
           <div className="about-content-text">
             <p>
               We are building an open source platform that leverages
               decentralization technology for disintermediation of financial
-              processes and contractual automation to drive community-owned solar
-              projects.
+              processes and contractual automation to drive community-owned
+              solar projects.
             </p>
             <p>
               OpenSolar’s core technology seeks to streamline the flow of
@@ -43,7 +36,7 @@ const AboutComponent = () => (
         </div>
       </div>
     </div>
-  </>
+  </React.Fragment>
 );
 
 export default AboutComponent;

@@ -4,19 +4,14 @@ import {
   MDBNavbar,
   MDBNavbarBrand,
   MDBNavbarNav,
-  MDBNavItem,
   MDBNavbarToggler,
   MDBCollapse,
-  MDBDropdown,
-  MDBDropdownToggle,
-  MDBDropdownMenu,
-  MDBNavLink
 } from "mdbreact";
 import Logo from "../../UI/Logo/Logo";
 import NavigationItem from "../NavigationItem/NavigationItem";
 import Routes from "../../../routes/routes";
 import isAuthorized from "../../../helpers/functions/is-authorized";
-import Storage from '../../../services/Storage';
+import UserProfileSection from "./UserProfileSection/UserProfileSection";
 
 class MainNavigationComponent extends Component {
   state = {
@@ -30,7 +25,6 @@ class MainNavigationComponent extends Component {
   };
 
   render() {
-    const name = Storage.get('name');
     return (
       <MDBNavbar color="dark" className="main-navigation" expand="md">
         <MDBNavbarBrand>
@@ -55,35 +49,7 @@ class MainNavigationComponent extends Component {
               Developer
             </NavigationItem>
             {isAuthorized() ? (
-              <div className="profile-nav-box">
-                <MDBNavItem className="profile-nav-container nav-item-dropdown">
-                  <MDBDropdown>
-                    <MDBDropdownToggle nav caret>
-                      <div className="d-md-inline">{name}</div>
-                    </MDBDropdownToggle>
-                    <MDBDropdownMenu className="dropdown-default">
-                      <MDBNavLink
-                        to={Routes.PROFILE_PAGES.SETTINGS}
-                        activeClassName="is-active"
-                      >
-                        profile
-                      </MDBNavLink>
-                      <MDBNavLink
-                        to={Routes.LOGOUT}
-                        activeClassName="is-active"
-                      >
-                        log out
-                      </MDBNavLink>
-                    </MDBDropdownMenu>
-                  </MDBDropdown>
-                </MDBNavItem>
-                <div className="profile-nav-avatar">
-                  <img
-                    src="https://i1.rgstatic.net/ii/profile.image/722704944607235-1549317694495_Q512/Martin_Wainstein.jpg"
-                    alt="user profile"
-                  />
-                </div>
-              </div>
+              <UserProfileSection />
             ) : (
               <React.Fragment>
                 <NavigationItem link={Routes.LOGIN}>Log in</NavigationItem>

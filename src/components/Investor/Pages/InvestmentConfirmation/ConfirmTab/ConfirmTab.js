@@ -62,7 +62,6 @@ const ConfirmTab = props => (
                     {props.data.extra.terms.description}
                   </div>
                 </div>
-                {console.log(props.data)}
                 <div className="col-12 project-table no-padding">
                   <TermsTable data={props.data && props.data.Terms} />
                 </div>
@@ -84,7 +83,8 @@ const ConfirmTab = props => (
         <div className="col-12 col-md-10 col-lg-8 mx-auto">
           <SwitchButton
             label="I agree with the investment terms above"
-            checked={false}
+            checked={props.agreeTerms}
+            handleChange={() => props.handleToggle("agreeTerms")}
             classes={["-left-align"]}
             onLabel="Yes"
             offLabel="No"

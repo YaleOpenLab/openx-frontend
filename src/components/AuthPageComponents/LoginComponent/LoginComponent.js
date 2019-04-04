@@ -4,11 +4,10 @@ import { NavLink } from "react-router-dom";
 import ROUTES from "../../../routes/routes";
 import * as Yup from "yup";
 import { connect } from "react-redux";
-import { fetchLogin } from "./store/actions";
 import { bindActionCreators } from "redux";
-import { sha3_512 } from "js-sha3";
 import history from "../../../helpers/history";
 import { withSnackbar } from "notistack";
+import { fetchUserAccount } from "../../Profile/store/actions";
 
 // Move validation rules into separate file
 const LoginSchema = Yup.object().shape({
@@ -50,7 +49,7 @@ class LoginComponent extends Component {
               username: values.email,
               password: values.password
             };
-            this.props.fetchLogin(payload);
+            this.props.fetchUserAccount(payload);
           }}
           validationSchema={LoginSchema}
         >
@@ -113,15 +112,15 @@ class LoginComponent extends Component {
 }
 
 const mapStateToProps = state => ({
-  error: state.auth.error,
-  loading: state.auth.isLoading,
-  authorized: state.auth.authorized,
-  pwhash: state.auth.info.Pwhash,
-  username: state.auth.info.Username,
+  error: state.profile.account.error,
+  loading: state.profile.account.isLoading,
+  authorized: state.profile.account.authorized,
+  pwhash: state.profile.account.items.Pwhash,
+  username: state.profile.account.items.Username,
 });
 
 const mapDispatchToProps = dispatch =>
-  bindActionCreators({ fetchLogin }, dispatch);
+  bindActionCreators({ fetchUserAccount }, dispatch);
 
 export default connect(
   mapStateToProps,

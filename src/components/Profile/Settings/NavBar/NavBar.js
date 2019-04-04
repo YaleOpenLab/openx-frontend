@@ -2,6 +2,9 @@ import React from "react";
 import NavItem from "./NavItem/NavItem";
 import ROUTES from "../../../../routes/routes";
 import "./NavBar.scss";
+import { connect } from "react-redux";
+import { fetchUserAccount } from "../../store/actions";
+import { withRouter } from "react-router-dom";
 
 const NavBar = props => (
   <div className="col-12 col-sm-4 col-lg-3">
@@ -13,7 +16,7 @@ const NavBar = props => (
             alt="placeholder"
           />
         </div>
-        <div className="profile-nav-user-name">Martin Wainstein</div>
+        <div className="profile-nav-user-name">{props.account.Name}</div>
       </div>
       <div className="profile-nav-menu-section">
         <NavItem
@@ -54,4 +57,16 @@ const NavBar = props => (
   </div>
 );
 
-export default NavBar;
+const mapStateToProps = state => ({
+  account: state.profile.account.items,
+  loading: state.profile.account.isLoading
+});
+
+const mapDispatchToProps = dispatch => ({
+  fetchUserAccount: payload => dispatch(fetchUserAccount(payload))
+});
+
+export default withRouter(connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(NavBar));
