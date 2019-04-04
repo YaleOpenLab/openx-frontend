@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./AccessDemo.scss";
-import Storage from "../../services/Storage";
 import { withSnackbar } from "notistack";
 
 class AccessDemo extends Component {
