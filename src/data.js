@@ -771,7 +771,7 @@ export const extraProjectData = [
         width: 3,
         content: [
           {type: 'header', value: 'Solar Output'},
-          {type: 'image', value: 'https://images.openx.solar/OpenSolarProjects/4_NH_Lancaster/normal.png', height: 169},
+          {type: 'image', value: 'https://s3.amazonaws.com/cz-public-images/openx/new-haven-solargen.png', height: 538},
         ]
       },
       {
@@ -848,7 +848,7 @@ export const extraProjectData = [
       {
         width: 12,
         content: [
-          {type: 'title', value: 'Business Numbers & Payment Scheme'},
+          {type: 'title', value: 'INVESTMENT OVERVIEW & PAYMENT SCHEME'},
         ]
       },
       {
@@ -875,7 +875,7 @@ export const extraProjectData = [
     ],
     stages: {
       graph: {
-        imageUrl: 'https://via.placeholder.com/50x50',
+        imageUrl: 'https://s3.amazonaws.com/cz-public-images/openx/new-haven-development-stage.png',
         stages: [
           {index: 0, date: 'May 2018'},
           {index: 1, date: 'Jul 2018'},
@@ -925,19 +925,19 @@ export const extraProjectData = [
         width: 4,
         content: [
           {type: 'header', value: 'Badges & Characteristics'},
-          {type: 'image', value: 'https://via.placeholder.com/450x450', height: 348},
-        ]
-      },
-      {
-        width: 6,
-        content: [
-          {type: 'image', value: 'https://images.openx.solar/OpenSolarProjects/7_YaleMIT/2.jpg', height: 319},
+          {type: 'image', value: 'https://s3.amazonaws.com/cz-public-images/openx/puerto-rico-badges-characteristics.png', height: 348},
         ]
       },
       {
         width: 6,
         content: [
           {type: 'image', value: 'https://images.openx.solar/OpenSolarProjects/7_YaleMIT/5.jpg', height: 319},
+        ]
+      },
+      {
+        width: 6,
+        content: [
+          {type: 'image', value: 'https://images.openx.solar/OpenSolarProjects/7_YaleMIT/2.jpg', height: 319},
         ]
       },
     ],
@@ -983,14 +983,14 @@ export const extraProjectData = [
         width: 5,
         content: [
           {type: 'header', value: 'Map Layout'},
-          {type: 'image', value: 'https://images.openx.solar/OpenSolarProjects/7_YaleMIT/7.png', height: 538},
+          {type: 'image', value: 'https://s3.amazonaws.com/cz-public-images/openx/puerto-rico-architecture.png', height: 538},
         ]
       },
       {
         width: 3,
         content: [
           {type: 'header', value: 'Solar Output'},
-          {type: 'image', value: 'https://images.openx.solar/OpenSolarProjects/7_YaleMIT/9.png', height: 538},
+          {type: 'image', value: 'https://s3.amazonaws.com/cz-public-images/openx/puerto-rico-solargen.png', height: 538},
         ]
       },
       {
@@ -1005,7 +1005,7 @@ export const extraProjectData = [
             type: 'text',
             value: 'The system size can be expanded from 1 kW up to 5kW to cover a greater % of the building load.'
           },
-          {type: 'image', value: 'https://images.openx.solar/OpenSolarProjects/7_YaleMIT/normal.jpg', height: 203},
+          {type: 'image', value: 'https://s3.amazonaws.com/cz-public-images/openx/puerto-rico-design-description.png', height: 203},
         ]
       },
     ],
@@ -1020,7 +1020,7 @@ export const extraProjectData = [
         width: 5,
         content: [
           {type: 'header', value: 'Installation Archetype'},
-          {type: 'image', value: 'https://images.openx.solar/OpenSolarProjects/7_YaleMIT/6.jpg', height: 230},
+          {type: 'image', value: 'https://s3.amazonaws.com/cz-public-images/openx/puerto-rico-installation.png', height: 230},
           {
             type: 'text',
             value: 'This is a model installation in that the solar and battery support only a subpanel of the building circuitry, where only critical loads have been connected. The system is configured as a grid-tied installation, in that the main grid can also support other loads in the panel, and can also be used to power the battery bank. The installation allows for the interconnection of an emergency generator but it is currently not permanently linked to the system.'
@@ -1047,7 +1047,7 @@ export const extraProjectData = [
       {
         width: 4,
         content: [
-          {type: 'image', value: 'https://images.openx.solar/OpenSolarProjects/7_YaleMIT/10.jpg'},
+          {type: 'image', value: 'https://s3.amazonaws.com/cz-public-images/openx/puerto-rico-it-infrastructure.png', height: 222},
           {
             type: 'text',
             value: 'IoT meters include a Schneider Commbox and the Yale Open Powermer devices equiped with WiFi and Zigbee transfer protocol. A Rasberry Pi acts as a light clients'
@@ -1150,7 +1150,7 @@ export const extraProjectData = [
       {
         width: 9,
         content: [
-          {type: 'image', value: 'https://via.placeholder.com/450x450'},
+          {type: 'image', value: 'https://s3.amazonaws.com/cz-public-images/openx/puerto-rico-capital-expenditure-resized.png', height: 230},
         ]
       },
       {
@@ -1172,7 +1172,7 @@ export const extraProjectData = [
       {
         width: 9,
         content: [
-          {type: 'image', value: 'https://via.placeholder.com/450x450'},
+          {type: 'image', value: 'https://s3.amazonaws.com/cz-public-images/openx/puerto-rico-project-revenue.png', height: 170},
         ]
       },
       {
@@ -1194,7 +1194,7 @@ export const extraProjectData = [
       {
         width: 9,
         content: [
-          {type: 'image', value: 'https://via.placeholder.com/450x450'},
+          {type: 'image', value: 'https://s3.amazonaws.com/cz-public-images/openx/puerto-rico-project-expenses.png', height: 130},
         ]
       },
       {
@@ -1216,7 +1216,7 @@ export const extraProjectData = [
       {
         width: 9,
         content: [
-          {type: 'image', value: 'https://via.placeholder.com/450x450'},
+          {type: 'image', value: 'https://s3.amazonaws.com/cz-public-images/openx/puerto-rico-net-income.png', height: 245},
         ]
       },
       {
@@ -1234,7 +1234,7 @@ export const extraProjectData = [
     ],
     stages: {
       graph: {
-        imageUrl: 'https://via.placeholder.com/50x50',
+        imageUrl: 'https://s3.amazonaws.com/cz-public-images/openx/new-haven-development-stage.png',
         stages: [
           {index: 0, date: 'May 2018'},
           {index: 1, date: 'Jul 2018'},
