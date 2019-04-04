@@ -11,6 +11,7 @@ import Routes from "../../../../routes/routes";
 import { connect } from "react-redux";
 import { fetchUserAccount } from "../../../Profile/store/actions";
 import isEmpty from "../../../../helpers/functions/is-object-empty";
+import ProfileImage from "../../../../assets/images/user-profile-icon.svg"
 
 class UserProfileSection extends Component {
   componentDidMount = () => {
@@ -47,7 +48,7 @@ class UserProfileSection extends Component {
         </MDBNavItem>
         <div className="profile-nav-avatar">
           <img
-            src="https://i1.rgstatic.net/ii/profile.image/722704944607235-1549317694495_Q512/Martin_Wainstein.jpg"
+            src={ProfileImage}
             alt="user profile"
           />
         </div>
