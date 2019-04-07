@@ -59,7 +59,7 @@ const ConfirmTab = props => (
                 <div className="col-12 text-description">
                   <div className="sub-title">Purpose</div>
                   <div className="sub-desc">
-                    {props.data.extra.terms.description}
+                    {props.data.FEText.terms.description}
                   </div>
                 </div>
                 <div className="col-12 project-table no-padding">

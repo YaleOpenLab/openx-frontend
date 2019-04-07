@@ -35,9 +35,9 @@ class Terms extends Component {
                   Purpose
                 </div>
                 {
-                  this.props.data.extra && this.props.data.extra.terms && this.props.data.extra.terms.description && (
+                  this.props.data.FEText && this.props.data.FEText.terms && this.props.data.FEText.terms.description && (
                     <div className="sub-desc">
-                      {this.props.data.extra.terms.description}
+                      {this.props.data.FEText.terms.description}
                     </div>
                   )
                 }
