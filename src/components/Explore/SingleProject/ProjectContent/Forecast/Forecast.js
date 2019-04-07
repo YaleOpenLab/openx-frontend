@@ -18,11 +18,11 @@ const Forecast = props => (
             </div>
           </div>
           <div className="col-12">
-            {props.data.extra &&
-              props.data.extra.stages &&
-              props.data.extra.stages.graph && (
+            {props.data.FEText &&
+              props.data.FEText.stages &&
+              props.data.FEText.stages.graph && (
                 <DevelopmentStage
-                  data={props.data.extra.stages.graph}
+                  data={props.data.FEText.stages.graph}
                   currentStage={props.data.Stage}
                 />
               )}
@@ -32,11 +32,11 @@ const Forecast = props => (
               {STAGES[props.data.Stage]}
             </div>
             <div className="forecast-info-sub-title">current stage</div>
-            {props.data.extra &&
-              props.data.extra.stages &&
-              props.data.extra.stages.graph && (
+            {props.data.FEText &&
+              props.data.FEText.stages &&
+              props.data.FEText.stages.graph && (
                 <div className="forecast-info-content">
-                  {props.data.extra.stages.graph.stageDescription}
+                  {props.data.FEText.stages.graph.stageDescription}
                   <div className="learn-more">
                     Learn more >
                   </div>
@@ -44,10 +44,10 @@ const Forecast = props => (
               )}
           </div>
           <div className="col-12 mg-top-15 link-to-records">
-            {props.data.extra &&
-              props.data.extra.stages &&
-              props.data.extra.stages.url && (
-                <NavLink to={props.data.extra.stages.url} className="small">
+            {props.data.FEText &&
+              props.data.FEText.stages &&
+              props.data.FEText.stages.url && (
+                <NavLink to={props.data.FEText.stages.url} className="small">
                   FULL TIMELINE RECORDS >
                 </NavLink>
               )}
