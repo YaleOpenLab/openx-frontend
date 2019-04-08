@@ -61,16 +61,16 @@ const Overview = props => {
 
         <div className="opportunity">
           <div className="container">
-            {data.extra && data.extra.opportunity && (
-              <CustomSections sections={data.extra.opportunity}/>
+            {data.FEText && data.FEText.opportunity && (
+              <CustomSections sections={data.FEText.opportunity}/>
             )}
           </div>
         </div>
 
         <div className="context margin-top">
           <div className="container">
-            {data.extra && data.extra.context && (
-              <CustomSections sections={data.extra.context}/>
+            {data.FEText && data.FEText.context && (
+              <CustomSections sections={data.FEText.context}/>
             )}
           </div>
         </div>

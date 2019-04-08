@@ -15,8 +15,8 @@ const ProjectDetails = props => {
             <div className="row">
               <div className="col-12">
                 <div className="architecture">
-                  {data.extra && data.extra.engineering && (
-                    <CustomSections sections={data.extra.engineering}/>
+                  {data.FEText && data.FEText.engineering && (
+                    <CustomSections sections={data.FEText.engineering}/>
                   )}
                 </div>
               </div>
@@ -28,8 +28,8 @@ const ProjectDetails = props => {
             <div className="row">
               <div className="col-12">
                 <div className="engineering">
-                  {data.extra && data.extra.architecture && (
-                    <CustomSections sections={data.extra.architecture}/>
+                  {data.FEText && data.FEText.architecture && (
+                    <CustomSections sections={data.FEText.architecture}/>
                   )}
                 </div>
               </div>
@@ -38,15 +38,15 @@ const ProjectDetails = props => {
 
           <div className="community margin-top">
             <div className="container">
-              {data.extra && data.extra.community && (
-                <CustomSections sections={data.extra.community}/>
+              {data.FEText && data.FEText.community && (
+                <CustomSections sections={data.FEText.community}/>
               )}
             </div>
           </div>
           <div className="business margin-top">
             <div className="container">
-              {data.extra && data.extra.business && (
-                <CustomSections sections={data.extra.business}/>
+              {data.FEText && data.FEText.business && (
+                <CustomSections sections={data.FEText.business}/>
               )}
             </div>
           </div>
