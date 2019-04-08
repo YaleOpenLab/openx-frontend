@@ -2,25 +2,7 @@ import Storage from './Storage';
 import * as axios from 'axios';
 import { from } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';
-import { extraProjectData } from '../data';
 import { sha3_512 } from 'js-sha3';
-
-const addExtraData = projects => {
-  if (projects.constructor === Array) {
-    projects = projects.map(project => {
-      project.extra = extraProjectData.find(
-        record => record.id === project.Index
-      );
-      return project;
-    });
-    return projects;
-  } else {
-    projects.data.extra = extraProjectData.find(
-      record => record.id === projects.data.Index
-    );
-    return projects;
-  }
-};
 
 export class Http {
   static investorInvest(id, amount) {
@@ -95,8 +77,7 @@ export class Http {
           // Return empty array for now to display empty content in other type projects
           return [];
         }
-      }),
-      map(addExtraData)
+      })
     );
   }
 
@@ -105,7 +86,7 @@ export class Http {
   }
 
   static projectGet(id) {
-    return this.get('project/get', {index: id}).pipe(map(addExtraData));
+    return this.get('project/get', {index: id});
   }
 
   static investorValidate() {
