@@ -9,11 +9,9 @@ const InvestedProjects = props => (
       <div className="project-list">
         <div className="container">
           <div className="row">
-            <InvestorProjectCard />
-            <InvestorProjectCard />
-            <InvestorProjectCard />
-            <InvestorProjectCard />
-            <InvestorProjectCard />
+            {props.projects.map(project => {
+              return <InvestorProjectCard projectId={project} key={project} />
+            })}
           </div>
         </div>
       </div>

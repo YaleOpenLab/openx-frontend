@@ -1,15 +1,9 @@
 import React, {Component} from 'react';
 import './Terms.scss';
 import IcKeyboard from '../../../../../assets/images/ic_keyboard.png';
-import ScrollableAnchor, { configureAnchors } from 'react-scrollable-anchor';
+import ScrollableAnchor from 'react-scrollable-anchor';
 import TermsTable from './TermsTable/TermsTable';
 import Title from '../../../../General/Title/Title';
-
-configureAnchors({
-  offset: -90,
-  scrollDuration: 200,
-  keepLastAnchorHash: true
-});
 
 class Terms extends Component {
 
