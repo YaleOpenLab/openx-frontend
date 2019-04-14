@@ -125,7 +125,7 @@ export class Http {
     return from(
       axios({
         method: 'GET',
-        url: `http://34.73.202.205:8080/${path}`,
+        url: `https://api.openx.solar/${path}`,
         params: data,
         headers: {
           'Content-Type': 'application/x-www-form/urlencoded'
