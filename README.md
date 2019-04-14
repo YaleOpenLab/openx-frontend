@@ -1,4 +1,6 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Openx-Frontend
+
+This repo is intended to house the code for the frontend platform live at https://www.openx.solar. The frontend is written in React and was bootstrapped using the [create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
@@ -37,32 +39,5 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## HTTPS Deployment
+For plain http deployment, `npm run build` and `serve -s build -l <port_number>` should work fine. But if one wants to serve via https, they should place the private key and cert file one level above this repo (to avoid caching it in git by mistake) and then run `deploy.js` as root. We use [pm2](https://github.com/Unitech/pm2) as our process management tool for [openx.solar](www.openx.solar).
