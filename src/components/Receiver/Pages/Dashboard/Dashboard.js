@@ -212,11 +212,11 @@ class Dashboard extends Component {
                     <h3 className="title-primary">{receiverProject.title}</h3>
                     <h6>
                       <img src={IconGps} alt="icon-gps"/>
-                      {receiverProject.loc}
+                      <a href="https://goo.gl/maps/9U7rqrPc81A2" target="_blank">{receiverProject.loc}</a>
                     </h6>
                     <div className="flexbox">
                       <p>{receiverProject.category}</p>
-                      <button>Security issuer ></button>
+                      <button><a href="https://neighborly.com" target="_blank">Neighborly Securities ></a></button>
                     </div>
                     <p>{receiverProject.description}</p>
                     <ul>
@@ -227,7 +227,7 @@ class Dashboard extends Component {
                     <h4 className="owner">PROJECT ORIGINATOR</h4>
                     <div className="flexbox -alt">
                       <img src={AvatarPlaceholder} alt="placeholder"/>
-                      <h4>Michael Casey</h4>
+                      <h4><a href="https://www.michaeljcasey.com/" target="_blank">Michael Casey</a></h4>
                     </div>
                     <div className="progress-bar-container">
                       <div className="flexbox -no-spacing">

@@ -28,6 +28,7 @@ const AccountSummary = props => (
             list={[
               {
                 text: props.investor.U.PublicKey,
+                link: 'https://www.google.com',
                 label: 'main wallet',
                 leftIcon: 'wallet-icon',
                 actionLabel: 'edit wallet name >',
