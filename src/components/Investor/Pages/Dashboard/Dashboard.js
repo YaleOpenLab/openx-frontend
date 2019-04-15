@@ -4,36 +4,43 @@ import InvestmentSummary from "./InvestmentSummary/InvestmentSummary";
 import "./Dashboard.scss";
 import { connect } from "react-redux";
 import { fetchInvestor } from "../../../../pages/Investor/store/actions";
-import axios from 'axios';
+import axios from "axios";
 
 class Dashboard extends Component {
+  state = {
+    balance: 0
+  };
+
   componentDidMount = () => {
     this.props.fetchInvestor();
   };
 
   componentDidUpdate = prevProps => {
-    console.log(this.props.investor);
-    if(this.props.investor.items && this.props.investor.items.U){
-      this.setState({
-        investor: this.props.investor
-      });
-      axios.get(`https://api.openx.solar/user/balance/asset?username=${this.props.investor.items.U.Username}&pwhash=${this.props.investor.items.U.Pwhash}&asset=STABLEUSD`)
-      .then(res => {
-        const balance = res.data;
-        this.setState({
-          balance: Number(balance)
-        })
-      });
+    if (this.props.investor !== prevProps.investor) {
+      axios
+        .get(
+          `https://api.openx.solar/user/balance/asset?username=${
+            this.props.investor.U.Username
+          }&pwhash=${this.props.investor.U.Pwhash}&asset=STABLEUSD`
+        )
+        .then(res => {
+          const balance = res.data;
+          if(typeof(balance) === "object") return;
+          this.setState({
+            balance: Number(balance)
+          })
+        });
     }
   };
 
   render() {
     const { investor } = this.props;
-    // const { balance } = this.state || 0 ;
-    const balance = "998000"
+
     return (
       <div className="investor-dashboard">
-        {investor && investor.U && <InvestmentSummary investor={investor} balance={balance} />}
+        {investor && investor.U && (
+          <InvestmentSummary investor={investor} balance={this.state.balance} />
+        )}
         {investor && investor.U && investor.InvestedSolarProjects && (
           <InvestedProjects projects={investor.InvestedSolarProjectsIndices} />
         )}
@@ -43,7 +50,8 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = state => ({
-  investor: state.investor.items
+  investor: state.investor.items,
+  loading: state.investor.isLoading
 });
 
 const mapDispatchToProps = dispatch => ({

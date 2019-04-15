@@ -24,7 +24,7 @@ const Overview = props => {
             desc: caseToName(item[0])
           });
         }
-        if (key == "SustainabilityMetrics") {
+        if (key === "SustainabilityMetrics") {
           items.push({
             value: "Resiliency Rating",
             desc: data.ResilienceRating
