@@ -59,7 +59,7 @@ class SingleProject extends Component {
 
   render() {
     const { data, loading } = this.state;
-     if((!data.Index || data.Index < 5) && !loading){
+     if(!data.Index && !loading){
       return <div>No entry</div>
     }
 
