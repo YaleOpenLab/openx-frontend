@@ -9,7 +9,7 @@ export class Http {
     return this.get('investor/invest', {
       username: Storage.get('username'),
       pwhash: Storage.get('token'),
-      seedpwd: Storage.get('password'),
+      seedpwd: "x",
       projIndex: id,
       amount: amount,
     }).pipe(
