@@ -34,12 +34,12 @@ const AccountSummary = props => (
                 type: 'primary'
               },
               {
-                text: props.usdbalance,
+                text: "$" + props.usdbalance,
                 label: 'ACCOUNT BALANCE',
                 actionLabel: 'Transaction History >'
               },
               {
-                text: props.usdbalance,
+                text: "$" + props.usdbalance,
                 label: 'AVAILABLE FUNDS',
                 actionLabel: 'Load More Funds >',
                 type: 'last'
@@ -61,12 +61,12 @@ const AccountSummary = props => (
                 type: 'primary'
               },
               {
-                text: props.usdbalance,
+                text: "$" + props.usdbalance,
                 label: 'ACCOUNT BALANCE',
                 actionLabel: 'Transaction History >'
               },
               {
-                text: props.usdbalance,
+                text: "$" + props.usdbalance,
                 label: 'AVAILABLE FUNDS',
                 actionLabel: 'Load More Funds >',
                 type: 'last'
@@ -82,7 +82,7 @@ const AccountSummary = props => (
       <div className="summary-sum">
         <span className="sum-label">net position</span>
         {/*todo: integrate*/}
-        <span className="sum-price">$360,070</span>
+        <span className="sum-price">$ {props.usdbalance}</span>
       </div>
     </div>
   </React.Fragment>
