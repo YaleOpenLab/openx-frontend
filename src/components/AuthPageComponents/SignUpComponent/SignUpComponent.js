@@ -96,7 +96,7 @@ const signUpComponent = props => (
                 errors.username && touched.username ? "solar-form-input-error" : ""
               }`}
               name="username"
-              placeholder="Username"
+              placeholder="Email Address"
             />
             {errors.username && touched.username && (
               <div className="solar-form-error-text">{errors.username}</div>

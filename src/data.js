@@ -200,7 +200,7 @@ export const extraProjectData = [
         width: 3,
         content: [
           {type: 'header', value: 'Outreach'},
-          {type: 'image', value: 'http://images.openx.solar/demo/pasto-page-outreach.png', height: 162},
+          {type: 'image', value: 'https://images.openx.solar/demo/pasto-page-outreach.png', height: 162},
           {
             type: 'text',
             value: 'The system has been installed with instructions so that it can act as a pedagogical site for students to learn about the merits of solar energy, electricity and basic electronics. Talk about solar energy will be given every semester in the context of climate change communication to the community.'
@@ -802,13 +802,13 @@ export const extraProjectData = [
       {
         width: 5,
         content: [
-          {type: 'image', value: 'http://images.openx.solar/demo/rwanda-engineering-1.png', height: 437},
+          {type: 'image', value: 'https://images.openx.solar/demo/rwanda-engineering-1.png', height: 437},
         ]
       },
       {
         width: 7,
         content: [
-          {type: 'image', value: 'http://images.openx.solar/demo/rwanda-engineering-2.png', height: 437},
+          {type: 'image', value: 'https://images.openx.solar/demo/rwanda-engineering-2.png', height: 437},
         ]
       },
       {
@@ -1110,7 +1110,7 @@ export const extraProjectData = [
         width: 3,
         content: [
           {type: 'header', value: 'Outreach'},
-          {type: 'image', value: 'http://images.openx.solar/demo/pasto-page-outreach.png', height: 162},
+          {type: 'image', value: 'https://images.openx.solar/demo/pasto-page-outreach.png', height: 162},
           {
             type: 'text',
             value: 'The system has been installed with instructions so that it can act as a pedagogical site for students to learn about the merits of solar energy, electricity and basic electronics. Talk about solar energy will be given every semester in the context of climate change communication to the community.'
@@ -1407,13 +1407,13 @@ export const extraProjectData = [
       {
         width: 5,
         content: [
-          {type: 'image', value: 'http://images.openx.solar/demo/rwanda-engineering-1.png', height: 437},
+          {type: 'image', value: 'https://images.openx.solar/demo/rwanda-engineering-1.png', height: 437},
         ]
       },
       {
         width: 7,
         content: [
-          {type: 'image', value: 'http://images.openx.solar/demo/rwanda-engineering-2.png', height: 437},
+          {type: 'image', value: 'https://images.openx.solar/demo/rwanda-engineering-2.png', height: 437},
         ]
       },
       {

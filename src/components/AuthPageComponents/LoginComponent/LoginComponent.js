@@ -65,7 +65,7 @@ class LoginComponent extends Component {
                       : ""
                   }`}
                   name="username"
-                  placeholder="Username"
+                  placeholder="Email Address"
                 />
                 {errors.username && touched.username && (
                   <div className="solar-form-error-text">{errors.username}</div>
