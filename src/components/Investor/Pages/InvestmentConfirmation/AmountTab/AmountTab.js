@@ -89,7 +89,7 @@ const AmountTab = props => {
               />
               <DivBox
                 type="open"
-                text="GCFONE23AB7Y6C5YZOMKUKGETP**************"
+                text={props.account.PublicKey}
                 label="wallet address"
                 classes={["big-box", "light-box"]}
               />

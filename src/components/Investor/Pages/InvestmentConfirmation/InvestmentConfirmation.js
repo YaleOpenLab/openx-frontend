@@ -32,7 +32,7 @@ class InvestmentConfirmation extends Component {
   };
 
   componentDidUpdate = prevProps => {
-    if (this.props.project.isLoading !== prevProps.project.isLoading) {
+    if ((this.props.project.isLoading !== prevProps.project.isLoading) || (this.props.investor.isLoading !== prevProps.investor.isLoading) ) {
       this.setState({
         investor: this.props.investor.items,
         loading: this.props.project.isLoading || this.props.investor.isLoading,

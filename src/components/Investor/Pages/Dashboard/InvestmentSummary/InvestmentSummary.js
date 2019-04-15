@@ -3,7 +3,7 @@ import SummaryCards from '../../../../General/SummaryCards/SummaryCards';
 import AccountSummary from './AccountSummary/AccountSummary';
 
 const InvestmentSummary = ({investor}) => {
-  const projects = investor.ReceivedSolarProjects ? investor.ReceivedSolarProjects.length : 0;
+  const projects = investor.InvestedSolarProjects ? investor.InvestedSolarProjects.length : 0;
   return (
     <React.Fragment>
       <div className="container investor-title">Your Investment Summary</div>
@@ -25,7 +25,7 @@ const InvestmentSummary = ({investor}) => {
               <SummaryCards
                 title="your investments"
                 items={[
-                  {value: `$${investor.AmountInvested}`, desc: 'invested to date'},
+                  {value: `$${investor.AmountInvested ? investor.AmountInvested.toFixed(2) : investor.AmountInvested}`, desc: 'invested to date'},
                   {value: investor.WeightedROI || '0%', desc: 'weighted roi'}
                 ]}
                 icon="handout-icon"
