@@ -74,7 +74,7 @@ const AmountTab = props => {
               </div>
               <div className="col-8 invest-confirm-value">
                 <div className="confirm-icon wallet-icon" />
-                <div className="invest-confirm-value-text">$ 35'052.4</div>
+                  <div className="invest-confirm-value-text">$ {props.usdbalance}</div>
               </div>
             </div>
             <div className="col-12 invest-confirm-wrapper">

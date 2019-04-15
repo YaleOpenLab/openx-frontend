@@ -102,27 +102,27 @@ class Preferences extends Component {
                     handleChange={() => this.handleToggleChange("switchButton1")}
                   />
                   <SwitchButton
-                    label="Enable two-factor authentification"
+                    label="Enable dark mode"
                     checked={this.state.switchButton2}
                     handleChange={() => this.handleToggleChange("switchButton2")}
                   />
                   <SwitchButton
-                    label="Enable two-factor authentification"
+                    label="Enable spaceship mode"
                     checked={this.state.switchButton3}
                     handleChange={() => this.handleToggleChange("switchButton3")}
                   />
                   <SwitchButton
-                    label="Enable two-factor authentification"
+                    label="Enable Iron Man suit"
                     checked={this.state.switchButton4}
                     handleChange={() => this.handleToggleChange("switchButton4")}
                   />
                   <SwitchButton
-                    label="Enable two-factor authentification"
+                    label="Enable Mystic Stone"
                     checked={this.state.switchButton5}
                     handleChange={() => this.handleToggleChange("switchButton5")}
                   />
                   <SwitchButton
-                    label="Enable two-factor authentification"
+                    label="Enable Magic Hammer"
                     checked={this.state.switchButton6}
                     handleChange={() => this.handleToggleChange("switchButton6")}
                   />

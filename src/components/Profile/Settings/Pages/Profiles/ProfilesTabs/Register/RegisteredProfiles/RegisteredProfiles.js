@@ -17,7 +17,7 @@ const RegisteredProfiles = props => (
       rightIcon="profile-edit-icon"
     />
     <DivBox
-      text="GCFONE23AB7Y6C5YZOMKUKGETP"
+      text={props.account.PublicKey}
       label="wallet address"
       leftIcon="wallet-icon"
     />
@@ -29,7 +29,7 @@ const RegisteredProfiles = props => (
       rightIcon="profile-edit-icon"
     />
     <DivBox
-      text="GCFONE23AB7Y6C5YZOMKUKGETP"
+      text={props.account.PublicKey}
       label="wallet address"
       leftIcon="wallet-icon"
     />

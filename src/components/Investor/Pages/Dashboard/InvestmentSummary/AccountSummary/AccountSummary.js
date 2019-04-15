@@ -2,7 +2,7 @@ import React from 'react';
 import DivBox from '../../../../../General/DivBox/DivBox';
 import './AccountSummary.scss';
 
-const AccountSummary = ({investor}) => (
+const AccountSummary = props => (
   <React.Fragment>
     <div className="investor-sub-title">Account Summary</div>
     <div className="investor-separator"/>
@@ -11,7 +11,7 @@ const AccountSummary = ({investor}) => (
         <div className="col-12 col-md-4">
           <DivBox
             type="full"
-            text={investor.U.Name}
+            text={props.investor.U.Name}
             label="investor"
             leftIcon="investor-icon"
             rightIcon="profile-edit-icon"
@@ -27,19 +27,19 @@ const AccountSummary = ({investor}) => (
             type="long-open"
             list={[
               {
-                text: investor.U.PublicKey,
+                text: props.investor.U.PublicKey,
                 label: 'main wallet',
                 leftIcon: 'wallet-icon',
                 actionLabel: 'edit wallet name >',
                 type: 'primary'
               },
               {
-                text: '$350,018',
+                text: props.usdbalance,
                 label: 'ACCOUNT BALANCE',
                 actionLabel: 'Transaction History >'
               },
               {
-                text: '$330,552',
+                text: props.usdbalance,
                 label: 'AVAILABLE FUNDS',
                 actionLabel: 'Load More Funds >',
                 type: 'last'
@@ -54,19 +54,19 @@ const AccountSummary = ({investor}) => (
             type="long-open"
             list={[
               {
-                text: investor.U.SecondaryWallet ? investor.U.SecondaryWallet.PublicKey : 'N/A',
+                text: props.investor.U.SecondaryWallet ? props.investor.U.SecondaryWallet.PublicKey : 'N/A',
                 label: 'INFLOWS WALLET',
                 leftIcon: 'wallet-icon',
                 actionLabel: 'edit wallet name >',
                 type: 'primary'
               },
               {
-                text: '$350,018',
+                text: props.usdbalance,
                 label: 'ACCOUNT BALANCE',
                 actionLabel: 'Transaction History >'
               },
               {
-                text: '$330,552',
+                text: props.usdbalance,
                 label: 'AVAILABLE FUNDS',
                 actionLabel: 'Load More Funds >',
                 type: 'last'
