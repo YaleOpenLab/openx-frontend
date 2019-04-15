@@ -17,7 +17,7 @@ class InvestorProjectCard extends Component {
     const {projects, loading} = this.props;
     if(loading) return <PageLoading />;
     let project = projects.filter(project => project.Index === this.props.projectId);
-    project = project.length != 0 ? project[0] : [];
+    project = project.length !== 0 ? project[0] : [];
     
     return (
       <div className="col-12 col-sm-6 col-md-4 investor-project-card">
