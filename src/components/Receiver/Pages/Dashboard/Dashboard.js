@@ -220,14 +220,14 @@ class Dashboard extends Component {
                     </div>
                     <p>{receiverProject.description}</p>
                     <ul>
-                      <li>Highlight bullet sentence.</li>
-                      <li>Highlight bullet sentence.</li>
-                      <li>Highlight bullet sentence.</li>
+                      <li>Resaerch Project on Smart Financing</li>
+                      <li>Critical loads to the school admin's building</li>
+                      <li>Grid tied and storage</li>
                     </ul>
-                    <h4 className="owner">PROJECT OWNER</h4>
+                    <h4 className="owner">PROJECT ORIGINATOR</h4>
                     <div className="flexbox -alt">
                       <img src={AvatarPlaceholder} alt="placeholder"/>
-                      <h4>{receiverProject.ownerName}</h4>
+                      <h4>Michael Casey</h4>
                     </div>
                     <div className="progress-bar-container">
                       <div className="flexbox -no-spacing">
@@ -238,7 +238,7 @@ class Dashboard extends Component {
                           U$S {receiverProject.total}
                         </p>
                       </div>
-                      <ProgressBar percentage={70}/>
+                      <ProgressBar percentage={100}/>
                     </div>
                     <div className="stats">
                       <div className="stat-container">
