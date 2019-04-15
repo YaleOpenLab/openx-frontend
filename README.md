@@ -40,4 +40,4 @@ Instead, it will copy all the configuration files and the transitive dependencie
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
 ## HTTPS Deployment
-For plain http deployment, `npm run build` and `serve -s build -l <port_number>` should work fine. But if one wants to serve via https, they should place the private key and cert file one level above this repo (to avoid caching it in git by mistake) and then run `deploy.js` as root. We use [pm2](https://github.com/Unitech/pm2) as our process management tool for [openx.solar](www.openx.solar).
+For plain http deployment, `npm run build` and `serve -s build -l <port_number>` should work fine. But if one wants to serve via https, they should place the private key and cert file one level above this repo (to avoid caching it in git by mistake) and then run `deploy.js` as root. We use [pm2](https://github.com/Unitech/pm2) as our process management tool for [openx.solar](https://www.openx.solar).
