@@ -2,8 +2,9 @@ import React from 'react';
 import SummaryCards from '../../../../General/SummaryCards/SummaryCards';
 import AccountSummary from './AccountSummary/AccountSummary';
 
-const InvestmentSummary = ({investor}) => {
-  const projects = investor.InvestedSolarProjects ? investor.InvestedSolarProjects.length : 0;
+const InvestmentSummary = props => {
+
+  const projects = props.investor.InvestedSolarProjects ? props.investor.InvestedSolarProjects.length : 0;
   return (
     <React.Fragment>
       <div className="container investor-title">Your Investment Summary</div>
@@ -15,7 +16,7 @@ const InvestmentSummary = ({investor}) => {
               <SummaryCards
                 title="your profile"
                 items={[
-                  {value: investor.U.Name, desc: 'investor name'},
+                  {value: props.investor.U.Name, desc: 'investor name'},
                   {value: projects, desc: 'invested projects'}
                 ]}
                 icon="beneficiary-icon"
@@ -25,8 +26,8 @@ const InvestmentSummary = ({investor}) => {
               <SummaryCards
                 title="your investments"
                 items={[
-                  {value: `$${investor.AmountInvested ? investor.AmountInvested.toFixed(2) : investor.AmountInvested}`, desc: 'invested to date'},
-                  {value: investor.WeightedROI || '0%', desc: 'weighted roi'}
+                  {value: `$${props.investor.AmountInvested ? props.investor.AmountInvested.toFixed(2) : props.investor.AmountInvested}`, desc: 'invested to date'},
+                  {value: props.investor.WeightedROI || '0%', desc: 'weighted roi'}
                 ]}
                 icon="handout-icon"
               />
@@ -35,8 +36,8 @@ const InvestmentSummary = ({investor}) => {
               <SummaryCards
                 title="your returns"
                 items={[
-                  {value: `$${investor.AllTimeReturns || 0}`, desc: 'all time returns'},
-                  {value: `${investor.ReceivedRECs || 0} (MWh)`, desc: 'recs received'}
+                  {value: `$${props.investor.AllTimeReturns || 0}`, desc: 'all time returns'},
+                  {value: `${props.investor.ReceivedRECs || 0} (MWh)`, desc: 'recs received'}
                 ]}
                 icon="wallet-icon"
               />
@@ -46,7 +47,7 @@ const InvestmentSummary = ({investor}) => {
               <SummaryCards
                 title="energy you facilitate"
                 items={[
-                  {value: `${investor.Prorata || 0} KWh`, desc: 'pro rata in projects'},
+                  {value: `${props.investor.Prorata || 0} KWh`, desc: 'pro rata in projects'},
                   {value: '10,150 MWh', desc: 'all time'}
                 ]}
                 icon="solar-panel-icon"
@@ -55,7 +56,10 @@ const InvestmentSummary = ({investor}) => {
               />
             </div>
           </div>
-          <AccountSummary investor={investor} />
+          <AccountSummary
+            investor={props.investor}
+            usdbalance={props.balance}
+          />
         </div>
       </div>
     </React.Fragment>

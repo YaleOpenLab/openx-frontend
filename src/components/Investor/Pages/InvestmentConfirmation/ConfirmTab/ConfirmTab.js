@@ -25,7 +25,7 @@ const ConfirmTab = props => (
               <DivBox
                 type="open"
                 label="wallet address"
-                text="GCFONE23AB7Y6C5YZOMKUKGETP**************"
+                text={props.account.PublicKey}
                 col="12"
                 classes={["light-box", "big-box", "label-right", "margin-top"]}
               />
@@ -34,7 +34,7 @@ const ConfirmTab = props => (
                   <div className="label-right">Available:</div>
                 </div>
                 <div className="col-4 invest-confirm-profile-values">
-                  <span className="-bigger">$35’052.4</span>
+                  <span className="-bigger">$ {props.usdbalance}</span>
                 </div>
               </div>
             </div>

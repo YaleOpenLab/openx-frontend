@@ -19,7 +19,7 @@ class Settings extends Component {
       password: Storage.get("token")
     }
   }
-  
+
   render() {
     return (
       <div className="ProfileSettings">

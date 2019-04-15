@@ -17,7 +17,7 @@ const RegisteredEntities = props => (
       rightIcon="profile-edit-icon"
     />
     <DivBox
-      text="GCFONE23AB7Y6C5YZOMKUKGETP"
+      text={props.account.PublicKey}
       label="public key"
       leftIcon="profile-badge-icon"
     />

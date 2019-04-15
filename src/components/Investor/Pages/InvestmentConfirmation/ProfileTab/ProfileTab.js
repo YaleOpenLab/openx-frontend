@@ -30,7 +30,7 @@ const ProfileTab = props => (
             />
             <DivBox
               type="open"
-              text="GCFONE23AB7Y6C5YZOMKUKGETP**************"
+              text={props.account.PublicKey}
               label="wallet address"
               classes={["big-box", "light-box"]}
             />
@@ -46,7 +46,7 @@ const ProfileTab = props => (
                     Available:
                   </div>
                   <div className="col-6 invest-confirm-profile-values">
-                    <span className="-bigger">$35’052.4</span>
+                    <span className="-bigger">$ {props.usdbalance}</span>
                   </div>
                   <div className="col-12 invest-confirm-profile-info">
                     suggested max amount: $20'000

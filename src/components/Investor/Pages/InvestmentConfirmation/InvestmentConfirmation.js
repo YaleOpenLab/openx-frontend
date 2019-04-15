@@ -12,16 +12,17 @@ import { fetchInvestor } from "../../../../pages/Investor/store/actions";
 import { Http } from "../../../../services/Http";
 import { withSnackbar } from "notistack";
 import ROUTES from "../../../../routes/routes";
+import axios from 'axios';
 
 class InvestmentConfirmation extends Component {
   constructor(props) {
     super(props);
     this.state = {
       investmentAmount: 0,
-      availableBalance: 35052.4,
       agreeTerms: false,
       brokeDeal: false,
-      investCategory: false
+      investCategory: false,
+      balance: 0
     };
   }
 
@@ -33,6 +34,16 @@ class InvestmentConfirmation extends Component {
 
   componentDidUpdate = prevProps => {
     if ((this.props.project.isLoading !== prevProps.project.isLoading) || (this.props.investor.isLoading !== prevProps.investor.isLoading) ) {
+      if(this.props.investor.items && this.props.investor.items.U){
+        axios.get(`https://api.openx.solar/user/balance/asset?username=${this.props.investor.items.U.Username}&pwhash=${this.props.investor.items.U.Pwhash}&asset=STABLEUSD`)
+        .then(res => {
+          const balance = res.data;
+          this.setState({
+            balance: Number(balance)
+          })
+        });
+      }
+
       this.setState({
         investor: this.props.investor.items,
         loading: this.props.project.isLoading || this.props.investor.isLoading,
@@ -41,7 +52,7 @@ class InvestmentConfirmation extends Component {
     }
   };
 
-  handleInvestmentChange = el => {
+    handleInvestmentChange = el => {
     this.setState({
       investmentAmount: Number(el.target.value)
     });
@@ -81,11 +92,11 @@ class InvestmentConfirmation extends Component {
   };
 
   validateForm = value => {
-    return !(value > this.state.availableBalance || value < 100);
+    return !(value > this.state.balance || value < 100);
   };
 
   render() {
-    const { investor, loading, project } = this.state;
+    const { investor, loading, project, balance } = this.state;
     return (
       <div className="investment-confirmation">
         {!project || loading ? (
@@ -115,6 +126,7 @@ class InvestmentConfirmation extends Component {
                   handleChange={this.handleInvestmentChange}
                   investmentValue={this.state.investmentAmount}
                   account={investor.U}
+                  usdbalance = {balance}
                 />
                 <ProfileTab
                   key={2}
@@ -123,6 +135,7 @@ class InvestmentConfirmation extends Component {
                   brokeDeal={this.state.brokeDeal}
                   investCategory={this.state.investCategory}
                   handleToggle={this.handleToggleChange}
+                  usdbalance={balance}
                 />
                 <ConfirmTab
                   key={3}
@@ -131,6 +144,8 @@ class InvestmentConfirmation extends Component {
                   loading={loading || project.length === 0}
                   handleToggle={this.handleToggleChange}
                   agreeTerms={this.state.agreeTerms}
+                  account={investor.U}
+                  usdbalance={balance}
                 />
               </StepsForm>
             </div>
