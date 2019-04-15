@@ -42,7 +42,7 @@ const ConfirmTab = props => (
           <div className="col-12 solar-form-separator" />
           <div className="invest-confirm-header">
             <div className="-center">
-              Review Pasto Public School PoC - Investment Terms
+              Review Investment Terms
             </div>
           </div>
         </div>

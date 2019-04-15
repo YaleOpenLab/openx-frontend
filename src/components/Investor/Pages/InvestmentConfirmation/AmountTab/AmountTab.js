@@ -6,8 +6,8 @@ import * as Yup from "yup";
 const AmountTab = props => {
   const InvestAmountSchema = Yup.object().shape({
     investAmount: Yup.number()
-      .min(100, "Minimum investment amount is 100$")
-      .max(1000000000, "Amountis too high")
+      .min(100, "Smallest Investment possible is $100")
+      .max(1000000000, "Amount is too high")
       .required("Investment Amount Can not be empty")
   });
   return (
@@ -17,7 +17,7 @@ const AmountTab = props => {
           <div className="row">
             <div className="col-12 solar-form-separator" />
             <div className="col-12 invest-confirm-header">
-              Deine your investment amount
+              Define your investment amount
             </div>
             <div className="col-12 invest-confirm-wrapper">
               <div className="col-4 invest-confirm-text">I want to invest:</div>
