@@ -16,6 +16,9 @@ class Dashboard extends Component {
   };
 
   componentDidUpdate = prevProps => {
+    if (this.props.investor) {
+      return
+    }
     if (this.props.investor !== prevProps.investor) {
       axios
         .get(
@@ -36,16 +39,26 @@ class Dashboard extends Component {
   render() {
     const { investor } = this.props;
 
-    return (
-      <div className="investor-dashboard">
-        {investor && investor.U && (
-          <InvestmentSummary investor={investor} balance={this.state.balance} />
-        )}
-        {investor && investor.U && investor.InvestedSolarProjects && (
-          <InvestedProjects projects={investor.InvestedSolarProjectsIndices} />
-        )}
-      </div>
-    );
+    if (!investor || !investor.U) {
+      return (
+        <div className="investor-dashboard">
+          <div className="container investor-title">
+            You're not registered as an Investor, click <a href="#">here</a> to register
+          </div>
+        </div>
+      );
+    } else {
+      return (
+        <div className="investor-dashboard">
+          {investor && investor.U && (
+            <InvestmentSummary investor={investor} balance={this.state.balance} />
+          )}
+          {investor && investor.U && investor.InvestedSolarProjects && (
+            <InvestedProjects projects={investor.InvestedSolarProjectsIndices} />
+          )}
+        </div>
+      );
+    }
   }
 }
 

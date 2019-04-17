@@ -130,6 +130,18 @@ class Dashboard extends Component {
       : null;
     const projects = receiver && receiver.ReceivedSolarProjects ? receiver.ReceivedSolarProjects.length : 0;
     const receiverProject = mockData.project;
+    if (!receiver || !receiver.U) {
+      return (
+        <div className="receiver-dashboard">
+          <div className="title-container -border">
+            <div className="container">
+              <h3 className="container-title">You have not registered as a recipient</h3>
+            </div>
+          </div>
+        </div>
+      );
+    }
+    if (receiver.U.Name === "S.U. Pasto School") { // hardcode for now, change later
     return (
       <div className="receiver-dashboard">
         <div className="title-container -border">
@@ -212,11 +224,11 @@ class Dashboard extends Component {
                     <h3 className="title-primary">{receiverProject.title}</h3>
                     <h6>
                       <img src={IconGps} alt="icon-gps"/>
-                      <a href="https://goo.gl/maps/9U7rqrPc81A2" target="_blank">{receiverProject.loc}</a>
+                      <a href="https://goo.gl/maps/9U7rqrPc81A2" target="_blank" rel="noopener noreferrer">{receiverProject.loc}</a>
                     </h6>
                     <div className="flexbox">
                       <p>{receiverProject.category}</p>
-                      <button><a href="https://neighborly.com" target="_blank">Neighborly Securities ></a></button>
+                      <button><a href="https://neighborly.com" target="_blank" rel="noopener noreferrer">Neighborly Securities ></a></button>
                     </div>
                     <p>{receiverProject.description}</p>
                     <ul>
@@ -227,7 +239,7 @@ class Dashboard extends Component {
                     <h4 className="owner">PROJECT ORIGINATOR</h4>
                     <div className="flexbox -alt">
                       <img src={AvatarPlaceholder} alt="placeholder"/>
-                      <h4><a href="https://www.michaeljcasey.com/" target="_blank">Michael Casey</a></h4>
+                      <h4><a href="https://www.michaeljcasey.com/" target="_blank" rel="noopener noreferrer">Michael Casey</a></h4>
                     </div>
                     <div className="progress-bar-container">
                       <div className="flexbox -no-spacing">
@@ -301,7 +313,7 @@ class Dashboard extends Component {
                     <h4 className="section-title">Project Wallets</h4>
                     <DetailContainer
                       icon={IconWallet}
-                      title={'Project Funds Wallet (***6HETY2)'}
+                      title={'Project Funds Wallet(***6HETY2)'}
                       type={'$604.25'}
                       action={'Re-Loads from main account'}
                     />
@@ -324,8 +336,8 @@ class Dashboard extends Component {
                     <DetailContainer
                       icon={IconCerf}
                       title={'Your system ownership'}
-                      type={'% 35'}
-                      action={'Estimated full acquisition: 2021'}
+                      type={'35 %'}
+                      action={'Estimated full acquisition: May 2021'}
                     />
                     <button className="see-more">
                       SEE PAYMENT HISTORY & OWNERSHIP RECORDS >
@@ -351,7 +363,7 @@ class Dashboard extends Component {
                       icon={IconBenef}
                       title={'Current Output'}
                       type={'650 W'}
-                      action={'11:23 am Friday April 12, 2019'}
+                      action={'11:23 am UTC -0400 Friday April 23, 2019'}
                     />
                     <div className="SolarGraph">
                       <img src={IconSolarAlt} alt="solar"/>
@@ -409,6 +421,7 @@ class Dashboard extends Component {
         )}
       </div>
     );
+  }
   }
 }
 

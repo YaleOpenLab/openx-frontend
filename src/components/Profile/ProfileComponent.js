@@ -12,7 +12,8 @@ class ProfileComponent extends Component {
     super(props);
     this.state = {
       menu: [
-        { name: "dashboard", link: ROUTES.INVESTOR_PAGES.DASHBOARD },
+        // TODO: detect whether the user is an investor or recipient and then link them to the relevant dashboard here
+        // we can rediferct them to both and then check on that end, but that's not so nice for ux, so better to do it here
         { name: "settings", link: ROUTES.PROFILE_PAGES.SETTINGS }
       ]
     };
