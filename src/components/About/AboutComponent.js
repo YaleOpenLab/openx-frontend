@@ -1,6 +1,5 @@
 import React from "react";
 import "./AboutComponent.scss";
-import UnderDevelopment from "../General/UnderDevelopment/UnderDevelopment";
 import IconBuild from "../../assets/images/ic-build.svg";
 
 const AboutComponent = () => (

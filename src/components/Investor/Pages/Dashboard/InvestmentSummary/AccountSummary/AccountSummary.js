@@ -17,6 +17,7 @@ const AccountSummary = props => (
             rightIcon="profile-edit-icon"
             col="12"
             actionLabel="edit profile & wallet setup >"
+            link="/profile/settings/account"
             iconSize="29px"
             classes={['investor-marginer big-box']}
           />
@@ -28,7 +29,7 @@ const AccountSummary = props => (
             list={[
               {
                 text: props.investor.U.PublicKey,
-                link: 'https://www.google.com',
+                link: 'https://testnet.steexp.com/account/' + props.investor.U.PublicKey,
                 label: 'main wallet',
                 leftIcon: 'wallet-icon',
                 actionLabel: 'edit wallet name >',
@@ -37,12 +38,14 @@ const AccountSummary = props => (
               {
                 text: "$" + props.usdbalance,
                 label: 'ACCOUNT BALANCE',
-                actionLabel: 'Transaction History >'
+                actionLabel: 'Transaction History >',
+                actionLabelLink: 'https://testnet.steexp.com/account/' + props.investor.U.PublicKey + "#transactions",
               },
               {
                 text: "$" + props.usdbalance,
                 label: 'AVAILABLE FUNDS',
                 actionLabel: 'Load More Funds >',
+                actionLabelLink: '/development',
                 type: 'last'
               }
             ]}
@@ -57,19 +60,22 @@ const AccountSummary = props => (
               {
                 text: props.investor.U.SecondaryWallet ? props.investor.U.SecondaryWallet.PublicKey : 'N/A',
                 label: 'INFLOWS WALLET',
+                link: 'https://testnet.steexp.com/account/' + props.investor.U.SecondaryWallet.PublicKey,
                 leftIcon: 'wallet-icon',
                 actionLabel: 'edit wallet name >',
                 type: 'primary'
               },
               {
-                text: "$" + props.usdbalance,
+                text: "$0",
                 label: 'ACCOUNT BALANCE',
-                actionLabel: 'Transaction History >'
+                actionLabel: 'Transaction History >',
+                actionLabelLink: 'https://testnet.steexp.com/account/' + props.investor.U.SecondaryWallet.PublicKey + "#transactions",
               },
               {
-                text: "$" + props.usdbalance,
+                text: "$0",
                 label: 'AVAILABLE FUNDS',
                 actionLabel: 'Load More Funds >',
+                actionLabelLink: '/development',
                 type: 'last'
               }
             ]}

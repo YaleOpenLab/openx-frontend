@@ -14,11 +14,22 @@ class InvestorProjectCard extends Component {
   };
 
   render() {
+    console.log("PROPS: ", this.props.investor);
     const {projects, loading} = this.props;
     if(loading) return <PageLoading />;
     let project = projects.filter(project => project.Index === this.props.projectId);
     project = project.length !== 0 ? project[0] : [];
-    
+    var investedValue = 0;
+    if (project.InvestorMap != null ) {
+      investedValue = "$" + project.InvestorMap[this.props.investor.U.PublicKey] * project.TotalValue;
+    }
+    var execSummary = project.ExecutiveSummary;
+    var commValue = 0;
+    var rating = project.Rating;
+    if (project.ExecutiveSummary != null) {
+      rating = project.Rating;
+      commValue = execSummary["SustainabilityMetrics"]["community value"];
+    }
     return (
       <div className="col-12 col-sm-6 col-md-4 investor-project-card">
         <div className="projects-box">
@@ -54,10 +65,10 @@ class InvestorProjectCard extends Component {
           </div>
           <SummaryCards
             items={[
-              { value: "$ 20'000", desc: "your investment" },
+              { value: investedValue, desc: "your investment" },
               { value: "Donation", desc: "your return" },
-              { value: "N/A", desc: "investment rating" },
-              { value: "4/4", desc: "impact rating" },
+              { value: rating, desc: "investment rating" },
+              { value: commValue, desc: "community value" },
               { value: "No immediate action", desc: "project actions" }
             ]}
           />

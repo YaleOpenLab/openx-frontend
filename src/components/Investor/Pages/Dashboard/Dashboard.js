@@ -16,7 +16,7 @@ class Dashboard extends Component {
   };
 
   componentDidUpdate = prevProps => {
-    if (this.props.investor) {
+    if (!this.props.investor) {
       return
     }
     if (this.props.investor !== prevProps.investor) {
@@ -43,7 +43,7 @@ class Dashboard extends Component {
       return (
         <div className="investor-dashboard">
           <div className="container investor-title">
-            You're not registered as an Investor, click <a href="#">here</a> to register
+            You're not registered as an Investor, click <a href="/signup">here</a> to register
           </div>
         </div>
       );
@@ -54,7 +54,7 @@ class Dashboard extends Component {
             <InvestmentSummary investor={investor} balance={this.state.balance} />
           )}
           {investor && investor.U && investor.InvestedSolarProjects && (
-            <InvestedProjects projects={investor.InvestedSolarProjectsIndices} />
+            <InvestedProjects projects={investor.InvestedSolarProjectsIndices} investor={investor} />
           )}
         </div>
       );
