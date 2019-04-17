@@ -6,18 +6,50 @@ import { Switch, Redirect } from "react-router-dom";
 import Dashboard from "./Dashboard/Dashboard";
 import Settings from "./Settings/Settings";
 import PrivateRoute from "../PrivateRouterComponent/PrivateRouterComponent";
+import { Http } from "../../services/Http";
 
 class ProfileComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
       menu: [
-        // TODO: detect whether the user is an investor or recipient and then link them to the relevant dashboard here
         // we can rediferct them to both and then check on that end, but that's not so nice for ux, so better to do it here
+        { name: "dashboard", link: ROUTES.INVESTOR_PAGES.DASHBOARD },
         { name: "settings", link: ROUTES.PROFILE_PAGES.SETTINGS }
       ]
     };
   }
+
+  componentDidMount = () => {
+    let menu = [ ...this.state.menu ];
+    // temporary role check
+    Http.investorValidate().subscribe(
+      data => {
+        if (!data.data.Code) {
+          menu[0].link = ROUTES.INVESTOR_PAGES.DASHBOARD;
+          this.setState({
+            menu
+          });
+        }
+      },
+      error => {
+        console.log(error);
+      }
+    );
+    Http.recipientValidate().subscribe(
+      data => {
+        if (!data.data.Code) {
+          menu[0].link = ROUTES.RECEIVER_PAGES.DASHBOARD;
+          this.setState({
+            menu
+          });
+        }
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  };
 
   render() {
     return (

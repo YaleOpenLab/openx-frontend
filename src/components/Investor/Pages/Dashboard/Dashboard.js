@@ -16,7 +16,7 @@ class Dashboard extends Component {
   };
 
   componentDidUpdate = prevProps => {
-    if (!this.props.investor) {
+    if (!this.props.investor || !this.props.investor.U) {
       return
     }
     if (this.props.investor !== prevProps.investor) {

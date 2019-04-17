@@ -57,7 +57,7 @@ class InvestorProjectCard extends Component {
               </div>
               <div className="col-12 desc-location">
                 <div className="projects-location-icon location-icon" />
-                {project.State}, {project.Country}
+                <a href={project.MapLink}>{project.State}, {project.Country}</a>
               </div>
               <div className="col-12 desc-spec-value">{project.PanelSize}</div>
               <div className="col-12 desc-category">RESEARCH PROJECT</div>
