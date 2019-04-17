@@ -10,7 +10,7 @@ const InvestedProjects = props => (
         <div className="container">
           <div className="row">
             {props.projects.filter((v, i, a) => a.indexOf(v) === i).map(project => {
-              return <InvestorProjectCard projectId={project} key={project} />
+              return <InvestorProjectCard projectId={project} key={project} investor={props.investor}/>
             })}
           </div>
         </div>

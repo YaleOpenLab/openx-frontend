@@ -12,7 +12,7 @@ const DivBox = props => {
           }`}
         >
           {props.actionLabel ? (
-            <div className="solar-form-action-label">{props.actionLabel}</div>
+            <div className="solar-form-action-label"><a href={props.link}>{props.actionLabel}</a></div>
           ) : null}
           <div className="solar-input-div-box full-box">
             <div className="solar-input-div-left-icon ">
@@ -26,7 +26,7 @@ const DivBox = props => {
               />
             </div>
             <div className="solar-input-div-text solar-input-full-text">
-              {props.text}
+              <a href={props.link}>{props.text}</a>
             </div>
             <div className="solar-input-div-icon ">
               <div className={props.rightIcon} />
@@ -45,7 +45,7 @@ const DivBox = props => {
               className="col-4 solar-input-div solar-input-multi"
               key={item.label}
             >
-              <div className="solar-form-action-label">{item.actionLabel}</div>
+              <div className="solar-form-action-label"><a href={item.actionLabelLink}>{item.actionLabel}</a></div>
               <div className="solar-input-div-box open-box-light">
                 <div className="solar-input-div-left-icon ">
                   <div
@@ -57,7 +57,7 @@ const DivBox = props => {
                     }
                   />
                 </div>
-                <div className="solar-input-div-text">{item.text}</div>
+                <div className="solar-input-div-text"><a href={item.link} target="_blank" rel="noopener noreferrer">{item.text}</a></div>
                 <div className="solar-input-div-hidden " />
               </div>
               <label className="solar-form-label header-label">
@@ -72,7 +72,7 @@ const DivBox = props => {
               key={item.label}
             >
               <div className="solar-form-action-label label-right">
-                {item.actionLabel}
+                <a href={item.actionLabelLink} target="_blank" rel="noopener noreferrer">{item.actionLabel}</a>
               </div>
               <div className="solar-input-div-box open-box-light">
                 <div className="solar-input-div-hidden " />
