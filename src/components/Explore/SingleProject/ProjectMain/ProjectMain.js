@@ -29,7 +29,7 @@ const ProjectMain = props => {
             <div className="desc-title">{data.Name}</div>
             <div className="desc-location">
               <div className="projects-location-icon location-icon"/>
-              {data.State}, {data.Country}
+              <a href={data.MapLink} target="_blank" rel="noopener noreferrer">{data.State}, {data.Country}</a>
             </div>
             <div className="projects-description__spread">
               <div className="desc-category desc-category-separator desc-cat-category">
