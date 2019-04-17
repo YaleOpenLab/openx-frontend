@@ -20,14 +20,14 @@ const Overview = props => {
         for (let item of Object.entries(data.ExecutiveSummary[key])) {
           //todo: remove this check when data changes
           items.push({
-            value: item[0] === "capex" || item[0] === "first-loss-escrow" ? "$ " + item[1] : item[1],
+            value: item[0] === "capex" || item[0] === "first-loss-escrow" ? "$ " + item[1] : (item[0] === "hardware ratio" || item[0] === "return (tey)" ? item[1] + "%" : item[1]),
             desc: caseToName(item[0])
           });
         }
         if (key === "SustainabilityMetrics") {
           items.push({
-            value: "Resiliency Rating",
-            desc: data.ResilienceRating
+            value: data.ResilienceRating * 100 + "%",
+            desc: "Resiliency Rating",
           });
         }
       }

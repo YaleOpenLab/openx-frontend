@@ -1,10 +1,19 @@
 import React from "react";
 import "./AboutComponent.scss";
 import UnderDevelopment from "../General/UnderDevelopment/UnderDevelopment";
+import IconBuild from "../../assets/images/ic-build.svg";
 
 const AboutComponent = () => (
   <React.Fragment>
-    <UnderDevelopment />
+    <div className="container UnderDevelopment">
+      <img src={IconBuild} alt="Build Icon" />
+      <h2>The About and Docs Section is Under Development</h2>
+        <p>
+          The current platform is in the prototype stage. Many features that we wish
+          to build will be deployed in the second phase of development. With more
+          support, we will build faster
+        </p>
+    </div>
     <div className="container">
       <div className="about-container">
         <div className="about-content">
@@ -39,7 +48,7 @@ const AboutComponent = () => (
               </button>
             </a>
             <a
-              href="https://github.com/YaleOpenLab"
+              href="https://github.com/YaleOpenLab/openx"
               target="_blank"
               rel="noopener noreferrer"
             >

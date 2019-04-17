@@ -17,7 +17,7 @@ const footer = props => (
             <div className="footer-info-sub-title">Disclaimer</div>
             <div className="footer-info-text">
               You have accessed this password protected site to explore it as a
-              work-in-project. You cannot invest real money in projects, and the
+              work-in-process project. You cannot invest real money in projects, and the
               projects currently showcased are not live investable opportunities
               with issued securities. Some of the showcased projects are
               fictional for the purpose of this demo and, while intending to be
@@ -27,7 +27,7 @@ const footer = props => (
             <div className="footer-info-sub-title">about</div>
             <div className="footer-info-text">
               The OpenSolar project is a collaborative effort between the
-              Digital Currency Initiative at the MIT Media Lab, and the Open
+              Digital Currency Initiative at the MIT Media Lab and the Open
               Innovation Lab at the Tsai Center for Innovative Thinking at Yale.
               Other partners and collaborators are also involved in making this
               project possible. Open source code can be accessed via GitHub.
