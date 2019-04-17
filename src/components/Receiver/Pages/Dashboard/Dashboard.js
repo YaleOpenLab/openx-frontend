@@ -130,6 +130,7 @@ class Dashboard extends Component {
       : null;
     const projects = receiver && receiver.ReceivedSolarProjects ? receiver.ReceivedSolarProjects.length : 0;
     const receiverProject = mockData.project;
+    const walletBalance = 604.25
     if (!receiver || !receiver.U) {
       return (
         <div className="receiver-dashboard">
@@ -168,10 +169,10 @@ class Dashboard extends Component {
                     title="your energy"
                     items={[
                       {
-                        value: receiver.TotalEnergyCP,
+                        value: receiver.TotalEnergyCP !== 0 ? receiver.TotalEnergyCP: '845kWh',
                         desc: 'TOTAL IN CURRENT PERIOD'
                       },
-                      {value: receiver.TotalEnergy, desc: 'ALL TIME'}
+                      {value: receiver.TotalEnergy !== 0 ? receiver.TotalEnergy: '10,150MWh', desc: 'ALL TIME'}
                     ]}
                     icon="solar-panel-icon"
                   />
@@ -182,7 +183,7 @@ class Dashboard extends Component {
                     title="YOUR WALLET"
                     items={[
                       // todo: integrate this with API
-                      {value: 0, desc: 'PROJECT WALLET BALANCE'},
+                      {value: walletBalance, desc: 'PROJECT WALLET BALANCE'},
                       {value: receiver.Autoreload ? 'True' : 'False', desc: 'AUTO RE-LOAD'}
                     ]}
                     icon="wallet-icon"
@@ -194,7 +195,7 @@ class Dashboard extends Component {
                     items={[
                       // todo: integrate this with API
                       {value: 'None', desc: 'NOTIFICATION'},
-                      {value: 'None', desc: 'ACTIONS REQUIRED'}
+                      {value: 'Confirm Auto-Pay', desc: 'ACTIONS REQUIRED'}
                     ]}
                     icon="flag-icon"
                   />
@@ -232,7 +233,7 @@ class Dashboard extends Component {
                     </div>
                     <p>{receiverProject.description}</p>
                     <ul>
-                      <li>Resaerch Project on Smart Financing</li>
+                      <li>Research Project on Smart Financing</li>
                       <li>Critical loads to the school admin's building</li>
                       <li>Grid tied and storage</li>
                     </ul>
@@ -314,7 +315,7 @@ class Dashboard extends Component {
                     <DetailContainer
                       icon={IconWallet}
                       title={'Project Funds Wallet(***6HETY2)'}
-                      type={'$604.25'}
+                      type={walletBalance}
                       action={'Re-Loads from main account'}
                     />
                     <DetailContainer

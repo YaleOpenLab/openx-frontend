@@ -8,7 +8,7 @@ const UnderDevelopment = props => (
       <img src={IconBuild} alt="Build Icon" />
       <h2>This Section is Under Development</h2>
       <p>
-        The current platform is in prototype stage. Many features that we wish
+        The current platform is in the prototype stage. Many features that we wish
         to build will be deployed in the second phase of development. With more
         support, we will build faster
       </p>
