@@ -7,6 +7,14 @@ const TermsTable = props => {
   let items = null;
 
   if (props.data) {
+    for (var i = 0 ; i < props.data.length-1;  i ++ ) {
+      if (props.data[i].Variable < props.data[i+1].Variable) {
+        var temp = props.data[i].Variable
+        props.data[i].Variable = props.data[i+1].Variable
+        props.data[i+1].Variable = temp;
+      }
+    }
+
     items = props.data.map(item => {
       return (
         <tr key={item.Value}>
