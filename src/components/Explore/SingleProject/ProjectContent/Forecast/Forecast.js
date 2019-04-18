@@ -38,7 +38,7 @@ const Forecast = props => (
                 <div className="forecast-info-content">
                   {props.data.FEText.stages.graph.stageDescription}
                   <div className="learn-more">
-                    Learn more >
+                    <a href="#">Learn more ></a>
                   </div>
                 </div>
               )}
@@ -48,7 +48,7 @@ const Forecast = props => (
               props.data.FEText.stages &&
               props.data.FEText.stages.url && (
                 <NavLink to={props.data.FEText.stages.url} className="small">
-                  FULL TIMELINE RECORDS >
+                  <a href="#">FULL TIMELINE RECORDS ></a>
                 </NavLink>
               )}
           </div>
@@ -65,7 +65,7 @@ const Forecast = props => (
               <div className="restricted-info-sub-title">access restricted</div>
               <div className="forecast-info-content">
                 Access to this section is reserved for contract parties. Either
-                link-to-login you are not logged in, or you don’t have access
+                you are not logged in or you don’t have access
                 credentials.
               </div>
             </div>

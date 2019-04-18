@@ -30,6 +30,10 @@ class InvestorProjectCard extends Component {
       rating = project.Rating;
       commValue = execSummary["SustainabilityMetrics"]["community value"];
     }
+    var returns = 0 ;
+    if (!(this.props.investor.AllTimeReturns == null || this.props.investor.AllTimeReturns[project.Index] == null )) {
+      returns = this.props.investor.AllTimeReturns[project.Index];
+    }
     return (
       <div className="col-12 col-sm-6 col-md-4 investor-project-card">
         <div className="projects-box">
@@ -66,7 +70,7 @@ class InvestorProjectCard extends Component {
           <SummaryCards
             items={[
               { value: investedValue, desc: "your investment" },
-              { value: "Donation", desc: "your return" },
+              { value: returns, desc: "your return" },
               { value: rating, desc: "investment rating" },
               { value: commValue, desc: "community value" },
               { value: "No immediate action", desc: "project actions" }
