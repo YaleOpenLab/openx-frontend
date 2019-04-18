@@ -7,6 +7,12 @@ import { STAGES } from '../../../../helpers/enums/stages';
 const ProjectMain = props => {
   const data = props.data;
   const batteryArray = data.Batteries.split(' ');
+  var bStorage = data.ExplorePageSummary.Storage;
+  if (batteryArray != null ) {
+    if (batteryArray[batteryArray.length - 1] != "" ) {
+      bStorage = batteryArray[batteryArray.length - 1];
+    }
+  }
 
   return (
     <div className="container project-main">
@@ -70,8 +76,8 @@ const ProjectMain = props => {
                       <h6>Solar</h6>
                     </div>
                     <div className="-dark-color">
-                      <p>{batteryArray ? batteryArray[batteryArray.length - 1] : ''}</p>
-                      <h6>Storage</h6>
+                      <p>{bStorage}</p>
+                      <h6>Battery</h6>
                     </div>
                     <div>
                       <p>{data.ExplorePageSummary.Return}</p>

@@ -10,7 +10,7 @@ const Documents = props => (
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-11">
-            <p className="mb-5">Below are the links to the contracts associated to the project. Paper based legal contract, agreements and presentation are stored in a decentralised database, and their digital fingerprint (or hash) are stored in the blockchain ledger of the project to ensure immutability. Click on the icons below to access the documents. Some contract documents are self executed by blockchain-based smart contracts that you can access below. </p>
+            <p className="mb-5">Below are links to contracts associated with the project. Paper based legal contracts, agreements and presentation are stored digitally in a decentralised database and their digital fingerprints (hashes) are stored on the blockchain to ensure immutability. Some contract documents are self generated and executed by blockchain-based smart contracts. Click on the icons below to access the documents.</p>
           </div>
         </div>
         {/*todo: integrate*/}

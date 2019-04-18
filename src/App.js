@@ -15,7 +15,6 @@ import AccessDemo from "./components/AccessDemo/AccessDemo";
 import Storage from './services/Storage';
 import UnderDevelopmentPage from './pages/UnderDevelopmentPage/DeveloperContainer';
 
-
 class App extends Component {
   state = {
     displayDemo: !localStorage.getItem("access-granted")

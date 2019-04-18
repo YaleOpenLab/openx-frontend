@@ -1,6 +1,8 @@
 import React from "react";
 import "./Footer.scss";
 import Logo from "../../UI/Logo/Logo";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCopyright } from '@fortawesome/free-solid-svg-icons'
 
 const footer = props => (
   <div>
@@ -21,7 +23,7 @@ const footer = props => (
               projects currently showcased are not live investable opportunities
               with issued securities. Some of the showcased projects are
               fictional for the purpose of this demo and, while intending to be
-              realistic, any similarity with reality is coincidental. OpenSolar
+              realistic, any similarity with reality is purely coincidental. OpenSolar
               is not a registered broker dealer.
             </div>
             <div className="footer-info-sub-title">about</div>
@@ -30,8 +32,8 @@ const footer = props => (
               Digital Currency Initiative at the MIT Media Lab and the Open
               Innovation Lab at the Tsai Center for Innovative Thinking at Yale.
               Other partners and collaborators are also involved in making this
-              project possible. Open source code can be accessed via GitHub.
-              OpenX is the underlying ‘platform of platforms’ framework that
+              project possible. Open source code can be accessed via <a href="https://github.com/YaleOpenLab/openx" target="_blank" rel="noopener noreferrer">GitHub</a>
+            . OpenX is the underlying ‘platform of platforms’ framework that
               drives the OpenSolar instance and can be utilized for other
               peer-based financing platforms.
             </div>
@@ -40,7 +42,7 @@ const footer = props => (
       </div>
       <div className="footer-sources">
         <div className="footer-text-div">
-          Copyright 2019. Yale Openlab & MIT Media Lab. All rights reserved
+          <FontAwesomeIcon icon={faCopyright} /> 2019, Yale Openlab & MIT Media Lab. All rights reserved
         </div>
         <div className="footer-project-logo-div">
           <div className="footer-project-logo">
