@@ -26,6 +26,7 @@ import { mockData } from './mockData';
 import SummaryCards from '../../../General/SummaryCards/SummaryCards';
 import { connect } from 'react-redux';
 import { fetchReceiver } from '../../../../pages/Receiver/store/actions';
+import axios from 'axios';
 
 class Dashboard extends Component {
   constructor(props) {
@@ -112,6 +113,32 @@ class Dashboard extends Component {
     this.props.fetchReceiver();
   };
 
+  componentDidUpdate = prevProps => {
+    if (!this.props.receiver || !this.props.receiver.U) {
+      return
+    }
+    if (this.props.receiver !== prevProps.receiver) {
+      axios
+        .get(
+          `https://api.openx.solar/user/balance/asset?username=${
+            this.props.receiver.U.Username
+          }&pwhash=${this.props.receiver.U.Pwhash}&asset=STABLEUSD`
+        )
+        .then(res => {
+          const balance = res.data;
+          if (balance.Code != 404) {
+            this.setState({
+              balance: Number(balance)
+            });
+          } else {
+            this.setState({
+              balance: 0
+            });
+          }
+        });
+    }
+  }
+
   onButtonClick = active => {
     this.setState({
       activeButton: active
@@ -130,7 +157,21 @@ class Dashboard extends Component {
       : null;
     const projects = receiver && receiver.ReceivedSolarProjects ? receiver.ReceivedSolarProjects.length : 0;
     const receiverProject = mockData.project;
-    const walletBalance = 604.25
+    const walletBalance = "$" + this.state.balance;
+    const origPubkey = this.props.receiver && this.props.receiver.U
+      ? this.props.receiver.U.PublicKey : 'mockkey'
+    const publicKey = this.props.receiver && this.props.receiver.U
+      ? "****" + this.props.receiver.U.PublicKey.slice(-20) : 'mockkey';
+    const pkExplorerLink = "https://testnet.steexp.com/account/" + origPubkey;
+    const origEthAddress = this.props.receiver && this.props.receiver.U && this.props.receiver.U.EthereumWallet
+      ? this.props.receiver.U.EthereumWallet.Address : 'mockkey';
+    const EthAddress = this.props.receiver && this.props.receiver.U && this.props.receiver.U.EthereumWallet
+      ? "Carbon & Climate Certificates (****" + this.props.receiver.U.EthereumWallet.Address.slice(-5) + ")" : 'mockkey';
+    const ethExplorerLink = "https://ropsten.etherscan.io/address/" + origEthAddress;
+    const secondaryPubkey = this.props.receiver && this.props.receiver.U && this.props.receiver.U.SecondaryWallet
+      ? this.props.receiver.U.SecondaryWallet.PublicKey : 'mockkey';
+    const secondaryPkExplorerLink = "https://testnet.steexp.com/account/" + secondaryPubkey;
+    const swytchERCs = "0" + " ERCs";
     if (!receiver || !receiver.U) {
       return (
         <div className="receiver-dashboard">
@@ -292,7 +333,7 @@ class Dashboard extends Component {
                       icon={IconBenef}
                       title={'You are the Property Owner'}
                       type={'Land & Building'}
-                      action={'SU Pasto, Aibonito'}
+                      action={'S.U Pasto School, Aibonito'}
                     />
                     <button className="see-more">SEE ALL PARTIES INVOLVED ></button>
                     <h4 className="section-title">Project Stage & Actions</h4>
@@ -309,23 +350,27 @@ class Dashboard extends Component {
                       action={'No actions logged'}
                     />
                     <button className="see-more">
-                      SEE PROJECT DEVELOPMENT TIMELINE >
+                      <a href="/project/4">SEE PROJECT DEVELOPMENT TIMELINE ></a>
                     </button>
                     <h4 className="section-title">Project Wallets</h4>
                     <DetailContainer
                       icon={IconWallet}
-                      title={'Project Funds Wallet(***6HETY2)'}
+                      title={publicKey}
+                      titleLink={pkExplorerLink}
                       type={walletBalance}
                       action={'Re-Loads from main account'}
+                      actionLink={secondaryPkExplorerLink}
                     />
                     <DetailContainer
                       icon={IconContractor}
-                      title={'Carbon & Climate Certificates (***8CERT4)'}
-                      type={'1250'}
-                      action={'Swytch.io erc721'}
+                      title={EthAddress}
+                      titleLink={ethExplorerLink}
+                      type={swytchERCs}
+                      action={'Swytch.io ERC-721'}
+                      actionLink="https://swytch.io"
                     />
                     <button className="see-more">
-                      GO TO PROFILE AND WALLET SETUP >
+                      <a href="/profile/settings">GO TO PROFILE AND WALLET SETUP ></a>
                     </button>
                     <h4 className="section-title">Bills & Rewards</h4>
                     <DetailContainer
@@ -348,7 +393,7 @@ class Dashboard extends Component {
                       icon={IconSolar}
                       title={'Jingko / Schneider'}
                       type={'1 kW | 1.25 DC/AC'}
-                      action={'serial: 6udhui378djdh738j39d9'}
+                      action={'serial: 6UDHUI378DJDH738J39D9'}
                     />
                     <DetailContainer
                       icon={IconBox}
@@ -404,7 +449,7 @@ class Dashboard extends Component {
                 <div className="contracts-container">
                   <div className="container">
                     <h3 className="title-primary">
-                      YOUR PROJECT’s SMART SOLAR CONTRACTS
+                      YOUR PROJECT’S SMART SOLAR CONTRACTS
                     </h3>
                     {/*todo: integrate*/}
                     <DocumentationContainer documents={[]}/>

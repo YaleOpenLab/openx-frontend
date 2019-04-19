@@ -13,15 +13,15 @@ const DetailContainer = (props) => {
               <img src={props.icon} alt="icon" className="icon"/>
               <img src={IconInfo} alt="info"/>
               <p>
-                {props.title}
+                <a href={props.titleLink} target="_blank" rel="noopener noreferrer">{props.title}</a>
               </p>
             </div>
           </div>
           <div className="col-lg-6">
             <div className="flexbox -space">
               <div className="text-wrapper">
-              <h4>{props.type}</h4>
-              <p className="-light">{props.action}</p>
+              <h4><a href={props.titleLink} target="_blank" rel="noopener noreferrer">{props.type}</a></h4>
+              <p className="-light"><a href={props.actionLink} target="_blank" rel="noopener noreferrer">{props.action}</a></p>
               </div>
               <button><img src={IconDoc} alt="doc"/></button>
             </div>
