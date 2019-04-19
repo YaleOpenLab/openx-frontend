@@ -129,7 +129,7 @@ const ProfileTab = props => (
                             >
                               <option />
                               <option>USA</option>
-                              <option>Georgia</option>
+                              <option>Rwanda</option>
                             </select>
                             <label
                               htmlFor="country"

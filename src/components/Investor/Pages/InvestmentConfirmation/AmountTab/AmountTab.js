@@ -4,11 +4,13 @@ import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 
 const AmountTab = props => {
+  const maxInvestment = props.project.TotalValue - props.project.MoneyRaised ;
+  const seedInvestmentCap = props.project.SeedInvestmentCap;
   const InvestAmountSchema = Yup.object().shape({
     investAmount: Yup.number()
-      .min(100, "Smallest Investment possible is $100")
-      .max(1000000000, "Amount is too high")
-      .required("Investment Amount Can not be empty")
+      .min(100, "Smallest investment is $100")
+      .max(props.project.Stage < 4 ? seedInvestmentCap < maxInvestment ? seedInvestmentCap : maxInvestment : maxInvestment, props.project.Stage < 4 ? seedInvestmentCap < maxInvestment? "Amount is higher than seed investment cap": "Amount greater than investment required" : "Amount greater than investment required")
+      .required("Investment amount can not be empty")
   });
   return (
     <div className="invesc-confirm-amount">
@@ -29,7 +31,7 @@ const AmountTab = props => {
                 {({ errors, touched }) => (
                   <Form className="col-8">
                     <div className="solar-input-div">
-                      <span className="invest-confirm-input-icon">usd $</span>
+                      <span className="invest-confirm-input-icon">USD</span>
                       <Field
                         type="number"
                         className={`solar-form-input invest-confirm-input ${
@@ -45,7 +47,8 @@ const AmountTab = props => {
                         htmlFor="investAmount"
                         className="solar-form-label invest-confirm-label"
                       >
-                        minimum - $100 usd
+                        Investment Range: $100 to
+                        ${props.project.Stage < 4 ? seedInvestmentCap: maxInvestment}
                       </label>
                       {errors.investAmount && touched.investAmount && (
                         <div className="solar-form-error-text">
