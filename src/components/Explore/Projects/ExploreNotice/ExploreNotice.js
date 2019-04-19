@@ -14,14 +14,14 @@ const ExploreNotice = props => {
         <div className="explore-notice-text">
           <p>
             If you are an investor, you can explore projects that are eligible
-            to invest, with different risks and rewards depending on what stage
-            that project is in. Projects in stage 1 have high risk and may
+            for investment, each having a different set of risks and rewards depending on what stage
+            the project is in. Projects in stage 1 have high risk and may
             eventually not be developed, but require angel support. Projects in
             stage 4 have gone through due diligence and have defined budgets and
             contracts in place.
           </p>
           <p>
-            If you are a developer, or solar service provider, explore projects
+            If you are a developer, or solar service provider, you can explore projects
             that are currently open for tender.
           </p>
         </div>

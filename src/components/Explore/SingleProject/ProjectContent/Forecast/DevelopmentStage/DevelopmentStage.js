@@ -4,7 +4,9 @@ import { STAGES } from '../../../../../../helpers/enums/stages';
 const DevelopmentStage = props => {
   const data = props.data;
   let stageItems = null;
-
+  var aStyle = {
+    color: 'inherit'
+  };
   if (data.stages) {
     stageItems = data.stages.map(stage => {
       let stageClass = "ds-full";
@@ -31,7 +33,7 @@ const DevelopmentStage = props => {
             <div className="ds-dashed-line-half-left" />
           )}
           <div className="ds-title">
-            <a href="#" title={stage.index === 0? "Stage 0 description" :
+            <a href="#" style={aStyle} title={stage.index === 0? "Stage 0 description" :
               stage.index === 1 ? "The project is in stage 1, where the project idea is still udner discussion but main parties hae defined and verbal agreements have been achieved. Pre feasibility assessments are being doen in order to have a RFP to receive formal quotes from developers. This stage has high investment risk since formal contracts and final quotes have not been defined." :
               stage.index === 2 ? "The project is in stage 2, where overall project idea and parties have been defined but quotes are needed to advance on a defined budget. This stage means there is already a 'Request for Proposal' document and has cleared feasbility reports. If the report uses a public tender, contractors are able to bid through the platform." :
               stage.index === 3 ? "Stage 3 description" :
