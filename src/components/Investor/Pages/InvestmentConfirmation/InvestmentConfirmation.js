@@ -92,7 +92,12 @@ class InvestmentConfirmation extends Component {
   };
 
   validateForm = value => {
-    return !(value > this.state.balance || value < 100);
+    return !(
+        value > this.state.balance ||
+        value < 100 ||
+        (this.state.project.Stage < 4 && value > this.state.project.SeedInvestmentCap) ||
+        value > this.state.project.TotalValue - this.state.project.MoneyRaised
+      );
   };
 
   render() {
@@ -125,6 +130,7 @@ class InvestmentConfirmation extends Component {
                   key={1}
                   handleChange={this.handleInvestmentChange}
                   investmentValue={this.state.investmentAmount}
+                  project={project}
                   account={investor.U}
                   usdbalance = {balance}
                 />
