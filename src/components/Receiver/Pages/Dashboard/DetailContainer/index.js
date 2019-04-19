@@ -21,7 +21,13 @@ const DetailContainer = (props) => {
             <div className="flexbox -space">
               <div className="text-wrapper">
               <h4><a href={props.titleLink} target="_blank" rel="noopener noreferrer">{props.type}</a></h4>
-              <p className="-light"><a href={props.actionLink} target="_blank" rel="noopener noreferrer">{props.action}</a></p>
+              {
+                props.action == "Re-Loads from main account" ?
+                <p className="-light">Re-Loads from <a href={props.actionLink} target="_blank" rel="noopener noreferrer">main account</a></p>
+                : props.action == "Swytch.io ERC-721" ?
+                <p className="-light"><a href={props.actionLink} target="_blank" rel="noopener noreferrer">Swytch.io </a><a href="http://erc721.org/" target="_blank" rel="noopener noreferrer">ERC-721</a></p>
+                : <p className="-light"><a href={props.actionLink} target="_blank" rel="noopener noreferrer">{props.action}</a></p>
+              }
               </div>
               <button><img src={IconDoc} alt="doc"/></button>
             </div>

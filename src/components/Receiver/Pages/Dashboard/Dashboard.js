@@ -386,7 +386,7 @@ class Dashboard extends Component {
                       action={'Estimated full acquisition: May 2021'}
                     />
                     <button className="see-more">
-                      SEE PAYMENT HISTORY & OWNERSHIP RECORDS >
+                      <a href={pkExplorerLink} target="_blank" rel="noopener noreferrer">SEE PAYMENT HISTORY</a> & OWNERSHIP RECORDS >
                     </button>
                     <h4 className="section-title">System & Device Details</h4>
                     <DetailContainer
