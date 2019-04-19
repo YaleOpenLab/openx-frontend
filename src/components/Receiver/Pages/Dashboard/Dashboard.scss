@@ -237,7 +237,7 @@
         display: inline-block;
         text-align: left;
         padding: 0 $pixel-base * 0.5;
-        
+
         @media (max-width: 576px) {
           flex: 0 50%;
           width: 50%;
@@ -289,7 +289,7 @@
       text-align: left;
       padding: 0 0 $pixel-base * 2;
       border-bottom: 1px solid #dfdcdc;
-      
+
       @media (min-width: 992px) {
         padding-left: $pixel-base * 2;
       }
@@ -385,7 +385,7 @@
           cursor: pointer;
           outline: none;
           transition: 0.25s;
-          
+
           @media (max-width: 991px) {
             margin: $pixel-base * 2 $pixel-base * 2 0;
           }
@@ -481,7 +481,7 @@
       animation: scroll-reveal 4s ease-out forwards;
     }
   }
-  
+
   @keyframes dropdown {
    from {
      height: 0;
@@ -491,7 +491,7 @@
       height: 8000px;
     }
   }
-  
+
   @keyframes scroll-reveal {
     0% {
       display: none;
@@ -506,7 +506,7 @@
       opacity: 1;
     }
   }
-  
+
   @keyframes hover {
     0%{
       right: 100%;
@@ -533,4 +533,8 @@
       width: 100%;
     }
   }
+}
+
+a {
+  color: inherit;
 }
