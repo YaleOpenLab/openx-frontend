@@ -11,9 +11,10 @@ var options = {
   cert: cert,
 };
 
-https.createServer(options, app).listen(443);
-http.createServer(app).listen(80); // spawn on 80 for redirects
 app.use(function(req, res, next) {
+  if (req.headers.host.match(/^www/) == null) {
+    res.redirect('https://www.' + req.headers.host + req.url, 301);
+  }
   if (req.secure) {
     next();
   } else {
@@ -25,3 +26,6 @@ app.use(express.static(path.join(__dirname, 'build'))); // link to the static di
 app.get('/*', function(req, res) { // start the server and redirect all subdomains at / to the underlying react app
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
+
+https.createServer(options, app).listen(443);
+http.createServer(app).listen(80); // spawn on 80 for redirects
