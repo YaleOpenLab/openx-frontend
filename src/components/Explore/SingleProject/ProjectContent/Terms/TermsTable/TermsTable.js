@@ -9,9 +9,9 @@ const TermsTable = props => {
   if (props.data) {
     for (var i = 0 ; i < props.data.length-1;  i ++ ) {
       if (props.data[i].Variable < props.data[i+1].Variable) {
-        var temp = props.data[i].Variable
-        props.data[i].Variable = props.data[i+1].Variable
-        props.data[i+1].Variable = temp;
+        var temp = props.data[i]
+        props.data[i] = props.data[i+1]
+        props.data[i+1] = temp;
       }
     }
 

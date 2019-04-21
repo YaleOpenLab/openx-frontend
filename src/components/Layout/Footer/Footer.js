@@ -46,19 +46,7 @@ const footer = props => (
         </div>
         <div className="footer-project-logo-div">
           <div className="footer-project-logo">
-            <Logo projectName="s" type="white" />
-          </div>
-          <div className="footer-border-left" />
-          <div className="footer-project-logo">
             <Logo projectName="x" type="white" />
-          </div>
-          <div className="footer-border-left" />
-          <div className="footer-project-logo">
-            <Logo projectName="y" type="white" />
-          </div>
-          <div className="footer-border-left" />
-          <div className="footer-project-logo">
-            <Logo projectName="z" type="white" />
           </div>
         </div>
       </div>

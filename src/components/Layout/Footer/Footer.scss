@@ -60,6 +60,7 @@ $footer-background: rgba(216, 216, 216, 0.38);
       justify-content: center;
       .footer-project-logo {
         float: left;
+        margin-left: 100px;
         align-self: center;
         padding: 0 $pixel-base * 2 0 $pixel-base * 2;
       }

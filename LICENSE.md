@@ -1,10 +1,10 @@
 The MIT License (MIT)
 
-Copyright (c) 2018-2019 Yale OpenLab
-Copyright (c) 2018-2019 MIT Digital Currency Initiative
-Copyright (c) 2018-2019 Martin Wainstein
-Copyright (c) 2019 Token Commons Foundation
-Copyright (c) 2019 Contract Zero LLC
+Copyright (c) 2018-2019 Yale OpenLab  
+Copyright (c) 2018-2019 MIT Digital Currency Initiative  
+Copyright (c) 2018-2019 Martin Wainstein  
+Copyright (c) 2019 Token Commons Foundation  
+Copyright (c) 2019 Contract Zero LLC  
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

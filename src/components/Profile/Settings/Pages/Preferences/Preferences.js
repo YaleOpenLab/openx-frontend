@@ -107,22 +107,22 @@ class Preferences extends Component {
                     handleChange={() => this.handleToggleChange("switchButton2")}
                   />
                   <SwitchButton
-                    label="Enable spaceship mode"
+                    label="Enable monthly notifications"
                     checked={this.state.switchButton3}
                     handleChange={() => this.handleToggleChange("switchButton3")}
                   />
                   <SwitchButton
-                    label="Enable Iron Man suit"
+                    label="Make my profile public"
                     checked={this.state.switchButton4}
                     handleChange={() => this.handleToggleChange("switchButton4")}
                   />
                   <SwitchButton
-                    label="Enable Mystic Stone"
+                    label="Share profile between openx platforms"
                     checked={this.state.switchButton5}
                     handleChange={() => this.handleToggleChange("switchButton5")}
                   />
                   <SwitchButton
-                    label="Enable Magic Hammer"
+                    label="Subscribe to monthly openx newsletter"
                     checked={this.state.switchButton6}
                     handleChange={() => this.handleToggleChange("switchButton6")}
                   />
