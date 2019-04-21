@@ -114,8 +114,9 @@ class Dashboard extends Component {
   };
 
   componentDidUpdate = prevProps => {
+    console.log("RECEIVER: ", this.props.receiver);
     if (!this.props.receiver || !this.props.receiver.U) {
-      return
+      return null
     }
     if (this.props.receiver !== prevProps.receiver) {
       axios
@@ -172,7 +173,7 @@ class Dashboard extends Component {
       ? this.props.receiver.U.SecondaryWallet.PublicKey : 'mockkey';
     const secondaryPkExplorerLink = "https://testnet.steexp.com/account/" + secondaryPubkey;
     const swytchERCs = "0" + " ERCs";
-    if (!receiver || !receiver.U) {
+    if (!receiver || !receiver.U ) {
       return (
         <div className="receiver-dashboard">
           <div className="title-container -border">
@@ -182,8 +183,76 @@ class Dashboard extends Component {
           </div>
         </div>
       );
-    }
-    if (receiver.U.Name === "S.U. Pasto School") { // hardcode for now, change later
+    } else if (receiver.ReceivedSolarProjects === null) {
+        return (
+          <div className="receiver-dashboard">
+            <div className="title-container -border">
+              <div className="container">
+                <h3 className="container-title">Summary</h3>
+              </div>
+            </div>
+            {receiver && (
+              <div className="profile-section">
+                <div className="container">
+                  <div className="row">
+                    <div className="col-sm-6 col-lg-3 ">
+                      <SummaryCards
+                        title="your profile"
+                        items={[
+                          {value: receiver.U.Name, desc: 'beneficiary name'},
+                          {value: projects, desc: 'active projects'}
+                        ]}
+                        icon="beneficiary-icon"
+                      />
+                    </div>
+                    <div className="col-sm-6 col-lg-3 ">
+                      <SummaryCards
+                        title="your energy"
+                        items={[
+                          {
+                            value: receiver.TotalEnergyCP !== 0 ? receiver.TotalEnergyCP: '845kWh',
+                            desc: 'TOTAL IN CURRENT PERIOD'
+                          },
+                          {value: receiver.TotalEnergy !== 0 ? receiver.TotalEnergy: '10,150MWh', desc: 'ALL TIME'}
+                        ]}
+                        icon="solar-panel-icon"
+                      />
+                    </div>
+
+                    <div className="col-sm-6 col-lg-3 ">
+                      <SummaryCards
+                        title="YOUR WALLET"
+                        items={[
+                          // todo: integrate this with API
+                          {value: walletBalance, desc: 'PROJECT WALLET BALANCE'},
+                          {value: receiver.Autoreload ? 'True' : 'False', desc: 'AUTO RE-LOAD'}
+                        ]}
+                        icon="wallet-icon"
+                      />
+                    </div>
+                    <div className="col-sm-6 col-lg-3 ">
+                      <SummaryCards
+                        title="NOTIFICATIONS & ACTIONS"
+                        items={[
+                          // todo: integrate this with API
+                          {value: 'None', desc: 'NOTIFICATION'},
+                          {value: 'Confirm Auto-Pay', desc: 'ACTIONS REQUIRED'}
+                        ]}
+                        icon="flag-icon"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+            <div className="title-container -border">
+              <div className="container">
+                <h3 className="container-title">You do not have any Received Projects</h3>
+              </div>
+            </div>
+          </div>
+        )
+      } else {
     return (
       <div className="receiver-dashboard">
         <div className="title-container -border">
