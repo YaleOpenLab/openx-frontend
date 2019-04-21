@@ -46,7 +46,7 @@ const ProfileTab = props => (
                     Available:
                   </div>
                   <div className="col-6 invest-confirm-profile-values">
-                    <span className="-bigger">$ {props.usdbalance}</span>
+                    <span className="-bigger">$ {props.usdbalance || '0 (AE Enabled)'}</span>
                   </div>
                   <div className="col-12 invest-confirm-profile-info">
                     suggested max amount: $20'000

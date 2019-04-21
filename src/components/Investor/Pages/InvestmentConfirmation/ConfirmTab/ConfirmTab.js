@@ -34,7 +34,7 @@ const ConfirmTab = props => (
                   <div className="label-right">Available:</div>
                 </div>
                 <div className="col-4 invest-confirm-profile-values">
-                  <span className="-bigger">$ {props.usdbalance}</span>
+                  <span className="-bigger">$ {props.usdbalance || '0 (Auto-Exchange Enabled)'}</span>
                 </div>
               </div>
             </div>

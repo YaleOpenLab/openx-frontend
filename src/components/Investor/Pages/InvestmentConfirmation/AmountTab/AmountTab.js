@@ -77,7 +77,7 @@ const AmountTab = props => {
               </div>
               <div className="col-8 invest-confirm-value">
                 <div className="confirm-icon wallet-icon" />
-                  <div className="invest-confirm-value-text">$ {props.usdbalance}</div>
+                  <div className="invest-confirm-value-text">$ {props.usdbalance || '0 (Auto-Exchange Enabled)'}</div>
               </div>
             </div>
             <div className="col-12 invest-confirm-wrapper">

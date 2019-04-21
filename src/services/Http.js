@@ -24,7 +24,7 @@ export class Http {
   }
 
   static userRegister(name, username, pwd) {
-    const data = {name: name, username: username, pwd: pwd, seedpwd: pwd};
+    const data = {name: name, username: username, pwd: pwd, seedpwd: "x"};
     return this.get('user/register', data).pipe(
       mergeMap(() => this.get('investor/register', data)),
       mergeMap(() => this.get('recipient/register', data))
