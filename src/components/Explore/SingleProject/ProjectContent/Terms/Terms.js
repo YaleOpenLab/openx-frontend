@@ -49,7 +49,7 @@ class Terms extends Component {
                   </div>
                 </div>
                 </div>
-              <div className="col-12 security-note">
+              <div className="col-12 security-note" style={{marginTop: this.props.data.Terms.length == 9 ? '100px': '5px'}} >
                 <div className="security-title">security note</div>
                 <div className="security-text">
                   These terms are for demonstration purpose only. The current project does not correspond to an actual
