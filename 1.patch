@@ -1,0 +1,272 @@
+diff --git a/src/components/Receiver/Pages/Dashboard/Dashboard.js b/src/components/Receiver/Pages/Dashboard/Dashboard.js
+index 1ddeece..46df0e7 100644
+--- a/src/components/Receiver/Pages/Dashboard/Dashboard.js
++++ b/src/components/Receiver/Pages/Dashboard/Dashboard.js
+@@ -23,6 +23,7 @@ import DetailContainer from './DetailContainer';
+ import './Dashboard.scss';
+ import DocumentationContainer from '../../../General/DocumentationContainer/DocumentationContainer';
+ import { mockData } from './mockData';
++import { rwanda } from './rwanda';
+ import SummaryCards from '../../../General/SummaryCards/SummaryCards';
+ import { connect } from 'react-redux';
+ import { fetchReceiver } from '../../../../pages/Receiver/store/actions';
+@@ -158,6 +159,7 @@ class Dashboard extends Component {
+       : null;
+     const projects = receiver && receiver.ReceivedSolarProjects ? receiver.ReceivedSolarProjects.length : 0;
+     const receiverProject = mockData.project;
++    const rwandaProject = rwanda.project;
+     const walletBalance = "$" + this.state.balance;
+     const origPubkey = this.props.receiver && this.props.receiver.U
+       ? this.props.receiver.U.PublicKey : 'mockkey'
+@@ -183,7 +185,7 @@ class Dashboard extends Component {
+           </div>
+         </div>
+       );
+-    } else if (receiver.ReceivedSolarProjects === null) {
++    } else if (receiver.ReceivedSolarProjects === null && receiver.U.Email !== "rwandaenergy@test.com") {
+         return (
+           <div className="receiver-dashboard">
+             <div className="title-container -border">
+@@ -252,6 +254,242 @@ class Dashboard extends Component {
+             </div>
+           </div>
+         )
++      } else if (receiver.U.Email === "rwandaenergy@test.com") {
++        return (
++          <div className="receiver-dashboard">
++            <div className="title-container -border">
++              <div className="container">
++                <h3 className="container-title">Summary</h3>
++              </div>
++            </div>
++            {receiver && (
++              <div className="profile-section">
++                <div className="container">
++                  <div className="row">
++                    <div className="col-sm-6 col-lg-3 ">
++                      <SummaryCards
++                        title="your profile"
++                        items={[
++                          {value: receiver.U.Name, desc: 'beneficiary name'},
++                          {value: projects, desc: 'active projects'}
++                        ]}
++                        icon="beneficiary-icon"
++                      />
++                    </div>
++                    <div className="col-sm-6 col-lg-3 ">
++                      <SummaryCards
++                        title="your energy"
++                        items={[
++                          {
++                            value: receiver.TotalEnergyCP !== 0 ? receiver.TotalEnergyCP: '845kWh',
++                            desc: 'TOTAL IN CURRENT PERIOD'
++                          },
++                          {value: receiver.TotalEnergy !== 0 ? receiver.TotalEnergy: '10,150MWh', desc: 'ALL TIME'}
++                        ]}
++                        icon="solar-panel-icon"
++                      />
++                    </div>
++
++                    <div className="col-sm-6 col-lg-3 ">
++                      <SummaryCards
++                        title="YOUR WALLET"
++                        items={[
++                          // todo: integrate this with API
++                          {value: walletBalance, desc: 'PROJECT WALLET BALANCE'},
++                          {value: receiver.Autoreload ? 'True' : 'False', desc: 'AUTO RE-LOAD'}
++                        ]}
++                        icon="wallet-icon"
++                      />
++                    </div>
++                    <div className="col-sm-6 col-lg-3 ">
++                      <SummaryCards
++                        title="NOTIFICATIONS & ACTIONS"
++                        items={[
++                          // todo: integrate this with API
++                          {value: 'None', desc: 'NOTIFICATION'},
++                          {value: 'Confirm Auto-Pay', desc: 'ACTIONS REQUIRED'}
++                        ]}
++                        icon="flag-icon"
++                      />
++                    </div>
++                  </div>
++                </div>
++              </div>
++            )}
++            {true && (
++              <>
++                <div className="title-container -border">
++                  <div className="container">
++                    <h3 className="container-title">Your Projects</h3>
++                  </div>
++                </div>
++                <div className="projects-section">
++                  <div className="container">
++                    <div className="row no-gutters">
++                      <div className="col-lg-7 media-right">
++                        <img src={Placeholder} alt="placeholder"/>
++                      </div>
++                      <div className="col-lg-5 media-left">
++                        <button className="watch-button">
++                          <img src={iconWatch} alt="watch-icon"/>
++                        </button>
++                        <h5>{rwandaProject.type}</h5>
++                        <h3 className="title-primary">{rwandaProject.title}</h3>
++                        <h6>
++                          <img src={IconGps} alt="icon-gps"/>
++                          <a href="https://goo.gl/maps/x8Cpr1C37V6ckHNLA" target="_blank" rel="noopener noreferrer">{rwandaProject.loc}</a>
++                        </h6>
++                        <div className="flexbox">
++                          <p>{rwandaProject.category}</p>
++                          <button><a href="https://neighborly.com" target="_blank" rel="noopener noreferrer">Bond Issuer ></a></button>
++                        </div>
++                        <p>{rwandaProject.description}</p>
++                        <ul>
++                          <li>Village Energy Collective, Off-grid Rural Microgrid, Rwanda </li>
++                          <li>Siginificantly alleviates financial pressure due to low power cost, and new investment opportunities to democratize and own the green infrastructure of tomorrow</li>
++                          <li>Grid-tied with REC offtaking</li>
++                        </ul>
++                        <h4 className="owner">PROJECT ORIGINATOR</h4>
++                        <div className="flexbox -alt">
++                          <img src={AvatarPlaceholder} alt="placeholder"/>
++                          <h4>Eric Mbeba</h4>
++                        </div>
++                        <div className="progress-bar-container">
++                          <div className="flexbox -no-spacing">
++                            <p className="progress-donated">
++                              $ {rwandaProject.donated}
++                            </p>
++                            <p className="progress-total">
++                              U$S {rwandaProject.total}
++                            </p>
++                          </div>
++                          <ProgressBar percentage={100}/>
++                        </div>
++                        <div className="stats">
++                          <div className="stat-container">
++                            <h6>{rwandaProject.return}</h6>
++                            <p>RETURN</p>
++                          </div>
++                          <div className="stat-container">
++                            <h6>{rwandaProject.benefit}%</h6>
++                            <p>TAX BENEFIT</p>
++                          </div>
++                          <div className="stat-container">
++                            <h6>{rwandaProject.maturity}</h6>
++                            <p>MATURITY</p>
++                          </div>
++                          <div className="stat-container">
++                            <h6>{rwandaProject.investBy}</h6>
++                            <p>INVEST BY</p>
++                          </div>
++                        </div>
++                      </div>
++                    </div>
++                  </div>
++                </div>
++                {this.state.dropdown && (
++                  <div className="dropdown-wrapper">
++                    <div className="details-container">
++                      <h3 className="title-primary">YOUR PROJECT DETAILS</h3>
++                      <h4 className="sub-title">{rwandaProject.title}</h4>
++                      <div className="container">
++                        <h4 className="section-title">Beneficiary Type</h4>
++                        <DetailContainer
++                          icon={IconBenef}
++                          title={'You are an Offtaker'}
++                          type={'0.17 ct/kWh'}
++                          action={'Variable, anchored to your region'}
++                        />
++                        <DetailContainer
++                          icon={IconBenef}
++                          title={'You are the Property Owner'}
++                          type={'Land & Building'}
++                          action={'Sunshine Garden School, Rusizi District'}
++                        />
++                        <button className="see-more">SEE ALL PARTIES INVOLVED ></button>
++                        <h4 className="section-title">Project Stage & Actions</h4>
++                        <DetailContainer
++                          icon={IconDeveloper}
++                          title={'Stage 4: Funded'}
++                          type={'Connected'}
++                          action={'You have no development action'}
++                        />
++                        <DetailContainer
++                          icon={IconTools}
++                          title={'Contractor Actions'}
++                          type={'N/A'}
++                          action={'Pending Installation'}
++                        />
++                        <button className="see-more">
++                          <a href="/project/4">SEE PROJECT DEVELOPMENT TIMELINE ></a>
++                        </button>
++                        <h4 className="section-title">Project Wallets</h4>
++                        <DetailContainer
++                          icon={IconWallet}
++                          title={publicKey}
++                          titleLink={pkExplorerLink}
++                          type={walletBalance}
++                          action={'Re-Loads from main account'}
++                          actionLink={secondaryPkExplorerLink}
++                        />
++                        <DetailContainer
++                          icon={IconWallet}
++                          title={publicKey}
++                          titleLink={pkExplorerLink}
++                          type={walletBalance}
++                          action={'Escrow Account'}
++                          actionLink={secondaryPkExplorerLink}
++                        />
++                        <DetailContainer
++                          icon={IconContractor}
++                          title={EthAddress}
++                          titleLink={ethExplorerLink}
++                          type={swytchERCs}
++                          action={'Swytch.io ERC-721'}
++                          actionLink="https://swytch.io"
++                        />
++                        <button className="see-more">
++                          <a href="/profile/settings">GO TO PROFILE AND WALLET SETUP ></a>
++                        </button>
++                        <h4 className="section-title">Bills & Rewards</h4>
++                        <DetailContainer
++                          icon={IconCalendar}
++                          title={'Your upcoming bill'}
++                          type={'None'}
++                          action={'None'}
++                        />
++                        <DetailContainer
++                          icon={IconCerf}
++                          title={'Your system ownership'}
++                          type={'0 %'}
++                          action={'Estimated full acquisition: May 2025'}
++                        />
++                        <button className="see-more">
++                          <a href={pkExplorerLink} target="_blank" rel="noopener noreferrer">SEE PAYMENT HISTORY</a> & OWNERSHIP RECORDS >
++                        </button>
++                      </div>
++                    </div>
++                    <div className="contracts-container">
++                      <div className="container">
++                        <h3 className="title-primary">
++                          YOUR PROJECT’S SMART SOLAR CONTRACTS
++                        </h3>
++                        {/*todo: integrate*/}
++                        <DocumentationContainer documents={[]}/>
++                      </div>
++                    </div>
++                  </div>
++                )}
++                <button
++                  className="display-button"
++                  onClick={() => this.handleDropdown()}
++                >
++                  {this.state.dropdown ? 'SHOW LESS' : 'SHOW MORE'}
++                </button>
++              </>
++            )}
++          </div>
++        );
+       } else {
+     return (
+       <div className="receiver-dashboard">
