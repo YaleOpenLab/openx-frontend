@@ -175,6 +175,9 @@ class Dashboard extends Component {
       ? this.props.receiver.U.SecondaryWallet.PublicKey : 'mockkey';
     const secondaryPkExplorerLink = "https://testnet.steexp.com/account/" + secondaryPubkey;
     const swytchERCs = "0" + " ERCs";
+    const platformPublicKey = "****" + "GDHZLFBNYI3C3IHTTDEI6OPU2WDQD2KGD5QOSQJOBXKLSGLNYHQTFXKI".slice(-20);
+    const platformPkExplorerLink = "https://testnet.steexp.com/account/GDHZLFBNYI3C3IHTTDEI6OPU2WDQD2KGD5QOSQJOBXKLSGLNYHQTFXKI#transactions";
+    const platformBalance = "101000";
     if (!receiver || !receiver.U ) {
       return (
         <div className="receiver-dashboard">
@@ -212,10 +215,10 @@ class Dashboard extends Component {
                         title="your energy"
                         items={[
                           {
-                            value: receiver.TotalEnergyCP !== 0 ? receiver.TotalEnergyCP: '845kWh',
+                            value: receiver.TotalEnergyCP !== 0 ? receiver.TotalEnergyCP: '0kWh',
                             desc: 'TOTAL IN CURRENT PERIOD'
                           },
-                          {value: receiver.TotalEnergy !== 0 ? receiver.TotalEnergy: '10,150MWh', desc: 'ALL TIME'}
+                          {value: receiver.TotalEnergy !== 0 ? receiver.TotalEnergy: '0MWh', desc: 'ALL TIME'}
                         ]}
                         icon="solar-panel-icon"
                       />
@@ -227,7 +230,7 @@ class Dashboard extends Component {
                         items={[
                           // todo: integrate this with API
                           {value: walletBalance, desc: 'PROJECT WALLET BALANCE'},
-                          {value: receiver.Autoreload ? 'True' : 'False', desc: 'AUTO RE-LOAD'}
+                          {value: receiver.Autoreload ? 'True' : 'Inactive', desc: 'AUTO RE-LOAD'}
                         ]}
                         icon="wallet-icon"
                       />
@@ -296,7 +299,7 @@ class Dashboard extends Component {
                         items={[
                           // todo: integrate this with API
                           {value: walletBalance, desc: 'PROJECT WALLET BALANCE'},
-                          {value: receiver.Autoreload ? 'True' : 'False', desc: 'AUTO RE-LOAD'}
+                          {value: receiver.Autoreload ? 'True' : 'Inactive', desc: 'AUTO RE-LOAD'}
                         ]}
                         icon="wallet-icon"
                       />
@@ -410,7 +413,7 @@ class Dashboard extends Component {
                         <h4 className="section-title">Project Stage & Actions</h4>
                         <DetailContainer
                           icon={IconDeveloper}
-                          title={'Stage 4: Funded'}
+                          title={'Stage 1: Engagement'}
                           type={'Connected'}
                           action={'You have no development action'}
                         />
@@ -434,11 +437,10 @@ class Dashboard extends Component {
                         />
                         <DetailContainer
                           icon={IconWallet}
-                          title={publicKey}
-                          titleLink={pkExplorerLink}
-                          type={walletBalance}
-                          action={'Escrow Account'}
-                          actionLink={secondaryPkExplorerLink}
+                          title={platformPublicKey}
+                          titleLink={platformPkExplorerLink}
+                          type={platformBalance}
+                          action={'Escrow Funds'}
                         />
                         <DetailContainer
                           icon={IconContractor}
