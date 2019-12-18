@@ -24,27 +24,26 @@ export class Http {
   }
 
   static userRegister(name, username, pwd) {
-    const data = {name: name, username: username, pwd: pwd, seedpwd: "x"};
-    return this.get('user/register', data).pipe(
-      mergeMap(() => this.get('investor/register', data)),
-      mergeMap(() => this.get('recipient/register', data))
-    );
+		const hash = sha3_512(pwd);
+		const data = {name: name, username: username, pwhash: hash, seedpwd: "x"};
+    return this.post('user/register', data);
   }
 
-  static userValidate(username, password) {
-    if (password === Storage.get('token')) {
-      password = Storage.get('password');
-    }
-    const hash = sha3_512(password);
+  static getToken(username, pwd) {
+		const hash = sha3_512(pwd);
+		const data = {username: username, pwhash: hash};
+		return this.post('token', data).pipe(map(value => {
+      Storage.set('token', value.data.Token);
+      return value;
+    }));
+  }
+
+  static userValidate(username, token) {
     return this.get('user/validate', {
       username: username,
-      pwhash: hash
+			token: token
     }).pipe(map(value => {
       const entity = value.data && value.data.Entity ? value.data.Entity : null;
-      Storage.set('name', entity && entity.U && entity.U.Name ? entity.U.Name : 'User');
-      Storage.set('token', hash);
-      Storage.set('username', username);
-      Storage.set('password', password);
       return value;
     }));
   }
@@ -54,8 +53,7 @@ export class Http {
       username: username,
       pwhash: pwhash
     };
-    let additionalParams = data;
-    return this.get('user/update', {...userInfo, ...additionalParams});
+    return this.get('user/update', {...userInfo, ...data});
   }
 
   static userAskXlm(username, hash) {
@@ -121,11 +119,19 @@ export class Http {
     });
   }
 
-  static get(path, data) {
+	static get(path, data) {
+		return this.request("GET", path, data);
+	}
+
+	static post(path, data) {
+		return this.request("POST", path, data);
+	}
+
+  static request(method, path, data, token) {
     return from(
       axios({
-        method: 'GET',
-        url: `https://api.openx.solar/${path}`,
+        method: method,
+        url: `http://api.openx.solar/${path}`,
         params: data,
         headers: {
           'Content-Type': 'application/x-www-form/urlencoded'

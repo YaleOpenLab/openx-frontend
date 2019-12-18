@@ -8,6 +8,7 @@ import { bindActionCreators } from "redux";
 import history from "../../../helpers/history";
 import { withSnackbar } from "notistack";
 import { fetchUserAccount } from "../../Profile/store/actions";
+import {Http} from "../../../services/Http";
 
 // Move validation rules into separate file
 const LoginSchema = Yup.object().shape({
@@ -45,11 +46,13 @@ class LoginComponent extends Component {
         <Formik
           initialValues={{ username: "", password: "" }}
           onSubmit={(values, actions) => {
-            const payload = {
-              username: values.username,
-              password: values.password
-            };
-            this.props.fetchUserAccount(payload);
+            Http.getToken(values.username, values.password).subscribe(response => {
+							const payload = {
+								username: values.username,
+								token: response.data.Token,
+							};
+							this.props.fetchUserAccount(payload);
+						})
           }}
           validationSchema={LoginSchema}
         >

@@ -22,33 +22,6 @@ class ProfileComponent extends Component {
 
   componentDidMount = () => {
     let menu = [ ...this.state.menu ];
-    // temporary role check
-    Http.investorValidate().subscribe(
-      data => {
-        if (!data.data.Code) {
-          menu[0].link = ROUTES.INVESTOR_PAGES.DASHBOARD;
-          this.setState({
-            menu
-          });
-        }
-      },
-      error => {
-        console.log(error);
-      }
-    );
-    Http.recipientValidate().subscribe(
-      data => {
-        if (!data.data.Code) {
-          menu[0].link = ROUTES.RECEIVER_PAGES.DASHBOARD;
-          this.setState({
-            menu
-          });
-        }
-      },
-      error => {
-        console.log(error);
-      }
-    );
   };
 
   render() {

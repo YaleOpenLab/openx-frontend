@@ -16,8 +16,8 @@ export const fetchUserAccountEpic = action$ =>
   action$.pipe(
     ofType(USER_ACCOUNT),
     switchMap(action => {
-      const { username, password } = action.payload;
-      return Http.userValidate(username, password).pipe(
+      const { username, token } = action.payload;
+      return Http.userValidate(username, token).pipe(
         map(user => {
           if (user.data.Code) {
             return fetchUserAccountFailure(user.data.Status);
@@ -25,9 +25,6 @@ export const fetchUserAccountEpic = action$ =>
             return fetchUserAccountSuccess(user.data);
           }
         }),
-        catchError(error => {
-          return Observable.of(fetchUserAccountFailure(error.message));
-        })
       );
     })
   );

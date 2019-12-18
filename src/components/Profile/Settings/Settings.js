@@ -10,6 +10,9 @@ import Entity from "./Pages/Entity/Entity";
 import Profiles from "./Pages/Profiles/Profiles";
 import PrivateRoute from "../../PrivateRouterComponent/PrivateRouterComponent";
 import Storage from "../../../services/Storage";
+import {fetchUserAccount} from "../store/actions";
+import {connect} from "react-redux";
+import {withSnackbar} from "notistack";
 
 class Settings extends Component {
   constructor(props) {
@@ -19,6 +22,10 @@ class Settings extends Component {
       password: Storage.get("token")
     }
   }
+
+  componentDidMount = () => {
+  	 this.props.fetchUserAccount({username: "morsmetus@gmail.com", token: Storage.get("token")})
+	};
 
   render() {
     return (
@@ -44,4 +51,17 @@ class Settings extends Component {
   }
 }
 
-export default Settings;
+const mapStateToProps = state => ({
+	account: state.profile.account.items,
+	loading: state.profile.account.isLoading,
+	updateStatus: state.profile.account.updateStatus
+});
+
+const mapDispatchToProps = dispatch => ({
+	fetchUserAccount: payload => dispatch(fetchUserAccount(payload)),
+});
+
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(withSnackbar(Settings));

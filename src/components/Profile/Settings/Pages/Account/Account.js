@@ -4,6 +4,7 @@ import * as Yup from "yup";
 import { connect } from "react-redux";
 import { fetchUserAccount, updateUserAccount } from "../../../store/actions";
 import { withSnackbar } from "notistack";
+import Storage from "../../../../../services/Storage";
 
 const AccountSchema = Yup.object().shape({
   name: Yup.string().required("Required"),
@@ -27,39 +28,6 @@ class Account extends Component {
       }
     };
   }
-
-  componentDidMount = () => {
-    this.props.fetchUserAccount({
-      username: this.props.username,
-      password: this.props.password
-    });
-  };
-
-  componentDidUpdate = prevProps => {
-    if (this.props.account !== prevProps.account) {
-      const account = this.props.account;
-      let newValues = {
-        username: account.Username,
-        name: account.Name,
-        email: account.Email,
-        address: account.Address,
-        country: account.Country,
-        city: account.City,
-        zipcode: account.ZipCode
-      };
-      this.setState({
-        initialValues: newValues
-      });
-    }
-    if (this.props.updateStatus !== prevProps.updateStatus) {
-      if (this.props.updateStatus && this.props.updateStatus.Code === 200) {
-        this.props.enqueueSnackbar("User Account Updated", {
-          variant: "success",
-          autoHideDuration: 1500
-        });
-      }
-    }
-  };
 
   handleSubmit = values => {
     this.props.updateUserAccount({
@@ -248,7 +216,6 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchUserAccount: payload => dispatch(fetchUserAccount(payload)),
   updateUserAccount: payload => dispatch(updateUserAccount(payload))
 });
 
