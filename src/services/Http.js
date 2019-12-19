@@ -23,9 +23,9 @@ export class Http {
     )
   }
 
-  static userRegister(name, username, pwd) {
+  static userRegister(username, email, pwd) {
 		const hash = sha3_512(pwd);
-		const data = {name: name, username: username, pwhash: hash, seedpwd: "x"};
+		const data = {name: username, username: username, email:email, pwhash: hash, seedpwd: "x"};
     return this.post('user/register', data);
   }
 
@@ -34,16 +34,15 @@ export class Http {
 		const data = {username: username, pwhash: hash};
 		return this.post('token', data).pipe(map(value => {
       Storage.set('token', value.data.Token);
+      Storage.set('username', username);
       return value;
     }));
   }
 
   static userValidate(username, token) {
-    return this.get('user/validate', {
+    return this.getProtected('user/validate', {
       username: username,
-			token: token
     }).pipe(map(value => {
-      const entity = value.data && value.data.Entity ? value.data.Entity : null;
       return value;
     }));
   }
@@ -53,7 +52,7 @@ export class Http {
       username: username,
       pwhash: pwhash
     };
-    return this.get('user/update', {...userInfo, ...data});
+    return this.post('user/update', {...userInfo, ...data});
   }
 
   static userAskXlm(username, hash) {
@@ -127,7 +126,23 @@ export class Http {
 		return this.request("POST", path, data);
 	}
 
-  static request(method, path, data, token) {
+	static postProtected(path, data) {
+		const dataWithToken = {
+			...data,
+			token: Storage.get('token'),
+		};
+		return this.post(path, dataWithToken);
+	}
+
+	static getProtected(path, data) {
+		const dataWithToken = {
+			...data,
+			token: Storage.get('token'),
+		};
+		return this.get(path, dataWithToken);
+	}
+
+  static request(method, path, data) {
     return from(
       axios({
         method: method,
@@ -137,6 +152,16 @@ export class Http {
           'Content-Type': 'application/x-www-form/urlencoded'
         }
       })
-    );
+    ).pipe(response => {
+    	response.subscribe(resp => {
+    		console.log(resp);
+    		if(resp.data.Code === 401) {
+					Storage.remove('token');
+					Storage.remove('username');
+					window.location.reload();
+				}
+			});
+			return response;
+		});
   }
 }

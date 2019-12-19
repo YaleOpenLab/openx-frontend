@@ -11,6 +11,7 @@ import {
   updateUserAccountSuccess,
   updateUserAccountFailure,
 } from "./actions";
+import Storage from "../../../services/Storage";
 
 export const fetchUserAccountEpic = action$ =>
   action$.pipe(

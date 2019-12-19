@@ -24,7 +24,6 @@ class Settings extends Component {
   }
 
   componentDidMount = () => {
-  	 this.props.fetchUserAccount({username: "morsmetus@gmail.com", token: Storage.get("token")})
 	};
 
   render() {

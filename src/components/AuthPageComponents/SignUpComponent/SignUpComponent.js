@@ -9,32 +9,32 @@ import { withSnackbar } from "notistack";
 
 // Move validation rules into separate file
 const SignupSchema = Yup.object().shape({
-  firstName: Yup.string()
-    .min(2, "Too Short!")
-    .max(50, "Too Long!")
-    .required("Required"),
-  lastName: Yup.string()
-    .min(2, "Too Short!")
-    .max(50, "Too Long!")
-    .required("Required"),
   username: Yup.string()
-    .min(3, "Too Short!")
+    .min(2, "Too Short!")
+    .max(50, "Too Long!")
     .required("Required"),
-  password: Yup.string()
-    .min(3, "Too Short!")
-    .required("Required")
+  email: Yup.string()
+    .min(2, "Too Short!")
+    .max(50, "Too Long!")
+    .required("Required"),
+	password: Yup.string()
+		.min(5, "Password must be at least 5 characters long!")
+		.required("Required"),
+	confirmPassword: Yup.string()
+		.oneOf([Yup.ref('password'), null], "Passwords must match")
+		.required('Password confirm is required'),
 });
 
 const signUpComponent = props => (
   <div className="col-sm-10 col-md-6 auth-form my-auto">
     <div className="auth-title">Signup</div>
     <Formik
-      initialValues={{ firstName: "", lastName: "", username: "", password: "" }}
+      initialValues={{ username: "", email: "", password: "", confirmPassword: "" }}
       validationSchema={SignupSchema}
       onSubmit={(values, actions) => {
         Http.userRegister(
-          `${values.firstName} ${values.lastName}`,
           values.username,
+          values.email,
           values.password
         ).subscribe(response => {
           if (response.status === 200) {
@@ -61,15 +61,15 @@ const signUpComponent = props => (
             <Field
               type="text"
               className={`solar-form-input ${
-                errors.firstName && touched.firstName
+                errors.username && touched.username
                   ? "solar-form-input-error"
                   : ""
               }`}
-              name="firstName"
-              placeholder="First Name"
+              name="username"
+              placeholder="Username"
             />
-            {errors.firstName && touched.firstName ? (
-              <div className="solar-form-error-text">{errors.firstName}</div>
+            {errors.username && touched.username ? (
+              <div className="solar-form-error-text">{errors.username}</div>
             ) : null}
           </div>
           <div className="inner-addon left-addon">
@@ -77,29 +77,29 @@ const signUpComponent = props => (
             <Field
               type="text"
               className={`solar-form-input ${
-                errors.lastName && touched.lastName
+                errors.email && touched.email
                   ? "solar-form-input-error"
                   : ""
               }`}
-              name="lastName"
-              placeholder="Last Name"
+              name="email"
+              placeholder="Email Address"
             />
-            {errors.lastName && touched.lastName ? (
-              <div className="solar-form-error-text">{errors.lastName}</div>
+            {errors.email && touched.email ? (
+              <div className="solar-form-error-text">{errors.email}</div>
             ) : null}
           </div>
           <div className="inner-addon left-addon">
             <i className="solar-icon user-icon" />
             <Field
-              type="username"
+              type="password"
               className={`solar-form-input ${
-                errors.username && touched.username ? "solar-form-input-error" : ""
+                errors.password && touched.password ? "solar-form-input-error" : ""
               }`}
-              name="username"
-              placeholder="Email Address"
+              name="password"
+              placeholder="Password"
             />
-            {errors.username && touched.username && (
-              <div className="solar-form-error-text">{errors.username}</div>
+            {errors.password && touched.password && (
+              <div className="solar-form-error-text">{errors.password}</div>
             )}
           </div>
           <div className="inner-addon left-addon">
@@ -107,15 +107,15 @@ const signUpComponent = props => (
             <Field
               type="password"
               className={`solar-form-input ${
-                errors.password && touched.password
+                errors.confirmPassword && touched.confirmPassword
                   ? "solar-form-input-error"
                   : ""
               }`}
-              name="password"
-              placeholder="Password"
+              name="confirmPassword"
+              placeholder="Confirm Password"
             />
-            {errors.password && touched.password ? (
-              <div className="solar-form-error-text">{errors.password}</div>
+            {errors.confirmPassword && touched.confirmPassword ? (
+              <div className="solar-form-error-text">{errors.confirmPassword}</div>
             ) : null}
           </div>
           <div className="auth-button">
@@ -137,6 +137,9 @@ const signUpComponent = props => (
     </Formik>
     <NavLink className="auth-notice" to={ROUTES.LOGIN}>
       Already have an account? Log In
+    </NavLink>
+    <NavLink className="auth-notice" to={ROUTES.LOGIN}>
+      Forgot Password?
     </NavLink>
   </div>
 );

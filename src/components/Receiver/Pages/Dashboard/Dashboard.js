@@ -115,7 +115,6 @@ class Dashboard extends Component {
   };
 
   componentDidUpdate = prevProps => {
-    console.log("RECEIVER: ", this.props.receiver);
     if (!this.props.receiver || !this.props.receiver.U) {
       return null
     }

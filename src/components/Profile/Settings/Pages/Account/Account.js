@@ -18,14 +18,14 @@ class Account extends Component {
     super(props);
     this.state = {
       initialValues: {
-        username: "",
-        name: "",
-        email: "",
-        address: "",
-        country: "",
-        city: "",
-        zipcode: 0
-      }
+				username: this.props.account && this.props.account.Username,
+				name: this.props.account && this.props.account.Name,
+				email: this.props.account && this.props.account.Email,
+				address: "",
+				country: "",
+				city: "",
+				zipcode: 0
+			}
     };
   }
 
@@ -41,7 +41,15 @@ class Account extends Component {
     return (
       <div className="ProfileAccount">
         <Formik
-          initialValues={this.state.initialValues}
+          initialValues={{
+						username: this.props.account && this.props.account.Username,
+						name: this.props.account && this.props.account.Name,
+						email: this.props.account && this.props.account.Email,
+						address: "",
+						country: "",
+						city: "",
+						zipcode: 0
+					}}
           onSubmit={(values, actions) => this.handleSubmit(values, actions)}
           validationSchema={AccountSchema}
           enableReinitialize
@@ -66,49 +74,50 @@ class Account extends Component {
                         user name
                       </label>
                     </div>
-                    <div className="col-6 solar-input-div">
-                      <Field
-                        type="text"
-                        className={`solar-form-input ${
-                          errors.fullName && touched.fullName
-                            ? "solar-form-input-error"
-                            : ""
-                        }`}
-                        name="name"
-                      />
-                      <label htmlFor="name" className="solar-form-label">
-                        full name
-                      </label>
-                      {errors.fullName && touched.fullName && (
-                        <div className="solar-form-error-text with-label-error">
-                          {errors.fullName}
-                        </div>
-                      )}
-                    </div>
+										<div className="col-6 solar-input-div">
+											<Field
+												type="email"
+												className={`solar-form-input ${
+													errors.email && touched.email
+														? "solar-form-input-error"
+														: ""
+													}`}
+												name="email"
+											/>
+											<label htmlFor="email" className="solar-form-label">
+												email
+											</label>
+											{errors.email && touched.email && (
+												<div className="solar-form-error-text with-label-error">
+													{errors.email}
+												</div>
+											)}
+										</div>
+
                   </div>
                 </div>
 
                 <div className="col-12 col-md-10 col-lg-8 mx-auto">
                   <div className="row">
-                    <div className="col-6 solar-input-div">
-                      <Field
-                        type="email"
-                        className={`solar-form-input ${
-                          errors.email && touched.email
-                            ? "solar-form-input-error"
-                            : ""
-                        }`}
-                        name="email"
-                      />
-                      <label htmlFor="email" className="solar-form-label">
-                        email
-                      </label>
-                      {errors.email && touched.email && (
-                        <div className="solar-form-error-text with-label-error">
-                          {errors.email}
-                        </div>
-                      )}
-                    </div>
+										<div className="col-6 solar-input-div">
+											<Field
+												type="text"
+												className={`solar-form-input ${
+													errors.fullName && touched.fullName
+														? "solar-form-input-error"
+														: ""
+													}`}
+												name="name"
+											/>
+											<label htmlFor="name" className="solar-form-label">
+												full name
+											</label>
+											{errors.fullName && touched.fullName && (
+												<div className="solar-form-error-text with-label-error">
+													{errors.fullName}
+												</div>
+											)}
+										</div>
                   </div>
                 </div>
 

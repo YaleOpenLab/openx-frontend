@@ -14,7 +14,6 @@ class InvestorProjectCard extends Component {
   };
 
   render() {
-    console.log("PROPS: ", this.props.investor);
     const {projects, loading} = this.props;
     if(loading) return <PageLoading />;
     let project = projects.filter(project => project.Index === this.props.projectId);
