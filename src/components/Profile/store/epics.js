@@ -34,8 +34,8 @@ export const updateUserAccountEpic = action$ =>
   action$.pipe(
     ofType(USER_ACCOUNT_UPDATE),
     switchMap(action => {
-      const { username, password, data } = action.payload;
-      return Http.updateUserAccount(username, password, data).pipe(
+      const { username, data } = action.payload;
+      return Http.updateUserAccount(username, data).pipe(
         map(user => updateUserAccountSuccess(user.data, data)),
         catchError(error =>
           Observable.of(updateUserAccountFailure(error.message))

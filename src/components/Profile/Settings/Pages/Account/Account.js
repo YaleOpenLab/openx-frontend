@@ -2,9 +2,8 @@ import React, { Component } from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { connect } from "react-redux";
-import { fetchUserAccount, updateUserAccount } from "../../../store/actions";
+import { updateUserAccount } from "../../../store/actions";
 import { withSnackbar } from "notistack";
-import Storage from "../../../../../services/Storage";
 
 const AccountSchema = Yup.object().shape({
   name: Yup.string().required("Required"),
@@ -32,7 +31,6 @@ class Account extends Component {
   handleSubmit = values => {
     this.props.updateUserAccount({
       username: this.props.username,
-      password: this.props.password,
       data: values
     });
   };

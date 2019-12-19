@@ -47,12 +47,11 @@ export class Http {
     }));
   }
 
-  static updateUserAccount(username, pwhash, data) {
+  static updateUserAccount(username, data) {
     let userInfo = {
       username: username,
-      pwhash: pwhash
     };
-    return this.post('user/update', {...userInfo, ...data});
+    return this.postProtected('user/update', {...userInfo, ...data});
   }
 
   static userAskXlm(username, hash) {
