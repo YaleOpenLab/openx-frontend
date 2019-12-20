@@ -38,8 +38,6 @@ const signUpComponent = props => (
           values.password
         ).subscribe(response => {
           if (response.status === 200) {
-            const hash = response.data && response.data.U ? response.data.U.Pwhash : null;
-            Http.userAskXlm(values.username, hash).subscribe();
             props.enqueueSnackbar("Registered successfully. please login", {
               variant: "success",
               autoHideDuration: 2000
@@ -47,7 +45,7 @@ const signUpComponent = props => (
             history.push(ROUTES.LOGIN);
           } else {
             props.enqueueSnackbar(response.statusText, {
-              variant: "success",
+              variant: "error",
               autoHideDuration: 2000
             });
           }
@@ -89,7 +87,7 @@ const signUpComponent = props => (
             ) : null}
           </div>
           <div className="inner-addon left-addon">
-            <i className="solar-icon user-icon" />
+            <i className="solar-icon password-icon" />
             <Field
               type="password"
               className={`solar-form-input ${

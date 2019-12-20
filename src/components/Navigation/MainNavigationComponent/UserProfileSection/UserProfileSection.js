@@ -10,18 +10,17 @@ import Storage from "../../../../services/Storage";
 import Routes from "../../../../routes/routes";
 import { connect } from "react-redux";
 import { fetchUserAccount } from "../../../Profile/store/actions";
-import isEmpty from "../../../../helpers/functions/is-object-empty";
 import ProfileImage from "../../../../assets/images/user-profile-icon.svg"
 import {Observable} from "rxjs";
 
 class UserProfileSection extends Component {
   componentDidMount = () => {
     const username = Storage.get("username");
-    const password = Storage.get("token");
-
-    Observable.of(this.props.fetchUserAccount({
-			username: username,
-		}));
+		if(username) {
+			Observable.of(this.props.fetchUserAccount({
+				username: username,
+			}));
+		}
   };
 
   render() {
