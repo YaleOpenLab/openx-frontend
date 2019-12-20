@@ -123,8 +123,7 @@ const signUpComponent = props => (
               disabled={
                 (errors.username && touched.username) ||
                 (errors.password && touched.password) ||
-                (errors.firstName && touched.firstName) ||
-                (errors.lastName && touched.lastName)
+                (errors.email && touched.email)
               }
             >
               Sign up
