@@ -9,6 +9,20 @@
   font-weight: bold;
   font-size: 18px;
 }
+
+.component-box-text {
+  color: $secondary-color;
+  font-size: 12px;
+  & span {
+    color: $primary-color-light;
+    font-weight: bold;
+  }
+}
+
+.component-box-content {
+  padding: 30px 0;
+}
+
 .component-header {
   color: $primary-color-light;
   font-weight: bold;
