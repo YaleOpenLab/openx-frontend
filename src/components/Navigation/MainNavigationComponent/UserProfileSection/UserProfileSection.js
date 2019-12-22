@@ -4,11 +4,11 @@ import {
   MDBDropdown,
   MDBDropdownToggle,
   MDBDropdownMenu,
-  MDBNavLink
 } from "mdbreact";
 import Storage from "../../../../services/Storage";
 import Routes from "../../../../routes/routes";
 import { connect } from "react-redux";
+import { NavLink } from "react-router-dom";
 import { fetchUserAccount } from "../../../Profile/store/actions";
 import ProfileImage from "../../../../assets/images/user-profile-icon.svg"
 import {Observable} from "rxjs";
@@ -32,15 +32,15 @@ class UserProfileSection extends Component {
               <div className="d-md-inline">{this.props.account.Name}</div>
             </MDBDropdownToggle>
             <MDBDropdownMenu className="dropdown-default">
-              <MDBNavLink
+              <NavLink
                 to={Routes.PROFILE_PAGES.SETTINGS}
                 activeClassName="is-active"
               >
                 <span>profile</span>
-              </MDBNavLink>
-              <MDBNavLink to={Routes.LOGOUT} activeClassName="is-active">
+              </NavLink>
+              <NavLink to={Routes.LOGOUT} activeClassName="is-active">
                 <span>log out</span>
-              </MDBNavLink>
+              </NavLink>
             </MDBDropdownMenu>
           </MDBDropdown>
         </MDBNavItem>

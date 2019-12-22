@@ -26,9 +26,9 @@ export const logoutUserAccount = payload => ({
   payload
 });
 
-export const updateUserAccount = payload => ({
+export const updateUserAccount = data => ({
   type: USER_ACCOUNT_UPDATE,
-  payload
+  data
 });
 
 export const updateUserAccountSuccess = (response, newData) => ({

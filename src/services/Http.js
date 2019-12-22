@@ -33,8 +33,10 @@ export class Http {
 		const hash = sha3_512(pwd);
 		const data = {username: username, pwhash: hash};
 		return this.post('token', data).pipe(map(value => {
-      Storage.set('token', value.data.Token);
-      Storage.set('username', username);
+			if(value.data.Token) {
+				Storage.set('token', value.data.Token);
+				Storage.set('username', username);
+			}
       return value;
     }));
   }
@@ -47,11 +49,8 @@ export class Http {
     }));
   }
 
-  static updateUserAccount(username, data) {
-    let userInfo = {
-      username: username,
-    };
-    return this.postProtected('user/update', {...userInfo, ...data});
+  static updateUserAccount(data) {
+    return this.postProtected('user/update', {...data});
   }
 
   static userAskXlm(username, hash) {
@@ -153,7 +152,6 @@ export class Http {
       })
     ).pipe(response => {
     	response.subscribe(resp => {
-    		console.log(resp);
     		if(resp.data.Code === 401) {
 					Storage.remove('token');
 					Storage.remove('username');

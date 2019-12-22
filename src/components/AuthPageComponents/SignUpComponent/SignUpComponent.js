@@ -132,12 +132,16 @@ const signUpComponent = props => (
         </Form>
       )}
     </Formik>
-    <NavLink className="auth-notice" to={ROUTES.LOGIN}>
-      Already have an account? Log In
-    </NavLink>
-    <NavLink className="auth-notice" to={ROUTES.LOGIN}>
-      Forgot Password?
-    </NavLink>
+		<div>
+			<NavLink className="auth-notice" to={ROUTES.LOGIN}>
+				Already have an account? Log In
+			</NavLink>
+		</div>
+    <div>
+			<NavLink className="auth-notice" to={ROUTES.LOGIN}>
+				Forgot Password?
+			</NavLink>
+		</div>
   </div>
 );
 

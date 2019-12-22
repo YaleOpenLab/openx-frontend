@@ -11,7 +11,6 @@ import {
   updateUserAccountSuccess,
   updateUserAccountFailure,
 } from "./actions";
-import Storage from "../../../services/Storage";
 
 export const fetchUserAccountEpic = action$ =>
   action$.pipe(
@@ -34,9 +33,9 @@ export const updateUserAccountEpic = action$ =>
   action$.pipe(
     ofType(USER_ACCOUNT_UPDATE),
     switchMap(action => {
-      const { username, data } = action.payload;
-      return Http.updateUserAccount(username, data).pipe(
-        map(user => updateUserAccountSuccess(user.data, data)),
+    	console.log(action.data)
+      return Http.updateUserAccount(action.data).pipe(
+        map(user => updateUserAccountSuccess(user.data, action.data)),
         catchError(error =>
           Observable.of(updateUserAccountFailure(error.message))
         )

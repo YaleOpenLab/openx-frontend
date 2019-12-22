@@ -20,19 +20,16 @@ class Account extends Component {
 				username: this.props.account && this.props.account.Username,
 				name: this.props.account && this.props.account.Name,
 				email: this.props.account && this.props.account.Email,
-				address: "",
-				country: "",
-				city: "",
-				zipcode: 0
+				address: this.props.address && this.props.account.Address,
+				country: this.props.country && this.props.account.C,
+				city: this.props.city && this.props.account.city,
+				zipcode: this.props.zipcode && this.props.account.ZipCode
 			}
     };
   }
 
   handleSubmit = values => {
-    this.props.updateUserAccount({
-      username: this.props.username,
-      data: values
-    });
+    this.props.updateUserAccount(values);
   };
 
   render() {
@@ -43,12 +40,23 @@ class Account extends Component {
 						username: this.props.account && this.props.account.Username,
 						name: this.props.account && this.props.account.Name,
 						email: this.props.account && this.props.account.Email,
-						address: "",
-						country: "",
-						city: "",
-						zipcode: 0
+						address: this.props.account && this.props.account.Address,
+						country: this.props.account && this.props.account.Country,
+						city: this.props.account && this.props.account.City,
+						zipcode: this.props.account && this.props.account.ZipCode
 					}}
-          onSubmit={(values, actions) => this.handleSubmit(values, actions)}
+          onSubmit={(values, actions) => {
+          	const sendValues = {
+							username: values.username,
+          		name: values.name,
+          		email: values.email,
+							city: values.city,
+							country: values.country,
+							address: values.address,
+							zipcode: values.zipcode,
+						};
+						this.handleSubmit(sendValues, actions)
+					}}
           validationSchema={AccountSchema}
           enableReinitialize
         >

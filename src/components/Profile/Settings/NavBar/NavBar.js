@@ -22,27 +22,27 @@ const NavBar = props => (
       <div className="profile-nav-menu-section">
         <NavItem
           link={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.ACCOUNT}
-          name="account"
+          name="your profile"
         />
         <NavItem
           link={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.SECURITY}
-          name="security"
+          name="security & preferences"
         />
         <NavItem
           link={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.ENTITY_PROFILE}
-          name="entity profile"
+          name="your entity profile"
         />
         <NavItem
           link={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.USER_PROFILES}
-          name="user profiles"
+          name="user setup"
         />
         <NavItem
           link={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.PREFERENCES}
-          name="preferences"
+          name="manage funds"
         />
         <NavItem
           link={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.LEGAL}
-          name="legal"
+          name="legal requirements"
         />
       </div>
       <div className="profile-nav-progress-section">

@@ -47,11 +47,19 @@ class LoginComponent extends Component {
           initialValues={{ username: "", password: "" }}
           onSubmit={(values, actions) => {
             Http.getToken(values.username, values.password).subscribe(response => {
-							const payload = {
-								username: values.username,
-								token: response.data.Token,
-							};
-							this.props.fetchUserAccount(payload);
+            	if(response.data.Code === 500) {
+								this.props.enqueueSnackbar(response.data.Status, {
+									variant: "error",
+									autoHideDuration: 1500
+								});
+								return;
+							}else if(response.data.Token) {
+								const payload = {
+									username: values.username,
+									token: response.data.Token,
+								};
+								this.props.fetchUserAccount(payload);
+							}
 						})
           }}
           validationSchema={LoginSchema}
