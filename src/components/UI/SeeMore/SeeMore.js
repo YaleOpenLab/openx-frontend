@@ -7,7 +7,7 @@ import ClickAwayListener from "../../tools/ClickAwayListener/ClickAwayListener";
 const StyledSeeMoreModal = styled.div`
 	position: absolute;
   background: white;
-  min-height: 100px;
+  min-height: 20px;
   min-width: 100px;
   max-width: 700px;
   max-width: 450px;
@@ -19,7 +19,7 @@ const StyledSeeMoreModal = styled.div`
 `;
 
 const StyledInfoIconSection = styled.div`
-  display: flex;
+  display: inline-flex;
 `;
 
 const StyledInfoIconDiv = styled.div`

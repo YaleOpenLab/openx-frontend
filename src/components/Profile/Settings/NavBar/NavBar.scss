@@ -43,23 +43,23 @@
     .ProfileNavItem:hover {
       opacity: 0.8;
       color: $primary-color-light;
-      box-shadow: 3px 0px 0px 0px $primary-color;
+      box-shadow: 3px 0px 0px 0px $third-color-light;
       opacity: 1;
       .profile-menu-icon,
       .profile-menu-name {
-        color: $primary-color-light;
+        color: $third-color-light;
       }
     }
     .is-active {
       .ProfileNavItem {
         opacity: 0.8;
         color: $primary-color-light;
-        box-shadow: 3px 0px 0px 0px $primary-color;
+        box-shadow: 3px 0px 0px 0px $third-color-light;
         font-weight: bold;
         opacity: 1;
         .profile-menu-icon,
         .profile-menu-name {
-          color: $primary-color-light;
+          color: $third-color-light;
         }
       }
     }

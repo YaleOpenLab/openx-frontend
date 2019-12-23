@@ -4,6 +4,7 @@ import * as Yup from "yup";
 import styled from 'styled-components';
 import Button from "../../../../UI/SolarForms/Button/Button";
 import SeeMore from "../../../../UI/SeeMore/SeeMore";
+import ROUTES from "../../../../../routes/routes";
 
 const AccountSecuritySchema = Yup.object().shape({
 	currentPassword: Yup.string()
@@ -164,6 +165,7 @@ class Security extends Component {
 									<div className="row">
 										<div className="col-6 solar-input-div">
 											<Button
+												variant='secondary'
 												style={{width: 150}}
 												label='confirm'
 											/>
@@ -298,6 +300,7 @@ class Security extends Component {
 									<div className="row">
 										<div className="col-6 solar-input-div">
 											<Button
+												variant='secondary'
 												style={{width: 150}}
 												label='confirm'
 											/>
@@ -318,20 +321,17 @@ class Security extends Component {
 					<div className="col-12 col-md-10 col-lg-8 mx-auto">
 						<div className="row">
 							<div className="col-6">
-								<button
-									type="button"
-									className="solar-form-button solar-btn-white"
-								>
-									back
-								</button>
+								<Button
+									variant='reverse'
+									link={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.ACCOUNT}
+									label='back'
+								/>
 							</div>
 							<div className="col-6">
-								<button
-									type="submit"
-									className="solar-form-button solar-btn-normal"
-								>
-									save
-								</button>
+								<Button
+									link={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.ENTITY_PROFILE}
+									label='next'
+								/>
 							</div>
 						</div>
 					</div>

@@ -12,7 +12,10 @@
 
 .component-box-text {
   color: $secondary-color;
-  font-size: 12px;
+  font-size: 14px;
+  &.bigger-text {
+    font-size: 18px;
+  }
   & .--highlight {
     color: $primary-color-light;
     font-weight: bold;

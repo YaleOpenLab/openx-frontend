@@ -16,7 +16,6 @@ export const rwanda = {
       loc: 'Rusizi District, Western Province, Rwanda',
       category: "MUNI BOND",
       description: 'This community in Rwanda has no access to electricity yet shows a growing local economy. This microgrid project, developed a collaboration with the Rwandan Green Fund (FONERWA), Yale and MIT, aims to serve 250 homes with solar electricity and electric appliances (e.g. lamps, phone chargers, radio, and battery), as well as a school, the town infirmary led by a team of doctors without borders, and the town hall. This is a community-led cooperative with international backing',
-      description: 'This is a community-led cooperative with international backing. 20% first loss funds secured through Rwandan Green Fund. Currently doing engineering due diligence for development quotes',
       ownerName: 'Eric Mbeba',
       donated: '101\'000',
       total: '101\'000.00',

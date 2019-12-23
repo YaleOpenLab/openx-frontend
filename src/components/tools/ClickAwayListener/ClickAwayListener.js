@@ -19,7 +19,7 @@ const ClickAwayListener = ({children, onClickAway}) => {
 	const wrapperRef = useRef(null);
 	useOutsideAlerter(wrapperRef, onClickAway);
 
-	return <div ref={wrapperRef}>{children}</div>;
+	return <span ref={wrapperRef}>{children}</span>;
 };
 
 export default ClickAwayListener;

@@ -13,6 +13,7 @@ import Storage from "../../../services/Storage";
 import {fetchUserAccount} from "../store/actions";
 import {connect} from "react-redux";
 import {withSnackbar} from "notistack";
+import Legal from "./Pages/Legal/Legal";
 
 class Settings extends Component {
   constructor(props) {
@@ -41,6 +42,7 @@ class Settings extends Component {
                 <PrivateRoute path={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.ENTITY_PROFILE} component={Entity} />
                 <PrivateRoute path={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.USER_PROFILES} component={Profiles} />
                 <PrivateRoute path={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.PREFERENCES} component={Preferences} />
+                <PrivateRoute path={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.LEGAL} component={Legal} />
               </Switch>
             </div>
           </div>
