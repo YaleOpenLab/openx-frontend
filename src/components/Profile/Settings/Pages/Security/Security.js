@@ -1,9 +1,9 @@
 import React, {Component} from "react";
 import {Formik, Form, Field} from "formik";
 import * as Yup from "yup";
-import SwitchButton from "../../../../General/SwitchButton/SwitchButton";
+import styled from 'styled-components';
 import Button from "../../../../UI/SolarForms/Button/Button";
-import ROUTES from "../../../../../routes/routes";
+import SeeMore from "../../../../UI/SeeMore/SeeMore";
 
 const AccountSecuritySchema = Yup.object().shape({
 	currentPassword: Yup.string()
@@ -27,6 +27,11 @@ const SeedSecuritySchema = Yup.object().shape({
 		.oneOf([Yup.ref('newSeedPassword'), null], "Seed passwords must match")
 		.required('Seed confirm password  is required'),
 });
+
+const StyledSeedPasswordInfo = styled.div`
+	font-size: 12px;
+	padding: 10px;
+`;
 
 class Security extends Component {
 	constructor(props) {
@@ -190,12 +195,31 @@ class Security extends Component {
 										<span className="-darker">Password Settings</span>
 									</div>
 									<div className="component-box-title component-header margin-bottom">
-										LOGIN PASSWORD
+										<SeeMore
+											infoContent={
+												<StyledSeedPasswordInfo>
+													Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+												</StyledSeedPasswordInfo>
+											}
+										>
+											SEED PASSWORD
+										</SeeMore>
 									</div>
 									<div className="component-box-text margin-bottom">
-										This is the password that you used when you sign up and that you should use to log into the
-										platform. It has basic access to your profile information but does not control the funds in your
-										account.
+										This seed password is the code you use to control your funds and confirm investments. Please don’t
+										share your passwords with anybody. The opensolar will never request your seed password through
+										emails and other correspondances.
+									</div>
+									<div className="component-box-text margin-bottom">
+										<b>
+											Your initial seed password is the same as the password used in your signup. We strongly recommend
+											you use a different password after your first log in to ensure security.
+										</b>
+									</div>
+									<div className="component-box-text margin-bottom">
+										<span className="--warning">
+											Losing this password will make you lose access to your funds.
+										</span>
 									</div>
 								</div>
 							</div>

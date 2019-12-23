@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="11.25" height="11" viewBox="0 0 11.25 11">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: rgba(0,0,0,0);
+      }
+
+      .cls-2 {
+        fill: #f5911e;
+      }
+    </style>
+  </defs>
+  <g id="Icon_MoreInfo" data-name="Icon/MoreInfo" transform="translate(0)">
+    <rect id="Icon_MoreInfo_background" data-name="Icon/MoreInfo background" class="cls-1" width="11.25" height="11"/>
+    <g id="MoreInfo" transform="translate(0 0)">
+      <path id="Shape" class="cls-2" d="M5.625,11A5.57,5.57,0,0,1,0,5.5,5.57,5.57,0,0,1,5.625,0,5.57,5.57,0,0,1,11.25,5.5,5.57,5.57,0,0,1,5.625,11Zm0-9.9a4.456,4.456,0,0,0-4.5,4.4,4.456,4.456,0,0,0,4.5,4.4,4.456,4.456,0,0,0,4.5-4.4A4.456,4.456,0,0,0,5.625,1.1ZM6.188,8.25H5.063V4.95H6.188v3.3Zm0-4.4H5.063V2.75H6.188v1.1Z"/>
+    </g>
+  </g>
+</svg>

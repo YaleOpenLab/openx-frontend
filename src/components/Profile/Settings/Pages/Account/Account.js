@@ -39,7 +39,7 @@ class Account extends Component {
 							<span className="-darker">Your Individual Profile</span>
 						</div>
 						<div className="component-box-text">
-							<span>Your profile as an individual.</span> Everyone operating through the opensolar platform needs to
+							<span className='--highlight'>Your profile as an individual.</span> Everyone operating through the opensolar platform needs to
 							register as an
 							individual first. To register as an ‘organisation’ that you operate on behalf of, go to ‘Entity Profile.’
 						</div>
@@ -204,7 +204,7 @@ class Account extends Component {
 										<span className="-darker">Your User Profile</span>
 									</div>
 									<div className="component-box-text">
-										<span>How will you use the opensolar platform?</span>
+										<span className='--highlight'>How will you use the opensolar platform?</span>
 									</div>
 									<div className="component-box-text">
 										This will create accounts and dashboard associated to your Profile and Entity. Only select those

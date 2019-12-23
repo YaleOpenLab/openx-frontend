@@ -13,8 +13,12 @@
 .component-box-text {
   color: $secondary-color;
   font-size: 12px;
-  & span {
+  & .--highlight {
     color: $primary-color-light;
+    font-weight: bold;
+  }
+  & .--warning {
+    color: $error-color;
     font-weight: bold;
   }
 }

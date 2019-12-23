@@ -57,7 +57,6 @@ class Projects extends Component {
         {this.state.noticeVisible ? (
           <ExploreNotice handleNotice={this.handleNotice} />
         ) : null}
-
         <div className="container explore-wrapper">
           <div className="row">
             <ProjectsToolsComponent onFilterUpdate={this.onFilterUpdate} />
