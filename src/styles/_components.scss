@@ -27,7 +27,7 @@
 }
 
 .component-box-content {
-  padding: 30px 0;
+  padding: 25px 0;
 }
 
 .component-header {
@@ -263,6 +263,7 @@
   background: #ecedef;
   border-radius: 1em;
   cursor: pointer;
+  position: relative;
 }
 .solar-input-switch div {
   height: 1em;
@@ -274,14 +275,12 @@
   -moz-transition: all 300ms;
   transition: all 300ms;
   position: absolute;
-  top: 1px;
+  top: -5px;
 }
 .solar-input-switch span {
   position: absolute;
   left: 60px;
-  font-size: 10px;
-  top: 4px;
-  font-family: OpenSans;
+  top: -4px;
   font-size: 12px;
   font-weight: 300;
   color: $secondary-color-lighter;
@@ -314,6 +313,15 @@
 .full-box {
   border: solid 1px $charcoal-grey;
   border-radius: 5px;
+  cursor: pointer;
+  &:hover {
+    background: $primary-color-light;
+    border: solid 1px  $primary-color-light;
+    color: $white;
+  }
+  &:active {
+    opacity: 0.7;
+  }
 }
 .open-box {
   border-top: solid 1px $charcoal-grey;

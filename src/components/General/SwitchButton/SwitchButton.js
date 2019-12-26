@@ -1,7 +1,7 @@
 import React from "react";
 import "./SwitchButton.scss";
 
-const SwitchButton = ({label, handleChange, checked, onLabel, offLabel, classes}) => (
+const SwitchButton = ({label, handleChange, checked, onLabel, offLabel, classes, disabled}) => (
   <div
     className={`row toggle-switch ${
 			classes ? classes.join(" ") : ""
@@ -12,6 +12,7 @@ const SwitchButton = ({label, handleChange, checked, onLabel, offLabel, classes}
       <label className="solar-input-switch">
         <input
           type="checkbox"
+					disabled={disabled}
           checked={checked}
           onChange={handleChange ? e => handleChange(e) : null}
         />

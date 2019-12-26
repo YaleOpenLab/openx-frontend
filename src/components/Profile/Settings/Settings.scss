@@ -6,6 +6,7 @@
 
   .settings-content {
     .ProfileAccount,
+    .ProfileEntity,
     .ProfileSecurity {
       margin-top: $pixel-base * 21;
 
@@ -22,7 +23,6 @@
       }
     }
 
-    .ProfileEntity,
     .ProfileUsers {
       margin-top: $pixel-base * 5;
     }

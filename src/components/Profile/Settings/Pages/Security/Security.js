@@ -317,6 +317,7 @@ class Security extends Component {
 						<div className="col-12 solar-form-separator"/>
 					</div>
 				</div>
+
 				<div className="row">
 					<div className="col-12 col-md-10 col-lg-8 mx-auto">
 						<div className="row">
