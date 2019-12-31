@@ -41,7 +41,7 @@ class Settings extends Component {
                 <PrivateRoute path={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.SECURITY} component={Security} username={this.state.username} password={this.state.password} />
                 <PrivateRoute path={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.ENTITY_PROFILE} component={Entity} />
                 <PrivateRoute path={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.USER_PROFILES} component={Profiles} />
-                <PrivateRoute path={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.PREFERENCES} component={Preferences} />
+                <PrivateRoute path={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.FUNDS} component={Preferences} />
                 <PrivateRoute path={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.LEGAL} component={Legal} />
               </Switch>
             </div>

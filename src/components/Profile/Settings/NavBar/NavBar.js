@@ -37,7 +37,7 @@ const NavBar = props => (
           name="user setup"
         />
         <NavItem
-          link={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.PREFERENCES}
+          link={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.FUNDS}
           name="manage funds"
         />
         <NavItem

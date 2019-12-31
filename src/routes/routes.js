@@ -30,8 +30,11 @@ const ROUTES = {
       ACCOUNT: "/profile/settings/account",
       SECURITY: "/profile/settings/security",
       ENTITY_PROFILE: "/profile/settings/entity",
+			ENTITY_PROFILE_PAGES: {
+      	NEW_ENTITY: "/profile/settings/entity/register"
+			},
       USER_PROFILES: "/profile/settings/users",
-      PREFERENCES: "/profile/settings/preferences",
+      FUNDS: "/profile/settings/funds",
       LEGAL: "/profile/settings/legal",
     }
   },

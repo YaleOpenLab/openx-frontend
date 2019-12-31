@@ -105,7 +105,7 @@ class Legal extends Component {
 							<div className="col-6">
 								<Button
 									variant='reverse'
-									link={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.PREFERENCES}
+									link={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.FUNDS}
 									label='back'
 								/>
 							</div>

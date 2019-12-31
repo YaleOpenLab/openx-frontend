@@ -1,16 +1,29 @@
 import React from "react";
+import styled from 'styled-components';
+import {Variables} from "../../../../styles/variables";
 
-const RadioButton = props => (
-  <div className="solar-radio-button">
+const StyledRadioButton = styled.div`
+	display: flex;
+`;
+const StyledExplanationField = styled.div`
+	margin-left: 25px;
+	color: ${Variables.Colors.secondaryColorLighter}
+	font-size: 10px;
+`;
+
+const RadioButton = ({name, checked, label, explanation, onChange}) => (
+  <StyledRadioButton className="solar-radio-button">
     <input
       type="checkbox"
-      id={props.name}
-      name={props.name}
+      id={name}
+      name={name}
+			onChange={onChange}
       className="solar-input-radio-button"
-      checked={props.checked}
+      checked={checked}
     />
-    <label htmlFor={props.name}>{props.label}</label>
-  </div>
+    <label htmlFor={name}>{label}</label>
+		<StyledExplanationField>{explanation}</StyledExplanationField>
+  </StyledRadioButton>
 );
 
 export default RadioButton;

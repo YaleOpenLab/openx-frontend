@@ -1,40 +1,28 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import "./StepsForm.scss";
 import StepsFormHeader from "./StepsFormHeader/StepsFormHeader";
+import Button from "../../UI/SolarForms/Button/Button";
 
-class StepsForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      step: 1
-    };
-  }
+const StepsForm = ({tabs, disabledNext, separator, loading, handleSave, disabledConfirm, classes, children, saveText, goBackUrl}) =>  {
+  const [step, setStep] = useState(1);
 
-  scrollTop = () => {
-    this.head = document.getElementsByClassName("steps-container")[0];
-    this.head.scrollIntoView();
+  const scrollTop = () => {
+    const head = document.getElementsByClassName("steps-container")[0];
+    head.scrollIntoView();
   };
 
-  goNext = () => {
-    this.scrollTop();
-    if (this.state.step < this.props.children.length) {
-      this.setState(prevState => ({
-        step: prevState.step + 1
-      }));
+  const goNext = () => {
+    if (step < children.length) {
+			setStep(step + 1)
     }
   };
 
-  goBack = () => {
-    this.scrollTop();
-    if (this.state.step > 1) {
-      this.setState(prevState => ({
-        step: prevState.step - 1
-      }));
+  const goBack = () => {
+    if (step > 1) {
+			setStep(step - 1)
     }
   };
 
-  render() {
-    const { tabs, children } = this.props;
     let content = null;
     let buttons = null;
 
@@ -44,74 +32,76 @@ class StepsForm extends Component {
 
     if (children) {
       content = children.find(item => {
-        if (parseInt(item.key) === this.state.step) {
-          return true;
-        }
-        return false;
+        return parseInt(item.key) === step;
       });
     }
 
-    if (this.state.step > 1 && this.state.step < children.length) {
+    if (step > 1 && step < children.length) {
       buttons = (
         <React.Fragment>
           <div className="col-6">
-            <button
-              className="solar-form-button solar-btn-normal"
-              onClick={this.goBack}
-              type="button"
-            >
-              previous
-            </button>
-          </div>
+						<Button
+							variant={'reversed'}
+							action={goBack}
+							disabled={disabledNext}
+						>
+							back
+						</Button>
+					</div>
           <div className="col-6">
-            <button
-              className="solar-form-button solar-btn-normal"
-              onClick={this.goNext}
-              type="button"
-              disabled={this.props.disabledNext}
-            >
-              next
-            </button>
+						<Button
+							variant={'default'}
+							action={goNext}
+							disabled={disabledNext}
+						>
+							next
+						</Button>
           </div>
         </React.Fragment>
       );
-    } else if (this.state.step < children.length) {
+    } else if (step < children.length) {
       buttons = (
         <React.Fragment>
-          <div className="col-6">
-            <button
-              className="solar-form-button solar-btn-normal"
-              onClick={this.goNext}
-              type="button"
-              disabled={this.props.disabledNext}
-            >
-              next
-            </button>
-          </div>
-        </React.Fragment>
+          {goBackUrl && <div className="col-6">
+						<Button
+							variant={'reversed'}
+							link={goBackUrl}
+							disabled={disabledNext}
+						>
+							go back
+						</Button>
+					</div>}
+					<div className="col-6">
+						<Button
+							variant={'default'}
+							action={goNext}
+							disabled={disabledNext}
+						>
+							next
+						</Button>
+					</div>
+				</React.Fragment>
       );
     } else {
       buttons = (
         <React.Fragment>
           <div className="col-6">
-            <button
-              className="solar-form-button solar-btn-normal"
-              onClick={this.goBack}
-              type="button"
-              disabled={this.props.loading}
-            >
-              previous
-            </button>
-          </div>
+						<Button
+							variant={'reversed'}
+							action={goBack}
+							disabled={loading}
+						>
+							back
+						</Button>
+					</div>
           <div className="col-6">
-            <button
-              className="solar-form-button solar-btn-normal"
-              onClick={this.props.handleSave}
-              type="button"
-              disabled={this.props.disabledConfirm || this.props.loading}
-            >
-              {this.props.saveText ? this.props.saveText : "save"}
-            </button>
+						<Button
+							variant={'default'}
+							action={handleSave}
+							disabled={disabledConfirm || loading}
+						>
+							{saveText ? saveText : "save"}
+						</Button>
           </div>
         </React.Fragment>
       );
@@ -123,9 +113,9 @@ class StepsForm extends Component {
           <div className="container">
             <StepsFormHeader
               tabs={tabs}
-              active={this.state.step}
-              classes={this.props.classes}
-              separator={this.props.separator}
+              active={step}
+              classes={classes}
+              separator={separator}
             />
           </div>
           <div className="col-12 mx-auto">
@@ -141,7 +131,6 @@ class StepsForm extends Component {
         </div>
       </div>
     );
-  }
 }
 
 export default StepsForm;
