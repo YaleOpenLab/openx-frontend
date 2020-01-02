@@ -10,7 +10,6 @@ import Entity from "./Pages/Entity/Entity";
 import Profiles from "./Pages/Profiles/Profiles";
 import PrivateRoute from "../../PrivateRouterComponent/PrivateRouterComponent";
 import Storage from "../../../services/Storage";
-import {fetchUserAccount} from "../store/actions";
 import {connect} from "react-redux";
 import {withSnackbar} from "notistack";
 import Legal from "./Pages/Legal/Legal";
@@ -53,16 +52,11 @@ class Settings extends Component {
 }
 
 const mapStateToProps = state => ({
-	account: state.profile.account.items,
-	loading: state.profile.account.isLoading,
-	updateStatus: state.profile.account.updateStatus
-});
-
-const mapDispatchToProps = dispatch => ({
-	fetchUserAccount: payload => dispatch(fetchUserAccount(payload)),
+	account: state.userProfile.user.items,
+	loading: state.userProfile.user.isLoading,
+	updateStatus: state.userProfile.user.updateStatus
 });
 
 export default connect(
 	mapStateToProps,
-	mapDispatchToProps
 )(withSnackbar(Settings));

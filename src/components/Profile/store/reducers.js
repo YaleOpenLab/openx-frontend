@@ -1,78 +1,101 @@
 import {
-  USER_ACCOUNT,
-  USER_ACCOUNT_SUCCESS,
-  USER_ACCOUNT_FAILURE,
   USER_ACCOUNT_UPDATE,
   USER_ACCOUNT_UPDATE_SUCCESS,
   USER_ACCOUNT_UPDATE_FAILURE,
   USER_ACCOUNT_LOGOUT
 } from "./actions";
+import {TYPES} from "./actionTypes";
 
 const initialState = {
-  items: {},
-  isLoading: false,
-  error: null,
-  authorized: false
+	user: {
+		created: false,
+		isLoading: false,
+		error: null,
+		authorized: false,
+		items: [],
+	},
+	investor: {
+		created: false,
+		isLoading: false,
+		error: null,
+		authorized: false,
+		items: [],
+	}
 };
 
 const userAccountReducer = (state = initialState, action) => {
   switch (action.type) {
-    case USER_ACCOUNT:
+		case action.entity && TYPES[action.entity].REGISTER_SUCCESS:
+      return {
+      	...state,
+				[action.entity]: {
+					...state[action.entity],
+					created: true,
+				}
+      };
+    case action.entity && TYPES[action.entity].REGISTER_FAILURE:
       return {
         ...state,
-        isLoading: true,
-        error: null
-      };
-    case USER_ACCOUNT_SUCCESS:
+				[action.entity]: {
+					...state[action.entity],
+					isLoading: false,
+					error: action.payload,
+					authorized: false,
+				}
+			};
+		case action.entity && TYPES[action.entity].VALIDATE_SUCCESS:
       return {
-        items: action.payload,
-        isLoading: false,
-        error: null,
-        authorized: true
+      	...state,
+				[action.entity]: {
+					...state[action.entity],
+					items: action.payload,
+					isLoading: false,
+					error: null,
+					authorized: true
+				}
       };
-    case USER_ACCOUNT_FAILURE:
-      return {
-        ...state,
-        isLoading: false,
-        error: action.payload,
-        authorized: false
-      };
-    case USER_ACCOUNT_LOGOUT:
-      return {
-        items: [],
-        isLoading: false,
-        error: null,
-        authorized: false
-      };
-    case USER_ACCOUNT_UPDATE:
+    case action.entity && TYPES[action.entity].VALIDATE_FAILURE:
       return {
         ...state,
-        isLoading: true,
-        error: null
-      };
-    case USER_ACCOUNT_UPDATE_SUCCESS:
-      let newData = action.payload.newData;
-      let items = { ...state.items };
-      items.Name = newData.name;
-      items.ZipCode = newData.zipcode;
-      items.Email = newData.email;
-      items.Address = newData.address;
-      items.Country = newData.country;
-      items.City = newData.city;
-
+				[action.entity]: {
+					...state[action.entity],
+					isLoading: false,
+					error: action.payload,
+					authorized: false,
+				}
+			};
+    case TYPES.UPDATE:
       return {
-        items: items,
-        updateStatus: action.payload.response,
-        isLoading: false,
-        error: null
+				...state,
+				[action.entity]: {
+					...state[action.entity],
+					isLoading: true,
+				}
       };
-    case USER_ACCOUNT_UPDATE_FAILURE:
+		case action.entity && TYPES[action.entity].UPDATE_SUCCESS:
       return {
-        ...state,
-        isLoading: false,
-        error: action.payload
+				...state,
       };
-    default:
+		case action.entity && TYPES[action.entity].UPDATE_FAILURE:
+      return {
+				...state,
+				[action.entity]: {
+					...state[action.entity],
+					error: action.payload,
+					isLoading: true,
+				}
+      };
+		case TYPES.LOGOUT:
+			return {
+				user: {
+					items: [],
+					isLoading: false,
+					error: null,
+					authorized: false,
+					created: false,
+				}
+			};
+		default:
       return state;
   }
 };

@@ -23,13 +23,13 @@ export class Http {
     )
   }
 
-  static userRegister(username, email, pwd) {
+  static registerService(entity, {username, email, pwd}) {
 		const hash = sha3_512(pwd);
 		const data = {name: username, username: username, email:email, pwhash: hash, seedpwd: "x"};
-    return this.post('user/register', data);
+    return this.postProtected(`${entity}/register`, data);
   }
 
-  static getToken(username, pwd) {
+	static getToken(username, pwd) {
 		const hash = sha3_512(pwd);
 		const data = {username: username, pwhash: hash};
 		return this.post('token', data).pipe(map(value => {
@@ -41,15 +41,16 @@ export class Http {
     }));
   }
 
-  static userValidate(username, token) {
-    return this.getProtected('user/validate', {
+  static validateService(entity, username) {
+  	console.log(username)
+    return this.getProtected(`${entity}/validate`, {
       username: username,
     }).pipe(map(value => {
       return value;
     }));
   }
 
-  static updateUserAccount(data) {
+  static updateAccount(data) {
     return this.postProtected('user/update', {...data});
   }
 
@@ -91,24 +92,6 @@ export class Http {
     });
   }
 
-  static investorRegister(name, username, pwd, seedpwd) {
-    return this.get('investor/register', {
-      name: name,
-      username: username,
-      pwd: pwd,
-      seedpwd: seedpwd
-    });
-  }
-
-  static recipientRegister(name, username, pwd, seedpwd) {
-    return this.get('recipient/register', {
-      name: name,
-      username: username,
-      pwd: pwd,
-      seedpwd: seedpwd
-    });
-  }
-
   static recipientValidate() {
     return this.get('recipient/validate', {
       username: Storage.get('username'), // todo remove this
@@ -127,7 +110,7 @@ export class Http {
 	static postProtected(path, data) {
 		const dataWithToken = {
 			...data,
-			token: Storage.get('token'),
+			token: Storage.get('token') ? Storage.get('token') : null,
 		};
 		return this.post(path, dataWithToken);
 	}

@@ -11,7 +11,7 @@ import rootReducer from "./store/reducers";
 import { rootEpic } from "./store/epics";
 import { BrowserRouter, Router } from "react-router-dom";
 import history from "./helpers/history";
-import { SnackbarProvider } from "notistack";
+import ErrorHandler from "./components/UI/ErrorHandler/ErrorHandler";
 
 const epicMiddleware = createEpicMiddleware();
 const store = createStore(
@@ -22,13 +22,13 @@ epicMiddleware.run(rootEpic);
 
 const AppComponent = (
   <Provider store={store}>
-    <SnackbarProvider maxSnack={1}>
+    <ErrorHandler>
       <BrowserRouter forceRefresh={true}>
         <Router history={history}>
           <App />
         </Router>
       </BrowserRouter>
-    </SnackbarProvider>
+    </ErrorHandler>
   </Provider>
 );
 

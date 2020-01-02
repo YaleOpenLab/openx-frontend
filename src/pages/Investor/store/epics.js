@@ -8,6 +8,7 @@ import {
   fetchInvestorFailure,
   fetchInvestorSuccess
 } from './actions';
+import {displayErrorAction} from "../../../store/actions/actions";
 
 const fetchInvestorEpic = action$ =>
   action$.pipe(
@@ -15,7 +16,9 @@ const fetchInvestorEpic = action$ =>
     switchMap(() =>
       Http.investorValidate().pipe(
         map(investor => fetchInvestorSuccess(investor)),
-        catchError(error => Observable.of(fetchInvestorFailure(error.message)))
+        catchError(error => {
+        	return Observable.of(fetchInvestorFailure(error.message), displayErrorAction("error", error.message));
+				})
       )
     )
   );

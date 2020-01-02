@@ -3,7 +3,6 @@ import NavItem from "./NavItem/NavItem";
 import ROUTES from "../../../../routes/routes";
 import "./NavBar.scss";
 import { connect } from "react-redux";
-import { fetchUserAccount } from "../../store/actions";
 import { withRouter } from "react-router-dom";
 import ProfileImage from "../../../../assets/images/user-profile-icon.svg"
 
@@ -59,12 +58,11 @@ const NavBar = props => (
 );
 
 const mapStateToProps = state => ({
-  account: state.profile.account.items,
-  loading: state.profile.account.isLoading
+  account: state.userProfile.user.items,
+  loading: state.userProfile.user.isLoading
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchUserAccount: payload => dispatch(fetchUserAccount(payload))
 });
 
 export default withRouter(connect(

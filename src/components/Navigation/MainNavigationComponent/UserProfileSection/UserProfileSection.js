@@ -9,7 +9,7 @@ import Storage from "../../../../services/Storage";
 import Routes from "../../../../routes/routes";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { fetchUserAccount } from "../../../Profile/store/actions";
+import {validateAction} from "../../../Profile/store/actions";
 import ProfileImage from "../../../../assets/images/user-profile-icon.svg"
 import {Observable} from "rxjs";
 
@@ -17,9 +17,7 @@ class UserProfileSection extends Component {
   componentDidMount = () => {
     const username = Storage.get("username");
 		if(username) {
-			Observable.of(this.props.fetchUserAccount({
-				username: username,
-			}));
+			Observable.of(this.props.fetchUserAccount("user", username));
 		}
   };
 
@@ -56,12 +54,12 @@ class UserProfileSection extends Component {
 }
 
 const mapStateToProps = state => ({
-  account: state.profile.account.items,
-  loading: state.profile.account.isLoading
+  account: state.userProfile.user.items,
+  loading: state.userProfile.user.isLoading
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchUserAccount: payload => dispatch(fetchUserAccount(payload))
+  fetchUserAccount: (entity, username) => dispatch(validateAction(entity, username))
 });
 
 export default connect(

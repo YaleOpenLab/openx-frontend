@@ -2,7 +2,6 @@ import React from "react";
 import StepsForm from "../../../../General/StepsForm/StepsForm";
 import Register from "./ProfilesTabs/Register/Register";
 import { connect } from "react-redux";
-import { fetchUserAccount } from "../../../store/actions";
 
 const Entity = props => (
   <div className="ProfileUsers">
@@ -21,15 +20,10 @@ const Entity = props => (
 );
 
 const mapStateToProps = state => ({
-  account: state.profile.account.items,
-  loading: state.profile.account.isLoading
-});
-
-const mapDispatchToProps = dispatch => ({
-  fetchUserAccount: payload => dispatch(fetchUserAccount(payload))
+  account: state.userProfile.user.items,
+  loading: state.userProfile.user.isLoading
 });
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
 )(Entity);

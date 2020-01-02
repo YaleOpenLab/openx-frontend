@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import {connect} from "react-redux";
-import {fetchUserAccount} from "../../../../../store/actions";
 import SeeMore from "../../../../../../UI/SeeMore/SeeMore";
 import RadioButton from "../../../../../../UI/SolarForms/RadioButton/RadioButton";
 import DivBox from "../../../../../../General/DivBox/DivBox";
@@ -82,15 +81,10 @@ const Entity = ({account}) => {
 };
 
 const mapStateToProps = state => ({
-	account: state.profile.account.items,
-	loading: state.profile.account.isLoading
-});
-
-const mapDispatchToProps = dispatch => ({
-	fetchUserAccount: payload => dispatch(fetchUserAccount(payload))
+	account: state.userProfile.user.items,
+	loading: state.userProfile.user.isLoading
 });
 
 export default connect(
 	mapStateToProps,
-	mapDispatchToProps
 )(Entity);
