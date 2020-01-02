@@ -93,6 +93,13 @@ const userAccountReducer = (state = initialState, action) => {
 					error: null,
 					authorized: false,
 					created: false,
+				},
+				investor: {
+					created: false,
+					isLoading: false,
+					error: null,
+					authorized: false,
+					items: [],
 				}
 			};
 		default:
