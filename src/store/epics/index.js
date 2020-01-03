@@ -1,4 +1,4 @@
-import { combineEpics } from "redux-observable";
+import {combineEpics} from "redux-observable";
 import fetchProjectsEpic from "../../components/Explore/Projects/store/epics";
 import fetchProjectEpic from "../../components/Explore/SingleProject/store/epics";
 import fetchInvestorEpic from "../../pages/Investor/store/epics";
@@ -6,7 +6,7 @@ import fetchReceiverEpic from "../../pages/Receiver/store/epics";
 
 import {
 	registerActionEpic,
-	updateAccountEpic, validateActionEpic
+	updateAccountEpic, validateActionEpic, validateInvestorEpic, validateRecipientEpic
 } from "../../components/Profile/store/epics";
 
 export const rootEpic = (action$, store) =>
@@ -17,5 +17,7 @@ export const rootEpic = (action$, store) =>
 		fetchReceiverEpic,
 		updateAccountEpic,
 		registerActionEpic,
-		validateActionEpic
+		validateActionEpic,
+		validateInvestorEpic,
+		validateRecipientEpic
 	)(action$, store);

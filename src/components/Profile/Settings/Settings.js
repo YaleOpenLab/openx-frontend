@@ -13,6 +13,8 @@ import Storage from "../../../services/Storage";
 import {connect} from "react-redux";
 import {withSnackbar} from "notistack";
 import Legal from "./Pages/Legal/Legal";
+import {validateAction} from "../store/actions";
+import {Observable} from "rxjs";
 
 class Settings extends Component {
   constructor(props) {
@@ -24,6 +26,22 @@ class Settings extends Component {
   }
 
   componentDidMount = () => {
+		// function mockHTTPRequest(url) {
+		// 	return Observable.of(`Response from ${url}`)
+		// 		.delay(Math.random() * 1000);
+		// }
+		//
+		// const urls = [
+		// 	'http://api.openx.solar/user/validate?username=dog&token=hnnThoxcMQWiaezMoGJSQQHYemyEqVML',
+		// 	'http://api.openx.solar/investor/validate?username=dog&token=hnnThoxcMQWiaezMoGJSQQHYemyEqVML',
+		// 	'http://api.openx.solar/recipient/validate?username=dog&token=hnnThoxcMQWiaezMoGJSQQHYemyEqVML'];
+		//
+		// Observable.from(urls)
+		// 	.concatMap(url => mockHTTPRequest(url))
+		// 	.subscribe(val => console.log(val));
+
+		this.props.fetchUser("investor", this.state.username);
+		this.props.fetchUser("recipient", this.state.username);
 	};
 
   render() {
@@ -56,7 +74,10 @@ const mapStateToProps = state => ({
 	loading: state.userProfile.user.isLoading,
 	updateStatus: state.userProfile.user.updateStatus
 });
+const mapDispatchToProps = dispatch => ({
+	fetchUser: (entity, username) => dispatch(validateAction(entity, username))
+});
 
 export default connect(
-	mapStateToProps,
+	mapStateToProps,mapDispatchToProps
 )(withSnackbar(Settings));

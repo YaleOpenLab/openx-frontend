@@ -23,11 +23,6 @@ export const updateAccountEpic = (action$, store) =>
 					updateAccountSuccess(action.entity),
 					displayErrorAction("success", "User Updated"),
 					validateAction(action.entity, action.data.username),
-					// registerAction("investor", {
-					// 	username: "morsmetus",
-					// 	email: "morsmetus@gmail.com",
-					// 	pwd: "asdasd"
-					// })
 				]),
 				catchError(error =>
 					Observable.of(updateAccountFailure(action.entity, error.message), displayErrorAction("error", error.message))
@@ -38,7 +33,7 @@ export const updateAccountEpic = (action$, store) =>
 
 export const validateActionEpic = action$ =>
 	action$.pipe(
-		ofType(TYPES.VALIDATE),
+		ofType(TYPES.user.VALIDATE),
 		switchMap(action => {
 			return Http.validateService(action.entity, action.username).pipe(
 				concatMap(user => {
@@ -54,7 +49,55 @@ export const validateActionEpic = action$ =>
 					}
 				}),
 				catchError(error =>
-					Observable.of(validateActionFailure(action.entity, error.message), displayErrorAction("error", error.message))
+					Observable.of(validateActionFailure(action.entity, error.message))
+				)
+			);
+		})
+	);
+
+	export const validateInvestorEpic = action$ =>
+	action$.pipe(
+		ofType(TYPES.investor.VALIDATE),
+		switchMap(action => {
+			return Http.validateService(action.entity, action.username).pipe(
+				concatMap(user => {
+					if (user.data.Code) {
+						return [
+							displayErrorAction("error", user.data.Status),
+							validateActionFailure(action.entity, user.data.Status),
+						]
+					} else {
+						return [
+							validateActionSuccess(action.entity, user.data),
+						]
+					}
+				}),
+				catchError(error =>
+					Observable.of(validateActionFailure(action.entity, error.message))
+				)
+			);
+		})
+	);
+
+	export const validateRecipientEpic = action$ =>
+	action$.pipe(
+		ofType(TYPES.recipient.VALIDATE),
+		switchMap(action => {
+			return Http.validateService(action.entity, action.username).pipe(
+				concatMap(user => {
+					if (user.data.Code) {
+						return [
+							displayErrorAction("error", user.data.Status),
+							validateActionFailure(action.entity, user.data.Status),
+						]
+					} else {
+						return [
+							validateActionSuccess(action.entity, user.data),
+						]
+					}
+				}),
+				catchError(error =>
+					Observable.of(validateActionFailure(action.entity, error.message))
 				)
 			);
 		})

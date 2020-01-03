@@ -11,13 +11,12 @@ import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 import {validateAction} from "../../../Profile/store/actions";
 import ProfileImage from "../../../../assets/images/user-profile-icon.svg"
-import {Observable} from "rxjs";
 
 class UserProfileSection extends Component {
   componentDidMount = () => {
     const username = Storage.get("username");
 		if(username) {
-			Observable.of(this.props.fetchUserAccount("user", username));
+			this.props.fetchUserAccount("user", username);
 		}
   };
 

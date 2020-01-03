@@ -19,7 +19,9 @@ const ROUTES = {
   },
   RECEIVER: "/receiver",
   RECEIVER_PAGES: {
-    DASHBOARD: "/receiver/dashboard"
+    DASHBOARD: "/receiver/dashboard",
+    NOTIFICATIONS: "/receiver/notifications",
+    ORIGINATE: "/receiver/originate",
   },
   DEVELOPER: "/developer",
   PROFILE: "/profile",

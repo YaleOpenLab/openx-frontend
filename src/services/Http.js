@@ -23,8 +23,8 @@ export class Http {
     )
   }
 
-  static registerService(entity, {username, email, pwd}) {
-		const hash = sha3_512(pwd);
+  static registerService(entity, {username, email, pwd, pwhash}) {
+		const hash = pwhash ? pwhash : sha3_512(pwd);
 		const data = {name: username, username: username, email:email, pwhash: hash, seedpwd: "x"};
     return this.postProtected(`${entity}/register`, data);
   }
@@ -42,7 +42,6 @@ export class Http {
   }
 
   static validateService(entity, username) {
-  	console.log(username)
     return this.getProtected(`${entity}/validate`, {
       username: username,
     }).pipe(map(value => {

@@ -8,7 +8,7 @@ class SubNavigationComponent extends Component {
 
   render() {
     if (this.props.list) {
-      this.navItems = this.props.list.map(item => {
+      this.navItems = this.props.list.map((item) => {
         return (
           <NavigationItem link={item.link} key={item.link}>
             {item.name}

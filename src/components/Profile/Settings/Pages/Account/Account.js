@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {Formik, Form, Field} from "formik";
 import * as Yup from "yup";
 import {connect} from "react-redux";
-import {updateAccount} from "../../../store/actions";
+import {registerAction, updateAccount} from "../../../store/actions";
 import {withSnackbar} from "notistack";
 import RadioButton from "../../../../UI/SolarForms/RadioButton/RadioButton";
 
@@ -14,10 +14,10 @@ const AccountSchema = Yup.object().shape({
 
 });
 
-const Account = ({account, loading, updateAccount}) => {
+const Account = ({account, loading, updateAccount, registerAccount, isInvestor, isRecipient}) => {
 	const [userProfile, setProfileTypes] = useState({
-		investor: false,
-		receiver: false,
+		investor: isInvestor,
+		recipient: isRecipient,
 		developer: false,
 		visitor: false,
 	});
@@ -26,7 +26,7 @@ const Account = ({account, loading, updateAccount}) => {
 		if (type === "visitor") {
 			setProfileTypes({
 				investor: false,
-				receiver: false,
+				recipient: false,
 				developer: false,
 				visitor: true,
 			})
@@ -41,6 +41,16 @@ const Account = ({account, loading, updateAccount}) => {
 
 	const handleSubmit = values => {
 		updateAccount("user", values);
+		const registerValues = {
+			username: values.username,
+			email: values.email,
+			pwhash: account.Pwhash
+		};
+		Object.keys(userProfile).map(key => {
+			if(userProfile[key] && key === "investor" || key === "recipient"){
+				registerAccount(key, registerValues)
+			}
+		})
 	};
 
 	return (
@@ -227,13 +237,13 @@ const Account = ({account, loading, updateAccount}) => {
 									<RadioButton
 										name="INVESTOR"
 										label="INVESTOR: I will directly invest in solar projects as myself."
-										checked={userProfile.investor}
+										checked={isInvestor ? true : userProfile.investor}
 										onChange={() => handleProfileTypeChange("investor")}/>
 									<RadioButton
 										name="RECEIVER"
 										label="RECEIVER: I will receive a solar array and pay its electricity generation to own it. "
-										checked={userProfile.receiver}
-										onChange={() => handleProfileTypeChange("receiver")}/>
+										checked={isRecipient ? true : userProfile.recipient}
+										onChange={() => handleProfileTypeChange("recipient")}/>
 									<RadioButton
 										name="DEVELOPER"
 										label="DEVELOPER: I will install a solar system or provide professional services for its installation, operation or maintenance. "
@@ -279,11 +289,14 @@ const Account = ({account, loading, updateAccount}) => {
 
 const mapStateToProps = state => ({
 	account: state.userProfile.user.items,
+	isInvestor: state.userProfile.investor.authorized,
+	isRecipient: state.userProfile.recipient.authorized,
 	loading: state.userProfile.user.isLoading,
 });
 
 const mapDispatchToProps = dispatch => ({
-	updateAccount: (entity, payload) => dispatch(updateAccount(entity, payload))
+	updateAccount: (entity, payload) => dispatch(updateAccount(entity, payload)),
+	registerAccount: (entity, data) => dispatch(registerAction(entity, data)),
 });
 
 export default connect(

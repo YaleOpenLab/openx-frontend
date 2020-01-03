@@ -46,7 +46,7 @@ export const registerActionFailure = (entity, data) => ({
 });
 
 export const validateAction = (entity, username) => ({
-	type: TYPES.VALIDATE,
+	type: TYPES[entity].VALIDATE,
 	entity,
 	username,
 });

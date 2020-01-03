@@ -28,6 +28,9 @@ import SummaryCards from '../../../General/SummaryCards/SummaryCards';
 import { connect } from 'react-redux';
 import { fetchReceiver } from '../../../../pages/Receiver/store/actions';
 import axios from 'axios';
+import {validateAction} from "../../../Profile/store/actions";
+import Storage from "../../../../services/Storage";
+import NotAvailable from "../../../UI/NotAvailable/NotAvailable";
 
 class Dashboard extends Component {
   constructor(props) {
@@ -111,13 +114,10 @@ class Dashboard extends Component {
   }
 
   componentDidMount = () => {
-    this.props.fetchReceiver();
-  };
+		this.props.fetchReceiver("recipient", Storage.get("username"));
+	};
 
   componentDidUpdate = prevProps => {
-    if (!this.props.receiver || !this.props.receiver.U) {
-      return null
-    }
     if (this.props.receiver !== prevProps.receiver) {
       axios
         .get(
@@ -138,7 +138,7 @@ class Dashboard extends Component {
           }
         });
     }
-  }
+  };
 
   onButtonClick = active => {
     this.setState({
@@ -153,17 +153,19 @@ class Dashboard extends Component {
   };
 
   render() {
-    const receiver = this.props.receiver && this.props.receiver.U
+		if(this.props.receiver && !this.props.authorized) {
+			return <NotAvailable text={"You have not registered as a receiver"}/>
+		}
+
+		const receiver = this.props.receiver && this.props.receiver.U
       ? this.props.receiver
       : null;
     const projects = receiver && receiver.ReceivedSolarProjects ? receiver.ReceivedSolarProjects.length : 0;
     const receiverProject = mockData.project;
     const rwandaProject = rwanda.project;
     const walletBalance = "$" + this.state.balance;
-    const origPubkey = this.props.receiver && this.props.receiver.U
-      ? this.props.receiver.U.PublicKey : 'mockkey'
-    const publicKey = this.props.receiver && this.props.receiver.U
-      ? "****" + this.props.receiver.U.PublicKey.slice(-20) : 'mockkey';
+    const origPubkey = "****" + "GDHZLFBNYI3C3IHTTDEI6OPU2WDQD2KGD5QOSQJOBXKLSGLNYHQTFXKI".slice(-20);
+    const publicKey = "****" + "GDHZLFBNYI3C3IHTTDEI6OPU2WDQD2KGD5QOSQJOBXKLSGLNYHQTFXKI".slice(-20);
     const pkExplorerLink = "https://testnet.steexp.com/account/" + origPubkey;
     const origEthAddress = this.props.receiver && this.props.receiver.U && this.props.receiver.U.EthereumWallet
       ? this.props.receiver.U.EthereumWallet.Address : 'mockkey';
@@ -780,11 +782,13 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = state => ({
-  receiver: state.receiver.items
+  receiver: state.userProfile.recipient.items,
+	loading: state.userProfile.recipient.isLoading,
+	authorized: state.userProfile.recipient.authorized
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchReceiver: () => dispatch(fetchReceiver())
+	fetchReceiver: (entity, username) => dispatch(validateAction(entity, username))
 });
 
 export default connect(
