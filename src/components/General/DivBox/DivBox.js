@@ -1,7 +1,7 @@
 import React from "react";
 import history from "../../../helpers/history";
 
-const DivBox = ({type, col, classes, actionLabel, link, leftIcon, rightIcon, iconSize, text, label, list}) => {
+const DivBox = ({type, col, classes, actionLabel, link, action, leftIcon, rightIcon, iconSize, text, label, list}) => {
   let output = "";
 
   const handleRedirection = (link) => {
@@ -15,7 +15,7 @@ const DivBox = ({type, col, classes, actionLabel, link, leftIcon, rightIcon, ico
           className={`col-${col ? col : "6"} solar-input-div ${
             classes ? classes.join(" ") : ""
           }`}
-					onClick={() => handleRedirection(link)}
+					onClick={action ? action : () => handleRedirection(link)}
         >
           {actionLabel ? (
             <div className="solar-form-action-label">{actionLabel}</div>

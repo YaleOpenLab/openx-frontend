@@ -7,7 +7,7 @@ const StyledInputContainer = styled.div`
 	flex-direction: column-reverse;
   justify-content: flex-end;
   margin: 0 ${Variables.Global.pixelBase}px;
-  width: 100%;
+  flex: 1;.
 `;
 
 const StyledInput = styled.input`

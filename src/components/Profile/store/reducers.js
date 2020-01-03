@@ -1,9 +1,3 @@
-import {
-  USER_ACCOUNT_UPDATE,
-  USER_ACCOUNT_UPDATE_SUCCESS,
-  USER_ACCOUNT_UPDATE_FAILURE,
-  USER_ACCOUNT_LOGOUT
-} from "./actions";
 import {TYPES} from "./actionTypes";
 
 const initialState = {
@@ -38,6 +32,7 @@ const userAccountReducer = (state = initialState, action) => {
 				[action.entity]: {
 					...state[action.entity],
 					created: true,
+					authorized: true,
 				}
       };
     case action.entity && TYPES[action.entity].REGISTER_FAILURE:

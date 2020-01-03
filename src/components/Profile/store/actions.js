@@ -1,11 +1,5 @@
 import {TYPES} from "./actionTypes";
 
-export const USER_ACCOUNT_UPDATE = "USER_ACCOUNT_UPDATE";
-export const USER_ACCOUNT_UPDATE_SUCCESS = "USER_ACCOUNT_UPDATE_SUCCESS";
-export const USER_ACCOUNT_UPDATE_FAILURE = "USER_ACCOUNT_UPDATE_FAILURE";
-
-export const USER_ACCOUNT_LOGOUT = "USER_ACCOUNT_LOGOUT";
-
 export const logoutUserAccount = payload => ({
   type: TYPES.LOGOUT,
   payload

@@ -102,9 +102,9 @@ const LoginComponent = ({fetchUserAccount, showMessage, loading, authorized}) =>
 }
 
 const mapStateToProps = state => ({
-	error: state.userProfile.user.error,
-	loading: state.userProfile.user.isLoading,
-	authorized: state.userProfile.user.authorized,
+	error: state.profile.user.error,
+	loading: state.profile.user.isLoading,
+	authorized: state.profile.user.authorized,
 });
 
 const mapDispatchToProps = dispatch => ({

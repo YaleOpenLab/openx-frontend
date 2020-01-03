@@ -288,10 +288,10 @@ const Account = ({account, loading, updateAccount, registerAccount, isInvestor, 
 };
 
 const mapStateToProps = state => ({
-	account: state.userProfile.user.items,
-	isInvestor: state.userProfile.investor.authorized,
-	isRecipient: state.userProfile.recipient.authorized,
-	loading: state.userProfile.user.isLoading,
+	account: state.profile.user.items,
+	isInvestor: state.profile.investor.authorized,
+	isRecipient: state.profile.recipient.authorized,
+	loading: state.profile.user.isLoading,
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -23,9 +23,9 @@ export class Http {
     )
   }
 
-  static registerService(entity, {username, email, pwd, pwhash}) {
+  static registerService(entity, {username, name, email, pwd, pwhash}) {
 		const hash = pwhash ? pwhash : sha3_512(pwd);
-		const data = {name: username, username: username, email:email, pwhash: hash, seedpwd: "x"};
+		const data = {name: name ? name : username, username: username, email:email, pwhash: hash, seedpwd: "x"};
     return this.postProtected(`${entity}/register`, data);
   }
 

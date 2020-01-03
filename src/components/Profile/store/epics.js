@@ -108,10 +108,19 @@ export const registerActionEpic = action$ =>
 		ofType(TYPES.REGISTER),
 		switchMap(action => {
 			return Http.registerService(action.entity, {...action.data}).pipe(
-				concatMap(user => [
-					displayErrorAction("success", "User Created"),
-					registerActionSuccess(action.entity, user.data),
-				]),
+				concatMap(user => {
+					if (user.data.Code) {
+						return [
+							displayErrorAction("error", user.data.Status),
+							registerActionFailure(action.entity, user.data.Status),
+						]
+					} else {
+						return [
+							displayErrorAction("success", "User Created"),
+							registerActionSuccess(action.entity, user.data),
+						]
+					}
+				}),
 				catchError(error =>
 					Observable.of(registerActionFailure(action.entity, error.message), displayErrorAction("error", error.message))
 				)

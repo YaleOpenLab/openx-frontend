@@ -1,27 +1,34 @@
 import React from "react";
-import StepsForm from "../../../../General/StepsForm/StepsForm";
-import Register from "./ProfilesTabs/Register/Register";
 import { connect } from "react-redux";
+import {Switch} from "react-router-dom";
+import PrivateRoute from "../../../../PrivateRouterComponent/PrivateRouterComponent";
+import ROUTES from "../../../../../routes/routes";
+import VerifyProfilePage from "./pages/VerifyProfilePage/VerifyProfilePage";
+import MainProfilePage from "./pages/MainProfilePage/MainProfilePage";
+import RegisterNewEntity from "./pages/RegisterNewProfile/RegisterNewEntity";
 
 const Entity = props => (
-  <div className="ProfileUsers">
-    <StepsForm
-      tabs={[
-        { name: "register", key: 1 },
-        { name: "verify", key: 2 },
-        { name: "wallet", key: 3 }
-      ]}
-    >
-      <Register key={1} account={props.account} />
-      <div key={2}>2</div>
-      <div key={3}>3</div>
-    </StepsForm>
-  </div>
+	<Switch>
+		<PrivateRoute
+			path={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.USER_PROFILES}
+			exact
+			component={MainProfilePage}
+		/>
+		<PrivateRoute
+			path={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.USER_PROFILES_PAGES.NEW_PROFILE}
+			exact
+			component={RegisterNewEntity}
+		/>
+		<PrivateRoute
+			path={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.USER_PROFILES_PAGES.VERIFY}
+			component={VerifyProfilePage}
+		/>
+	</Switch>
 );
 
 const mapStateToProps = state => ({
-  account: state.userProfile.user.items,
-  loading: state.userProfile.user.isLoading
+  account: state.profile.user.items,
+  loading: state.profile.user.isLoading
 });
 
 export default connect(

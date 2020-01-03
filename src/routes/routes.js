@@ -36,6 +36,10 @@ const ROUTES = {
       	NEW_ENTITY: "/profile/settings/entity/register"
 			},
       USER_PROFILES: "/profile/settings/users",
+      USER_PROFILES_PAGES: {
+      	NEW_PROFILE: "/profile/settings/users/register/:userType",
+      	VERIFY: "/profile/settings/users/verify/:username/:userType",
+			},
       FUNDS: "/profile/settings/funds",
       LEGAL: "/profile/settings/legal",
     }

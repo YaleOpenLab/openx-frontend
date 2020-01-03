@@ -17,7 +17,7 @@ const Dashboard = ({investor, account, fetchInvestor, authorized, loading}) => {
 	if(!authorized) {
 		return <NotAvailable text={"You have not registered as an investor"}/>
 	}
-
+	console.log(investor, "investor");
 	return (
 		<div className="investor-dashboard">
 				<InvestmentSummary investor={investor} balance={balance}/>
@@ -29,10 +29,10 @@ const Dashboard = ({investor, account, fetchInvestor, authorized, loading}) => {
 };
 
 const mapStateToProps = state => ({
-	account: state.userProfile.user.items,
-	investor: state.userProfile.investor.items,
-	loading: state.userProfile.investor.isLoading,
-	authorized: state.userProfile.investor.authorized
+	account: state.profile.user.items,
+	investor: state.profile.investor.items,
+	loading: state.profile.investor.isLoading,
+	authorized: state.profile.investor.authorized
 });
 
 const mapDispatchToProps = dispatch => ({

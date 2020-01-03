@@ -31,7 +31,8 @@ export const StyledSmallerText = styled.div`
 
 export const StyledSeparator = styled.div`
 	margin: ${props => Variables.Global.pixelBase * props.size}px 0;
-  border-bottom: 2px solid ${Variables.Colors.greyLight};
+	width: 100%;
+  border-bottom: ${props => props.noBorder ? '0' : '2px'} solid ${Variables.Colors.greyLight};
 `;
 
 StyledSeparator.defaultProps = {
@@ -40,4 +41,10 @@ StyledSeparator.defaultProps = {
 
 export const StyledFieldSection = styled.div`
 	display: flex;
+`;
+
+export const StyledFlexContainer = styled.div`
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
 `;

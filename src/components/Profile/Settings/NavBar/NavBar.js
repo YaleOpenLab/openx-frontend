@@ -48,9 +48,9 @@ const NavBar = props => (
         <div className="profile-progress-text">
           Your account setup progress:
         </div>
-        <div className="profile-progress-percentage">45%</div>
+        <div className="profile-progress-percentage">0%</div>
         <div className="profile-progress-bar">
-          <div className="profile-progress-success" style={{ width: "45%" }} />
+          <div className="profile-progress-success" style={{ width: "0%" }} />
         </div>
       </div>
     </div>
@@ -58,8 +58,8 @@ const NavBar = props => (
 );
 
 const mapStateToProps = state => ({
-  account: state.userProfile.user.items,
-  loading: state.userProfile.user.isLoading
+  account: state.profile.user.items,
+  loading: state.profile.user.isLoading
 });
 
 const mapDispatchToProps = dispatch => ({

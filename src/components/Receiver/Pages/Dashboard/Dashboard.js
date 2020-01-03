@@ -117,29 +117,6 @@ class Dashboard extends Component {
 		this.props.fetchReceiver("recipient", Storage.get("username"));
 	};
 
-  componentDidUpdate = prevProps => {
-    if (this.props.receiver !== prevProps.receiver) {
-      axios
-        .get(
-          `https://api.openx.solar/user/balance/asset?username=${
-            this.props.receiver.U.Username
-          }&pwhash=${this.props.receiver.U.Pwhash}&asset=STABLEUSD`
-        )
-        .then(res => {
-          const balance = res.data;
-          if (balance.Code != 404) {
-            this.setState({
-              balance: Number(balance)
-            });
-          } else {
-            this.setState({
-              balance: 0
-            });
-          }
-        });
-    }
-  };
-
   onButtonClick = active => {
     this.setState({
       activeButton: active
@@ -782,9 +759,9 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = state => ({
-  receiver: state.userProfile.recipient.items,
-	loading: state.userProfile.recipient.isLoading,
-	authorized: state.userProfile.recipient.authorized
+  receiver: state.profile.recipient.items,
+	loading: state.profile.recipient.isLoading,
+	authorized: state.profile.recipient.authorized
 });
 
 const mapDispatchToProps = dispatch => ({

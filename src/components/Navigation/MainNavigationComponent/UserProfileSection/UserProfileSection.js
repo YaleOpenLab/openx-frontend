@@ -53,8 +53,8 @@ class UserProfileSection extends Component {
 }
 
 const mapStateToProps = state => ({
-  account: state.userProfile.user.items,
-  loading: state.userProfile.user.isLoading
+  account: state.profile.user.items,
+  loading: state.profile.user.isLoading
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -8,11 +8,12 @@ import ConfirmTab from "./ConfirmTab/ConfirmTab";
 import { fetchProject } from "../../../Explore/SingleProject/store/actions";
 import connect from "react-redux/es/connect/connect";
 import PageLoading from "../../../General/Loading/Loading";
-import { fetchInvestor } from "../../../../pages/Investor/store/actions";
 import { Http } from "../../../../services/Http";
 import { withSnackbar } from "notistack";
 import ROUTES from "../../../../routes/routes";
 import axios from 'axios';
+import {validateAction} from "../../../Profile/store/actions";
+import Storage from "../../../../services/Storage";
 
 class InvestmentConfirmation extends Component {
   constructor(props) {
@@ -29,7 +30,7 @@ class InvestmentConfirmation extends Component {
   componentDidMount = () => {
     window.scrollTo(0, 0);
     this.props.fetchProject(this.props.match.params.id);
-    this.props.fetchInvestor();
+    this.props.fetchInvestor('investor', Storage.get('username'));
   };
 
   componentDidUpdate = prevProps => {
@@ -165,7 +166,7 @@ class InvestmentConfirmation extends Component {
 const mapStateToProps = state => ({ ...state });
 
 const mapDispatchToProps = dispatch => ({
-  fetchInvestor: () => dispatch(fetchInvestor()),
+  fetchInvestor: (entity, username) => dispatch(validateAction(entity, username)),
   fetchProject: id => dispatch(fetchProject(id))
 });
 

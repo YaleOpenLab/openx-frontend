@@ -7,7 +7,7 @@ const StyledCustomLinkContainer = styled.div`
 `;
 const StyledCustomLink = styled(NavLink)`
 	color: #4a90e2;
-	font-weight: bold;
+	font-weight: ${props => props.weight};
 	font-size: 14px;
 	cursor: pointer;
 	&:active {
@@ -15,10 +15,10 @@ const StyledCustomLink = styled(NavLink)`
 	}
 `;
 
-const CustomLink = ({url, label, children}) => {
+const CustomLink = ({url, label, children, weight}) => {
 	return (
 		<StyledCustomLinkContainer>
-			<StyledCustomLink to={url ? url : '#'}>
+			<StyledCustomLink to={url ? url : '#'} weight={weight ? weight : "bold"}>
 				{children || label}
 			</StyledCustomLink>
 		</StyledCustomLinkContainer>

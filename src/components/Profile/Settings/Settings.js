@@ -70,9 +70,9 @@ class Settings extends Component {
 }
 
 const mapStateToProps = state => ({
-	account: state.userProfile.user.items,
-	loading: state.userProfile.user.isLoading,
-	updateStatus: state.userProfile.user.updateStatus
+	account: state.profile.user.items,
+	loading: state.profile.user.isLoading,
+	updateStatus: state.profile.user.updateStatus
 });
 const mapDispatchToProps = dispatch => ({
 	fetchUser: (entity, username) => dispatch(validateAction(entity, username))

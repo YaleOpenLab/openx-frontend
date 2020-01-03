@@ -6,9 +6,13 @@ import DivBox from "../../../../../../General/DivBox/DivBox";
 import ROUTES from "../../../../../../../routes/routes";
 import ToggleButton from "../../../../../../General/ToggleButton";
 import ActionButtons from "../../../../ActionButtons";
+import history from "../../../../../../../helpers/history";
 
 const Entity = ({account}) => {
-	const [verified, setVerified] = useState(false)
+	const [verified, setVerified] = useState(account.Kyc);
+	const handleVerify = () => {
+		history.push(ROUTES.PROFILE_PAGES.SETTINGS_PAGES.USER_PROFILES_PAGES.VERIFY.replace(':username', account.Username).replace(':userType', 'user'))
+	};
 
 	return (
 		<div className="ProfileEntity">
@@ -44,7 +48,7 @@ const Entity = ({account}) => {
 							label={<SeeMore infoContent={<div style={{fontSize: 12}}>Is your account verified? </div>}>Is your account
 								verified?</SeeMore>}
 							checked={verified}
-							handleChange={() => setVerified(!verified)}
+							handleChange={handleVerify}
 						/>
 					</div>
 					<div className="col-12 solar-form-separator"/>
@@ -81,8 +85,8 @@ const Entity = ({account}) => {
 };
 
 const mapStateToProps = state => ({
-	account: state.userProfile.user.items,
-	loading: state.userProfile.user.isLoading
+	account: state.profile.user.items,
+	loading: state.profile.user.isLoading
 });
 
 export default connect(

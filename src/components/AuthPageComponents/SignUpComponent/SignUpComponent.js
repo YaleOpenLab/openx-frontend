@@ -138,7 +138,7 @@ const signUpComponent = ({registerEntity, created}) => {
 };
 
 const mapStateToProps = state => ({
-	created: state.userProfile.user.created
+	created: state.profile.user.created
 });
 
 const mapDispatchToProps = dispatch => ({

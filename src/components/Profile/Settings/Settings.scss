@@ -7,8 +7,9 @@
   .settings-content {
     .ProfileAccount,
     .ProfileEntity,
+    .ProfileUsers,
     .ProfileSecurity {
-      margin-top: $pixel-base * 21;
+      margin-top: $pixel-base * 10;
 
       @media #{$xs-screen} {
         margin-top: $pixel-base * 5;
@@ -23,8 +24,7 @@
       }
     }
 
-    .RegisterNewEntity,
-    .ProfileUsers {
+    .RegisterNewEntity {
       margin-top: $pixel-base * 5;
     }
   }
