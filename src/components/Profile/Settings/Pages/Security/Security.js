@@ -71,7 +71,6 @@ class Security extends Component {
 				<Formik
 					initialValues={accountPasswordInitialValues}
 					onSubmit={(values, actions) => {
-						console.log(values);
 					}}
 					validationSchema={AccountSecuritySchema}
 				>
@@ -185,7 +184,6 @@ class Security extends Component {
 				<Formik
 					initialValues={seedPasswordInitialValues}
 					onSubmit={(values, actions) => {
-						console.log(values);
 					}}
 					validationSchema={SeedSecuritySchema}
 				>

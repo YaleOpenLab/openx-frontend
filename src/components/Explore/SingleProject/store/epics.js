@@ -14,7 +14,9 @@ const fetchProjectEpic = (action$, state$) => {
     ofType(FETCH_PROJECT),
     switchMap(action =>
       Http.projectGet(action.payload).pipe(
-        map(projects => fetchProjectSuccess(projects)),
+        map(projects => {
+        	return fetchProjectSuccess(projects);
+				}),
         catchError(error => Observable.of(fetchProjectFailure(error.message)))
       )
     )

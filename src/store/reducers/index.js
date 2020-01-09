@@ -6,6 +6,7 @@ import errorReducer from "./errors";
 import verifyAccountReducer
 	from "../../components/Profile/Settings/Pages/Profiles/pages/VerifyProfilePage/store/reducers";
 import fundsAccountReducer from "../../components/Profile/Settings/Pages/ManageFunds/pages/store/reducers";
+import progressReducer from "./progress";
 
 const rootReducer = combineReducers({
   projects: projectsReducer,
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
 	verify: verifyAccountReducer,
 	funds: fundsAccountReducer,
   profile: userAccountReducer,
+	progress: progressReducer,
 });
 
 export default rootReducer;

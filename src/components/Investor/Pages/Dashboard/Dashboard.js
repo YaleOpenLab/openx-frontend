@@ -17,7 +17,6 @@ const Dashboard = ({investor, account, fetchInvestor, authorized, loading}) => {
 	if(!authorized) {
 		return <NotAvailable text={"You have not registered as an investor"}/>
 	}
-	console.log(investor, "investor");
 	return (
 		<div className="investor-dashboard">
 				<InvestmentSummary investor={investor} balance={balance}/>

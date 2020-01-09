@@ -6,6 +6,7 @@ import {registerAction, updateAccount} from "../../../store/actions";
 import {withSnackbar} from "notistack";
 import RadioButton from "../../../../UI/SolarForms/RadioButton/RadioButton";
 import ROUTES from "../../../../../routes/routes";
+import {progressAction} from "../../../../../store/actions/actions";
 
 const AccountSchema = Yup.object().shape({
 	name: Yup.string().required("Required"),
@@ -14,7 +15,7 @@ const AccountSchema = Yup.object().shape({
 		.required("Required"),
 });
 
-const Account = ({account, loading, updateAccount, registerAccount, isInvestor, isRecipient, history}) => {
+const Account = ({account, loading, updateAccount, registerAccount, isInvestor, isRecipient, history, setProgress}) => {
 	const [userProfile, setProfileTypes] = useState({
 		investor: false,
 		recipient: false,
@@ -303,6 +304,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
 	updateAccount: (entity, payload) => dispatch(updateAccount(entity, payload)),
 	registerAccount: (entity, data) => dispatch(registerAction(entity, data)),
+	setProgress: (data) => dispatch(progressAction(data)),
 });
 
 export default connect(

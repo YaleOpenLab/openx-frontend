@@ -1,30 +1,37 @@
-import React, {Component} from "react";
+import React, {useEffect, useState} from "react";
 import SwitchButton from "../../../../General/SwitchButton/SwitchButton";
 import SeeMore from "../../../../UI/SeeMore/SeeMore";
 import Button from "../../../../UI/SolarForms/Button/Button";
 import ROUTES from "../../../../../routes/routes";
 import CustomLink from "../../../../UI/CustomLink/CustomLink";
+import {fetchProgressAction, progressAction} from "../../../../../store/actions/actions";
+import {connect} from "react-redux";
+import {withSnackbar} from "notistack";
 
-class Legal extends Component {
-	state = {
+const Legal = ({account, setProgress, getProgress}) => {
+	const [terms, setTerms] = useState({
 		agreeTerms: false,
 		legalRelease1: false,
 		legalRelease2: false,
 		legalRelease3: false,
 		legalRelease4: false,
+	});
+
+	useEffect(() => {
+		getProgress()
+	}, []);
+
+	const handleToggleChange = key => {
+		setTerms({
+			...terms,
+			[key]: !terms[key]
+		});
 	};
 
-	handleToggleChange = key => {
-		this.setState(prevState => ({
-			[key]: !prevState[key]
-		}));
+	const handleExplore = () => {
+		setProgress({username: account.Username, progress: 25});
 	};
 
-	handleExplore = () => {
-
-	};
-
-	render() {
 		return (
 			<div className="ProfilePageContainer">
 				<div className="row">
@@ -64,8 +71,8 @@ class Legal extends Component {
 						</p>
 						<SwitchButton
 							label={<SeeMore infoContent={'More info or content goes here'}>I agree with the above statement</SeeMore>}
-							checked={this.state.agreeTerms}
-							handleChange={() => this.handleToggleChange("agreeTerms")}
+							checked={terms.agreeTerms}
+							handleChange={() => handleToggleChange("agreeTerms")}
 						/>
 					</div>
 
@@ -76,23 +83,23 @@ class Legal extends Component {
 					<div className="col-12 col-md-10 col-lg-8 mx-auto">
 						<SwitchButton
 							label={<SeeMore infoContent={<div style={{fontSize: 12}}> More info </div>}>Legal release 1</SeeMore>}
-							checked={this.state.legalRelease1}
-							handleChange={() => this.handleToggleChange("legalRelease1")}
+							checked={terms.legalRelease1}
+							handleChange={() => handleToggleChange("legalRelease1")}
 						/>
 						<SwitchButton
 							label={<SeeMore infoContent={<div style={{fontSize: 12}}> More info </div>}>Legal release 2</SeeMore>}
-							checked={this.state.legalRelease2}
-							handleChange={() => this.handleToggleChange("legalRelease2")}
+							checked={terms.legalRelease2}
+							handleChange={() => handleToggleChange("legalRelease2")}
 						/>
 						<SwitchButton
 							label={<SeeMore infoContent={<div style={{fontSize: 12}}> More info </div>}>Legal release 3</SeeMore>}
-							checked={this.state.legalRelease3}
-							handleChange={() => this.handleToggleChange("legalRelease3")}
+							checked={terms.legalRelease3}
+							handleChange={() => handleToggleChange("legalRelease3")}
 						/>
 						<SwitchButton
 							label={<SeeMore infoContent={<div style={{fontSize: 12}}> More info </div>}>Legal release 4</SeeMore>}
-							checked={this.state.legalRelease4}
-							handleChange={() => this.handleToggleChange("legalRelease4")}
+							checked={terms.legalRelease4}
+							handleChange={() => handleToggleChange("legalRelease4")}
 						/>
 					</div>
 
@@ -111,7 +118,7 @@ class Legal extends Component {
 							</div>
 							<div className="col-6">
 								<Button
-									action={this.handleExplore}
+									action={handleExplore}
 									label='save'
 								/>
 							</div>
@@ -120,7 +127,18 @@ class Legal extends Component {
 				</div>
 			</div>
 		);
-	}
 }
 
-export default Legal;
+const mapStateToProps = state => ({
+	account: state.profile.user.items,
+});
+
+const mapDispatchToProps = dispatch => ({
+	setProgress: (data) => dispatch(progressAction(data)),
+	getProgress: () => dispatch(fetchProgressAction()),
+});
+
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(withSnackbar(Legal));

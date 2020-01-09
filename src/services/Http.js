@@ -6,7 +6,7 @@ import { sha3_512 } from 'js-sha3';
 
 export class Http {
   static investorInvest(id, amount) {
-    return this.get('investor/invest', {
+    return this.getProtected('investor/invest', {
       username: Storage.get('username'),
       pwhash: Storage.get('token'),
       seedpwd: "x",
@@ -54,6 +54,14 @@ export class Http {
     return this.postProtected('user/update', {...data});
   }
 
+  static progress(data) {
+    return this.postProtected('user/progress', {...data});
+  }
+
+  static getProgress() {
+    return this.getProtected('user/progress');
+  }
+
   static userAskXlm(username, hash) {
     return this.get('user/askxlm', {
       username: username ? username : Storage.get('username'),
@@ -62,15 +70,14 @@ export class Http {
   }
 
   static projectAll(type) {
-    return this.get('project/all').pipe(
-      // filter out empty projects
-      map(result => result.data.filter(data => !!data.Name)),
-      // TODO: fix when type is defined
+    return this.getProtected('project/all').pipe(
+      map(result => {
+      	return result.data
+			}),
       map(data => {
         if (!type || type === 'pv-solar') {
           return data;
         } else {
-          // Return empty array for now to display empty content in other type projects
           return [];
         }
       })
@@ -82,7 +89,7 @@ export class Http {
   }
 
   static projectGet(id) {
-    return this.get('project/get', {index: id});
+    return this.getProtected('project/get', {username: Storage.get("username"), index: id});
   }
 
   static investorValidate() {
