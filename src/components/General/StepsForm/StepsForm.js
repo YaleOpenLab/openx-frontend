@@ -131,6 +131,6 @@ const StepsForm = ({tabs, disabledNext, separator, loading, handleSave, disabled
         </div>
       </div>
     );
-}
+};
 
 export default StepsForm;

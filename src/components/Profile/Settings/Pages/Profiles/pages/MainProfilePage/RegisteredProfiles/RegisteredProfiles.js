@@ -1,15 +1,13 @@
 import React, {useEffect} from "react";
 import DivBox from "../../../../../../../General/DivBox/DivBox";
-import {Highlight, StyledHeader, StyledText, StyledSeparator, StyledFlexContainer} from "../../../../styles";
+import {Highlight, StyledHeader, StyledText, StyledSeparator, StyledFlexContainer, StyledFundsInfo, StyledAccountBalance, Balance, Label, StyledCustomLink} from "../../../../styles";
 import styled from "styled-components";
 import ToggleButton from "../../../../../../../General/ToggleButton";
 import SeeMore from "../../../../../../../UI/SeeMore/SeeMore";
 import history from "../../../../../../../../helpers/history";
 import ROUTES from "../../../../../../../../routes/routes";
-import {Variables} from "../../../../../../../../styles/variables";
 import {connect} from "react-redux";
 import {withSnackbar} from "notistack";
-import {validateAction} from "../../../../../../store/actions";
 
 const StyledProfileSection = styled.div`
 	display: flex;
@@ -23,38 +21,18 @@ const StyledProfileActionsSection = styled.div`
 	padding: 0 25px;
 `;
 
-const StyledFundsInfo = styled.div`
-	display: flex;
-  flex-direction: column;
-`;
-
-const StyledCustomLink = styled.a`
-	font-size: 10px;
-	font-weight: normal;	
-	color: ${Variables.Colors.thirdColorLightest};
-	cursor: pointer;
-`;
-
-const StyledAccountBalance = styled.div`
-	display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-`;
-
-const Balance = styled.div`
-	font-size: 24px;
-	color: ${Variables.Colors.secondaryColor}
-`;
-
-const Label = styled.div`
-	font-size: 10px;
-	text-transform: uppercase;
-	color: ${Variables.Colors.secondaryColorLight}
-`;
 
 const RegisteredProfiles = ({investor, recipient}) => {
 	const handleVerify = (username, userType) => {
 		history.push(ROUTES.PROFILE_PAGES.SETTINGS_PAGES.USER_PROFILES_PAGES.VERIFY.replace(':username', username).replace(':userType', userType))
+	};
+
+	const handleLoadFunds = (username, userType) => {
+		history.push(ROUTES.PROFILE_PAGES.SETTINGS_PAGES.FUNDS_PAGES.LOAD_FUNDS.replace(':username', username).replace(':userType', userType))
+	};
+
+	const handleWithdrawFunds = (username, userType) => {
+		history.push(ROUTES.PROFILE_PAGES.SETTINGS_PAGES.FUNDS_PAGES.WITHDRAW_FUNDS.replace(':username', username).replace(':userType', userType))
 	};
 
 	return (
@@ -86,14 +64,14 @@ const RegisteredProfiles = ({investor, recipient}) => {
 						label={<SeeMore infoContent={<div style={{fontSize: 12}}>Is your account verified? </div>}>Verified?</SeeMore>}
 						checked={investor.Kyc}
 						offLabel={'Start >'}
-						handleChange={() => handleVerify(recipient.Username, 'investor')}
+						handleChange={() => handleVerify(investor.Username, 'investor')}
 					/>
 					<StyledFundsInfo>
 						<StyledAccountBalance>
 							<Balance>$0</Balance>
 							<Label>ACCOUNT BALANCE</Label>
 						</StyledAccountBalance>
-						<StyledCustomLink href={void(0)} >Load Funds ></StyledCustomLink>
+						<StyledCustomLink onClick={() => handleLoadFunds(investor.Username, 'investor')}  >Load Funds ></StyledCustomLink>
 					</StyledFundsInfo>
 				</StyledProfileActionsSection>
 			</StyledFlexContainer>}
@@ -121,8 +99,8 @@ const RegisteredProfiles = ({investor, recipient}) => {
 						handleChange={() => handleVerify(recipient.Username, 'recipient')}
 					/>
 					<StyledFundsInfo>
-						<StyledCustomLink href={void(0)} >Load Funds ></StyledCustomLink>
-						<StyledCustomLink href={void(0)} >Withdraw Funds ></StyledCustomLink>
+						<StyledCustomLink onClick={() => handleLoadFunds(recipient.Username, 'recipient')}  >Load Funds ></StyledCustomLink>
+						<StyledCustomLink onClick={() => handleWithdrawFunds(recipient.Username, 'recipient')}  >Withdraw Funds ></StyledCustomLink>
 					</StyledFundsInfo>
 				</StyledProfileActionsSection>
 			</StyledFlexContainer>}

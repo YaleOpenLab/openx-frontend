@@ -67,7 +67,7 @@ class Security extends Component {
 		const {accountPasswordInitialValues, seedPasswordInitialValues} = this.state;
 
 		return (
-			<div className="ProfileSecurity">
+			<div className="ProfilePageContainer">
 				<Formik
 					initialValues={accountPasswordInitialValues}
 					onSubmit={(values, actions) => {

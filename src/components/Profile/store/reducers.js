@@ -25,6 +25,7 @@ const initialState = {
 };
 
 const userAccountReducer = (state = initialState, action) => {
+	if(action.entity === "undefined") return state;
   switch (action.type) {
 		case action.entity && TYPES[action.entity].REGISTER_SUCCESS:
       return {

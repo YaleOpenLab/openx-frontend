@@ -41,7 +41,11 @@ const ROUTES = {
       	VERIFY: "/profile/settings/users/verify/:username/:userType",
 			},
       FUNDS: "/profile/settings/funds",
-      LEGAL: "/profile/settings/legal",
+			FUNDS_PAGES: {
+				LOAD_FUNDS: "/profile/settings/funds/load/:username/:userType",
+				WITHDRAW_FUNDS: "/profile/settings/funds/withdraw/:username/:userType",
+			},
+			LEGAL: "/profile/settings/legal",
     }
   },
   ABOUT: "/about",

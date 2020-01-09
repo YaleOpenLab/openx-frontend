@@ -15,7 +15,7 @@ const Entity = ({account}) => {
 	};
 
 	return (
-		<div className="ProfileEntity">
+		<div className="ProfilePageContainer">
 			<div className="row">
 				<div className="col-12 col-md-10 col-lg-8 mx-auto margin-bottom">
 					<div className="component-box-title component-header">

@@ -7,6 +7,7 @@ import {
 	updateAccountEpic, validateActionEpic, validateInvestorEpic, validateRecipientEpic
 } from "../../components/Profile/store/epics";
 import {fetchVerifyAccountEpic} from "../../components/Profile/Settings/Pages/Profiles/pages/VerifyProfilePage/store/epics";
+import {fetchFundsAccountEpic} from "../../components/Profile/Settings/Pages/ManageFunds/pages/store/epics";
 
 export const rootEpic = (action$, store) =>
 	combineEpics(
@@ -18,4 +19,5 @@ export const rootEpic = (action$, store) =>
 		validateInvestorEpic,
 		validateRecipientEpic,
 		fetchVerifyAccountEpic,
+		fetchFundsAccountEpic,
 	)(action$, store);

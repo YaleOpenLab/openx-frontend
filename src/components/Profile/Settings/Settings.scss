@@ -5,19 +5,8 @@
   padding-bottom: $pixel-base * 4;
 
   .settings-content {
-    .ProfileAccount,
-    .ProfileEntity,
-    .ProfileUsers,
-    .ProfileSecurity {
+    .ProfilePageContainer {
       margin-top: $pixel-base * 10;
-
-      @media #{$xs-screen} {
-        margin-top: $pixel-base * 5;
-      }
-    }
-
-    .ProfilePreferences {
-      margin-top: $pixel-base * 14;
 
       @media #{$xs-screen} {
         margin-top: $pixel-base * 5;

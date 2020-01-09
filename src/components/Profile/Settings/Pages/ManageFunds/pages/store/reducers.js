@@ -1,4 +1,4 @@
-import {FETCH_VERIFY_PROFILE, FETCH_VERIFY_PROFILE_FAILURE, FETCH_VERIFY_PROFILE_SUCCESS} from "./actions";
+import {FETCH_FUNDS_PROFILE, FETCH_FUNDS_PROFILE_FAILURE, FETCH_FUNDS_PROFILE_SUCCESS} from "./actions";
 
 const initialState = {
 	user: {
@@ -11,25 +11,24 @@ const initialState = {
 	error: ''
 };
 
-const verifyAccountReducer = (state = initialState, action) => {
+const fundsAccountReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case FETCH_VERIFY_PROFILE:
+		case FETCH_FUNDS_PROFILE:
 			return {
 				...state,
 				isLoading: true,
 			};
-		case FETCH_VERIFY_PROFILE_SUCCESS:
+		case FETCH_FUNDS_PROFILE_SUCCESS:
 			return {
 				...state,
 				user: {
-					Username: action.payload.Username || action.payload.U.Username,
-					Name: action.payload.Name || action.payload.U.Name,
+					Username: action.payload.Username || action.payload.U && action.payload.U.Username,
+					Name: action.payload.Name || action.payload.U && action.payload.U.Name,
 					PublicKey: action.payload.StellarWallet && action.payload.StellarWallet.PublicKey || action.payload.U && action.payload.U.StellarWallet.PublicKey,
 					Kyc: action.payload.Kyc || action.payload.U && action.payload.U.Kyc,
 				},
-				isLoading: false,
 			};
-		case FETCH_VERIFY_PROFILE_FAILURE:
+		case FETCH_FUNDS_PROFILE_FAILURE:
 			return {
 				...state,
 				isLoading: false,
@@ -40,4 +39,4 @@ const verifyAccountReducer = (state = initialState, action) => {
 	}
 };
 
-export default verifyAccountReducer;
+export default fundsAccountReducer;

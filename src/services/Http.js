@@ -42,6 +42,7 @@ export class Http {
   }
 
   static validateService(entity, username) {
+  	if(!entity || !username) throw Error('Invalid Data')
     return this.getProtected(`${entity}/validate`, {
       username: username,
     }).pipe(map(value => {

@@ -41,10 +41,40 @@ StyledSeparator.defaultProps = {
 
 export const StyledFieldSection = styled.div`
 	display: flex;
+	padding: ${props => props.padding ? `${props.padding}px` : '0'}
 `;
 
 export const StyledFlexContainer = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: column;
+`;
+
+export const StyledFundsInfo = styled.div`
+	display: flex;
+  flex-direction: column;
+`;
+
+export const StyledCustomLink = styled.div`
+	font-size: 10px;
+	font-weight: normal;	
+	color: ${Variables.Colors.thirdColorLightest};
+	cursor: pointer;
+`;
+
+export const StyledAccountBalance = styled.div`
+	display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+`;
+
+export const Balance = styled.div`
+	font-size: 24px;
+	color: ${Variables.Colors.secondaryColor}
+`;
+
+export const Label = styled.div`
+	font-size: 10px;
+	text-transform: uppercase;
+	color: ${Variables.Colors.secondaryColorLight}
 `;

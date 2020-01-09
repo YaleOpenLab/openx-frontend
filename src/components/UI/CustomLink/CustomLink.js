@@ -8,17 +8,17 @@ const StyledCustomLinkContainer = styled.div`
 const StyledCustomLink = styled(NavLink)`
 	color: #4a90e2;
 	font-weight: ${props => props.weight};
-	font-size: 14px;
+	font-size: ${props => props.font}px;
 	cursor: pointer;
 	&:active {
 		opacity: 0.7;
 	}
 `;
 
-const CustomLink = ({url, label, children, weight}) => {
+const CustomLink = ({url, label, children, weight, font, styles}) => {
 	return (
-		<StyledCustomLinkContainer>
-			<StyledCustomLink to={url ? url : '#'} weight={weight ? weight : "bold"}>
+		<StyledCustomLinkContainer style={styles}>
+			<StyledCustomLink to={url ? url : '#'} weight={weight ? weight : "bold"} font={font ? font : 14}>
 				{children || label}
 			</StyledCustomLink>
 		</StyledCustomLinkContainer>

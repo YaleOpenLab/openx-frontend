@@ -42,7 +42,7 @@ const RegisterNewEntity = () => {
 	};
 
 	return (
-		<div className="RegisterNewEntity">
+		<div className="ProfilePageContainer">
 			<div className="Register">
 				<div className="row">
 					<div className="col-12 col-md-10 col-lg-8 mx-auto margin-bottom">

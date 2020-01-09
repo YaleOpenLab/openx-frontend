@@ -5,7 +5,7 @@ import { Switch, Redirect } from 'react-router-dom';
 import ROUTES from '../../../routes/routes';
 import Account from "./Pages/Account/Account";
 import Security from "./Pages/Security/Security";
-import Preferences from "./Pages/Preferences/Preferences";
+import ManageFunds from "./Pages/ManageFunds/ManageFunds";
 import Entity from "./Pages/Entity/Entity";
 import Profiles from "./Pages/Profiles/Profiles";
 import PrivateRoute from "../../PrivateRouterComponent/PrivateRouterComponent";
@@ -40,7 +40,7 @@ const Settings  = ({investorCreated, recipientCreated, fetchUser, account}) => {
                 <PrivateRoute path={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.SECURITY} component={Security} username={username} password={password} />
                 <PrivateRoute path={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.ENTITY_PROFILE} component={Entity} />
                 <PrivateRoute path={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.USER_PROFILES} component={Profiles} />
-                <PrivateRoute path={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.FUNDS} component={Preferences} />
+                <PrivateRoute path={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.FUNDS} component={ManageFunds} />
                 <PrivateRoute path={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.LEGAL} component={Legal} />
               </Switch>
             </div>
@@ -48,7 +48,7 @@ const Settings  = ({investorCreated, recipientCreated, fetchUser, account}) => {
         </div>
       </div>
     );
-}
+};
 
 const mapStateToProps = state => ({
 	account: state.profile.user.items,

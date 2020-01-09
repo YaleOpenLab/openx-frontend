@@ -26,7 +26,7 @@ class Legal extends Component {
 
 	render() {
 		return (
-			<div className="ProfilePreferences">
+			<div className="ProfilePageContainer">
 				<div className="row">
 					<div className="col-12 col-md-10 col-lg-8 mx-auto ">
 						<div className="component-box-title component-header">
@@ -112,7 +112,7 @@ class Legal extends Component {
 							<div className="col-6">
 								<Button
 									action={this.handleExplore}
-									label='explore'
+									label='save'
 								/>
 							</div>
 						</div>

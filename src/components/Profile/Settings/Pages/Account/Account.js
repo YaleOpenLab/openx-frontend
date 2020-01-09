@@ -5,6 +5,7 @@ import {connect} from "react-redux";
 import {registerAction, updateAccount} from "../../../store/actions";
 import {withSnackbar} from "notistack";
 import RadioButton from "../../../../UI/SolarForms/RadioButton/RadioButton";
+import ROUTES from "../../../../../routes/routes";
 
 const AccountSchema = Yup.object().shape({
 	name: Yup.string().required("Required"),
@@ -13,7 +14,7 @@ const AccountSchema = Yup.object().shape({
 		.required("Required"),
 });
 
-const Account = ({account, loading, updateAccount, registerAccount, isInvestor, isRecipient}) => {
+const Account = ({account, loading, updateAccount, registerAccount, isInvestor, isRecipient, history}) => {
 	const [userProfile, setProfileTypes] = useState({
 		investor: false,
 		recipient: false,
@@ -49,11 +50,12 @@ const Account = ({account, loading, updateAccount, registerAccount, isInvestor, 
 			if(userProfile[key] && (key === "investor" || key === "recipient")){
 				registerAccount(key, registerValues)
 			}
-		})
+		});
+		history.push(ROUTES.PROFILE_PAGES.SETTINGS_PAGES.SECURITY);
 	};
 
 	return (
-		<div className="ProfileAccount">
+		<div className="ProfilePageContainer">
 			<div className="row">
 				<div className="col-12 col-md-10 col-lg-8 mx-auto ">
 					<div className="component-box-title component-header">
