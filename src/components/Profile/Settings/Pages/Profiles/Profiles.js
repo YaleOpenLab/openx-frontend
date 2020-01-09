@@ -5,7 +5,6 @@ import PrivateRoute from "../../../../PrivateRouterComponent/PrivateRouterCompon
 import ROUTES from "../../../../../routes/routes";
 import VerifyProfilePage from "./pages/VerifyProfilePage/VerifyProfilePage";
 import MainProfilePage from "./pages/MainProfilePage/MainProfilePage";
-import RegisterNewEntity from "./pages/RegisterNewProfile/RegisterNewEntity";
 
 const Entity = props => (
 	<Switch>
@@ -13,11 +12,6 @@ const Entity = props => (
 			path={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.USER_PROFILES}
 			exact
 			component={MainProfilePage}
-		/>
-		<PrivateRoute
-			path={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.USER_PROFILES_PAGES.NEW_PROFILE}
-			exact
-			component={RegisterNewEntity}
 		/>
 		<PrivateRoute
 			path={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.USER_PROFILES_PAGES.VERIFY}

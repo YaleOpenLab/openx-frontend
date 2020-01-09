@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import DivBox from "../../../../../../../General/DivBox/DivBox";
 import {Highlight, StyledHeader, StyledText, StyledSeparator, StyledFlexContainer} from "../../../../styles";
 import styled from "styled-components";
@@ -7,9 +7,13 @@ import SeeMore from "../../../../../../../UI/SeeMore/SeeMore";
 import history from "../../../../../../../../helpers/history";
 import ROUTES from "../../../../../../../../routes/routes";
 import {Variables} from "../../../../../../../../styles/variables";
+import {connect} from "react-redux";
+import {withSnackbar} from "notistack";
+import {validateAction} from "../../../../../../store/actions";
 
 const StyledProfileSection = styled.div`
-	display: flex
+	display: flex;
+	width: 100%;
 `;
 
 const StyledProfileActionsSection = styled.div`
@@ -72,7 +76,7 @@ const RegisteredProfiles = ({investor, recipient}) => {
 						rightIcon="profile-edit-icon"
 					/>
 					<DivBox
-						text={investor.PublicKey}
+						text={investor.StellarWallet && investor.StellarWallet.PublicKey}
 						label="wallet address"
 						leftIcon="wallet-icon"
 					/>
@@ -104,7 +108,7 @@ const RegisteredProfiles = ({investor, recipient}) => {
 						rightIcon="profile-edit-icon"
 					/>
 					<DivBox
-						text={recipient.PublicKey}
+						text={recipient.StellarWallet && recipient.StellarWallet.PublicKey}
 						label="wallet address"
 						leftIcon="wallet-icon"
 					/>
@@ -127,4 +131,12 @@ const RegisteredProfiles = ({investor, recipient}) => {
 	)
 };
 
-export default RegisteredProfiles;
+const mapStateToProps = state => ({
+	investor: state.profile.investor.items.U,
+	recipient: state.profile.recipient.items.U,
+});
+
+export default connect(
+	mapStateToProps,
+	null
+)(withSnackbar(RegisteredProfiles));

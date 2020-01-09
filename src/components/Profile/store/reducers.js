@@ -32,7 +32,7 @@ const userAccountReducer = (state = initialState, action) => {
 				[action.entity]: {
 					...state[action.entity],
 					created: true,
-					authorized: true,
+					authorized: false,
 				}
       };
     case action.entity && TYPES[action.entity].REGISTER_FAILURE:

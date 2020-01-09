@@ -11,13 +11,12 @@ const AccountSchema = Yup.object().shape({
 	email: Yup.string()
 		.email("Invalid email")
 		.required("Required"),
-
 });
 
 const Account = ({account, loading, updateAccount, registerAccount, isInvestor, isRecipient}) => {
 	const [userProfile, setProfileTypes] = useState({
-		investor: isInvestor,
-		recipient: isRecipient,
+		investor: false,
+		recipient: false,
 		developer: false,
 		visitor: false,
 	});
@@ -47,7 +46,7 @@ const Account = ({account, loading, updateAccount, registerAccount, isInvestor, 
 			pwhash: account.Pwhash
 		};
 		Object.keys(userProfile).map(key => {
-			if(userProfile[key] && key === "investor" || key === "recipient"){
+			if(userProfile[key] && (key === "investor" || key === "recipient")){
 				registerAccount(key, registerValues)
 			}
 		})
@@ -145,7 +144,7 @@ const Account = ({account, loading, updateAccount, registerAccount, isInvestor, 
 										<Field
 											type="text"
 											className={`solar-form-input ${
-												errors.fullName && touched.fullName
+												errors.name && touched.name
 													? "solar-form-input-error"
 													: ""
 												}`}
@@ -154,9 +153,9 @@ const Account = ({account, loading, updateAccount, registerAccount, isInvestor, 
 										<label htmlFor="name" className="solar-form-label">
 											full name
 										</label>
-										{errors.fullName && touched.fullName && (
+										{errors.name && touched.name && (
 											<div className="solar-form-error-text with-label-error">
-												{errors.fullName}
+												{errors.name}
 											</div>
 										)}
 									</div>
@@ -222,6 +221,10 @@ const Account = ({account, loading, updateAccount, registerAccount, isInvestor, 
 							<div className="col-12 col-md-10 col-lg-8 mx-auto ">
 								<div className="col-12 solar-form-separator"/>
 							</div>
+						</div>
+
+						{!isInvestor && !isRecipient &&
+						<div className="row">
 							<div className="col-12 col-md-10 col-lg-8 mx-auto ">
 								<div className="component-box-title component-header">
 									<span className="-darker">Your User Profile</span>
@@ -259,7 +262,7 @@ const Account = ({account, loading, updateAccount, registerAccount, isInvestor, 
 							<div className="col-12 col-md-10 col-lg-8 mx-auto ">
 								<div className="col-12 solar-form-separator"/>
 							</div>
-						</div>
+						</div>}
 
 						<div className="row">
 							<div className="col-12 col-md-10 col-lg-8 mx-auto">
@@ -271,7 +274,8 @@ const Account = ({account, loading, updateAccount, registerAccount, isInvestor, 
 											disabled={
 												loading ||
 												(errors.email && touched.email) ||
-												(errors.name && touched.name)
+												(errors.name && touched.name) ||
+												(errors.fullName && touched.fullName)
 											}
 										>
 											next

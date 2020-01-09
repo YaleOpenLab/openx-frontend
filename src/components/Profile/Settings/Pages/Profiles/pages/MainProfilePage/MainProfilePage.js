@@ -8,7 +8,7 @@ const Entity = ({investor, recipient}) => {
 		<div className="ProfileUsers">
 			<div className="row">
 				<div className="col-12 col-md-10 col-lg-8 mx-auto margin-bottom">
-					<RegisteredProfiles investor={investor.items.U} recipient={recipient.items.U} />
+					<RegisteredProfiles />
 					<RegisterNewProfile investor={investor.authorized} recipient={recipient.authorized}/>
 				</div>
 			</div>

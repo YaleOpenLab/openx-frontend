@@ -9,7 +9,7 @@ import {
 	registerActionFailure,
 	validateActionSuccess,
 	validateActionFailure,
-	validateAction, registerAction, updateAccountSuccess,
+	validateAction, updateAccountSuccess,
 } from "./actions";
 import {TYPES} from "./actionTypes";
 import {displayErrorAction} from "../../../store/actions/actions";

@@ -108,6 +108,8 @@ const mapStateToProps = state => ({
 	account: state.profile.user.items,
 	isInvestor: state.profile.investor.authorized,
 	isRecipient: state.profile.recipient.authorized,
+	investor: state.profile.investor.items.U,
+	recipient: state.profile.recipient.items.U,
 	loading: state.profile.user.isLoading,
 });
 

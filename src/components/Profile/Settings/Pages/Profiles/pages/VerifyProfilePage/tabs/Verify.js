@@ -33,7 +33,7 @@ const Verify = withRouter(({handleContinue, fetchVerifyUser, account, history, m
 							rightIcon="profile-edit-icon"
 						/>
 						<DivBox
-							text={account.StellarWallet && account.StellarWallet.PublicKey}
+							text={account.PublicKey}
 							label="public key"
 							leftIcon="profile-badge-icon"
 						/>
