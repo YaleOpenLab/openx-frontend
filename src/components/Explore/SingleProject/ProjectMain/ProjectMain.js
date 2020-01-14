@@ -6,13 +6,6 @@ import { STAGES } from '../../../../helpers/enums/stages';
 
 const ProjectMain = props => {
   const data = props.data;
-  const batteryArray = data.Batteries.split(' ');
-  var bStorage = data.ExplorePageSummary.Storage;
-  if (batteryArray != null ) {
-    if (batteryArray[batteryArray.length - 1] != "" ) {
-      bStorage = batteryArray[batteryArray.length - 1];
-    }
-  }
 
   return (
     <div className="container project-main">
@@ -50,9 +43,9 @@ const ProjectMain = props => {
               {data.Metadata}
               <div className="desc-description-bullets">
                 <ul>
-                  <li>{data.Bullets.Bullet1}</li>
-                  <li>{data.Bullets.Bullet2}</li>
-                  <li>{data.Bullets.Bullet3}</li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
                 </ul>
               </div>
             </div>
@@ -76,11 +69,11 @@ const ProjectMain = props => {
                       <h6>Solar</h6>
                     </div>
                     <div className="-dark-color">
-                      <p>{bStorage}</p>
+                      <p>asd</p>
                       <h6>Battery</h6>
                     </div>
                     <div>
-                      <p>{data.ExplorePageSummary.Return}</p>
+                      <p>asd</p>
                       <h6>Return</h6>
                     </div>
                     <div>

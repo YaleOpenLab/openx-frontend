@@ -57,24 +57,21 @@ class SingleProject extends Component {
   };
 
   render() {
-    const { data, loading } = this.state;
-     if(!data.Index && !loading){
-      return <div>No entry</div>
-    }
+    const { loading } = this.state;
+    const { project } = this.props;
 
-    const tempData = DATA.project[0];
     return (
       <div className="SingleProject">
         {loading ? (
           <PageLoading />
         ) : (
           <React.Fragment>
-            <ProjectMain tempData={tempData.main} data={data} />
+            <ProjectMain tempData={project} data={project} />
             <ProjectContent
               navigation={this.state.menu}
               active={this.state.selectedItem}
-              tempData={tempData}
-              data={data}
+              tempData={project}
+              data={project}
             />
           </React.Fragment>
         )}
@@ -83,7 +80,9 @@ class SingleProject extends Component {
   }
 }
 
-const mapStateToProps = state => ({ ...state });
+const mapStateToProps = state => ({
+	project: state.project
+});
 
 const mapDispatchToProps = dispatch => ({
   fetchProject: id => dispatch(fetchProject(id))

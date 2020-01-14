@@ -3,6 +3,7 @@ import * as axios from 'axios';
 import { from } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';
 import { sha3_512 } from 'js-sha3';
+import {DATA} from "../helpers/enums/temporary-data";
 
 export class Http {
   static investorInvest(id, amount) {
@@ -26,7 +27,7 @@ export class Http {
   static registerService(entity, {username, name, email, pwd, pwhash}) {
 		const hash = pwhash ? pwhash : sha3_512(pwd);
 		const data = {name: name ? name : username, username: username, email:email, pwhash: hash, seedpwd: "x"};
-    return this.postProtected(`${entity}/register`, data);
+    return this.postProtected(`${entity}/register`, data, 'api');
   }
 
 	static getToken(username, pwd) {
@@ -42,10 +43,10 @@ export class Http {
   }
 
   static validateService(entity, username) {
-  	if(!entity || !username) throw Error('Invalid Data')
+  	if(!entity || !username) throw Error('Invalid Data');
     return this.getProtected(`${entity}/validate`, {
       username: username,
-    }).pipe(map(value => {
+    }, 'api').pipe(map(value => {
       return value;
     }));
   }
@@ -89,7 +90,14 @@ export class Http {
   }
 
   static projectGet(id) {
-    return this.getProtected('project/get', {username: Storage.get("username"), index: id});
+    return this.getProtected('project/get', {username: Storage.get("username"), index: id}).pipe(
+    	map(result => {
+    		return {data: {
+						...result.data,
+						...DATA,
+					}}
+			})
+		);
   }
 
   static investorValidate() {
@@ -106,35 +114,35 @@ export class Http {
     });
   }
 
-	static get(path, data) {
-		return this.request("GET", path, data);
+	static get(path, data, version) {
+		return this.request("GET", path, data, version);
 	}
 
 	static post(path, data) {
 		return this.request("POST", path, data);
 	}
 
-	static postProtected(path, data) {
+	static postProtected(path, data, version) {
 		const dataWithToken = {
 			...data,
 			token: Storage.get('token') ? Storage.get('token') : null,
 		};
-		return this.post(path, dataWithToken);
+		return this.post(path, dataWithToken, version);
 	}
 
-	static getProtected(path, data) {
+	static getProtected(path, data, version) {
 		const dataWithToken = {
 			...data,
 			token: Storage.get('token'),
 		};
-		return this.get(path, dataWithToken);
+		return this.get(path, dataWithToken, version);
 	}
 
-  static request(method, path, data) {
+  static request(method, path, data, version='api2') {
     return from(
       axios({
         method: method,
-        url: `http://api.openx.solar/${path}`,
+        url: `https://${version}.openx.solar/${path}`,
         params: data,
         headers: {
           'Content-Type': 'application/x-www-form/urlencoded'
