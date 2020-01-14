@@ -102,6 +102,8 @@
         height: 100%;
         background: $primary-color;
         border-radius: 5.5px;
+        -webkit-transition: width 0.3s;
+        transition: width 0.3s;
       }
     }
   }

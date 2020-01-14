@@ -6,7 +6,6 @@ import {
 	SET_PROGRESS,
 	progressActionFailure,
 	progressActionSuccess,
-	PROGRESS, fetchProgressActionFailure, fetchProgressActionSuccess
 } from "../actions/actions";
 import {Observable} from "rxjs";
 
@@ -22,35 +21,12 @@ export const progressActionEpic = action$ =>
 						]
 					} else {
 						return [
-							progressActionSuccess(response.data),
+							progressActionSuccess(action.data.progress),
 						]
 					}
 				}),
 				catchError(error =>
 					Observable.of(progressActionFailure(error.message), displayErrorAction("error", error.message))
-				)
-			);
-		})
-	);
-
-export const fetchProgressActionEpic = action$ =>
-	action$.pipe(
-		ofType(PROGRESS),
-		switchMap(action => {
-			return Http.getProgress().pipe(
-				concatMap(response => {
-					if (response.data.Code) {
-						return [
-							fetchProgressActionFailure(response.data.Status),
-						]
-					} else {
-						return [
-							fetchProgressActionSuccess(response.data),
-						]
-					}
-				}),
-				catchError(error =>
-					Observable.of(fetchProgressActionFailure(error.message), displayErrorAction("error", error.message))
 				)
 			);
 		})

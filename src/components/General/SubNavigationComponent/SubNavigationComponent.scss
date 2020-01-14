@@ -14,6 +14,7 @@
 
     .navigation-link {
       display: flex;
+      padding: 5px;
     }
 
     a {
@@ -24,7 +25,7 @@
         width: 100%;
         position: absolute;
         left:0;
-        bottom: -2px;
+        bottom: 0;
         height: 2px;
         background: $primary-color-light;
         opacity: 0;
@@ -48,7 +49,7 @@
         width: 100%;
         position: absolute;
         left:0;
-        bottom: -3px;
+        bottom: 0;
         height: 3px;
         background: $primary-color-light;
         opacity: 1;

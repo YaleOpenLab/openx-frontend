@@ -7,11 +7,19 @@ import ROUTES from "../../../../../../../routes/routes";
 import ToggleButton from "../../../../../../General/ToggleButton";
 import ActionButtons from "../../../../ActionButtons";
 import history from "../../../../../../../helpers/history";
+import {progressAction} from "../../../../../../../store/actions/actions";
 
-const Entity = ({account}) => {
+const Entity = ({account, setProgress}) => {
 	const [verified, setVerified] = useState(account.Kyc);
 	const handleVerify = () => {
 		history.push(ROUTES.PROFILE_PAGES.SETTINGS_PAGES.USER_PROFILES_PAGES.VERIFY.replace(':username', account.Username).replace(':userType', 'user'))
+	};
+
+	const goNext = () => {
+		if(account.ProfileProgress < 60) {
+			setProgress(account.Username, 60);
+		}
+		history.push(ROUTES.PROFILE_PAGES.SETTINGS_PAGES.USER_PROFILES);
 	};
 
 	return (
@@ -74,7 +82,7 @@ const Entity = ({account}) => {
 							label: 'back'
 						}}
 						confirmButton={{
-							url: ROUTES.PROFILE_PAGES.SETTINGS_PAGES.USER_PROFILES,
+							action: goNext,
 							label: 'next'
 						}}
 					/>
@@ -89,6 +97,11 @@ const mapStateToProps = state => ({
 	loading: state.profile.user.isLoading
 });
 
+const mapDispatchToProps = dispatch => ({
+	setProgress: (username, progress) => dispatch(progressAction(username, progress)),
+});
+
 export default connect(
 	mapStateToProps,
+	mapDispatchToProps
 )(Entity);

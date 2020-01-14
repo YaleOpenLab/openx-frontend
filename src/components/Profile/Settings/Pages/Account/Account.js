@@ -15,6 +15,8 @@ const AccountSchema = Yup.object().shape({
 		.required("Required"),
 });
 
+const progressLevel = 20;
+
 const Account = ({account, loading, updateAccount, registerAccount, isInvestor, isRecipient, history, setProgress}) => {
 	const [userProfile, setProfileTypes] = useState({
 		investor: false,
@@ -47,12 +49,17 @@ const Account = ({account, loading, updateAccount, registerAccount, isInvestor, 
 			email: values.email,
 			pwhash: account.Pwhash
 		};
+
 		Object.keys(userProfile).map(key => {
 			if(userProfile[key] && (key === "investor" || key === "recipient")){
 				registerAccount(key, registerValues)
 			}
 		});
-		history.push(ROUTES.PROFILE_PAGES.SETTINGS_PAGES.SECURITY);
+
+		if(account.ProfileProgress < progressLevel) {
+			setProgress(account.Username, progressLevel);
+			history.push(ROUTES.PROFILE_PAGES.SETTINGS_PAGES.SECURITY);
+		}
 	};
 
 	return (
@@ -281,7 +288,7 @@ const Account = ({account, loading, updateAccount, registerAccount, isInvestor, 
 												(errors.fullName && touched.fullName)
 											}
 										>
-											next
+											{account.ProfileProgress < progressLevel ? 'next' : 'update'}
 										</button>
 									</div>
 								</div>
@@ -304,7 +311,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
 	updateAccount: (entity, payload) => dispatch(updateAccount(entity, payload)),
 	registerAccount: (entity, data) => dispatch(registerAction(entity, data)),
-	setProgress: (data) => dispatch(progressAction(data)),
+	setProgress: (username, progress) => dispatch(progressAction(username, progress)),
 });
 
 export default connect(

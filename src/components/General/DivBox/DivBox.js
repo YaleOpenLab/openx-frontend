@@ -5,7 +5,11 @@ const DivBox = ({type, col, classes, actionLabel, link, action, leftIcon, rightI
   let output = "";
 
   const handleRedirection = (link) => {
-  	history.push(link)
+  	if(link && link.url && link.target === 'blank'){
+			window.open(link.url, '_blank');
+		}else {
+			history.push(link)
+		}
 	};
 
   switch (type) {
@@ -48,7 +52,7 @@ const DivBox = ({type, col, classes, actionLabel, link, action, leftIcon, rightI
         if (item.type === "primary") {
           return (
             <div
-              className="col-4 solar-input-div solar-input-multi"
+							className={`col-4 solar-input-div solar-input-multi ${item.link ? '--active' : ''}`}
               key={item.label}
 							onClick={() => handleRedirection(item.link)}
             >
@@ -75,14 +79,23 @@ const DivBox = ({type, col, classes, actionLabel, link, action, leftIcon, rightI
         } else {
           return (
             <div
-              className="col-4 solar-input-div solar-input-multi"
+              className={`col-4 solar-input-div solar-input-multi ${item.link ? '--active' : ''}`}
               key={item.label}
 							onClick={() => handleRedirection(item.link)}
 						>
-              <div className="solar-form-action-label label-right"
-									 onClick={() => handleRedirection(item.actionLabelLink)}
+							{item.secondaryLink &&
+							<div
+								className="solar-form-action-label label-right"
 							>
-								{item.actionLabel}
+								<span onClick={() => handleRedirection(item.secondaryLink.url)}>
+									{item.secondaryLink.label}
+								</span>
+							</div>}
+							<div className="solar-form-action-label label-right"
+							>
+								<span onClick={() => handleRedirection(item.actionLabelLink)}>
+									{item.actionLabel}
+								</span>
               </div>
               <div className="solar-input-div-box open-box-light">
                 <div className="solar-input-div-hidden " />

@@ -13,7 +13,7 @@ const StyledSeeMoreModal = styled.div`
   max-width: 450px;
   overflow: auto;
   border-radius: 5px;
-  box-shadow: 0px 0px 12px silver;
+  box-shadow: 0px 0px 2px silver;
   border: 1px solid silver;
   z-index: 1000;
 `;

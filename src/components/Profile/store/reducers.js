@@ -1,4 +1,5 @@
 import {TYPES} from "./actionTypes";
+import {SET_PROGRESS_SUCCESS} from "../../../store/actions/actions";
 
 const initialState = {
 	user: {
@@ -103,7 +104,7 @@ const userAccountReducer = (state = initialState, action) => {
 		case TYPES.LOGOUT:
 			return {
 				user: {
-					items: [],
+					items: {},
 					isLoading: false,
 					error: null,
 					authorized: false,
@@ -114,15 +115,26 @@ const userAccountReducer = (state = initialState, action) => {
 					isLoading: false,
 					error: null,
 					authorized: false,
-					items: [],
+					items: {},
 				},
 				recipient: {
 					created: false,
 					isLoading: false,
 					error: null,
 					authorized: false,
-					items: [],
+					items: {},
 				}
+			};
+		case SET_PROGRESS_SUCCESS:
+			return {
+				...state,
+				user: {
+					...state.user,
+					items: {
+						...state.user.items,
+						ProfileProgress: action.data,
+					},
+				},
 			};
 		default:
       return state;

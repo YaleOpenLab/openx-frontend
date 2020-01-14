@@ -6,6 +6,7 @@ import percentage from "../../../../helpers/functions/percentage";
 import {Http} from "../../../../services/Http";
 import ShowMoreText from "../../../General/ShowMoreText/ShowMoreText";
 import {STAGES} from "../../../../helpers/enums/stages";
+import SeeMore from "../../../UI/SeeMore/SeeMore";
 
 class ProjectsTemplate extends Component {
 	constructor(props) {
@@ -54,7 +55,7 @@ class ProjectsTemplate extends Component {
 					<div className="projects-description-box">
 						<div className="row">
 							<div className="col-12 desc-status">
-								Stage 7 | {STAGES[7]}
+								<SeeMore>Stage 7 | {STAGES[7]}</SeeMore>
 							</div>
 							<div className="col-12 desc-title">
 								<NavLink

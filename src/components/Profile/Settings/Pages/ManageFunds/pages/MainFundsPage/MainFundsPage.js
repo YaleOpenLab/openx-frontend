@@ -1,18 +1,25 @@
 import React from "react";
 import {Highlight, StyledHeader, StyledText} from "../../../styles";
 import styled from "styled-components";
-import {Switch} from "react-router-dom";
-import PrivateRoute from "../../../../../../PrivateRouterComponent/PrivateRouterComponent";
 import ROUTES from "../../../../../../../routes/routes";
-import MainProfilePage from "../../../Profiles/pages/MainProfilePage/MainProfilePage";
-import VerifyProfilePage from "../../../Profiles/pages/VerifyProfilePage/VerifyProfilePage";
 import ActionButtons from "../../../../ActionButtons";
+import history from "../../../../../../../helpers/history";
+import {progressAction} from "../../../../../../../store/actions/actions";
+import {connect} from "react-redux";
 
 const StyledFundsContainer = styled.div`
 
 `;
 
-const MainFundsPage = () => {
+const MainFundsPage = ({account, setProgress}) => {
+
+	const goNext = () => {
+		if(account.ProfileProgress < 90) {
+			setProgress(account.Username, 90);
+		}
+		history.push(ROUTES.PROFILE_PAGES.SETTINGS_PAGES.LEGAL);
+	};
+
 	return (
 		<div className="ProfilePageContainer">
 			<div className="row">
@@ -33,7 +40,7 @@ const MainFundsPage = () => {
 							label: 'back'
 						}}
 						confirmButton={{
-							url: ROUTES.PROFILE_PAGES.SETTINGS_PAGES.LEGAL,
+							action: goNext,
 							label: 'next'
 						}}
 					/>
@@ -43,4 +50,15 @@ const MainFundsPage = () => {
 	);
 };
 
-export default MainFundsPage;
+const mapStateToProps = state => ({
+	account: state.profile.user.items,
+});
+
+const mapDispatchToProps = dispatch => ({
+	setProgress: (username, progress) => dispatch(progressAction(username, progress)),
+});
+
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(MainFundsPage);

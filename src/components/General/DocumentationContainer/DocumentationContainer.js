@@ -18,7 +18,7 @@ const DocumentationContainer = ({documents}) => {
     <div className="DocumentationContainer">
       <div className="row justify-content-center">
         <div className="col-11">
-          <h4>Legal Contractual Documentation</h4>
+          <h4>LEGAL CONTRACTS</h4>
           <div className="row -documentation">
             {tmpDocuments && tmpDocuments.map(document => (
               <div className="col" key={'document-' + document.name}>

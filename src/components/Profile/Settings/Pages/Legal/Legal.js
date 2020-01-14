@@ -1,14 +1,14 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import SwitchButton from "../../../../General/SwitchButton/SwitchButton";
 import SeeMore from "../../../../UI/SeeMore/SeeMore";
 import Button from "../../../../UI/SolarForms/Button/Button";
 import ROUTES from "../../../../../routes/routes";
 import CustomLink from "../../../../UI/CustomLink/CustomLink";
-import {fetchProgressAction, progressAction} from "../../../../../store/actions/actions";
+import {progressAction} from "../../../../../store/actions/actions";
 import {connect} from "react-redux";
 import {withSnackbar} from "notistack";
 
-const Legal = ({account, setProgress, getProgress}) => {
+const Legal = ({account, setProgress}) => {
 	const [terms, setTerms] = useState({
 		agreeTerms: false,
 		legalRelease1: false,
@@ -16,10 +16,6 @@ const Legal = ({account, setProgress, getProgress}) => {
 		legalRelease3: false,
 		legalRelease4: false,
 	});
-
-	useEffect(() => {
-		getProgress()
-	}, []);
 
 	const handleToggleChange = key => {
 		setTerms({
@@ -29,7 +25,9 @@ const Legal = ({account, setProgress, getProgress}) => {
 	};
 
 	const handleExplore = () => {
-		setProgress({username: account.Username, progress: 25});
+		if(account.ProfileProgress < 100) {
+			setProgress(account.Username, 100);
+		}
 	};
 
 		return (
@@ -134,8 +132,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-	setProgress: (data) => dispatch(progressAction(data)),
-	getProgress: () => dispatch(fetchProgressAction()),
+	setProgress: (username, progress) => dispatch(progressAction(username, progress)),
 });
 
 export default connect(

@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import ProfileImage from "../../../../assets/images/user-profile-icon.svg"
 
-const NavBar = props => (
+const NavBar = ({account}) => (
   <div className="col-12 col-sm-4 col-lg-3">
     <div className="ProfileNavBar">
       <div className="profile-nav-info-section">
@@ -16,7 +16,7 @@ const NavBar = props => (
             alt="user profile"
           />
         </div>
-        <div className="profile-nav-user-name">{props.account.Name}</div>
+        <div className="profile-nav-user-name">{account.Name}</div>
       </div>
       <div className="profile-nav-menu-section">
         <NavItem
@@ -48,9 +48,9 @@ const NavBar = props => (
         <div className="profile-progress-text">
           Your account setup progress:
         </div>
-        <div className="profile-progress-percentage">0%</div>
+        <div className="profile-progress-percentage">{account.ProfileProgress}%</div>
         <div className="profile-progress-bar">
-          <div className="profile-progress-success" style={{ width: "0%" }} />
+          <div className="profile-progress-success" style={{ width: `${account.ProfileProgress}%` }} />
         </div>
       </div>
     </div>

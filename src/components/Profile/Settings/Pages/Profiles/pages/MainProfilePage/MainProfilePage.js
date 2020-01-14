@@ -5,8 +5,18 @@ import RegisterNewProfile from "./RegisterNewProfile/RegisterNewProfile";
 import ActionButtons from "../../../../ActionButtons";
 import ROUTES from "../../../../../../../routes/routes";
 import {StyledSeparator} from "../../../styles";
+import history from "../../../../../../../helpers/history";
+import {progressAction} from "../../../../../../../store/actions/actions";
 
-const Entity = ({investor, recipient}) => {
+const Entity = ({account, investor, recipient, setProgress}) => {
+
+	const goNext = () => {
+		if(account.ProfileProgress < 80) {
+			setProgress(account.Username, 80);
+		}
+		history.push(ROUTES.PROFILE_PAGES.SETTINGS_PAGES.FUNDS);
+	};
+
 	return (
 		<div className="ProfilePageContainer">
 			<div className="row">
@@ -20,7 +30,7 @@ const Entity = ({investor, recipient}) => {
 							label: 'back'
 						}}
 						confirmButton={{
-							url: ROUTES.PROFILE_PAGES.SETTINGS_PAGES.FUNDS,
+							action: goNext,
 							label: 'next'
 						}}
 					/>
@@ -37,6 +47,11 @@ const mapStateToProps = state => ({
 	loading: state.profile.user.isLoading
 });
 
+const mapDispatchToProps = dispatch => ({
+	setProgress: (username, progress) => dispatch(progressAction(username, progress)),
+});
+
 export default connect(
 	mapStateToProps,
+	mapDispatchToProps
 )(Entity);

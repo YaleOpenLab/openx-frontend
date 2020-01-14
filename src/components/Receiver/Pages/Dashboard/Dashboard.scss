@@ -18,13 +18,16 @@
   .title-primary {
     font-family: $primary-font;
     font-size: $base-font * 1.5;
-    font-weight: bold;
+    font-weight: normal;
     font-style: normal;
     font-stretch: normal;
     line-height: normal;
     letter-spacing: normal;
     color: $primary-color;
     margin: 0 0 $pixel-base * 0.25;
+    &.desc {
+      margin-bottom: 100px;
+    }
   }
 
   .sub-title {
@@ -472,14 +475,6 @@
   }
 
   .dropdown-wrapper {
-    overflow: hidden;
-    height: 0;
-    animation: dropdown 2s ease-out forwards;
-    max-height: max-content;
-
-    >*{
-      animation: scroll-reveal 4s ease-out forwards;
-    }
   }
 
   @keyframes dropdown {

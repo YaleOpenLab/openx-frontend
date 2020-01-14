@@ -8,7 +8,7 @@ import {
 } from "../../components/Profile/store/epics";
 import {fetchVerifyAccountEpic} from "../../components/Profile/Settings/Pages/Profiles/pages/VerifyProfilePage/store/epics";
 import {fetchFundsAccountEpic} from "../../components/Profile/Settings/Pages/ManageFunds/pages/store/epics";
-import {fetchProgressActionEpic, progressActionEpic} from "./progress";
+import {progressActionEpic} from "./progress";
 
 export const rootEpic = (action$, store) =>
 	combineEpics(
@@ -22,5 +22,4 @@ export const rootEpic = (action$, store) =>
 		fetchVerifyAccountEpic,
 		fetchFundsAccountEpic,
 		progressActionEpic,
-		fetchProgressActionEpic,
 	)(action$, store);
