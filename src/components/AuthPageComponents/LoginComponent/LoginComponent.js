@@ -55,7 +55,7 @@ const LoginComponent = ({fetchUserAccount, showMessage, loading, authorized}) =>
 										: ""
 									}`}
 								name="username"
-								placeholder="Email Address"
+								placeholder="Username"
 							/>
 							{errors.username && touched.username && (
 								<div className="solar-form-error-text">{errors.username}</div>
