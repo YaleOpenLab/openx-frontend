@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./SingleProject.scss";
 import ProjectMain from "./ProjectMain/ProjectMain";
 import ProjectContent from "./ProjectContent/ProjectContent";
-import { DATA } from "../../../helpers/enums/temporary-data";
 import { connect } from "react-redux";
 import { fetchProject } from "./store/actions";
 import PageLoading from "../../../components/General/Loading/Loading";
@@ -24,7 +23,6 @@ class SingleProject extends Component {
         { name: "invest", link: `/investor/${this.props.match.params.projectId}/confirm`, type: "button" }
       ],
       data: {},
-      loading: true,
       selectedItem: ""
     };
   }
@@ -43,34 +41,22 @@ class SingleProject extends Component {
     this.props.fetchProject(projectId);
   };
 
-  componentDidUpdate = prevProps => {
-    if (this.props.project.isLoading !== prevProps.project.isLoading) {
-      this.setState({
-        data: this.props.project.items,
-        loading: this.props.project.isLoading
-      });
-    }
-  };
-
   componentWillUnmount = () => {
     window.removeEventListener("scroll", this.handleScroll);
   };
 
   render() {
-    const { loading } = this.state;
-    const { project } = this.props;
-
+    const { project, loading } = this.props;
     return (
       <div className="SingleProject">
-        {loading ? (
+        {!project.Index || loading ? (
           <PageLoading />
         ) : (
           <React.Fragment>
-            <ProjectMain tempData={project} data={project} />
+            <ProjectMain data={project} />
             <ProjectContent
               navigation={this.state.menu}
               active={this.state.selectedItem}
-              tempData={project}
               data={project}
             />
           </React.Fragment>
@@ -81,7 +67,8 @@ class SingleProject extends Component {
 }
 
 const mapStateToProps = state => ({
-	project: state.project
+	project: state.project.items,
+	loading: state.project.isLoading,
 });
 
 const mapDispatchToProps = dispatch => ({

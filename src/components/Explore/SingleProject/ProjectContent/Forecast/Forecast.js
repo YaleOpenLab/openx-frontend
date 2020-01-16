@@ -6,7 +6,7 @@ import ScrollableAnchor from "react-scrollable-anchor";
 import { STAGES } from "../../../../../helpers/enums/stages";
 import Title from "../../../../General/Title/Title";
 
-const Forecast = props => (
+const Forecast = ({data}) => (
   <ScrollableAnchor id={"stageforecast"}>
     <section className="Forecast">
       <Title title="Project Stage & Forecast" />
@@ -18,25 +18,25 @@ const Forecast = props => (
             </div>
           </div>
           <div className="col-12">
-            {props.data.FEText &&
-              props.data.FEText.stages &&
-              props.data.FEText.stages.graph && (
+            {data &&
+              data.stages &&
+              data.stages.graph && (
                 <DevelopmentStage
-                  data={props.data.FEText.stages.graph}
-                  currentStage={props.data.Stage}
+                  data={data.stages.graph}
+                  currentStage={data.Stage}
                 />
               )}
           </div>
           <div className="col-12 col-sm-7 mx-auto mg-top-15 forecast-info">
             <div className="forecast-info-title">
-              {STAGES[props.data.Stage]}
+              {STAGES[data.Stage]}
             </div>
             <div className="forecast-info-sub-title">current stage</div>
-            {props.data.FEText &&
-              props.data.FEText.stages &&
-              props.data.FEText.stages.graph && (
+            {data &&
+              data.stages &&
+              data.stages.graph && (
                 <div className="forecast-info-content">
-                  {props.data.FEText.stages.graph.stageDescription}
+                  {data.stages.graph.stageDescription}
                   <div className="learn-more">
                     <a href="#">Learn more ></a>
                   </div>
@@ -44,11 +44,11 @@ const Forecast = props => (
               )}
           </div>
           <div className="col-12 mg-top-15 link-to-records">
-            {props.data.FEText &&
-              props.data.FEText.stages &&
-              props.data.FEText.stages.url && (
-                <NavLink to={props.data.FEText.stages.url} className="small">
-                  <a href="#">FULL TIMELINE RECORDS ></a>
+            {data &&
+              data.stages &&
+              data.stages.url && (
+                <NavLink to={data.stages.url} className="small">
+									FULL TIMELINE RECORDS >
                 </NavLink>
               )}
           </div>

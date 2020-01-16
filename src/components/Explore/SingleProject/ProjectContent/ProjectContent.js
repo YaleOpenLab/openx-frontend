@@ -15,15 +15,15 @@ configureAnchors({
   keepLastAnchorHash: true
 });
 
-const ProjectContent = props => (
+const ProjectContent = ({data, navigation, active}) => (
   <div className="ProjectContent">
-    <AnchorNavigation list={props.navigation} active={props.active} data={props.data} />
-    <Terms data={props.data} />
-    <Overview data={props.data} />
-    <ProjectDetails data={props.data} />
-    <Forecast data={props.data} />
-    <Documents data={props.tempData.documents} />
-    <Invest data={props.data} />
+    <AnchorNavigation list={navigation} active={active} data={data} />
+    <Terms data={data} />
+    <Overview data={data} />
+    <ProjectDetails data={data} />
+    <Forecast data={data} />
+    <Documents data={data.documents} />
+    <Invest data={data} />
     <SupportOpenX />
   </div>
 );

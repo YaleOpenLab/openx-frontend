@@ -58,11 +58,9 @@ const DocumentationContainer = ({documents}) => {
         <div className="col-11">
           <h5>How to review blockchain-based smart contracts</h5>
           <p>
-            The smart contracts for this project are written in Go. Function names relate to specific
-            terms or schemes of the contract, and are often structured as conditional statements. Descriptions and
-            comments in plain english are provided alongside the function in grey letters.<br/><br/>
-            To perform a careful revision of smart contracts, you would need the help of an experienced smart contract auditor.
-            This project’s have been audited and approved by all parties.
+						The current smart contracts are written in the Go scripting language. Function names relate to specific terms or schemes of the contract, and often structured as ‘if,
+						then’ statements. Contract descriptions in plain english are provided in grey letter prior to each function. <br /> <br />
+						To perform a careful revision of smart contracts, you need a certified smart contract auditor. This project’s have been audited and approved by all parties. Learn
           </p>
         </div>
       </div>

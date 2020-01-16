@@ -3,16 +3,15 @@ import ProgressBar from '../../../General/ProgressBar/ProgressBar';
 import './ProjectMain.scss';
 import percentage from '../../../../helpers/functions/percentage';
 import { STAGES } from '../../../../helpers/enums/stages';
+import Image from "../../../../helpers/enums/images";
 
-const ProjectMain = props => {
-  const data = props.data;
-
+const ProjectMain = ({data}) => {
   return (
     <div className="container project-main">
       <div className="row">
         <div className="col-sm-12 col-md-7 order-md-1 order-sm-1 no-padding">
           <div className="project-main-image project-main-display-image">
-            <img src={data.DPIntroImage} alt="Project"/>
+						<Image imageKey={data.mainImage}/>
           </div>
         </div>
 
@@ -23,32 +22,36 @@ const ProjectMain = props => {
 
           <div className="projects-description-box container">
             <div className="desc-status">
-              Stage {props.data.Stage} | {STAGES[props.data.Stage]}
+              Stage {data.Stage} | {STAGES[data.Stage]}
             </div>
             <div className="desc-title">{data.Name}</div>
             <div className="desc-location">
               <div className="projects-location-icon location-icon"/>
-              <a href={data.MapLink} target="_blank" rel="noopener noreferrer">{data.State}, {data.Country}</a>
+              <a href={data.MapLink} target="_blank" rel="noopener noreferrer">{data.City}, {data.State}, {data.Country}</a>
             </div>
             <div className="projects-description__spread">
               <div className="desc-category desc-category-separator desc-cat-category">
                 {data.InvestmentType}
               </div>
               <div className="desc-category desc-category-separator desc-gen-location">
-                {data.BrokerDealer}
+                {data.Issuer}
               </div>
             </div>
 
             <div className="desc-description">
-              {data.Metadata}
+              {data.Description}
               <div className="desc-description-bullets">
                 <ul>
-                  <li></li>
-                  <li></li>
-                  <li></li>
+                  <li>{data.Bullet1}</li>
+                  <li>{data.Bullet2}</li>
+                  <li>{data.Bullet3}</li>
                 </ul>
               </div>
             </div>
+						<div style={{display: 'flex', justifyContent: 'space-between'}}>
+							<div className="desc-description" style={{fontSize: 12}}>ORIGINATOR</div>
+							<div className="desc-description" style={{fontSize: 12}}>{data.Originator}</div>
+						</div>
             <div className="specifics-box">
               <div className="row">
                 <div className="col-6 spec-first-price spec-price-bigger">
@@ -65,15 +68,15 @@ const ProjectMain = props => {
                 <div className="col-12">
                   <div className="projects-description__stats">
                     <div className="-primary-color">
-                      <p>{data.PanelSize}</p>
+                      <p>{data.Solar}</p>
                       <h6>Solar</h6>
                     </div>
                     <div className="-dark-color">
-                      <p>asd</p>
+                      <p>{data.Battery}</p>
                       <h6>Battery</h6>
                     </div>
                     <div>
-                      <p>asd</p>
+                      <p>{data.Return}</p>
                       <h6>Return</h6>
                     </div>
                     <div>
@@ -81,7 +84,7 @@ const ProjectMain = props => {
                       <h6>Rating</h6>
                     </div>
                     <div>
-                      <p>2025</p>
+                      <p>{data.Maturity}</p>
                       <h6>Maturity</h6>
                     </div>
                   </div>

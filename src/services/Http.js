@@ -46,7 +46,7 @@ export class Http {
   	if(!entity || !username) throw Error('Invalid Data');
     return this.getProtected(`${entity}/validate`, {
       username: username,
-    }, 'api').pipe(map(value => {
+    }, 'api2').pipe(map(value => {
       return value;
     }));
   }
@@ -77,7 +77,9 @@ export class Http {
 			}),
       map(data => {
         if (!type || type === 'pv-solar') {
-          return data;
+          return data.map(project => {
+          	return {...project, ...DATA};
+					});
         } else {
           return [];
         }
@@ -149,11 +151,17 @@ export class Http {
         }
       })
     ).pipe(response => {
-    	response.subscribe(resp => {
-    		if(resp.data.Code === 401) {
+
+			response.subscribe(resp => {
+
+				if(resp.data.Code === 401) {
 					Storage.remove('token');
 					Storage.remove('username');
 					window.location.reload();
+				}
+			}, error => {
+				if(error.response.status === 401) {
+					return {data: {Code: 401}}
 				}
 			});
 			return response;

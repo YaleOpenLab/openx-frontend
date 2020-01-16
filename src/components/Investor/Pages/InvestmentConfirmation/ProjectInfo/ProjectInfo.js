@@ -9,9 +9,9 @@ const ProjectInfo = ({project}) => (
       <div className="confirm-project-location-icon location-icon"/>
       {project.State}, {project.Country}
     </div>
-    <div className="confirm-project-desc">{project.PanelSize} solar</div>
+    <div className="confirm-project-desc">{project.Solar} solar</div>
     <div className="confirm-project-image">
-      <img src={project.DPIntroImage} alt={project.Name} />
+      <img src={project.MainImage} alt={project.Name} />
     </div>
   </div>
 );

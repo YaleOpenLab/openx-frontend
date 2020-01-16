@@ -3,9 +3,7 @@ import ScrollableAnchor from 'react-scrollable-anchor';
 import CustomSections from '../../../../General/CustomSections/CustomSections';
 import Title from '../../../../General/Title/Title';
 
-const ProjectDetails = props => {
-  const data = props.data;
-
+const ProjectDetails = ({data}) => {
   return (
     <ScrollableAnchor id={'project'}>
       <section>
@@ -15,8 +13,8 @@ const ProjectDetails = props => {
             <div className="row">
               <div className="col-12">
                 <div className="architecture">
-                  {data.FEText && data.FEText.engineering && (
-                    <CustomSections sections={data.FEText.engineering}/>
+                  {data.architecture && data.architecture && (
+                    <CustomSections sections={data.architecture}/>
                   )}
                 </div>
               </div>
@@ -28,8 +26,8 @@ const ProjectDetails = props => {
             <div className="row">
               <div className="col-12">
                 <div className="engineering">
-                  {data.FEText && data.FEText.architecture && (
-                    <CustomSections sections={data.FEText.architecture}/>
+                  {data.engineering && (
+                    <CustomSections sections={data.engineering}/>
                   )}
                 </div>
               </div>
@@ -38,15 +36,15 @@ const ProjectDetails = props => {
 
           <div className="community margin-top">
             <div className="container">
-              {data.FEText && data.FEText.community && (
-                <CustomSections sections={data.FEText.community}/>
+              {data.community && (
+                <CustomSections sections={data.community}/>
               )}
             </div>
           </div>
           <div className="business margin-top">
             <div className="container">
-              {data.FEText && data.FEText.business && (
-                <CustomSections sections={data.FEText.business}/>
+              {data.business && (
+                <CustomSections sections={data.business}/>
               )}
             </div>
           </div>

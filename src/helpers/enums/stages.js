@@ -2,7 +2,7 @@ export const STAGES = [
   'Handshake',
   'Engagement',
   'Quotes',
-  'Signing',
+  'Contracts',
   'The Raise',
   'Construction',
   'Interconnection',

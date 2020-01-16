@@ -34,9 +34,10 @@ class InvestmentConfirmation extends Component {
   };
 
   componentDidUpdate = prevProps => {
+  	console.log(this.props)
     if ((this.props.project.isLoading !== prevProps.project.isLoading) || (this.props.investor.isLoading !== prevProps.investor.isLoading) ) {
       if(this.props.investor.items && this.props.investor.items.U){
-        axios.get(`https://api.openx.solar/user/balance/asset?username=${this.props.investor.items.U.Username}&pwhash=${this.props.investor.items.U.Pwhash}&asset=STABLEUSD`)
+        axios.get(`https://api.openx.solar/user/balance/asset?username=${this.props.investor.items.U.Username}&token=${Storage.get('token')}&asset=USD`)
         .then(res => {
           const balance = res.data;
           this.setState({
@@ -113,6 +114,7 @@ class InvestmentConfirmation extends Component {
               <ProjectInfo project={project} />
             </div>
             <div className="">
+							{console.log(!this.validateForm(this.state.investmentAmount), "valid")}
               <StepsForm
                 name="confirm"
                 tabs={[
@@ -163,7 +165,11 @@ class InvestmentConfirmation extends Component {
   }
 }
 
-const mapStateToProps = state => ({ ...state });
+const mapStateToProps = state => ({
+	project: state.project,
+	profile: state.profile.user.items,
+	investor: state.profile.investor,
+});
 
 const mapDispatchToProps = dispatch => ({
   fetchInvestor: (entity, username) => dispatch(validateAction(entity, username)),

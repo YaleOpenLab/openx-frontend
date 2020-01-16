@@ -17,11 +17,6 @@ const StyledButton = styled.button`
   &:active {
   	opacity: 0.7;
   }
-  &:disabled {
-		border: 1px solid #aaaeb3;
-		background: #ededed;
-		color: #aaaeb3;
-  }
   &.default {
 		background-color: #f5911e;
 		color: #fff;
@@ -34,6 +29,11 @@ const StyledButton = styled.button`
   &.secondary {
 		background-color: #2961a2;
 		color: #fff;
+  }
+  &:disabled {
+		border: 1px solid #aaaeb3;
+		background-color: #ededed;
+		color: #aaaeb3;
   }
 `;
 

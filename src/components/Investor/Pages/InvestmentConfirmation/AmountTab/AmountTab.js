@@ -5,7 +5,7 @@ import * as Yup from "yup";
 
 const AmountTab = props => {
   const maxInvestment = props.project.TotalValue - props.project.MoneyRaised ;
-  const seedInvestmentCap = props.project.SeedInvestmentCap;
+  const seedInvestmentCap = 150;
   const InvestAmountSchema = Yup.object().shape({
     investAmount: Yup.number()
       .min(100, "Smallest investment is $100")
@@ -48,7 +48,7 @@ const AmountTab = props => {
                         className="solar-form-label invest-confirm-label"
                       >
                         Investment Range: $100 to
-                        ${props.project.Stage < 4 ? seedInvestmentCap: maxInvestment}
+                        ${props.project.Stage < 4 ? seedInvestmentCap : maxInvestment}
                       </label>
                       {errors.investAmount && touched.investAmount && (
                         <div className="solar-form-error-text">
@@ -83,7 +83,7 @@ const AmountTab = props => {
             <div className="col-12 invest-confirm-wrapper">
               <DivBox
                 type="full"
-                text={props.account.Name}
+                text={props.account && props.account.Name}
                 leftIcon="investor-icon"
                 label="investor profile"
                 rightIcon="profile-edit-icon"
@@ -92,7 +92,7 @@ const AmountTab = props => {
               />
               <DivBox
                 type="open"
-                text={props.account.PublicKey}
+                text={props.account && props.account.PublicKey}
                 label="wallet address"
                 classes={["big-box", "light-box"]}
               />
