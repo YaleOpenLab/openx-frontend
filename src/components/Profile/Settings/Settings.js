@@ -13,9 +13,9 @@ import Storage from "../../../services/Storage";
 import {connect} from "react-redux";
 import {withSnackbar} from "notistack";
 import Legal from "./Pages/Legal/Legal";
-import {validateAction} from "../store/actions";
+import {validateAction, validateEntityAction} from "../store/actions";
 
-const Settings  = ({investorCreated, recipientCreated, fetchUser, account}) => {
+const Settings  = ({investorCreated, recipientCreated, developerCreated, fetchUser, fetchEntityUser, account}) => {
 	const [username, setUsername] = useState(Storage.get('username'));
 	const [password, sePassword] = useState(Storage.get('password'));
 
@@ -26,6 +26,10 @@ const Settings  = ({investorCreated, recipientCreated, fetchUser, account}) => {
 	useEffect(() => {
 		fetchUser("recipient", username);
 	}, [recipientCreated, account]);
+
+	useEffect(() => {
+        fetchEntityUser(username);
+	}, [developerCreated, account]);
 
     return (
       <div className="ProfileSettings">
@@ -54,11 +58,13 @@ const mapStateToProps = state => ({
 	account: state.profile.user.items,
 	investorCreated: state.profile.investor.created,
 	recipientCreated: state.profile.recipient.created,
+	developerCreated: state.profile.entity.created,
 	loading: state.profile.user.isLoading,
 	updateStatus: state.profile.user.updateStatus
 });
 const mapDispatchToProps = dispatch => ({
-	fetchUser: (entity, username) => dispatch(validateAction(entity, username))
+	fetchUser: (entity, username) => dispatch(validateAction(entity, username)),
+	fetchEntityUser: (username) => dispatch(validateEntityAction(username))
 });
 
 export default connect(

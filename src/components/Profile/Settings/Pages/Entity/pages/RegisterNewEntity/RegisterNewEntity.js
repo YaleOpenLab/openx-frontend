@@ -14,6 +14,11 @@ import styled from "styled-components";
 import * as Yup from "yup";
 import ActionButtons from "../../../../ActionButtons";
 import ROUTES from "../../../../../../../routes/routes";
+import {registerAction, registerEntityAction, updateAccount} from "../../../../../store/actions";
+import {displayErrorAction, progressAction} from "../../../../../../../store/actions/actions";
+import {connect} from "react-redux";
+import {withSnackbar} from "notistack";
+import history from "../../../../../../../helpers/history";
 
 export const StyledButtonGroupContainer = styled.div`
 	margin: 24px 0;
@@ -35,11 +40,41 @@ const AccountSchema = Yup.object().shape({
 	taxIdNumber: Yup.string(),
 });
 
-const RegisterNewEntity = () => {
-	const [roleInOrganization, setRoleInOrganization] = useState(null);
-	const registerNewEntity = () => {
-		console.log("register")
-	};
+const RegisterNewEntity = ({account, isInvestor, isDeveloper, isRecipient, registerAccount, registerEntityAccount, showMessage}) => {
+    const [userProfile, setProfileTypes] = useState({
+        investor: false,
+        recipient: false,
+        developer: false,
+    });
+
+    const handleProfileTypeChange = (type) => {
+        setProfileTypes({
+            ...userProfile,
+            [type]: !userProfile[type],
+        })
+    };
+
+
+    const [roleInOrganization, setRoleInOrganization] = useState(null);
+
+	const registerNewEntity = (values) => {
+        const registerValues = {
+            username: account.Username,
+            email: account.Email,
+            pwhash: account.Pwhash
+        };
+
+        Object.keys(userProfile).map(key => {
+            if(userProfile[key] && (key === "investor" || key === "recipient")){
+                registerAccount(key, registerValues);
+            }
+            if(userProfile[key] && key === "developer"){
+                registerEntityAccount(key, registerValues);
+            }
+        });
+
+        history.push(ROUTES.PROFILE_PAGES.SETTINGS_PAGES.ENTITY_PROFILE);
+    };
 
 	return (
 		<div className="ProfilePageContainer">
@@ -70,14 +105,21 @@ const RegisterNewEntity = () => {
 						<StyledInputGroupContainer>
 							<Formik
 								initialValues={{
-									username: '',
-									legalName: '',
-									adminEmail: '',
-									phoneNumber: '',
-								}}
+									username: account && account.Username || "",
+									legalName: account && account.Name || "",
+									adminEmail: account && account.Email || "",
+                                    address: account && account.Address,
+                                    country: account && account.Country,
+                                    city: account && account.City,
+                                    zipCode: account && account.ZipCode,
+                                    phoneNumber: '',
+
+                                }}
 								onSubmit={(values, actions) => {
+                                    registerNewEntity(values);
 								}}
 								validationSchema={AccountSchema}
+                                enableReinitialize={true}
 							>
 								{({errors, touched, values, handleChange}) => (
 									<Form className="solar-form">
@@ -195,9 +237,21 @@ const RegisterNewEntity = () => {
 								This will create accounts and dashboard associated to your Profile and Entity. Only select those that you are sure you will use.
 							</StyledSmallerText>
 							<StyledButtonGroupContainer>
-								<RadioButton name="INVESTOR" label="INVESTOR: I will directly invest in solar projects as myself."/>
-								<RadioButton name="RECEIVER" label="RECEIVER: I will receive a solar array and pay its electricity generation to own it. "/>
-								<RadioButton name="DEVELOPER" label="DEVELOPER: I will install a solar system or provide professional services for its installation, operation or maintenance. "/>
+                                <RadioButton
+                                    name="INVESTOR"
+                                    label="INVESTOR: I will directly invest in solar projects as myself."
+                                    checked={isInvestor ? true : userProfile.investor}
+                                    onChange={() => handleProfileTypeChange("investor")}/>
+                                <RadioButton
+                                    name="RECEIVER"
+                                    label="RECEIVER: I will receive a solar array and pay its electricity generation to own it. "
+                                    checked={isRecipient ? true : userProfile.recipient}
+                                    onChange={() => handleProfileTypeChange("recipient")}/>
+                                <RadioButton
+                                    name="DEVELOPER"
+                                    label="DEVELOPER: I will install a solar system or provide professional services for its installation, operation or maintenance. "
+                                    checked={isDeveloper ? true : userProfile.developer}
+                                    onChange={() => handleProfileTypeChange("developer")}/>
 							</StyledButtonGroupContainer>
 						</StyledInputGroupContainer>
 						<ActionButtons
@@ -217,4 +271,23 @@ const RegisterNewEntity = () => {
 	)
 };
 
-export default RegisterNewEntity;
+const mapStateToProps = state => ({
+    account: state.profile.user.items,
+    isInvestor: state.profile.investor.authorized,
+    isRecipient: state.profile.recipient.authorized,
+    isDeveloper: state.profile.entity.items.Developer,
+    loading: state.profile.user.isLoading,
+});
+
+const mapDispatchToProps = dispatch => ({
+    updateAccount: (entity, payload) => dispatch(updateAccount(entity, payload)),
+    registerAccount: (entity, data) => dispatch(registerAction(entity, data)),
+    registerEntityAccount: (entity, data) => dispatch(registerEntityAction(entity, data)),
+    setProgress: (username, progress) => dispatch(progressAction(username, progress)),
+    showMessage: (type, message) => dispatch(displayErrorAction(type, message)),
+});
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(withSnackbar(RegisterNewEntity));

@@ -22,7 +22,7 @@ const StyledProfileActionsSection = styled.div`
 `;
 
 
-const RegisteredProfiles = ({investor, recipient}) => {
+const RegisteredProfiles = ({investor, recipient, developer, isDeveloper}) => {
 	const handleVerify = (username, userType) => {
 		history.push(ROUTES.PROFILE_PAGES.SETTINGS_PAGES.USER_PROFILES_PAGES.VERIFY.replace(':username', username).replace(':userType', userType))
 	};
@@ -105,6 +105,35 @@ const RegisteredProfiles = ({investor, recipient}) => {
 				</StyledProfileActionsSection>
 			</StyledFlexContainer>}
 			{recipient && <StyledSeparator size={4} />}
+			{isDeveloper && <StyledFlexContainer>
+				<StyledProfileSection>
+					<DivBox
+						type="full"
+						text={developer.Name}
+						label="developer profile"
+						leftIcon="developer-icon"
+						rightIcon="profile-edit-icon"
+					/>
+					<DivBox
+						text={developer.StellarWallet && developer.StellarWallet.PublicKey}
+						label="wallet address"
+						leftIcon="wallet-icon"
+					/>
+				</StyledProfileSection>
+				<StyledProfileActionsSection>
+					<ToggleButton
+						label={<SeeMore infoContent={<div style={{fontSize: 12}}>Is your account verified? </div>}>Verified?</SeeMore>}
+						checked={developer.Kyc}
+						offLabel={'Start >'}
+						handleChange={() => handleVerify(recipient.Username, 'recipient')}
+					/>
+					<StyledFundsInfo>
+						<StyledCustomLink onClick={() => handleLoadFunds(recipient.Username, 'developer')}  >Load Funds ></StyledCustomLink>
+						<StyledCustomLink onClick={() => handleWithdrawFunds(recipient.Username, 'developer')}  >Withdraw Funds ></StyledCustomLink>
+					</StyledFundsInfo>
+				</StyledProfileActionsSection>
+			</StyledFlexContainer>}
+			{isDeveloper && <StyledSeparator size={4} />}
 		</React.Fragment>
 	)
 };
@@ -112,6 +141,8 @@ const RegisteredProfiles = ({investor, recipient}) => {
 const mapStateToProps = state => ({
 	investor: state.profile.investor.items.U,
 	recipient: state.profile.recipient.items.U,
+	developer: state.profile.entity.items.U,
+    isDeveloper: state.profile.entity.items.Developer,
 });
 
 export default connect(

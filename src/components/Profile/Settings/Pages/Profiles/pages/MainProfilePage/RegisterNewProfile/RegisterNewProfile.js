@@ -2,7 +2,7 @@ import React from "react";
 import DivBox from "../../../../../../../General/DivBox/DivBox";
 import {Highlight, StyledHeader, StyledFlexContainer} from "../../../../styles";
 import ROUTES from "../../../../../../../../routes/routes";
-import {registerAction} from "../../../../../../store/actions";
+import {registerAction, registerEntityAction} from "../../../../../../store/actions";
 import {connect} from "react-redux";
 import {withSnackbar} from "notistack";
 import {withRouter} from "react-router-dom";
@@ -27,7 +27,7 @@ const ConfirmBodyItem = styled.div`
 		color: ${Variables.Colors.secondaryColor};
 `;
 
-const RegisterNewProfile = withRouter(({investor, recipient, account, registerAccount, match, isInvestor, isRecipient}) => {
+const RegisterNewProfile = withRouter(({investor, recipient, account, registerAccount, registerEntityAccount, match, isInvestor, isRecipient, isDeveloper}) => {
 
 	const handleRegister = (type) => {
 		confirmAlert({
@@ -36,16 +36,17 @@ const RegisterNewProfile = withRouter(({investor, recipient, account, registerAc
 					<ConfirmModal
 						onCancel={onClose}
 						onConfirm={() => handleRegistration(type)}
-						title={isInvestor || isRecipient ? 'PROFILE MISMATCH' : 'Register Profile'}
+						title={(isInvestor || isRecipient || isDeveloper) ? 'PROFILE MISMATCH' : 'Register Profile'}
 						body={
 							<StyledConfirmBody>
-								{(isInvestor || isRecipient) && <StyledConfirmBodySection>
+								{(isInvestor || isRecipient || isDeveloper) && <StyledConfirmBodySection>
 									You previously registered as an:
 									{isInvestor && <ConfirmBodyItem>Investor</ConfirmBodyItem>}
 									{isRecipient && <ConfirmBodyItem>Recipient</ConfirmBodyItem>}
+									{isDeveloper && <ConfirmBodyItem>Developer</ConfirmBodyItem>}
 								</StyledConfirmBodySection>}
 								<StyledConfirmBodySection>
-									{isInvestor || isRecipient ? "And you are requesting to also have this profile:" :
+									{isInvestor || isRecipient || isDeveloper ? "And you are requesting to also have this profile:" :
 									"You are requesting to have profile as"
 									}
 									{type && <ConfirmBodyItem>{type.charAt(0).toUpperCase() + type.slice(1)}</ConfirmBodyItem>}
@@ -65,24 +66,25 @@ const RegisterNewProfile = withRouter(({investor, recipient, account, registerAc
 			name: account.Name,
 			pwhash: account.Pwhash
 		};
-		if(type) {
-			registerAccount(type, registerValues);
-		}else {
-		}
+		if(type === 'developer') {
+            registerEntityAccount(type, registerValues);
+		} else {
+            registerAccount(type, registerValues);
+        }
 	};
-
+    console.log(isDeveloper, "isit?")
 	return (
 		<React.Fragment>
 			<StyledHeader>Register a New User Profile</StyledHeader>
 			<StyledFlexContainer style={{flexDirection: 'row'}}>
-				<DivBox
+				{!isDeveloper && <DivBox
 					type="full"
 					text="DEVELOPER NAME"
 					label="Developer"
 					leftIcon="developer-icon"
 					rightIcon="profile-add-icon"
 					action={() => handleRegister('developer')}
-				/>
+				/>}
 				{!investor && <DivBox
 					type="full"
 					text="INVESTOR NAME"
@@ -108,13 +110,16 @@ const mapStateToProps = state => ({
 	account: state.profile.user.items,
 	isInvestor: state.profile.investor.authorized,
 	isRecipient: state.profile.recipient.authorized,
+	isDeveloper: state.profile.entity.items.Developer,
 	investor: state.profile.investor.items.U,
 	recipient: state.profile.recipient.items.U,
+	developer: state.profile.entity.items.U,
 	loading: state.profile.user.isLoading,
 });
 
 const mapDispatchToProps = dispatch => ({
 	registerAccount: (entity, data) => dispatch(registerAction(entity, data)),
+    registerEntityAccount: (entity, data) => dispatch(registerEntityAction(entity, data)),
 });
 
 export default connect(

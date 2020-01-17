@@ -26,15 +26,14 @@ export class Http {
 
     static registerService(entity, {username, name, email, pwd, pwhash}) {
         const hash = pwhash ? pwhash : sha3_512(pwd);
-        const data = {name: name ? name : username, username: username, email: email, pwhash: hash, seedpwd: "x"};
-        return this.postProtected(`${entity}/register`, data, 'api');
+        const data = {name: name || username, username: username, email: email, pwhash: hash, seedpwd: "x"};
+        return this.postProtected(`${entity}/register`, data, );
     }
 
     static registerEntityService(entity, {username, name, email, pwd, pwhash}) {
         const hash = pwhash ? pwhash : sha3_512(pwd);
         const data = {name: name ? name : username, entityType:entity, username: username, email: email, pwhash: hash, seedpwd: "x"};
-        console.log(data, "entity data")
-        return this.postProtected(`entity/register`, data, 'api');
+        return this.postProtected(`entity/register`, data, );
     }
 
     static getToken(username, pwd) {
@@ -53,13 +52,32 @@ export class Http {
         if (!entity || !username) throw Error('Invalid Data');
         return this.getProtected(`${entity}/validate`, {
             username: username,
-        }, 'api').pipe(map(value => {
+        }, ).pipe(map(value => {
+            return value;
+        }));
+    }
+
+    static validateEntityService(entity, username) {
+        if (!entity || !username) throw Error('Invalid Data');
+        return this.getProtected(`entity/validate`, {
+            username: username,
+        }, ).pipe(map(value => {
             return value;
         }));
     }
 
     static updateAccount(data) {
-        return this.postProtected('user/update', {...data}, 'api');
+        let modifiedValues = {};
+        if(data.newPassword){
+            modifiedValues = {pwhash: sha3_512(data.newPassword)}
+        }
+
+        const sendData = {
+            ...data,
+            ...modifiedValues
+        };
+
+        return this.postProtected('user/update', sendData, );
     }
 
     static progress(data) {
@@ -163,9 +181,9 @@ export class Http {
 
             response.subscribe(resp => {
                 if (resp.data.Code === 401) {
-                    Storage.remove('token');
-                    Storage.remove('username');
-                    window.location.reload();
+                    // Storage.remove('token');
+                    // Storage.remove('username');
+                    // window.location.reload();
                 }
             }, error => {
                 if (error.response && error.response.status === 401) {

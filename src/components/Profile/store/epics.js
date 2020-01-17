@@ -4,13 +4,13 @@ import {ofType} from "redux-observable";
 import {Observable} from "rxjs";
 import "rxjs/add/observable/of";
 import {
-	registerActionFailure,
-	registerActionSuccess, registerEntityActionFailure, registerEntityActionSuccess,
-	updateAccountFailure,
-	updateAccountSuccess,
-	validateAction,
-	validateActionFailure,
-	validateActionSuccess,
+    registerActionFailure,
+    registerActionSuccess, registerEntityActionFailure, registerEntityActionSuccess,
+    updateAccountFailure,
+    updateAccountSuccess,
+    validateAction,
+    validateActionFailure,
+    validateActionSuccess, validateEntityActionFailure, validateEntityActionSuccess,
 } from "./actions";
 import {TYPES} from "./actionTypes";
 import {displayErrorAction} from "../../../store/actions/actions";
@@ -20,11 +20,20 @@ export const updateAccountEpic = (action$, store) =>
         ofType(TYPES.UPDATE),
         switchMap(action => {
             return Http.updateAccount(action.data).pipe(
-                concatMap(user => [
-                    updateAccountSuccess(action.entity),
-                    displayErrorAction("success", "User Updated"),
-                    validateAction(action.entity, action.data.username),
-                ]),
+                concatMap(user => {
+                    console.log(user, "??")
+                    if(user.data.Code === 401){
+                        return [
+                            displayErrorAction("error", user.data.Status)
+                        ]
+                    }else {
+                        return [
+                            updateAccountSuccess(action.entity),
+                            displayErrorAction("success", "User Updated"),
+                            validateAction(action.entity, action.data.username),
+                        ]
+                    }
+                }),
                 catchError(error =>
                     Observable.of(updateAccountFailure(action.entity, error.message), displayErrorAction("error", error.message))
                 )
@@ -104,25 +113,25 @@ export const validateRecipientEpic = action$ =>
         })
     );
 
-export const validateDeveloperEpic = action$ =>
+export const validateEntityEpic = action$ =>
     action$.pipe(
-        ofType(TYPES.recipient.VALIDATE),
+        ofType(TYPES.entity.VALIDATE),
         switchMap(action => {
-            return Http.validateService(action.entity, action.username).pipe(
+            return Http.validateEntityService("entity", action.username).pipe(
                 concatMap(user => {
                     if (user.data.Code) {
                         return [
                             displayErrorAction("error", user.data.Status),
-                            validateActionFailure(action.entity, user.data.Status),
+                            validateEntityActionFailure("entity", user.data.Status),
                         ]
                     } else {
                         return [
-                            validateActionSuccess(action.entity, user.data),
+                            validateEntityActionSuccess("entity", user.data),
                         ]
                     }
                 }),
                 catchError(error =>
-                    Observable.of(validateActionFailure(action.entity, error.message))
+                    Observable.of(validateEntityActionFailure("entity", error.message))
                 )
             );
         })
@@ -162,17 +171,17 @@ export const registerEntityActionEpic = action$ =>
                     if (user.data.Code) {
                         return [
                             displayErrorAction("error", user.data.Status),
-                            registerEntityActionFailure(action.entity, user.data.Status),
+                            registerEntityActionFailure("entity", user.data.Status),
                         ]
                     } else {
                         return [
                             displayErrorAction("success", "User Created"),
-                            registerEntityActionSuccess(action.entity, user.data),
+                            registerEntityActionSuccess("entity", user.data),
                         ]
                     }
                 }),
                 catchError(error =>
-                    Observable.of(registerEntityActionFailure(action.entity, error.message), displayErrorAction("error", error.message))
+                    Observable.of(registerEntityActionFailure("entity", error.message), displayErrorAction("error", error.message))
                 )
             );
         })

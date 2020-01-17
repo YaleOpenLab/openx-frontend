@@ -40,13 +40,13 @@ const StyledSeedPasswordInfo = styled.div`
 
 const progressLevel = 40;
 
-const Security = ({account, setProgress, history}) => {
-	const handlePasswordChange = () => {
-
+const Security = ({account, setProgress, history, handleUpdateAccount}) => {
+	const handlePasswordChange = (values) => {
+        handleUpdateAccount("user", {username: account.Username, newPassword: values.newPassword, oldPassword: values.oldPassword});
 	};
 
-	const handleSeedPasswordChange = () => {
-
+	const handleSeedPasswordChange = (values) => {
+        handleUpdateAccount("user", {username: account.Username, oldseedpwd: values.currentSeedPassword, seedpwd: values.newSeedPassword});
 	};
 
 	const goNext = () => {
@@ -65,6 +65,7 @@ const Security = ({account, setProgress, history}) => {
 					confirmPassword: "",
 				}}
 				onSubmit={(values, actions) => {
+                    handlePasswordChange(values);
 				}}
 				validationSchema={AccountSecuritySchema}
 			>
@@ -182,6 +183,7 @@ const Security = ({account, setProgress, history}) => {
 					confirmSeedPassword: "",
 				}}
 				onSubmit={(values, actions) => {
+                    handleSeedPasswordChange(values);
 				}}
 				validationSchema={SeedSecuritySchema}
 			>
@@ -344,7 +346,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-	updateAccount: (entity, payload) => dispatch(updateAccount(entity, payload)),
+	handleUpdateAccount: (entity, payload) => dispatch(updateAccount(entity, payload)),
 	setProgress: (username, progress) => dispatch(progressAction(username, progress)),
 });
 

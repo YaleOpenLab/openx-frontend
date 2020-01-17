@@ -17,7 +17,7 @@ const AccountSchema = Yup.object().shape({
 
 const progressLevel = 20;
 
-const Account = ({account, loading, updateAccount, registerAccount, registerEntityAccount, isInvestor, isRecipient, history, setProgress}) => {
+const Account = ({account, loading, updateAccount, registerAccount, registerEntityAccount, isInvestor, isRecipient, isDeveloper, history, setProgress}) => {
 	const [userProfile, setProfileTypes] = useState({
 		investor: false,
 		recipient: false,
@@ -262,9 +262,9 @@ const Account = ({account, loading, updateAccount, registerAccount, registerEnti
 									<RadioButton
 										name="DEVELOPER"
 										label="DEVELOPER: I will install a solar system or provide professional services for its installation, operation or maintenance. "
-										checked={userProfile.developer}
+										checked={isDeveloper ? true : userProfile.developer}
 										onChange={() => handleProfileTypeChange("developer")}/>
-									{!isInvestor && !isRecipient &&
+									{!isInvestor && !isRecipient && !isDeveloper &&
 									<RadioButton
 										name="VISITOR"
 										label="VISITOR: Im just exploring the platform's functionalities for review purpose. "
@@ -309,6 +309,7 @@ const mapStateToProps = state => ({
 	account: state.profile.user.items,
 	isInvestor: state.profile.investor.authorized,
 	isRecipient: state.profile.recipient.authorized,
+	isDeveloper: state.profile.entity.items.Developer,
 	loading: state.profile.user.isLoading,
 });
 

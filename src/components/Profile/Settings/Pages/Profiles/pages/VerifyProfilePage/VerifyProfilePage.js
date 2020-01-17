@@ -40,13 +40,13 @@ const Verify = withRouter(({fetchVerifyUser, account, history, match, showMessag
 					<StyledFieldSection>
 						<DivBox
 							type="full"
-							text={account.Name}
+							text={account && account.Name}
 							label="individual"
 							leftIcon="profile-user-icon"
 							rightIcon="profile-edit-icon"
 						/>
 						<DivBox
-							text={account.PublicKey}
+							text={account && account.PublicKey}
 							label="public key"
 							leftIcon="profile-badge-icon"
 						/>

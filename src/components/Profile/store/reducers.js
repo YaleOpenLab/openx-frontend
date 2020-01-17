@@ -22,7 +22,19 @@ const initialState = {
         error: null,
         authorized: false,
         items: [],
-    }
+    },
+    entity: {
+        created: false,
+        isLoading: false,
+        error: null,
+        authorized: false,
+        items: {
+            Developer: false,
+            Contractor: false,
+            Originator: false,
+            Guarantor: false
+        },
+    },
 };
 
 const userAccountReducer = (state = initialState, action) => {
@@ -93,7 +105,7 @@ const userAccountReducer = (state = initialState, action) => {
                 }
             };
         case action.entity && TYPES[action.entity].UPDATE_FAILURE:
-			return {
+            return {
                 ...state,
                 [action.entity]: {
                     ...state[action.entity],
@@ -123,7 +135,19 @@ const userAccountReducer = (state = initialState, action) => {
                     error: null,
                     authorized: false,
                     items: {},
-                }
+                },
+                entity: {
+                    created: false,
+                    isLoading: false,
+                    error: null,
+                    authorized: false,
+                    items: {
+                        Developer: false,
+                        Contractor: false,
+                        Originator: false,
+                        Guarantor: false
+                    },
+                },
             };
         case SET_PROGRESS_SUCCESS:
             return {

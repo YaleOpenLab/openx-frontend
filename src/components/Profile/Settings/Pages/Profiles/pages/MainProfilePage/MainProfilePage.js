@@ -8,7 +8,7 @@ import {StyledSeparator} from "../../../styles";
 import history from "../../../../../../../helpers/history";
 import {progressAction} from "../../../../../../../store/actions/actions";
 
-const Entity = ({account, investor, recipient, setProgress}) => {
+const Entity = ({account, investor, recipient, setProgress, isRecipient, isInvestor, isDeveloper}) => {
 
 	const goNext = () => {
 		if(account.ProfileProgress < 80) {
@@ -22,8 +22,12 @@ const Entity = ({account, investor, recipient, setProgress}) => {
 			<div className="row">
 				<div className="col-12 col-md-10 col-lg-8 mx-auto margin-bottom">
 					<RegisteredProfiles />
-					<RegisterNewProfile investor={investor.authorized} recipient={recipient.authorized}/>
-					<StyledSeparator size={4} />
+                    {(!isRecipient || !isInvestor || !isDeveloper) &&
+                        <>
+                            <RegisterNewProfile investor={investor.authorized} recipient={recipient.authorized}/>
+                            <StyledSeparator size={4} />
+                        </>
+                    }
 					<ActionButtons
 						cancelButton={{
 							url: ROUTES.PROFILE_PAGES.SETTINGS_PAGES.ENTITY_PROFILE,
@@ -44,6 +48,9 @@ const mapStateToProps = state => ({
 	account: state.profile.user.items,
 	investor: state.profile.investor,
 	recipient: state.profile.recipient,
+	isRecipient: state.profile.recipient.authorized,
+	isInvestor: state.profile.investor.authorized,
+	isDeveloper: state.profile.entity.items.Developer,
 	loading: state.profile.user.isLoading
 });
 
