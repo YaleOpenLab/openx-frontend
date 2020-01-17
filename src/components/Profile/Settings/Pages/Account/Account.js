@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {Formik, Form, Field} from "formik";
 import * as Yup from "yup";
 import {connect} from "react-redux";
-import {registerAction, updateAccount} from "../../../store/actions";
+import {registerAction, registerEntityAction, updateAccount} from "../../../store/actions";
 import {withSnackbar} from "notistack";
 import RadioButton from "../../../../UI/SolarForms/RadioButton/RadioButton";
 import ROUTES from "../../../../../routes/routes";
@@ -17,7 +17,7 @@ const AccountSchema = Yup.object().shape({
 
 const progressLevel = 20;
 
-const Account = ({account, loading, updateAccount, registerAccount, isInvestor, isRecipient, history, setProgress}) => {
+const Account = ({account, loading, updateAccount, registerAccount, registerEntityAccount, isInvestor, isRecipient, history, setProgress}) => {
 	const [userProfile, setProfileTypes] = useState({
 		investor: false,
 		recipient: false,
@@ -52,7 +52,10 @@ const Account = ({account, loading, updateAccount, registerAccount, isInvestor, 
 
 		Object.keys(userProfile).map(key => {
 			if(userProfile[key] && (key === "investor" || key === "recipient")){
-				registerAccount(key, registerValues)
+				registerAccount(key, registerValues);
+			}
+			if(userProfile[key] && key === "developer"){
+				registerEntityAccount(key, registerValues);
 			}
 		});
 
@@ -233,7 +236,6 @@ const Account = ({account, loading, updateAccount, registerAccount, isInvestor, 
 							</div>
 						</div>
 
-						{!isInvestor && !isRecipient &&
 						<div className="row">
 							<div className="col-12 col-md-10 col-lg-8 mx-auto ">
 								<div className="component-box-title component-header">
@@ -262,17 +264,19 @@ const Account = ({account, loading, updateAccount, registerAccount, isInvestor, 
 										label="DEVELOPER: I will install a solar system or provide professional services for its installation, operation or maintenance. "
 										checked={userProfile.developer}
 										onChange={() => handleProfileTypeChange("developer")}/>
+									{!isInvestor && !isRecipient &&
 									<RadioButton
 										name="VISITOR"
 										label="VISITOR: Im just exploring the platform's functionalities for review purpose. "
 										checked={userProfile.visitor}
 										onChange={() => handleProfileTypeChange("visitor")}/>
+									}
 								</div>
 							</div>
 							<div className="col-12 col-md-10 col-lg-8 mx-auto ">
 								<div className="col-12 solar-form-separator"/>
 							</div>
-						</div>}
+						</div>
 
 						<div className="row">
 							<div className="col-12 col-md-10 col-lg-8 mx-auto">
@@ -311,6 +315,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
 	updateAccount: (entity, payload) => dispatch(updateAccount(entity, payload)),
 	registerAccount: (entity, data) => dispatch(registerAction(entity, data)),
+	registerEntityAccount: (entity, data) => dispatch(registerEntityAction(entity, data)),
 	setProgress: (username, progress) => dispatch(progressAction(username, progress)),
 });
 

@@ -12,18 +12,18 @@ const StyledExplanationField = styled.div`
 `;
 
 const RadioButton = ({name, checked, label, explanation, onChange}) => (
-  <StyledRadioButton className="solar-radio-button">
-    <input
-      type="checkbox"
-      id={name}
-      name={name}
-			onChange={onChange}
-      className="solar-input-radio-button"
-      checked={checked}
-    />
-    <label htmlFor={name}>{label}</label>
-		<StyledExplanationField>{explanation}</StyledExplanationField>
-  </StyledRadioButton>
+    <StyledRadioButton className="solar-radio-button">
+        <input
+            type="checkbox"
+            id={name}
+            name={name}
+            onChange={onChange}
+            className="solar-input-radio-button"
+            checked={checked}
+        />
+        <label htmlFor={name}>{label}</label>
+        <StyledExplanationField>{explanation}</StyledExplanationField>
+    </StyledRadioButton>
 );
 
 export default RadioButton;
