@@ -10,7 +10,7 @@ export class Http {
         return this.getProtected('investor/invest', {
             username: Storage.get('username'),
             pwhash: Storage.get('token'),
-            seedpwd: "x",
+            seedpwd: Storage.get('seedpwd'),
             projIndex: id,
             amount: amount,
         }).pipe(
@@ -26,13 +26,13 @@ export class Http {
 
     static registerService(entity, {username, name, email, pwd, pwhash}) {
         const hash = pwhash ? pwhash : sha3_512(pwd);
-        const data = {name: name || username, username: username, email: email, pwhash: hash, seedpwd: "x"};
+        const data = {name: name || username, username: username, email: email, pwhash: hash, seedpwd: Storage.get('seedpwd')};
         return this.postProtected(`${entity}/register`, data, );
     }
 
     static registerEntityService(entity, {username, name, email, pwd, pwhash}) {
         const hash = pwhash ? pwhash : sha3_512(pwd);
-        const data = {name: name ? name : username, entityType:entity, username: username, email: email, pwhash: hash, seedpwd: "x"};
+        const data = {name: name ? name : username, entityType:entity, username: username, email: email, pwhash: hash, seedpwd: Storage.get('seedpwd')};
         return this.postProtected(`entity/register`, data, );
     }
 
@@ -43,13 +43,16 @@ export class Http {
             if (value.data.Token) {
                 Storage.set('token', value.data.Token);
                 Storage.set('username', username);
+                Storage.set('seedpwd', pwd);
             }
             return value;
         }));
     }
 
     static validateService(entity, username) {
-        if (!entity || !username) throw Error('Invalid Data');
+        if (!entity || !username) {
+            console.log("error");
+        }
         return this.getProtected(`${entity}/validate`, {
             username: username,
         }, ).pipe(map(value => {
@@ -58,7 +61,9 @@ export class Http {
     }
 
     static validateEntityService(entity, username) {
-        if (!entity || !username) throw Error('Invalid Data');
+        if (!entity || !username) {
+            console.log("error");
+        }
         return this.getProtected(`entity/validate`, {
             username: username,
         }, ).pipe(map(value => {
@@ -78,6 +83,10 @@ export class Http {
         };
 
         return this.postProtected('user/update', sendData, );
+    }
+
+    static getUserRoles(data) {
+        return this.getProtected('user/get', {...data});
     }
 
     static progress(data) {

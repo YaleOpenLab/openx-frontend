@@ -36,7 +36,7 @@ class InvestmentConfirmation extends Component {
   componentDidUpdate = prevProps => {
     if ((this.props.project.isLoading !== prevProps.project.isLoading) || (this.props.investor.isLoading !== prevProps.investor.isLoading) ) {
       if(this.props.investor.items && this.props.investor.items.U){
-        axios.get(`https://api.openx.solar/user/balance/asset?username=${this.props.investor.items.U.Username}&token=${Storage.get('token')}&asset=USD`)
+        axios.get(`https://api2.openx.solar/user/balance/asset?username=${this.props.investor.items.U.Username}&token=${Storage.get('token')}&asset=USD`)
         .then(res => {
           const balance = res.data;
           this.setState({

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {Highlight, StyledHeader, StyledText} from "../../../styles";
 import styled from "styled-components";
 import ROUTES from "../../../../../../../routes/routes";
@@ -6,12 +6,28 @@ import ActionButtons from "../../../../ActionButtons";
 import history from "../../../../../../../helpers/history";
 import {progressAction} from "../../../../../../../store/actions/actions";
 import {connect} from "react-redux";
+import CustomStepsForm from "./components/CustomStepsForm/CustomStepsForm";
+import Transfer from "./pages/Transfer";
+import Sweep from "./pages/Sweep";
+import P2P from "./pages/P2P";
+import Seed from "./pages/Seed";
 
 const StyledFundsContainer = styled.div`
 
 `;
 
+const content = [
+    {url: 'transferFunds', title: 'transfer funds', content: <Transfer />},
+    {url: 'sweepFunds', title: 'sweep funds', content: <Sweep />},
+    {url: 'p2pAssets', title: 'p2p assets', content: <P2P />},
+    {url: 'seedRecovery', title: 'seed recovery', content: <Seed /> },
+];
+
 const MainFundsPage = ({account, setProgress}) => {
+    const [currentPage, setCurrentPage] = useState('transferFunds');
+    useEffect(() => {
+        // Http.getUserRoles({username: account.Username});
+    });
 
 	const goNext = () => {
 		if(account.ProfileProgress < 90) {
@@ -19,6 +35,10 @@ const MainFundsPage = ({account, setProgress}) => {
 		}
 		history.push(ROUTES.PROFILE_PAGES.SETTINGS_PAGES.LEGAL);
 	};
+
+	const changePage = (url) => {
+        setCurrentPage(url);
+    };
 
 	return (
 		<div className="ProfilePageContainer">
@@ -32,7 +52,11 @@ const MainFundsPage = ({account, setProgress}) => {
 						Receiver, and which Entity is being used for each one.
 					</StyledText>
 					<StyledFundsContainer>
-
+                        <CustomStepsForm
+                            active={currentPage}
+                            setActive={changePage}
+                            content={content}
+                        />
 					</StyledFundsContainer>
 					<ActionButtons
 						cancelButton={{

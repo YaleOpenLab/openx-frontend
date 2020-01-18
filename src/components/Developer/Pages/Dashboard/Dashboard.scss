@@ -1,0 +1,535 @@
+@import "../../../../styles/variables";
+
+.ReceiverComponent {
+  padding: $pixel-base * 14 0 0;
+
+  .container-title {
+    font-family: $primary-font;
+    font-size: $base-font * 2;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $secondary-color;
+    margin: 0;
+  }
+
+  .title-primary {
+    font-family: $primary-font;
+    font-size: $base-font * 1.5;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $primary-color;
+    margin: 0 0 $pixel-base * 0.25;
+    &.desc {
+      margin-bottom: 100px;
+    }
+  }
+
+  .sub-title {
+    font-size: $base-font * 1.125;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: $charcoal-grey-two;
+    margin: 0 0 $pixel-base * 4.5;
+  }
+
+  .title-container {
+    padding-bottom: $pixel-base * 4;
+
+    &.-border {
+      border-bottom: 1px solid $secondary-color;
+    }
+  }
+
+  .profile-section {
+    padding: $pixel-base * 6 0 $pixel-base * 10.5;
+    margin-bottom: $pixel-base * 6;
+    background: #fff;
+  }
+
+  .projects-section {
+    padding: $pixel-base * 6 0 $pixel-base * 10.5;
+    background: #fff;
+
+    .media-right {
+      img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .media-left {
+      background: $grey-light;
+      padding: $pixel-base * 1.5 $pixel-base * 2;
+
+      h5 {
+        font-family: $primary-font;
+        font-size: $base-font * 0.75;
+        font-weight: 600;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: $secondary-color;
+        margin: 0 0 $pixel-base * 1.5;
+      }
+
+      h6 {
+        font-family: $secondary-font;
+        font-size: $base-font * 0.75;
+        font-weight: 600;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: $projects-location-color;
+        margin: 0 0 $pixel-base * 1.5;
+      }
+
+      .flexbox {
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid $white;
+        margin: 0 0 $pixel-base * 2;
+        padding: 0 0 $pixel-base * 0.5;
+
+        &.-alt {
+          padding: 0 0 $pixel-base * 2;
+          border-bottom: 2px solid $white;
+        }
+
+        &.-no-spacing {
+          border: none;
+          margin: 0;
+        }
+
+        img {
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          object-fit: cover;
+          margin-right: $pixel-base * 2;
+        }
+
+        h4 {
+          font-family: $primary-font;
+          font-size: $base-font * 0.875;
+          font-weight: bold;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: normal;
+          letter-spacing: normal;
+          color: $secondary-color;
+          margin:  0;
+        }
+
+        p {
+          font-family: $primary-font;
+          margin: 0;
+          font-size: $base-font * 0.75;
+          font-weight: 600;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: normal;
+          letter-spacing: normal;
+          color: $warm-grey;
+        }
+
+        button {
+          font-family: $primary-font;
+          background: transparent;
+          border: none;
+          margin-left: auto;
+          font-size: $base-font * 0.75;
+          font-weight: 600;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: normal;
+          letter-spacing: normal;
+          color: $warm-grey;
+        }
+      }
+
+      p {
+        font-family: $primary-font;
+        font-size: $base-font * 0.875;
+        font-weight: 500;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.14;
+        letter-spacing: normal;
+        color: rgba(74, 74, 74, 0.98);
+        margin: 0 0 $pixel-base * 3;
+      }
+
+      ul {
+        margin: 0 0 $pixel-base * 2;
+        padding:  0 0 0 $pixel-base * 2;
+
+        li {
+          font-family: $primary-font;
+          margin: 0 0 $pixel-base;
+          font-size: $base-font * 0.75;
+          font-weight: normal;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: 1.33;
+          letter-spacing: normal;
+          color: rgba(74, 74, 74, 0.98);
+        }
+      }
+
+      .owner {
+        font-family: $primary-font;
+        font-size: $base-font * 0.75;
+        font-weight: 600;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: $secondary-color;
+        margin:  0 0 $pixel-base;
+      }
+    }
+
+    .progress-bar-container {
+      position: relative;
+      margin: 0 0 $pixel-base * 2;
+
+      p {
+        font-family: $secondary-font;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+
+        &.progress-donated {
+          color: $charcoal-grey-two;
+          font-size: $base-font * 1.065;
+        }
+
+        &.progress-total {
+          font-size: $base-font * 1.065;
+          margin-left: auto;
+          color: $secondary-color-lighter;
+          font-weight: 300;
+        }
+      }
+    }
+
+    .stats {
+      width: 100%;
+      padding: 0 $pixel-base;
+      display: flex;
+      flex-wrap: wrap;
+
+      .stat-container {
+        flex: 0 25%;
+        width: 25%;
+        display: inline-block;
+        text-align: left;
+        padding: 0 $pixel-base * 0.5;
+
+        @media (max-width: 576px) {
+          flex: 0 50%;
+          width: 50%;
+          margin-top: 14px;
+        }
+
+        h6 {
+          font-family: $secondary-font;
+          font-size: $base-font * 1.125;
+          font-weight: 300;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: normal;
+          letter-spacing: normal;
+          color: $charcoal-grey-two;
+        }
+
+        p {
+          font-family: $secondary-font;
+          font-size: $base-font * 0.625;
+          font-weight: 600;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: normal;
+          letter-spacing: 2px;
+          color: $secondary-color-lighter;
+          margin:0;
+        }
+      }
+    }
+  }
+
+  .details-container {
+    background-color: #efeded;
+    padding: $pixel-base * 4 0 $pixel-base * 6;
+
+    h3 {
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 600;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      color: $secondary-color;
+      text-align: left;
+      padding: 0 0 $pixel-base * 2;
+      border-bottom: 1px solid #dfdcdc;
+
+      @media (min-width: 992px) {
+        padding-left: $pixel-base * 2;
+      }
+    }
+
+    .see-more {
+      border: none;
+      background: none;
+      margin: $pixel-base * 2 0 $pixel-base * 8 $pixel-base * 7.5;
+      font-size: 10px;
+      font-weight: 600;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: 2px;
+      color: $charcoal-grey-two;
+      cursor: pointer;
+      position: relative;
+      transition: 0.25s;
+      overflow: hidden;
+
+      @media (max-width: 767px) {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      &:after {
+        content: '';
+        width: 0;
+        height: 1px;
+        background: $charcoal-grey-two;
+        bottom: 0;
+        position: absolute;
+        display: block;
+      }
+
+      &:hover {
+        &:after {
+          animation: hover 0.75s ease-out;
+        }
+      }
+    }
+
+    .SolarGraph {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: $pixel-base * 4 0 0;
+      border-bottom: 1px solid #dfdcdc;
+
+
+      @media (max-width: 991px) {
+        flex-direction: column;
+      }
+
+      @media (min-width: 992px) {
+        padding: 0 $pixel-base * 8;
+      }
+
+      .graph-wrapper {
+        margin-top: $pixel-base * 3;
+        max-width: 633px;
+        width: 100%;
+        img {
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .switch-buttons {
+        display: flex;
+        flex-direction: column;
+
+        @media (max-width: 991px) {
+          flex-direction: row;
+        }
+
+        button {
+          width: 71px;
+          height: 24px;
+          border-radius: 24px;
+          background-color: $secondary-color-lighter;
+          font-size: $base-font * 0.625;
+          font-weight: 600;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: normal;
+          letter-spacing: 2px;
+          text-align: center;
+          color: $white;
+          border: none;
+          cursor: pointer;
+          outline: none;
+          transition: 0.25s;
+
+          @media (max-width: 991px) {
+            margin: $pixel-base * 2 $pixel-base * 2 0;
+          }
+
+          &:hover {
+            background: $secondary-color;
+            opacity: 0.8;
+          }
+
+          &:not(:last-of-type) {
+            margin-bottom: $pixel-base * 2.5;
+          }
+
+          &.-active {
+            background: $secondary-color;
+
+            &:hover {
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .contracts-container {
+    padding: $pixel-base * 4 0 $pixel-base * 10;
+
+    h3 {
+      text-align: center;
+    }
+
+    h5 {
+      font-size: $base-font * 1.0625;
+      font-weight: 600;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      color: #393a3c;
+      margin: 0 0 $pixel-base * 3;
+    }
+
+    h6 {
+      font-family: $primary-font;
+      font-size: 13px;
+      font-weight: 600;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      color: #393a3c;
+      margin: 0 0 $pixel-base;
+    }
+
+    .-small {
+      font-family: $primary-font;
+      font-size: 14px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.43;
+      letter-spacing: normal;
+      color: $secondary-color;
+      margin: 0 0 $pixel-base * 5;
+    }
+  }
+
+  .display-button {
+    display: block;
+    cursor: pointer;
+    margin: 0 auto $pixel-base * 2;
+    border: none;
+    background: transparent;
+    font-family: $secondary-font;
+    font-size: 18px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $charcoal-grey-two;
+    outline:0 none;
+  }
+
+  .dropdown-wrapper {
+  }
+
+  @keyframes dropdown {
+   from {
+     height: 0;
+   }
+
+    to {
+      height: 8000px;
+    }
+  }
+
+  @keyframes scroll-reveal {
+    0% {
+      display: none;
+      opacity: 0;
+    }
+
+    80% {
+      display: block;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes hover {
+    0%{
+      right: 100%;
+      width: 100%;
+    }
+
+    25% {
+      right: 50%;
+      width: 100%;
+    }
+
+    50% {
+      right: 50%;
+      width: 0;
+    }
+
+    75% {
+      width: 100%;
+      right: -50%;
+    }
+
+    100% {
+      right: -100%;
+      width: 100%;
+    }
+  }
+}
+
+a {
+  color: inherit;
+}

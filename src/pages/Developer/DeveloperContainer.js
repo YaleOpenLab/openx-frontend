@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import LayoutHoc from "../../hoc/Layout/Layout";
 import SubNavigationComponent from "../../components/General/SubNavigationComponent/SubNavigationComponent";
-import UnderDevelopment from "../../components/General/UnderDevelopment/UnderDevelopment";
+import DeveloperComponent from "../../components/Developer/Developer";
 
 class DeveloperContainer extends Component {
   render() {
@@ -9,7 +9,7 @@ class DeveloperContainer extends Component {
       <LayoutHoc>
         <div className="component-content Developer">
         <SubNavigationComponent />
-        <UnderDevelopment />
+        <DeveloperComponent />
         </div>
       </LayoutHoc>
     );
