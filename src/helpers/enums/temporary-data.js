@@ -23,6 +23,7 @@ export const DATA = {
 	mainImage: 'projectOneMain',
 	MainImage: 'https://i.ibb.co/8cqdT6n/Asset-3-4x.png',
 	InvestmentType: 'Grant',
+    "Investment Cap": 20000,
 	heroImage: 'projectOneHero',
 	executiveSummary: [
 		{

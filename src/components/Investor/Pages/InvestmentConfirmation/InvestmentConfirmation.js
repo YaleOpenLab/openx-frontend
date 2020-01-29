@@ -23,7 +23,7 @@ class InvestmentConfirmation extends Component {
       agreeTerms: false,
       brokeDeal: false,
       investCategory: false,
-      balance: 0
+      balance: 10000
     };
   }
 
@@ -36,12 +36,13 @@ class InvestmentConfirmation extends Component {
   componentDidUpdate = prevProps => {
     if ((this.props.project.isLoading !== prevProps.project.isLoading) || (this.props.investor.isLoading !== prevProps.investor.isLoading) ) {
       if(this.props.investor.items && this.props.investor.items.U){
-        axios.get(`https://api2.openx.solar/user/balance/asset?username=${this.props.investor.items.U.Username}&token=${Storage.get('token')}&asset=USD`)
+        axios.get(`https://api2.openx.solar/user/balance/asset?username=${this.props.investor.items.U.Username}&token=${Storage.get('token')}&asset=STABLEUSD`)
         .then(res => {
+          console.log(res, "response")
           const balance = res.data;
-          this.setState({
-            balance: Number(balance)
-          })
+          // this.setState({
+          //   balance: Number(balance)
+          // })
         });
       }
 
@@ -60,9 +61,12 @@ class InvestmentConfirmation extends Component {
   };
 
   handleConfirm = () => {
+
+
+
     Http.investorInvest(
       this.props.match.params.id,
-      this.state.investmentAmount
+      this.state.investmentAmount, "x"
     ).subscribe(
       () => {
         this.props.enqueueSnackbar("Transaction completed!", {
@@ -96,7 +100,7 @@ class InvestmentConfirmation extends Component {
     return !(
         value > this.state.balance ||
         value < 100 ||
-        (this.state.project.Stage < 4 && value > this.state.project.SeedInvestmentCap) ||
+        value > this.state.project["Investment Cap"] ||
         value > this.state.project.TotalValue - this.state.project.MoneyRaised
       );
   };
@@ -134,7 +138,7 @@ class InvestmentConfirmation extends Component {
                   investmentValue={this.state.investmentAmount}
                   project={project}
                   account={investor.U}
-                  usdbalance = {balance}
+                  usdbalance={balance}
                 />
                 <ProfileTab
                   key={2}

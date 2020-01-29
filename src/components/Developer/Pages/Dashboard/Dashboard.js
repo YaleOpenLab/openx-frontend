@@ -127,7 +127,7 @@ class Dashboard extends Component {
 	render() {
 		const {authorized, developer} = this.props;
 		if (this.props.developer && !this.props.authorized) {
-			return <NotAvailable text={"You have not registered as a receiver"}/>
+			return <NotAvailable text={"You have not registered as a developer"}/>
 		}
 
 		const projects = developer && developer.ReceivedSolarProjects ? developer.ReceivedSolarProjects.length : 0;

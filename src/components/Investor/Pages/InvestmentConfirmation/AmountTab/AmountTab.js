@@ -3,13 +3,13 @@ import DivBox from "../../../../General/DivBox/DivBox";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 
-const AmountTab = props => {
-  const maxInvestment = props.project.TotalValue - props.project.MoneyRaised ;
-  const seedInvestmentCap = 150;
+const AmountTab = ({project, investmentValue, usdbalance, account, handleChange}) => {
+  const maxInvestment = project.TotalValue - project.MoneyRaised ;
+  const seedInvestmentCap = project["Investment Cap"];
   const InvestAmountSchema = Yup.object().shape({
     investAmount: Yup.number()
       .min(100, "Smallest investment is $100")
-      .max(props.project.Stage < 4 ? seedInvestmentCap < maxInvestment ? seedInvestmentCap : maxInvestment : maxInvestment, props.project.Stage < 4 ? seedInvestmentCap < maxInvestment? "Amount is higher than seed investment cap": "Amount greater than investment required" : "Amount greater than investment required")
+      .max(project.Stage < 3 ? seedInvestmentCap < maxInvestment ? seedInvestmentCap : maxInvestment : maxInvestment, project.Stage < 4 ? seedInvestmentCap < maxInvestment? "Amount is higher than seed investment cap": "Amount greater than investment required" : "Amount greater than investment required")
       .required("Investment amount can not be empty")
   });
   return (
@@ -24,7 +24,7 @@ const AmountTab = props => {
             <div className="col-12 invest-confirm-wrapper">
               <div className="col-4 invest-confirm-text">I want to invest:</div>
               <Formik
-                initialValues={{ investAmount: props.investmentValue }}
+                initialValues={{ investAmount: investmentValue }}
                 validationSchema={InvestAmountSchema}
                 enableReinitialize
               >
@@ -40,15 +40,15 @@ const AmountTab = props => {
                             : ""
                         }`}
                         name="investAmount"
-                        value={props.investmentValue}
-                        onChange={value => props.handleChange(value)}
+                        value={investmentValue}
+                        onChange={value => handleChange(value)}
                       />
                       <label
                         htmlFor="investAmount"
                         className="solar-form-label invest-confirm-label"
                       >
                         Investment Range: $100 to
-                        ${props.project.Stage < 4 ? seedInvestmentCap : maxInvestment}
+                        ${project.Stage < 4 ? seedInvestmentCap : maxInvestment}
                       </label>
                       {errors.investAmount && touched.investAmount && (
                         <div className="solar-form-error-text">
@@ -67,7 +67,7 @@ const AmountTab = props => {
             <div className="col-12 invest-confirm-wrapper">
               <div className="col-4 invest-confirm-text uppercase">total:</div>
               <div className="col-8 invest-confirm-value total">
-                $ {props.investmentValue.toFixed(1)}
+                $ {investmentValue.toFixed(1)}
               </div>
             </div>
             <div className="col-12 solar-form-separator" />
@@ -77,13 +77,13 @@ const AmountTab = props => {
               </div>
               <div className="col-8 invest-confirm-value">
                 <div className="confirm-icon wallet-icon" />
-                  <div className="invest-confirm-value-text">$ {props.usdbalance || '0 (Auto-Exchange Enabled)'}</div>
+                  <div className="invest-confirm-value-text">$ {usdbalance || '0 (Auto-Exchange Enabled)'}</div>
               </div>
             </div>
             <div className="col-12 invest-confirm-wrapper">
               <DivBox
                 type="full"
-                text={props.account && props.account.Name}
+                text={account && account.Name}
                 leftIcon="investor-icon"
                 label="investor profile"
                 rightIcon="profile-edit-icon"
@@ -92,7 +92,7 @@ const AmountTab = props => {
               />
               <DivBox
                 type="open"
-                text={props.account && props.account.PublicKey}
+                text={account.StellarWallet && account.StellarWallet.PublicKey}
                 label="wallet address"
                 classes={["big-box", "light-box"]}
               />

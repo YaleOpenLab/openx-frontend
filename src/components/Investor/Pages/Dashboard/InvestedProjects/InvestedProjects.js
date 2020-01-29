@@ -1,7 +1,7 @@
 import React from "react";
 import InvestorProjectCard from "./InvestorProjectCard/InvestorProjectCard";
 
-const InvestedProjects = props => (
+const InvestedProjects = ({projects, projectIds, investor}) => (
   <React.Fragment>
     <div className="container investor-title">Invested Projects</div>
     <div className="investor-separator" />
@@ -9,8 +9,9 @@ const InvestedProjects = props => (
       <div className="project-list">
         <div className="container">
           <div className="row">
-            {props.projects.filter((v, i, a) => a.indexOf(v) === i).map(project => {
-              return <InvestorProjectCard projectId={project} key={project} investor={props.investor}/>
+            {projectIds.filter((v, i, a) => a.indexOf(v) === i).map((projectId, i) => {
+              const project = projects.filter(project => project.Index === projectId);
+              return <InvestorProjectCard key={i} projectId={projectId} project={project[0]} investor={investor}/>
             })}
           </div>
         </div>

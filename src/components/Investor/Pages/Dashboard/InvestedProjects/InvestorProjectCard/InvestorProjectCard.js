@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./InvestorProjectCard.scss";
-import { NavLink } from "mdbreact";
+import { NavLink } from "react-router-dom";
 import ROUTES from "../../../../../../routes/routes";
 import SummaryCards from "../../../../../General/SummaryCards/SummaryCards";
 import { connect } from "react-redux";
@@ -14,25 +14,9 @@ class InvestorProjectCard extends Component {
   };
 
   render() {
-    const {projects, loading} = this.props;
-    if(loading) return <PageLoading />;
-    let project = projects.filter(project => project.Index === this.props.projectId);
-    project = project.length !== 0 ? project[0] : [];
-    var investedValue = 0;
-    if (project.InvestorMap != null ) {
-      investedValue = "$" + project.InvestorMap[this.props.investor.U.PublicKey] * project.TotalValue;
-    }
-    var execSummary = project.ExecutiveSummary;
-    var commValue = 0;
-    var rating = project.Rating;
-    if (project.ExecutiveSummary != null) {
-      rating = project.Rating;
-      commValue = execSummary["SustainabilityMetrics"]["community value"];
-    }
-    var returns = 0 ;
-    if (!(this.props.investor.AllTimeReturns == null || this.props.investor.AllTimeReturns[project.Index] == null )) {
-      returns = this.props.investor.AllTimeReturns[project.Index];
-    }
+    const {project, loading, investor} = this.props;
+    if(!project || loading) return <PageLoading />;
+    console.log(project, "???")
     return (
       <div className="col-12 col-sm-6 col-md-4 investor-project-card">
         <div className="projects-box">
@@ -44,7 +28,7 @@ class InvestorProjectCard extends Component {
               <button className="watch-button-explore" type="button">
                 <div className="watch-icon" />
               </button>
-              <img src={project.DPIntroImage} alt="project card" />
+              <img src={project.MainImage} alt="project card" />
             </div>
           </NavLink>
           <div className="projects-description-box">
@@ -53,7 +37,7 @@ class InvestorProjectCard extends Component {
               <div className="col-12 desc-title">
                 <NavLink
                   className="no-padding"
-                  to={ROUTES.PROJECT_BASE + this.props.projectId}
+                  to={ROUTES.PROJECT_BASE + project.Index}
                 >
                   {project.Name}
                 </NavLink>
@@ -62,16 +46,16 @@ class InvestorProjectCard extends Component {
                 <div className="projects-location-icon location-icon" />
                 <a href={project.MapLink}>{project.State}, {project.Country}</a>
               </div>
-              <div className="col-12 desc-spec-value">{project.PanelSize}</div>
+              <div className="col-12 desc-spec-value">0</div>
               <div className="col-12 desc-category">RESEARCH PROJECT</div>
             </div>
           </div>
           <SummaryCards
             items={[
-              { value: investedValue, desc: "your investment" },
-              { value: returns, desc: "your return" },
-              { value: rating, desc: "investment rating" },
-              { value: commValue, desc: "community value" },
+              { value: investor.AmountInvested, desc: "your investment" },
+              { value: 0, desc: "your return" },
+              { value: 0, desc: "investment rating" },
+              { value: 0, desc: "community value" },
               { value: "No immediate action", desc: "project actions" }
             ]}
           />

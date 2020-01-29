@@ -11,8 +11,6 @@ const StyledButton = styled.button`
   font-family: $secondary-font;
   font-size: 10px;
   font-weight: 600;
-  margin-top: 20px;
-  margin-bottom: 10px;
   cursor: pointer;
   &:active {
   	opacity: 0.7;

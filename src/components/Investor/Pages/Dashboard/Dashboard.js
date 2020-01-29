@@ -7,7 +7,7 @@ import {validateAction} from "../../../Profile/store/actions";
 import Storage from "../../../../services/Storage";
 import NotAvailable from "../../../UI/NotAvailable/NotAvailable";
 
-const Dashboard = ({investor, account, fetchInvestor, authorized, loading}) => {
+const Dashboard = ({investor, account, fetchInvestor, authorized, loading, projects}) => {
 	const [balance, setBalance] = useState(0);
 
 	useEffect(() => {
@@ -21,13 +21,14 @@ const Dashboard = ({investor, account, fetchInvestor, authorized, loading}) => {
 		<div className="investor-dashboard">
 				<InvestmentSummary investor={investor} balance={balance}/>
 				{investor.InvestedSolarProjects && (
-				<InvestedProjects projects={investor.InvestedSolarProjectsIndices} investor={investor}/>
+				<InvestedProjects projectIds={investor.InvestedSolarProjectsIndices} projects={projects} investor={investor}/>
 			)}
 		</div>
 	);
 };
 
 const mapStateToProps = state => ({
+    projects: state.projects.items,
 	account: state.profile.user.items,
 	investor: state.profile.investor.items,
 	loading: state.profile.investor.isLoading,

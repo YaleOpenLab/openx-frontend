@@ -3,7 +3,7 @@ import DivBox from "../../../../General/DivBox/DivBox";
 import { Formik, Field } from "formik";
 import SwitchButton from "../../../../General/SwitchButton/SwitchButton";
 
-const ProfileTab = props => (
+const ProfileTab = ({account, investCategory,  usdbalance, handleToggle, handleSubmit, brokeDeal, investmentValue}) => (
   <div className="invesc-confirm-amount">
     <div className="container">
       <div className="col-12 col-md-10 col-lg-8 mx-auto">
@@ -11,7 +11,7 @@ const ProfileTab = props => (
           <div className="col-12 invest-confirm-amount-wrapper">
             <div className="amount-label">your investment amount</div>
             <div className="amount-value">
-              $ {props.investmentValue.toFixed(1)}
+              $ {investmentValue.toFixed(1)}
             </div>
           </div>
           <div className="col-12 solar-form-separator" />
@@ -21,7 +21,7 @@ const ProfileTab = props => (
           <div className="col-12 invest-confirm-wrapper">
             <DivBox
               type="full"
-              text={props.account.Name}
+              text={account.Name}
               leftIcon="investor-icon"
               label="investor profile"
               rightIcon="profile-edit-icon"
@@ -30,7 +30,7 @@ const ProfileTab = props => (
             />
             <DivBox
               type="open"
-              text={props.account.PublicKey}
+              text={account.StellarWallet && account.StellarWallet.PublicKey}
               label="wallet address"
               classes={["big-box", "light-box"]}
             />
@@ -46,7 +46,7 @@ const ProfileTab = props => (
                     Available:
                   </div>
                   <div className="col-6 invest-confirm-profile-values">
-                    <span className="-bigger">$ {props.usdbalance || '0 (AE Enabled)'}</span>
+                    <span className="-bigger">$ {usdbalance || '0 (AE Enabled)'}</span>
                   </div>
                   <div className="col-12 invest-confirm-profile-info">
                     suggested max amount: $20'000
@@ -94,16 +94,14 @@ const ProfileTab = props => (
             <div className="invest-form-section">
               <Formik
                 initialValues={{
-                  address: "",
-                  country: "",
-                  city: "",
-                  zipCode: "",
-                  birthDate: "",
-                  citizenship: ""
+                  address: account.Address,
+                  country: account.Country,
+                  city: account.City,
+                  zipCode: account.ZipCode,
                 }}
                 onSubmit={(values, actions) => {}}
                 render={props => (
-                  <form onSubmit={props.handleSubmit} className="solar-form">
+                  <form onSubmit={handleSubmit} className="solar-form">
                     <div className="row">
                       <div className="col-12">
                         <div className="row">
@@ -122,15 +120,12 @@ const ProfileTab = props => (
                             </label>
                           </div>
                           <div className="col-6 solar-input-div">
-                            <select
-                              className="solar-form-input invest-input"
-                              name="country"
-                              required
-                            >
-                              <option />
-                              <option>USA</option>
-                              <option>Rwanda</option>
-                            </select>
+                              <Field
+                                  type="text"
+                                  className="solar-form-input invest-input"
+                                  name="country"
+                                  required
+                              />
                             <label
                               htmlFor="country"
                               className="solar-form-label invest-label"
@@ -173,39 +168,6 @@ const ProfileTab = props => (
                           </div>
                         </div>
                       </div>
-
-                      <div className="col-12">
-                        <div className="row">
-                          <div className="col-6 solar-input-div">
-                            <Field
-                              type="text"
-                              className="solar-form-input invest-input"
-                              name="birthDate"
-                              required
-                            />
-                            <label
-                              htmlFor="birthDate"
-                              className="solar-form-label invest-label"
-                            >
-                              date of birth
-                            </label>
-                          </div>
-                          <div className="col-6 solar-input-div">
-                            <Field
-                              type="text"
-                              className="solar-form-input invest-input"
-                              name="citizenship"
-                              required
-                            />
-                            <label
-                              htmlFor="citizenship"
-                              className="solar-form-label invest-label"
-                            >
-                              citizenship
-                            </label>
-                          </div>
-                        </div>
-                      </div>
                     </div>
                   </form>
                 )}
@@ -224,7 +186,6 @@ const ProfileTab = props => (
                   >
                     <option />
                     <option>USA</option>
-                    <option>Georgia</option>
                   </select>
                   <label
                     htmlFor="taxCountry"
@@ -247,16 +208,16 @@ const ProfileTab = props => (
                 <div className="col-12">
                   <SwitchButton
                     label="Are you, or a member of your family, a member of a broker dealer?"
-                    checked={props.brokeDeal}
-                    handleChange={() => props.handleToggle("brokeDeal")}
+                    checked={brokeDeal}
+                    handleChange={() => handleToggle("brokeDeal")}
                     classes={["-left-align"]}
                     onLabel="Yes"
                     offLabel="No"
                   />
                   <SwitchButton
                     label="Are you, or a member of your family, part of the investee category in this project ?"
-                    checked={props.investCategory}
-                    handleChange={() => props.handleToggle("investCategory")}
+                    checked={investCategory}
+                    handleChange={() => handleToggle("investCategory")}
                     classes={["-left-align"]}
                     onLabel="Yes"
                     offLabel="No"

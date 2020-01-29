@@ -5,7 +5,7 @@ import ActiveInfoIcon from '../../../assets/images/ic-info-active.svg'
 import ClickAwayListener from "../../tools/ClickAwayListener/ClickAwayListener";
 
 const StyledSeeMoreModal = styled.div`
-	position: absolute;
+  position: absolute;
   background: white;
   min-height: 20px;
   min-width: 100px;

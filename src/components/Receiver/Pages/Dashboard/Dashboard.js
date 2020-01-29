@@ -1,28 +1,22 @@
 import React, {Component} from 'react';
 import IconBenef from '../../../../assets/images/ic-beneficiary.svg';
 import IconWallet from '../../../../assets/images/ic-wallet.svg';
-import IconSolar from '../../../../assets/images/ic-solar-panel.svg';
-import IconSolarAlt from '../../../../assets/images/ic-solar-alt.svg';
 import Placeholder from '../../../../assets/images/solars.png';
 import IconGps from '../../../../assets/images/ic-location-min.svg';
 import iconWatch from '../../../../assets/images/ic-watch.svg';
 import IconTools from '../../../../assets/images/ic-tools.svg';
-import IconCerf from '../../../../assets/images/ic-certified.svg';
 import IconCalendar from '../../../../assets/images/ic-calendar.svg';
 import IconDeveloper from '../../../../assets/images/ic-developer.svg';
 import IconContractor from '../../../../assets/images/ic-contractor.svg';
-import IconBox from '../../../../assets/images/ic-solarbox.svg';
 import IconArchive from '../../../../assets/images/ic-doc-archive.svg';
 import IconSingle from '../../../../assets/images/ic-single.svg';
 import IconChecked from '../../../../assets/images/ic-doc-checked.svg';
 import IconUnChecked from '../../../../assets/images/ic-doc-unchecked.svg';
 import AvatarPlaceholder from '../../../../assets/images/avatarplaceholder.png';
-import GraphPlaceholder from '../../../../assets/images/graph-placeholder.png';
 import ProgressBar from './ProgressBar';
 import DetailContainer from './DetailContainer';
 import './Dashboard.scss';
 import DocumentationContainer from '../../../General/DocumentationContainer/DocumentationContainer';
-import {mockData} from './mockData';
 import {rwanda} from './rwanda';
 import SummaryCards from '../../../General/SummaryCards/SummaryCards';
 import {connect} from 'react-redux';
@@ -133,7 +127,9 @@ class Dashboard extends Component {
 			return <NotAvailable text={"You have not registered as a receiver"}/>
 		}
 
-		const projects = receiver && receiver.ReceivedSolarProjects ? receiver.ReceivedSolarProjects.length : 0;
+		// const projects = receiver && receiver.ReceivedSolarProjects ? receiver.ReceivedSolarProjects.length : 0;
+        const projects = 1;
+
 		const temp = rwanda.project;
 
 		if (!authorized) {

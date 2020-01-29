@@ -13,7 +13,7 @@ import P2P from "./pages/P2P";
 import Seed from "./pages/Seed";
 
 const StyledFundsContainer = styled.div`
-
+    margin: 40px 0;
 `;
 
 const content = [

@@ -21,7 +21,7 @@ const StyledSelect = styled.select`
   font-family: ${Variables.Global.primaryFont};
   font-size: 15px;
   color: ${Variables.Colors.secondaryColor};
-
+  cursor: pointer;
 `;
 
 const StyledLabel = styled.div`
@@ -34,6 +34,11 @@ const StyledLabel = styled.div`
     letter-spacing: 2px;
 `;
 
+const StyledOption = styled('option')`
+    height: 40px;
+    cursor: pointer;
+`;
+
 const Select = ({label, value, items, onChange}) => (
 	<StyledSelectContainer className="solar-radio-button">
 		<StyledSelect
@@ -42,7 +47,7 @@ const Select = ({label, value, items, onChange}) => (
 			onChange={onChange}
 		>
 			{items && items.map((item, index) => {
-				return <option key={index} value={item.value}>{item.name}</option>
+				return <StyledOption key={index} value={item.value}>{item.name}</StyledOption>
 			})}
 		</StyledSelect>
 		<StyledLabel htmlFor={label}>{label}</StyledLabel>

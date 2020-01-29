@@ -6,11 +6,10 @@ import {sha3_512} from 'js-sha3';
 import {DATA} from "../helpers/enums/temporary-data";
 
 export class Http {
-    static investorInvest(id, amount) {
-        return this.getProtected('investor/invest', {
+    static investorInvest(id, amount, seedpwd) {
+        return this.postProtected('investor/invest', {
             username: Storage.get('username'),
-            pwhash: Storage.get('token'),
-            seedpwd: Storage.get('seedpwd'),
+            seedpwd: seedpwd,
             projIndex: id,
             amount: amount,
         }).pipe(
@@ -26,13 +25,13 @@ export class Http {
 
     static registerService(entity, {username, name, email, pwd, pwhash}) {
         const hash = pwhash ? pwhash : sha3_512(pwd);
-        const data = {name: name || username, username: username, email: email, pwhash: hash, seedpwd: Storage.get('seedpwd')};
+        const data = {name: name || username, username: username, email: email, pwhash: hash, seedpwd: 'x'};
         return this.postProtected(`${entity}/register`, data, );
     }
 
     static registerEntityService(entity, {username, name, email, pwd, pwhash}) {
         const hash = pwhash ? pwhash : sha3_512(pwd);
-        const data = {name: name ? name : username, entityType:entity, username: username, email: email, pwhash: hash, seedpwd: Storage.get('seedpwd')};
+        const data = {name: name ? name : username, entityType:entity, username: username, email: email, pwhash: hash, seedpwd: 'x'};
         return this.postProtected(`entity/register`, data, );
     }
 
@@ -86,7 +85,7 @@ export class Http {
     }
 
     static getUserRoles(data) {
-        return this.getProtected('user/get', {...data});
+        return this.getProtected('user/roles', {...data});
     }
 
     static progress(data) {
@@ -151,6 +150,41 @@ export class Http {
             pwhash: Storage.get('token')
         });
     }
+
+    // Manage Funds
+
+    static manageTransfer = (values) => {
+        return this.getProtected('user/sendxlm', {
+            username: Storage.get('username'),
+            ...values,
+        });
+
+    };
+
+    static manageSweep = (values) => {
+        return this.getProtected('user/sweep', {
+            username: Storage.get('username'),
+            ...values,
+        });
+
+    };
+
+    static manageP2P = (values) => {
+        return this.getProtected('user/trustasset', {
+            username: Storage.get('username'),
+            ...values,
+        });
+
+    };
+
+    static manageSeed = (values) => {
+        return this.getProtected('user/sendrecovery', {
+            username: Storage.get('username'),
+            ...values,
+        });
+
+    };
+
 
     static get(path, data, version) {
         return this.request("GET", path, data, version);

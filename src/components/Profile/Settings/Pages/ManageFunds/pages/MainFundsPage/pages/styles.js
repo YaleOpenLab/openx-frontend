@@ -21,3 +21,7 @@ export const StyledInfoTitle = styled.div`
 export const StyledActions = styled.div`
     margin: 16px 0;    
 `;
+
+export const StyledSection = styled.div`
+    margin: 8px 0;    
+`;

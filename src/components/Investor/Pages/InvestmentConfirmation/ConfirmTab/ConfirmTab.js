@@ -25,7 +25,7 @@ const ConfirmTab = props => (
               <DivBox
                 type="open"
                 label="wallet address"
-                text={props.account.PublicKey}
+                text={props.account.StellarWallet && props.account.StellarWallet.PublicKey}
                 col="12"
                 classes={["light-box", "big-box", "label-right", "margin-top"]}
               />
@@ -40,42 +40,7 @@ const ConfirmTab = props => (
             </div>
           </div>
           <div className="col-12 solar-form-separator" />
-          <div className="invest-confirm-header">
-            <div className="-center">
-              Review Investment Terms
-            </div>
-          </div>
         </div>
-      </div>
-    </div>
-    <div className="row">
-      <div className="ProjectContent project-confirm-terms">
-        {props.loading ? (
-          <PageLoading />
-        ) : (
-          <section className="Terms">
-            <div className="container">
-              <div className="row">
-                <div className="col-12 text-description">
-                  <div className="sub-title">Purpose</div>
-                  <div className="sub-desc">
-                    {props.data.FEText.terms.description}
-                  </div>
-                </div>
-                <div className="col-12 project-table no-padding">
-                  <TermsTable data={props.data && props.data.Terms} />
-                </div>
-                <div className="col-12 security-note">
-                  <div className="security-title">security note</div>
-                  <div className="security-text">
-                    {DATA.project[0].terms.securityNote}
-                    <span className="custom-link-to"> Link ></span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-        )}
       </div>
     </div>
     <div className="container confirm-agree-terms">
