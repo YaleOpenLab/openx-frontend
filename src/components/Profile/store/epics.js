@@ -4,6 +4,7 @@ import {ofType} from "redux-observable";
 import {Observable} from "rxjs";
 import "rxjs/add/observable/of";
 import {
+    dashboardActionFailure, dashboardActionSuccess,
     registerActionFailure,
     registerActionSuccess, registerEntityActionFailure, registerEntityActionSuccess,
     updateAccountFailure,
@@ -21,8 +22,7 @@ export const updateAccountEpic = (action$, store) =>
         switchMap(action => {
             return Http.updateAccount(action.data).pipe(
                 concatMap(user => {
-                    console.log(user, "??")
-                    if(user.data.Code === 401){
+                    if(user.data.Code){
                         return [
                             displayErrorAction("error", user.data.Status)
                         ]
@@ -108,6 +108,54 @@ export const validateRecipientEpic = action$ =>
                 }),
                 catchError(error =>
                     Observable.of(validateActionFailure(action.entity, error.message))
+                )
+            );
+        })
+    );
+
+export const getInvestorDashboard = action$ =>
+    action$.pipe(
+        ofType(TYPES.investor.GET_DASHBOARD),
+        switchMap(action => {
+            return Http.getDashboard(action.entity, action.username).pipe(
+                concatMap(user => {
+                    if (user.data.Code) {
+                        return [
+                            displayErrorAction("error", user.data.Status),
+                            dashboardActionFailure(action.entity, user.data.Status),
+                        ]
+                    } else {
+                        return [
+                            dashboardActionSuccess(action.entity, user.data),
+                        ]
+                    }
+                }),
+                catchError(error =>
+                    Observable.of(dashboardActionFailure(action.entity, error.message))
+                )
+            );
+        })
+    );
+
+export const getRecipientDashboard = action$ =>
+    action$.pipe(
+        ofType(TYPES.recipient.GET_DASHBOARD),
+        switchMap(action => {
+            return Http.getDashboard(action.entity, action.username).pipe(
+                concatMap(user => {
+                    if (user.data.Code) {
+                        return [
+                            displayErrorAction("error", user.data.Status),
+                            dashboardActionFailure(action.entity, user.data.Status),
+                        ]
+                    } else {
+                        return [
+                            dashboardActionSuccess(action.entity, user.data),
+                        ]
+                    }
+                }),
+                catchError(error =>
+                    Observable.of(dashboardActionFailure(action.entity, error.message))
                 )
             );
         })

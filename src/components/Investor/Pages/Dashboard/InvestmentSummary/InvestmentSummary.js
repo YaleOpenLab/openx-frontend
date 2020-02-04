@@ -6,7 +6,7 @@ import InfoBoxTemplate from "../../../../General/InfoBoxTemplate/InfoBoxTemplate
 
 const InvestmentSummary = ({investor}) => {
 
-	const projects = investor.InvestedSolarProjects ? investor.InvestedSolarProjects.length : 0;
+	const projects = investor["Your Invested Projects"] ? investor["Your Invested Projects"].length : 0;
 	return (
 		<React.Fragment>
 			<div className="container investor-title">Your Investment Summary</div>
@@ -18,7 +18,7 @@ const InvestmentSummary = ({investor}) => {
 							<SummaryCards
 								title="your profile"
 								items={[
-									{value: investor.U.Name, desc: 'name'},
+									{value: investor.Name, desc: 'name'},
 									{value: 'Investor', desc: 'roles'}
 								]}
 								icon="beneficiary-icon"
@@ -29,11 +29,11 @@ const InvestmentSummary = ({investor}) => {
 								title="your investments"
 								items={[
 									{
-										value: `$${investor.AmountInvested ? investor.AmountInvested.toFixed(2) : investor.AmountInvested}`,
+										value: `$${investor["Total Investments"]}`,
 										desc: 'total investments'
 									},
 									{
-										value: investor.InvestedSolarProjects ? investor.InvestedSolarProjects.length : '0',
+										value: investor["Your Invested Projects"] ? investor["Your Invested Projects"].length : '0',
 										desc: 'projects invested'
 									}
 								]}
@@ -51,7 +51,6 @@ const InvestmentSummary = ({investor}) => {
 							/>
 						</div>
 						<div className="col-sm-6 col-lg-3 ">
-							{/*todo: integrate*/}
 							<SummaryCards
 								title={
 									<SeeMore
@@ -84,7 +83,7 @@ const InvestmentSummary = ({investor}) => {
 					</div>
 					<AccountSummary
 						investor={investor}
-						usdbalance={'0'}
+						usdbalance={investor.Balance ? investor.Balance.toFixed(2) : 0}
 					/>
 				</div>
 			</div>

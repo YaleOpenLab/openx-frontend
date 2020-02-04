@@ -29,9 +29,9 @@ const Sweep = ({account, showMessage}) => {
 
         Http.manageSweep(sendValues).subscribe(result => {
             if(result.data && result.data.Code === 200) {
-                showMessage('success', 'Successfully transferred!');
+                showMessage('success', 'Successfully swept funds!');
             }else {
-                showMessage('error', 'Error while transferring');
+                showMessage('error', 'Error while sweeping the funds');
             }
         });
     };

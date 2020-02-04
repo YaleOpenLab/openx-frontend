@@ -7,21 +7,23 @@ const initialState = {
         isLoading: false,
         error: null,
         authorized: false,
-        items: [],
+        items: {},
     },
     investor: {
         created: false,
         isLoading: false,
         error: null,
         authorized: false,
-        items: [],
+        dashboard: {},
+        items: {},
     },
     recipient: {
         created: false,
         isLoading: false,
         error: null,
         authorized: false,
-        items: [],
+        dashboard: {},
+        items: {},
     },
     entity: {
         created: false,
@@ -88,6 +90,34 @@ const userAccountReducer = (state = initialState, action) => {
                     authorized: false,
                 }
             };
+        case action.entity && TYPES[action.entity].GET_DASHBOARD:
+            return {
+                ...state,
+                [action.entity]: {
+                    ...state[action.entity],
+                    isLoading: true,
+                }
+            };
+        case action.entity && TYPES[action.entity].GET_DASHBOARD_SUCCESS:
+            return {
+                ...state,
+                [action.entity]: {
+                    ...state[action.entity],
+                    isLoading: false,
+                    dashboard: action.payload,
+                    authorized: true,
+                }
+            };
+        case action.entity && TYPES[action.entity].GET_DASHBOARD_FAILURE:
+            return {
+                ...state,
+                [action.entity]: {
+                    ...state[action.entity],
+                    isLoading: false,
+                    error: action.payload,
+                    authorized: false,
+                }
+            };
         case TYPES.UPDATE:
             return {
                 ...state,
@@ -127,6 +157,7 @@ const userAccountReducer = (state = initialState, action) => {
                     isLoading: false,
                     error: null,
                     authorized: false,
+                    dashboard: {},
                     items: {},
                 },
                 recipient: {
@@ -134,6 +165,7 @@ const userAccountReducer = (state = initialState, action) => {
                     isLoading: false,
                     error: null,
                     authorized: false,
+                    dashboard: {},
                     items: {},
                 },
                 entity: {

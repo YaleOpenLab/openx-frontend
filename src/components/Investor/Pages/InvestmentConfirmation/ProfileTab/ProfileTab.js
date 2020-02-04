@@ -21,7 +21,7 @@ const ProfileTab = ({account, investCategory,  usdbalance, handleToggle, handleS
           <div className="col-12 invest-confirm-wrapper">
             <DivBox
               type="full"
-              text={account.Name}
+              text={account && account.Name}
               leftIcon="investor-icon"
               label="investor profile"
               rightIcon="profile-edit-icon"
@@ -30,7 +30,7 @@ const ProfileTab = ({account, investCategory,  usdbalance, handleToggle, handleS
             />
             <DivBox
               type="open"
-              text={account.StellarWallet && account.StellarWallet.PublicKey}
+              text={account && account.StellarWallet && account.StellarWallet.PublicKey}
               label="wallet address"
               classes={["big-box", "light-box"]}
             />

@@ -20,7 +20,7 @@ import DocumentationContainer from '../../../General/DocumentationContainer/Docu
 import {rwanda} from './rwanda';
 import SummaryCards from '../../../General/SummaryCards/SummaryCards';
 import {connect} from 'react-redux';
-import {validateAction} from "../../../Profile/store/actions";
+import {dashboardAction, validateAction} from "../../../Profile/store/actions";
 import Storage from "../../../../services/Storage";
 import NotAvailable from "../../../UI/NotAvailable/NotAvailable";
 
@@ -107,6 +107,7 @@ class Dashboard extends Component {
 
 	componentDidMount = () => {
 		this.props.fetchReceiver("recipient", Storage.get("username"));
+		this.props.fetchReceiverDB("recipient", Storage.get("username"));
 	};
 
 	onButtonClick = active => {
@@ -122,13 +123,12 @@ class Dashboard extends Component {
 	};
 
 	render() {
-		const {authorized, receiver} = this.props;
+		const {authorized, receiver, recipientDB} = this.props;
 		if (this.props.receiver && !this.props.authorized) {
 			return <NotAvailable text={"You have not registered as a receiver"}/>
 		}
 
-		// const projects = receiver && receiver.ReceivedSolarProjects ? receiver.ReceivedSolarProjects.length : 0;
-        const projects = 1;
+        const projects = recipientDB["Active Projects"];
 
 		const temp = rwanda.project;
 
@@ -202,8 +202,8 @@ class Dashboard extends Component {
 					</div>
 				</div>
 				{!projects ?
-					<div className="container">
-						<h3 className="container-title">You don't have any projects</h3>
+					<div className="container" style={{marginBottom: 40}}>
+                        <NotAvailable text={"You don't have any projects"}/>
 					</div>
 					:
 				<div>
@@ -356,12 +356,14 @@ class Dashboard extends Component {
 
 const mapStateToProps = state => ({
 	receiver: state.profile.recipient.items,
+	recipientDB: state.profile.recipient.dashboard,
 	loading: state.profile.recipient.isLoading,
 	authorized: state.profile.recipient.authorized,
 });
 
 const mapDispatchToProps = dispatch => ({
-	fetchReceiver: (entity, username) => dispatch(validateAction(entity, username))
+	fetchReceiver: (entity, username) => dispatch(validateAction(entity, username)),
+	fetchReceiverDB: (entity, username) => dispatch(dashboardAction(entity, username))
 });
 
 export default connect(

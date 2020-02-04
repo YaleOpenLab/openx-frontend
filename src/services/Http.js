@@ -23,15 +23,15 @@ export class Http {
         )
     }
 
-    static registerService(entity, {username, name, email, pwd, pwhash}) {
+    static registerService(entity, {username, name, email, pwd, pwhash, seedpwd}) {
         const hash = pwhash ? pwhash : sha3_512(pwd);
-        const data = {name: name || username, username: username, email: email, pwhash: hash, seedpwd: 'x'};
+        const data = {name: name || username, username: username, email: email, pwhash: hash, seedpwd: entity === "user" ? pwd : seedpwd};
         return this.postProtected(`${entity}/register`, data, );
     }
 
-    static registerEntityService(entity, {username, name, email, pwd, pwhash}) {
+    static registerEntityService(entity, {username, name, email, pwd, pwhash, seedpwd}) {
         const hash = pwhash ? pwhash : sha3_512(pwd);
-        const data = {name: name ? name : username, entityType:entity, username: username, email: email, pwhash: hash, seedpwd: 'x'};
+        const data = {name: name ? name : username, entityType:entity, username: username, email: email, pwhash: hash, seedpwd: seedpwd};
         return this.postProtected(`entity/register`, data, );
     }
 
@@ -42,7 +42,6 @@ export class Http {
             if (value.data.Token) {
                 Storage.set('token', value.data.Token);
                 Storage.set('username', username);
-                Storage.set('seedpwd', pwd);
             }
             return value;
         }));
@@ -50,7 +49,7 @@ export class Http {
 
     static validateService(entity, username) {
         if (!entity || !username) {
-            console.log("error");
+            throw("Unhandled Error");
         }
         return this.getProtected(`${entity}/validate`, {
             username: username,
@@ -59,9 +58,20 @@ export class Http {
         }));
     }
 
+    static getDashboard(entity, username) {
+        if (!entity || !username) {
+            throw("Unhandled Error");
+        }
+        return this.getProtected(`${entity}/dashboard`, {
+            username: username,
+        }, ).pipe(map(value => {
+            return value;
+        }));
+    }
+
     static validateEntityService(entity, username) {
         if (!entity || !username) {
-            console.log("error");
+            throw("Unhandled Error");
         }
         return this.getProtected(`entity/validate`, {
             username: username,
@@ -90,10 +100,6 @@ export class Http {
 
     static progress(data) {
         return this.postProtected('user/progress', {...data});
-    }
-
-    static getProgress() {
-        return this.getProtected('user/progress');
     }
 
     static userAskXlm(username, hash) {
@@ -135,20 +141,6 @@ export class Http {
                 }
             })
         );
-    }
-
-    static investorValidate() {
-        return this.get('investor/validate', {
-            username: Storage.get('username'),
-            pwhash: Storage.get('token')
-        });
-    }
-
-    static recipientValidate() {
-        return this.get('recipient/validate', {
-            username: Storage.get('username'), // todo remove this
-            pwhash: Storage.get('token')
-        });
     }
 
     // Manage Funds

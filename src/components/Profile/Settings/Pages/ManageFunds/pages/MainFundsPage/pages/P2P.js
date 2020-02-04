@@ -34,11 +34,11 @@ const P2P = ({account, showMessage}) => {
         };
 
         Http.manageP2P(sendValues).subscribe(result => {
-            if(result.data && result.data.Code === 200) {
-                showMessage('success', 'Emails Sent!');
+            if(result && result.status === 200 && typeof result.data == "string") {
+                showMessage('success', 'Limit expansion succeeded!');
             }else {
                 console.log(result);
-                showMessage('error', 'Error while sending email');
+                showMessage('error', 'Error while expanding limit');
             }
         })
     };
@@ -94,7 +94,7 @@ const P2P = ({account, showMessage}) => {
                                         : ""
                                     }`}
                                 name="assetIssuer"
-                                placeholder="Enter Issuer"
+                                placeholder="Enter Issuer Public key"
                             />
                             {errors.assetIssuer && touched.assetIssuer ? (
                                 <div className="solar-form-error-text">{errors.assetIssuer}</div>

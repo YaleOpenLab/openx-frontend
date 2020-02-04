@@ -3,8 +3,9 @@ import fetchProjectsEpic from "../../components/Explore/Projects/store/epics";
 import fetchProjectEpic from "../../components/Explore/SingleProject/store/epics";
 
 import {
-	registerActionEpic, registerEntityActionEpic,
-	updateAccountEpic, validateActionEpic, validateEntityEpic, validateInvestorEpic, validateRecipientEpic
+    getInvestorDashboard, getRecipientDashboard,
+    registerActionEpic, registerEntityActionEpic,
+    updateAccountEpic, validateActionEpic, validateEntityEpic, validateInvestorEpic, validateRecipientEpic
 } from "../../components/Profile/store/epics";
 import {fetchVerifyAccountEpic} from "../../components/Profile/Settings/Pages/Profiles/pages/VerifyProfilePage/store/epics";
 import {fetchFundsAccountEpic} from "../../components/Profile/Settings/Pages/ManageFunds/pages/store/epics";
@@ -24,4 +25,6 @@ export const rootEpic = (action$, store) =>
 		fetchVerifyAccountEpic,
 		fetchFundsAccountEpic,
 		progressActionEpic,
+        getInvestorDashboard,
+        getRecipientDashboard,
 	)(action$, store);

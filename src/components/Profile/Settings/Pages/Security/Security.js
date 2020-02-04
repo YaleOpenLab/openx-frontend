@@ -23,10 +23,8 @@ const AccountSecuritySchema = Yup.object().shape({
 });
 const SeedSecuritySchema = Yup.object().shape({
 	currentSeedPassword: Yup.string()
-		.min(5, "Seed password must be at least 5 characters long!")
 		.required("Required"),
 	newSeedPassword: Yup.string()
-		.min(5, "Seed password must be at least 5 characters long!")
 		.required("Required"),
 	confirmSeedPassword: Yup.string()
 		.oneOf([Yup.ref('newSeedPassword'), null], "Seed passwords must match")

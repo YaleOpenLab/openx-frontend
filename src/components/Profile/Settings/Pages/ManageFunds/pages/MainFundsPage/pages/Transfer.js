@@ -39,7 +39,7 @@ const Transfer = ({account, showMessage}) => {
         };
 
         Http.manageTransfer(sendValues).subscribe(result => {
-            if(result.data && result.data.Code === 200) {
+            if(result && result.status === 200 && typeof result.data == "string") {
                 showMessage('success', 'Money transferred!');
             }else {
                 showMessage('error', 'Error while transferring');

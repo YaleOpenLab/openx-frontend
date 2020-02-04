@@ -14,6 +14,9 @@ import ROUTES from "../../../../routes/routes";
 import axios from 'axios';
 import {validateAction} from "../../../Profile/store/actions";
 import Storage from "../../../../services/Storage";
+import NotAvailable from "../../../UI/NotAvailable/NotAvailable";
+import ConfirmModal from "../../../UI/ConfirmModal/ConfirmModal";
+import Input from "../../../UI/SolarForms/Input/InputSimple";
 
 class InvestmentConfirmation extends Component {
   constructor(props) {
@@ -23,7 +26,9 @@ class InvestmentConfirmation extends Component {
       agreeTerms: false,
       brokeDeal: false,
       investCategory: false,
-      balance: 10000
+      balance: 10000,
+      open: false,
+      seedpwd: '',
     };
   }
 
@@ -38,11 +43,10 @@ class InvestmentConfirmation extends Component {
       if(this.props.investor.items && this.props.investor.items.U){
         axios.get(`https://api2.openx.solar/user/balance/asset?username=${this.props.investor.items.U.Username}&token=${Storage.get('token')}&asset=STABLEUSD`)
         .then(res => {
-          console.log(res, "response")
           const balance = res.data;
-          // this.setState({
-          //   balance: Number(balance)
-          // })
+          this.setState({
+            balance: Number(balance)
+          })
         });
       }
 
@@ -61,12 +65,9 @@ class InvestmentConfirmation extends Component {
   };
 
   handleConfirm = () => {
-
-
-
     Http.investorInvest(
       this.props.match.params.id,
-      this.state.investmentAmount, "x"
+      this.state.investmentAmount, this.state.seedpwd
     ).subscribe(
       () => {
         this.props.enqueueSnackbar("Transaction completed!", {
@@ -100,24 +101,41 @@ class InvestmentConfirmation extends Component {
     return !(
         value > this.state.balance ||
         value < 100 ||
-        value > this.state.project["Investment Cap"] ||
+        value > this.state.project["SeedInvestmentCap"] ||
         value > this.state.project.TotalValue - this.state.project.MoneyRaised
       );
   };
 
+    setSeedpwd = value => {
+        this.setState({
+            seedpwd: value
+        })
+    };
+
   render() {
-    const { investor, loading, project, balance } = this.state;
+    const { investor, loading, project, balance, open, seedpwd } = this.state;
+    const { isInvestor } = this.props;
+
     return (
       <div className="investment-confirmation">
         {!project || loading ? (
           <PageLoading />
         ) : (
           <>
-            <div className="d-flex justify-content-center">
+              {open &&
+              <ConfirmModal
+                  title='Enter seed password'
+                  onConfirm={this.handleConfirm}
+                  onCancel={() => this.setState({open: false})}
+                  body={
+                      <Input placeholder='Seed Password' type='password' value={seedpwd} onChange={(e) => this.setSeedpwd(e.target.value)} />
+                  }
+              />}
+              <div className="d-flex justify-content-center">
               <ProjectInfo project={project} />
             </div>
             <div className="">
-                {console.log(!this.validateForm(this.state.investmentAmount), "valid")}
+              {!isInvestor ? <NotAvailable text={"You have to be an Investor to invest in project"}/> :
               <StepsForm
                 name="confirm"
                 tabs={[
@@ -128,7 +146,7 @@ class InvestmentConfirmation extends Component {
                 separator={false}
                 classes={["bigger-fonts"]}
                 saveText="confirm"
-                handleSave={this.handleConfirm}
+                handleSave={() => this.setState({open: true})}
                 disabledNext={!this.validateForm(this.state.investmentAmount)}
                 disabledConfirm={!this.state.agreeTerms}
               >
@@ -159,7 +177,7 @@ class InvestmentConfirmation extends Component {
                   account={investor.U}
                   usdbalance={balance}
                 />
-              </StepsForm>
+              </StepsForm>}
             </div>
           </>
         )}

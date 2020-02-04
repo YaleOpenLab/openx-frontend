@@ -44,7 +44,7 @@ const StyledModalAction = styled.div`
 	display: flex;
 `;
 
-const ConfirmModal = ({onCancel, onConfirm, title, body}) => {
+const ConfirmModal = ({onCancel, onConfirm, title, body, children}) => {
 	const handleModalClick = (e) => {
 		e.preventDefault();
 		e.stopPropagation();
@@ -60,7 +60,7 @@ const ConfirmModal = ({onCancel, onConfirm, title, body}) => {
 			<StyledConfirmModal onClick={handleModalClick}>
 				<StyledModalTitle>{title}</StyledModalTitle>
 				<StyledModalBody>
-					{body}
+					{body || children}
 				</StyledModalBody>
 				<StyledModalAction>
 					<Button

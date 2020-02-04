@@ -2,6 +2,7 @@ import React from 'react';
 import DivBox from '../../../../../General/DivBox/DivBox';
 import './AccountSummary.scss';
 import ROUTES from "../../../../../../routes/routes";
+import Storage from "../../../../../../services/Storage";
 
 const AccountSummary = ({investor, usdbalance}) => (
 	<React.Fragment>
@@ -12,7 +13,7 @@ const AccountSummary = ({investor, usdbalance}) => (
 				<div className="col-12 col-md-4">
 					<DivBox
 						type="full"
-						text={investor.U.Name}
+						text={investor.Name}
 						label="investor"
 						leftIcon="investor-icon"
 						rightIcon="profile-edit-icon"
@@ -22,15 +23,14 @@ const AccountSummary = ({investor, usdbalance}) => (
 						classes={['investor-marginer big-box']}
 					/>
 				</div>
-				{/*todo: integrate*/}
 				<div className="col-12 col-md-8">
 					<DivBox
 						type="long-open"
 						list={[
 							{
-								text: investor.U.StellarWallet.PublicKey,
+								text: investor["Main Wallet"],
 								link: {
-									url: 'https://testnet.steexp.com/account/' + investor.U.StellarWallet.PublicKey,
+									url: 'https://testnet.steexp.com/account/' + investor["Main Wallet"],
 									target: 'blank'
 								},
 								label: 'primary address',
@@ -42,7 +42,7 @@ const AccountSummary = ({investor, usdbalance}) => (
 								label: 'ACCOUNT BALANCE',
 								actionLabel: 'Account History >',
 								actionLabelLink: {
-									url: 'https://testnet.steexp.com/account/' + investor.U.StellarWallet.PublicKey + "#transactions",
+									url: 'https://testnet.steexp.com/account/' + investor["Main Wallet"] + "#transactions",
 									target: 'blank'
 								},
 							},
@@ -51,10 +51,10 @@ const AccountSummary = ({investor, usdbalance}) => (
 								label: 'AVAILABLE FUNDS',
 								actionLabel: 'Deposit Funds >',
 								actionLabelLink: ROUTES.PROFILE_PAGES.SETTINGS_PAGES.FUNDS_PAGES.LOAD_FUNDS
-									.replace(':username', investor.U.Username).replace(':userType', 'investor'),
+									.replace(':username', Storage.get("Username")).replace(':userType', 'investor'),
 								secondaryLink: {
 									url: ROUTES.PROFILE_PAGES.SETTINGS_PAGES.FUNDS_PAGES.WITHDRAW_FUNDS
-										.replace(':username', investor.U.Username).replace(':userType', 'investor'),
+										.replace(':username', Storage.get("Username")).replace(':userType', 'investor'),
 									label: 'Withdraw Funds >'
 								},
 								type: 'last'
@@ -64,15 +64,14 @@ const AccountSummary = ({investor, usdbalance}) => (
 						iconSize="20px"
 						classes={['investor-marginer big-box']}
 					/>
-					{/*todo: integrate*/}
 					<DivBox
 						type="long-open"
 						list={[
 							{
-								text: investor.U.SecondaryWallet ? investor.U.SecondaryWallet.PublicKey : 'N/A',
+								text: investor["Secondary Wallet"],
 								label: 'Secondary Address',
 								link: {
-									url: 'https://testnet.steexp.com/account/' + investor.U.SecondaryWallet.PublicKey,
+									url: 'https://testnet.steexp.com/account/' + investor["Secondary Wallet"],
 									target: 'blank'
 								},
 								leftIcon: 'wallet-icon',
@@ -83,7 +82,7 @@ const AccountSummary = ({investor, usdbalance}) => (
 								label: 'ACCOUNT BALANCE',
 								actionLabel: 'Account History >',
 								actionLabelLink: {
-									url: 'https://testnet.steexp.com/account/' + investor.U.SecondaryWallet.PublicKey + "#transactions",
+									url: 'https://testnet.steexp.com/account/' + investor["Secondary Wallet"] + "#transactions",
 									target: 'blank'
 								},
 							},
@@ -92,10 +91,10 @@ const AccountSummary = ({investor, usdbalance}) => (
 								label: 'AVAILABLE FUNDS',
 								actionLabel: 'Deposit Funds >',
 								actionLabelLink: ROUTES.PROFILE_PAGES.SETTINGS_PAGES.FUNDS_PAGES.LOAD_FUNDS
-									.replace(':username', investor.U.Username).replace(':userType', 'investor'),
+									.replace(':username', Storage.get("Username")).replace(':userType', 'investor'),
 								secondaryLink: {
 									url: ROUTES.PROFILE_PAGES.SETTINGS_PAGES.FUNDS_PAGES.WITHDRAW_FUNDS
-										.replace(':username', investor.U.Username).replace(':userType', 'investor'),
+										.replace(':username', Storage.get("Username")).replace(':userType', 'investor'),
 									label: 'Withdraw Funds >'
 								},
 								type: 'last'
@@ -110,7 +109,6 @@ const AccountSummary = ({investor, usdbalance}) => (
 			<div className="summary-sepparator"/>
 			<div className="summary-sum">
 				<span className="sum-label">ballance</span>
-				{/*todo: integrate*/}
 				<span className="sum-price">$ {usdbalance}</span>
 			</div>
 		</div>

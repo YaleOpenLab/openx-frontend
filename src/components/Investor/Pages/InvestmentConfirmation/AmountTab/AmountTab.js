@@ -5,7 +5,7 @@ import * as Yup from "yup";
 
 const AmountTab = ({project, investmentValue, usdbalance, account, handleChange}) => {
   const maxInvestment = project.TotalValue - project.MoneyRaised ;
-  const seedInvestmentCap = project["Investment Cap"];
+  const seedInvestmentCap = project["SeedInvestmentCap"];
   const InvestAmountSchema = Yup.object().shape({
     investAmount: Yup.number()
       .min(100, "Smallest investment is $100")
@@ -92,7 +92,7 @@ const AmountTab = ({project, investmentValue, usdbalance, account, handleChange}
               />
               <DivBox
                 type="open"
-                text={account.StellarWallet && account.StellarWallet.PublicKey}
+                text={account && account.StellarWallet && account.StellarWallet.PublicKey}
                 label="wallet address"
                 classes={["big-box", "light-box"]}
               />

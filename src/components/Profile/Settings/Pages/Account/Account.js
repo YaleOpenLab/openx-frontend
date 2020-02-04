@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useCallback, useState} from "react";
 import {Formik, Form, Field} from "formik";
 import * as Yup from "yup";
 import {connect} from "react-redux";
@@ -6,7 +6,9 @@ import {registerAction, registerEntityAction, updateAccount} from "../../../stor
 import {withSnackbar} from "notistack";
 import RadioButton from "../../../../UI/SolarForms/RadioButton/RadioButton";
 import ROUTES from "../../../../../routes/routes";
-import {progressAction} from "../../../../../store/actions/actions";
+import {displayErrorAction, progressAction} from "../../../../../store/actions/actions";
+import ConfirmModal from "../../../../UI/ConfirmModal/ConfirmModal";
+import Input from "../../../../UI/SolarForms/Input/InputSimple";
 
 const AccountSchema = Yup.object().shape({
 	name: Yup.string().required("Required"),
@@ -17,13 +19,16 @@ const AccountSchema = Yup.object().shape({
 
 const progressLevel = 20;
 
-const Account = ({account, loading, updateAccount, registerAccount, registerEntityAccount, isInvestor, isRecipient, isDeveloper, history, setProgress}) => {
+const Account = ({account, loading, updateAccount, registerAccount, registerEntityAccount, isInvestor, isRecipient, isDeveloper, history, setProgress, showMessage}) => {
 	const [userProfile, setProfileTypes] = useState({
 		investor: false,
 		recipient: false,
 		developer: false,
 		visitor: false,
 	});
+	const [seedpwd, setSeedpwd] = useState(null);
+	const [open, setOpen] = useState(false);
+	const [params, setParams] = useState(null);
 
 	const handleProfileTypeChange = (type) => {
 		if (type === "visitor") {
@@ -44,6 +49,7 @@ const Account = ({account, loading, updateAccount, registerAccount, registerEnti
 
 	const handleSubmit = values => {
 		updateAccount("user", values);
+
 		const registerValues = {
 			username: values.username,
 			email: values.email,
@@ -51,13 +57,10 @@ const Account = ({account, loading, updateAccount, registerAccount, registerEnti
 		};
 
 		Object.keys(userProfile).map(key => {
-			if(userProfile[key] && (key === "investor" || key === "recipient")){
-				registerAccount(key, registerValues);
-			}
-			if(userProfile[key] && key === "developer"){
-				registerEntityAccount(key, registerValues);
-			}
-		});
+            if(userProfile[key]) {
+                openModal(registerValues);
+            }
+        });
 
 		if(account.ProfileProgress < progressLevel) {
 			setProgress(account.Username, progressLevel);
@@ -65,8 +68,42 @@ const Account = ({account, loading, updateAccount, registerAccount, registerEnti
 		}
 	};
 
-	return (
+    const openModal = useCallback((values) => {
+        setParams(values);
+        setOpen(true);
+    });
+
+    const handleRegisterComplete = () => {
+        if(!seedpwd) {
+            showMessage("error", "Seed password is mandatory!");
+        }
+        Object.keys(userProfile).map(key => {
+            if(userProfile[key] && (key === "investor" || key === "recipient")){
+                registerAccount(key, {...params, seedpwd: seedpwd});
+            }
+            if(userProfile[key] && key === "developer"){
+                registerEntityAccount(key, {...params, seedpwd: seedpwd});
+            }
+        });
+        setOpen(false);
+        setSeedpwd(null);
+        setProfileTypes({
+            investor: false,
+            recipient: false,
+            developer: false,
+            visitor: false,
+        });
+    };
+
+    return (
 		<div className="ProfilePageContainer">
+            {open && <ConfirmModal
+                title="Enter Seed Password"
+                onCancel={() => setOpen(false)}
+                onConfirm={handleRegisterComplete}
+            >
+                <Input value={seedpwd} type='password' onChange={(e) => setSeedpwd(e.target.value)}/>
+            </ConfirmModal>}
 			<div className="row">
 				<div className="col-12 col-md-10 col-lg-8 mx-auto ">
 					<div className="component-box-title component-header">
@@ -103,6 +140,7 @@ const Account = ({account, loading, updateAccount, registerAccount, registerEnti
 						address: values.address,
 						zipcode: values.zipcode,
 					};
+
 					handleSubmit(sendValues)
 				}}
 				validationSchema={AccountSchema}
@@ -318,6 +356,7 @@ const mapDispatchToProps = dispatch => ({
 	registerAccount: (entity, data) => dispatch(registerAction(entity, data)),
 	registerEntityAccount: (entity, data) => dispatch(registerEntityAction(entity, data)),
 	setProgress: (username, progress) => dispatch(progressAction(username, progress)),
+    showMessage: (type, message) => dispatch(displayErrorAction(type, message)),
 });
 
 export default connect(

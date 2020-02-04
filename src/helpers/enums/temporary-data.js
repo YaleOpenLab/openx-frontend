@@ -1,5 +1,4 @@
 export const DATA = {
-	Stage: 3,
 	Name: "5kW Solar at FabIDEAS Coop - Pilot 1",
 	Location: "Aibonito, Puerto Rico, USA",
 	"Donation Type": "Grant",
@@ -23,7 +22,6 @@ export const DATA = {
 	mainImage: 'projectOneMain',
 	MainImage: 'https://i.ibb.co/8cqdT6n/Asset-3-4x.png',
 	InvestmentType: 'Grant',
-    "Investment Cap": 20000,
 	heroImage: 'projectOneHero',
 	executiveSummary: [
 		{

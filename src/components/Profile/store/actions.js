@@ -76,6 +76,24 @@ export const validateActionFailure = (entity, message) => ({
 	entity
 });
 
+export const dashboardAction = (entity, username) => ({
+	type: TYPES[entity].GET_DASHBOARD,
+	entity,
+	username,
+});
+
+export const dashboardActionSuccess = (entity, account) => ({
+	type: TYPES[entity].GET_DASHBOARD_SUCCESS,
+	entity,
+	payload: account
+});
+
+export const dashboardActionFailure = (entity, message) => ({
+	type: TYPES[entity].GET_DASHBOARD_FAILURE,
+	message: message,
+	entity
+});
+
 export const validateEntityAction = (username) => ({
 	type: TYPES.entity.VALIDATE,
 	entity: "entity",
