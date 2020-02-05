@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useCallback, useState} from 'react';
 import {
 	Highlight, StyledFieldSection,
 	StyledHeader,
@@ -19,6 +19,9 @@ import {displayErrorAction, progressAction} from "../../../../../../../store/act
 import {connect} from "react-redux";
 import {withSnackbar} from "notistack";
 import history from "../../../../../../../helpers/history";
+import ConfirmModal from "../../../../../../UI/ConfirmModal/ConfirmModal";
+import SimpleInput from "../../../../../../UI/SolarForms/Input/InputSimple";
+import {allTrue, hasTrue} from "../../../../../../../helpers/functions/all-true";
 
 export const StyledButtonGroupContainer = styled.div`
 	margin: 24px 0;
@@ -46,6 +49,10 @@ const RegisterNewEntity = ({account, isInvestor, isDeveloper, isRecipient, regis
         recipient: false,
         developer: false,
     });
+    const [seedpwd, setSeedpwd] = useState(null);
+    const [open, setOpen] = useState(false);
+    const [params, setParams] = useState(null);
+
 
     const handleProfileTypeChange = (type) => {
         setProfileTypes({
@@ -64,21 +71,56 @@ const RegisterNewEntity = ({account, isInvestor, isDeveloper, isRecipient, regis
             pwhash: account.Pwhash
         };
 
+        if(!hasTrue(userProfile)) {
+            history.push(ROUTES.PROFILE_PAGES.SETTINGS_PAGES.ENTITY_PROFILE);
+            return;
+        }
+
         Object.keys(userProfile).map(key => {
-            if(userProfile[key] && (key === "investor" || key === "recipient")){
-                registerAccount(key, registerValues);
-            }
-            if(userProfile[key] && key === "developer"){
-                registerEntityAccount(key, registerValues);
+            if(userProfile[key]) {
+                openModal(registerValues);
             }
         });
+    };
 
+    const openModal = useCallback((values) => {
+        setParams(values);
+        setOpen(true);
+    });
+
+    const confirmRegisterEntity = () => {
+        if(!seedpwd) {
+            showMessage("error", "Seed password is mandatory!");
+        }
+        Object.keys(userProfile).map(key => {
+            if(userProfile[key] && (key === "investor" || key === "recipient")){
+                registerAccount(key, {...params, seedpwd: seedpwd});
+            }
+            if(userProfile[key] && key === "developer"){
+                registerEntityAccount(key, {...params, seedpwd: seedpwd});
+            }
+        });
+        setOpen(false);
+        setSeedpwd(null);
+        setProfileTypes({
+            investor: false,
+            recipient: false,
+            developer: false,
+            visitor: false,
+        });
         history.push(ROUTES.PROFILE_PAGES.SETTINGS_PAGES.ENTITY_PROFILE);
     };
 
-	return (
+    return (
 		<div className="ProfilePageContainer">
-			<div className="Register">
+            {open && <ConfirmModal
+                title="Enter Seed Password"
+                onCancel={() => setOpen(false)}
+                onConfirm={confirmRegisterEntity}
+            >
+                <SimpleInput value={seedpwd} type='password' onChange={(e) => setSeedpwd(e.target.value)}/>
+            </ConfirmModal>}
+            <div className="Register">
 				<div className="row">
 					<div className="col-12 col-md-10 col-lg-8 mx-auto margin-bottom">
 						<StyledHeader>Register a New Entity associated to your Profile</StyledHeader>

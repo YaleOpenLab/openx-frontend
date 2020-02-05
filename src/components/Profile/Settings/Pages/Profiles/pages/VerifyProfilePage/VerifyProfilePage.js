@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
 	StyledHeader,
 	Highlight,
@@ -16,10 +16,18 @@ import {fetchVerifyAccount} from "./store/actions";
 import {withRouter} from "react-router-dom";
 import ActionButtons from "../../../../ActionButtons";
 import {displayErrorAction} from "../../../../../../../store/actions/actions";
+import {Http} from "../../../../../../../services/Http";
 
 const Verify = withRouter(({fetchVerifyUser, account, history, match, showMessage}) => {
+    const [url, setUrl] = useState('#');
+
 	useEffect(() => {
-		fetchVerifyUser(match.params.userType, match.params.username)
+		fetchVerifyUser(match.params.userType, match.params.username);
+		Http.generateLink().subscribe(result => {
+		    if(result.data && result.data.url) {
+		        setUrl(result.data.url)
+            }
+        });
 	}, []);
 
 	const handleContinue = () => {
@@ -71,7 +79,7 @@ const Verify = withRouter(({fetchVerifyUser, account, history, match, showMessag
 						needed for regulatory compliance whenever managing funds that are tied to investments. The standard
 						procedure is called KYC, which stands for ‘Know Your Customer.’ In this case, KYC is needed to acquire
 						stable digital funds (called USDx) for use in your account.</span>}
-						link={{label: 'LINK HERE >', url: '#'}}
+						link={{label: 'LINK HERE >', url: url}}
 						image={{description: 'You should see a screen like this: '}}
 					/>
 					<TutorialStep

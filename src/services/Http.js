@@ -177,6 +177,12 @@ export class Http {
 
     };
 
+    // Deposit Intent
+    static generateLink = () => {
+      return this.getProtected('user/anchorusd/deposit/intent', {
+          username: Storage.get('username')
+      });
+    };
 
     static get(path, data, version) {
         return this.request("GET", path, data, version);

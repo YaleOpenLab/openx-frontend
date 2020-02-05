@@ -1,15 +1,15 @@
-import React from "react";
+import React, {useState} from "react";
 import DivBox from "../../../../../../../General/DivBox/DivBox";
-import {Highlight, StyledHeader, StyledFlexContainer} from "../../../../styles";
-import ROUTES from "../../../../../../../../routes/routes";
+import {StyledHeader, StyledFlexContainer} from "../../../../styles";
 import {registerAction, registerEntityAction} from "../../../../../../store/actions";
 import {connect} from "react-redux";
 import {withSnackbar} from "notistack";
 import {withRouter} from "react-router-dom";
 import {confirmAlert} from 'react-confirm-alert';
-import ConfirmModal from "../../../../../../../UI/ConfirmModal/ConfirmModal"; // Import
+import ConfirmModal from "../../../../../../../UI/ConfirmModal/ConfirmModal";
 import styled from 'styled-components';
 import {Variables} from "../../../../../../../../styles/variables";
+import SimpleInput from "../../../../../../../UI/SolarForms/Input/InputSimple";
 
 const StyledConfirmBody = styled.div`
 		margin: 24px 0;
@@ -27,9 +27,19 @@ const ConfirmBodyItem = styled.div`
 		color: ${Variables.Colors.secondaryColor};
 `;
 
-const RegisterNewProfile = withRouter(({investor, recipient, account, registerAccount, registerEntityAccount, match, isInvestor, isRecipient, isDeveloper}) => {
+const StyledModalTitle = styled.div`
+	font-size: 14px;
+	margin-top: 15px;
+	color: ${Variables.Colors.errorColor};
+`;
 
-	const handleRegister = (type) => {
+
+const RegisterNewProfile = withRouter(({investor, recipient, account, registerAccount, registerEntityAccount, match, isInvestor, isRecipient, isDeveloper}) => {
+    const [seedpwd, setSeedpwd] = useState(null);
+    const [open, setOpen] = useState(false);
+    const [entity, setEntity] = useState('');
+
+    const handleRegister = (type) => {
 		confirmAlert({
 			customUI: ({onClose}) => {
 				return (
@@ -59,23 +69,39 @@ const RegisterNewProfile = withRouter(({investor, recipient, account, registerAc
 		})
 	};
 
-	const handleRegistration = type => {
-		const registerValues = {
-			username: account.Username,
-			email: account.Email,
-			name: account.Name,
-			pwhash: account.Pwhash
-		};
-		if(type === 'developer') {
-            registerEntityAccount(type, registerValues);
-		} else {
-            registerAccount(type, registerValues);
-        }
+	const handleRegistration = (type) => {
+        setEntity(type);
+        setOpen(true);
 	};
-    console.log(isDeveloper, "isit?")
+
+	const handleRegistrationConfirm = (type) => {
+        const registerValues = {
+            username: account.Username,
+            email: account.Email,
+            name: account.Name,
+            pwhash: account.Pwhash,
+            seedpwd: seedpwd,
+        };
+
+        if(entity === 'developer') {
+            registerEntityAccount(entity, registerValues);
+        } else {
+            registerAccount(entity, registerValues);
+        }
+        setSeedpwd(null);
+        setEntity('');
+	};
+
 	return (
 		<React.Fragment>
-			<StyledHeader>Register a New User Profile</StyledHeader>
+            {open && <ConfirmModal
+                title="Enter Seed Password"
+                onCancel={() => setOpen(false)}
+                onConfirm={handleRegistrationConfirm}
+            >
+                <SimpleInput value={seedpwd} type='password' onChange={(e) => setSeedpwd(e.target.value)}/>
+            </ConfirmModal>}
+            <StyledHeader>Register a New User Profile</StyledHeader>
 			<StyledFlexContainer style={{flexDirection: 'row'}}>
 				{!isDeveloper && <DivBox
 					type="full"

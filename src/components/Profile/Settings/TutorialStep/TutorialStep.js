@@ -48,8 +48,9 @@ const TutorialStep = ({step, description, link, image}) => {
 			<StyledStepTitle>{step}</StyledStepTitle>
 			<StyledText>{description}</StyledText>
 			{link && <StyledFieldSection>
-				<CustomLink weight="normal" label={link.label}
-										url={link.url}/>
+				<a href={link.url} target='_blank'>
+                    {link.label}
+                </a>
 			</StyledFieldSection>}
 			{image && <StyledImageSection>
 				<StyledImageDescription>{image.description}</StyledImageDescription>
