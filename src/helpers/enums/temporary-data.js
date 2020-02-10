@@ -12,7 +12,6 @@ export const DATA = {
 	Tariff: "Unlimited tariff",
 	Tax: "1000",
 	Acquisition: "Sample Acquisition",
-	MoneyRaised: 0,
 	TotalValue: 4000,
 	Solar: '5kW',
 	Battery: '5kWh',

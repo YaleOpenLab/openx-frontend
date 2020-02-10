@@ -158,7 +158,7 @@ class Dashboard extends Component {
 								<SummaryCards
 									title="your profile"
 									items={[
-										{value: receiver.U.Name, desc: 'beneficiary name'},
+										{value: receiver && receiver.U && receiver.U.Name, desc: 'beneficiary name'},
 										{value: projects, desc: 'active projects'}
 									]}
 									icon="beneficiary-icon"
