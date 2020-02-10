@@ -1,4 +1,10 @@
-import {FETCH_VERIFY_PROFILE, FETCH_VERIFY_PROFILE_FAILURE, FETCH_VERIFY_PROFILE_SUCCESS} from "./actions";
+import {
+    FETCH_VERIFY_ENTITY_PROFILE, FETCH_VERIFY_ENTITY_PROFILE_FAILURE,
+    FETCH_VERIFY_ENTITY_PROFILE_SUCCESS,
+    FETCH_VERIFY_PROFILE,
+    FETCH_VERIFY_PROFILE_FAILURE,
+    FETCH_VERIFY_PROFILE_SUCCESS
+} from "./actions";
 
 const initialState = {
 	user: {
@@ -14,11 +20,13 @@ const initialState = {
 const verifyAccountReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case FETCH_VERIFY_PROFILE:
+		case FETCH_VERIFY_ENTITY_PROFILE:
 			return {
 				...state,
 				isLoading: true,
 			};
 		case FETCH_VERIFY_PROFILE_SUCCESS:
+		case FETCH_VERIFY_ENTITY_PROFILE_SUCCESS:
 			return {
 				...state,
 				user: {
@@ -30,6 +38,7 @@ const verifyAccountReducer = (state = initialState, action) => {
 				isLoading: false,
 			};
 		case FETCH_VERIFY_PROFILE_FAILURE:
+		case FETCH_VERIFY_ENTITY_PROFILE_FAILURE:
 			return {
 				...state,
 				isLoading: false,

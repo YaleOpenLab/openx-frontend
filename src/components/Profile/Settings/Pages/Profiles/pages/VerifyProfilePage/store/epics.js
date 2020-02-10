@@ -3,7 +3,12 @@ import {catchError, concatMap, switchMap} from "rxjs/operators";
 import {Http} from "../../../../../../../../services/Http";
 import {displayErrorAction} from "../../../../../../../../store/actions/actions";
 import {Observable} from "rxjs";
-import {FETCH_VERIFY_PROFILE, fetchVerifyAccountFailure, fetchVerifyAccountSuccess} from "./actions";
+import {
+    FETCH_VERIFY_ENTITY_PROFILE,
+    FETCH_VERIFY_PROFILE,
+    fetchVerifyAccountFailure,
+    fetchVerifyAccountSuccess, fetchVerifyEntityAccountFailure, fetchVerifyEntityAccountSuccess
+} from "./actions";
 
 export const fetchVerifyAccountEpic = action$ =>
 	action$.pipe(
@@ -24,6 +29,30 @@ export const fetchVerifyAccountEpic = action$ =>
 				}),
 				catchError(error =>
 					Observable.of(fetchVerifyAccountFailure(action.entity, error.message))
+				)
+			);
+		})
+	);
+
+export const fetchVerifyEntityAccountEpic = action$ =>
+	action$.pipe(
+		ofType(FETCH_VERIFY_ENTITY_PROFILE),
+		switchMap(action => {
+			return Http.validateEntityService(action.entity, action.username).pipe(
+				concatMap(user => {
+					if (user.data.Code) {
+						return [
+							displayErrorAction("error", user.data.Status),
+							fetchVerifyEntityAccountFailure(action.entity, user.data.Status),
+						]
+					} else {
+						return [
+                            fetchVerifyEntityAccountSuccess(action.entity, user.data),
+						]
+					}
+				}),
+				catchError(error =>
+					Observable.of(fetchVerifyEntityAccountFailure(action.entity, error.message))
 				)
 			);
 		})

@@ -7,7 +7,10 @@ import {
     registerActionEpic, registerEntityActionEpic,
     updateAccountEpic, validateActionEpic, validateEntityEpic, validateInvestorEpic, validateRecipientEpic
 } from "../../components/Profile/store/epics";
-import {fetchVerifyAccountEpic} from "../../components/Profile/Settings/Pages/Profiles/pages/VerifyProfilePage/store/epics";
+import {
+    fetchVerifyAccountEpic,
+    fetchVerifyEntityAccountEpic
+} from "../../components/Profile/Settings/Pages/Profiles/pages/VerifyProfilePage/store/epics";
 import {fetchFundsAccountEpic} from "../../components/Profile/Settings/Pages/ManageFunds/pages/store/epics";
 import {progressActionEpic} from "./progress";
 
@@ -23,6 +26,7 @@ export const rootEpic = (action$, store) =>
 		validateRecipientEpic,
         validateEntityEpic,
 		fetchVerifyAccountEpic,
+        fetchVerifyEntityAccountEpic,
 		fetchFundsAccountEpic,
 		progressActionEpic,
         getInvestorDashboard,

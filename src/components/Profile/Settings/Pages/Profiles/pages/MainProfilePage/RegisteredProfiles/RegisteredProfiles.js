@@ -125,11 +125,11 @@ const RegisteredProfiles = ({investor, recipient, developer, isDeveloper}) => {
 						label={<SeeMore infoContent={<div style={{fontSize: 12}}>Is your account verified? </div>}>Verified?</SeeMore>}
 						checked={developer.Kyc}
 						offLabel={'Start >'}
-						handleChange={() => handleVerify(recipient.Username, 'recipient')}
+						handleChange={() => handleVerify(developer.Username, 'developer')}
 					/>
 					<StyledFundsInfo>
-						<StyledCustomLink onClick={() => handleLoadFunds(recipient.Username, 'developer')}  >Load Funds ></StyledCustomLink>
-						<StyledCustomLink onClick={() => handleWithdrawFunds(recipient.Username, 'developer')}  >Withdraw Funds ></StyledCustomLink>
+						<StyledCustomLink onClick={() => handleLoadFunds(developer.Username, 'developer')}  >Load Funds ></StyledCustomLink>
+						<StyledCustomLink onClick={() => handleWithdrawFunds(developer.Username, 'developer')}  >Withdraw Funds ></StyledCustomLink>
 					</StyledFundsInfo>
 				</StyledProfileActionsSection>
 			</StyledFlexContainer>}

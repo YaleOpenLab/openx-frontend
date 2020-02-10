@@ -12,17 +12,22 @@ import {connect} from "react-redux";
 import CustomLink from "../../../../../../UI/CustomLink/CustomLink";
 import ROUTES from "../../../../../../../routes/routes";
 import TutorialStep from "../../../../TutorialStep/TutorialStep";
-import {fetchVerifyAccount} from "./store/actions";
+import {fetchVerifyAccount, fetchVerifyEntityAccount} from "./store/actions";
 import {withRouter} from "react-router-dom";
 import ActionButtons from "../../../../ActionButtons";
 import {displayErrorAction} from "../../../../../../../store/actions/actions";
 import {Http} from "../../../../../../../services/Http";
 
-const Verify = withRouter(({fetchVerifyUser, account, history, match, showMessage}) => {
+const Verify = withRouter(({fetchVerifyUser, fetchVerifyEntityUser, account, history, match, showMessage}) => {
     const [url, setUrl] = useState('#');
 
 	useEffect(() => {
-		fetchVerifyUser(match.params.userType, match.params.username);
+        if(match.params.userType === 'developer') {
+            fetchVerifyEntityUser(match.params.userType, match.params.username);
+        } else {
+            fetchVerifyUser(match.params.userType, match.params.username);
+        }
+
 		Http.generateLink().subscribe(result => {
 		    if(result.data && result.data.url) {
 		        setUrl(result.data.url)
@@ -127,12 +132,13 @@ const Verify = withRouter(({fetchVerifyUser, account, history, match, showMessag
 });
 
 const mapStateToProps = state => ({
-	account: state.verify.user,
+    account: state.verify.user,
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
 	registerEntity: (entity, info) => dispatch(registerAction(entity, info)),
 	fetchVerifyUser: (entity, account) => dispatch(fetchVerifyAccount(entity, account)),
+	fetchVerifyEntityUser: (entity, account) => dispatch(fetchVerifyEntityAccount(entity, account)),
 	showMessage: (type, message) => dispatch(displayErrorAction(type, message)),
 });
 
