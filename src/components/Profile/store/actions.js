@@ -58,6 +58,43 @@ export const registerEntityActionFailure = (entity, data) => ({
 	entity
 });
 
+
+export const setCompanyAction = (entity, data) => ({
+	type: TYPES.SET_COMPANY,
+	entity,
+	data,
+});
+
+export const setCompanyActionSuccess = (entity, data) => ({
+	type: TYPES[entity].SET_COMPANY_SUCCESS,
+	entity,
+	data
+});
+
+export const setCompanyActionFailure = (entity, data) => ({
+	type: TYPES[entity].SET_COMPANY_FAILURE,
+	data,
+	entity
+});
+
+export const registerCompanyAction = (entity, data) => ({
+	type: TYPES.REGISTER_COMPANY,
+	entity,
+	data,
+});
+
+export const registerCompanyActionSuccess = (entity, data) => ({
+	type: TYPES[entity].REGISTER_COMPANY_SUCCESS,
+	entity,
+	data
+});
+
+export const registerCompanyActionFailure = (entity, data) => ({
+	type: TYPES[entity].REGISTER_COMPANY_FAILURE,
+	data,
+	entity
+});
+
 export const validateAction = (entity, username) => ({
 	type: TYPES[entity].VALIDATE,
 	entity,

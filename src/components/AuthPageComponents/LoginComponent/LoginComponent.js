@@ -35,7 +35,7 @@ const LoginComponent = ({fetchUserAccount, showMessage, loading, authorized}) =>
 				onSubmit={(values, actions) => {
 					Http.getToken(values.username, values.password).subscribe(response => {
 						if (response.data.Code === 500) {
-							showMessage("error", response.data.Status);
+							showMessage("error", "User Not Registered");
 						} else if (response.data.Token) {
 							fetchUserAccount("user", values.username);
 						}

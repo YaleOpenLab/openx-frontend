@@ -5,8 +5,6 @@ import SeeMore from "../../../../UI/SeeMore/SeeMore";
 import InfoBoxTemplate from "../../../../General/InfoBoxTemplate/InfoBoxTemplate";
 
 const InvestmentSummary = ({investor}) => {
-
-	const projects = investor["Your Invested Projects"] ? investor["Your Invested Projects"].length : 0;
 	return (
 		<React.Fragment>
 			<div className="container investor-title">Your Investment Summary</div>
@@ -18,8 +16,8 @@ const InvestmentSummary = ({investor}) => {
 							<SummaryCards
 								title="your profile"
 								items={[
-									{value: investor.Name, desc: 'name'},
-									{value: 'Investor', desc: 'roles'}
+									{value: investor["Your Profile"] && investor["Your Profile"].Name, desc: 'name'},
+									{value: investor["Your Profile"] && investor["Your Profile"].Roles, desc: 'roles'}
 								]}
 								icon="beneficiary-icon"
 							/>
@@ -29,11 +27,11 @@ const InvestmentSummary = ({investor}) => {
 								title="your investments"
 								items={[
 									{
-										value: `$${investor["Total Investments"]}`,
+										value: investor["Your Investments"] ? investor["Your Investments"]["Total Investments"] : 0,
 										desc: 'total investments'
 									},
 									{
-										value: investor["Your Invested Projects"] ? investor["Your Invested Projects"].length : '0',
+										value: investor["Your Investments"] ? investor["Your Investments"]["Projects Invested"] : 0,
 										desc: 'projects invested'
 									}
 								]}
@@ -44,8 +42,8 @@ const InvestmentSummary = ({investor}) => {
 							<SummaryCards
 								title="your returns"
 								items={[
-									{value: `$0`, desc: 'net returns'},
-									{value: `2 (MWh)`, desc: 'recs received'}
+									{value: investor["Your Returns"] ? investor["Your Returns"]["Net Returns"] : '$0', desc: 'net returns'},
+									{value: investor["Your Returns"] ? investor["Your Returns"]["RECs Received"] : 'MWh', desc: 'recs received'}
 								]}
 								icon="wallet-icon"
 							/>
@@ -72,8 +70,8 @@ const InvestmentSummary = ({investor}) => {
 										energy you facilitate
 									</SeeMore>}
 								items={[
-									{value: `845 KWh`, desc: 'my direct contributions'},
-									{value: '10,150 MWh', desc: 'total contributions'}
+									{value: investor["Energy You Facilitate"] ? investor["Energy You Facilitate"]["My Direct Contributions"] : 'KWh', desc: 'my direct contributions'},
+									{value: investor["Energy You Facilitate"] ? investor["Energy You Facilitate"]["Total Contributions"] : 'KWh', desc: 'total contributions'}
 								]}
 								icon="solar-panel-icon"
 								iconSize="30px"

@@ -14,14 +14,14 @@ class InvestorProjectCard extends Component {
   };
 
   render() {
-    const {project, loading, investor} = this.props;
+    const {project, loading} = this.props;
     if(!project || loading) return <PageLoading />;
-    console.log(project, "???")
+
     return (
       <div className="col-12 col-sm-6 col-md-4 investor-project-card">
         <div className="projects-box">
           <NavLink
-            to={ROUTES.PROJECT_BASE + this.props.projectId}
+            to={ROUTES.PROJECT_BASE + project.Index}
             className="no-padding"
           >
             <div className="projects-image-box">
@@ -39,12 +39,12 @@ class InvestorProjectCard extends Component {
                   className="no-padding"
                   to={ROUTES.PROJECT_BASE + project.Index}
                 >
-                  {project.Name}
+                  {project["Project Name"]}
                 </NavLink>
               </div>
               <div className="col-12 desc-location">
                 <div className="projects-location-icon location-icon" />
-                <a href={project.MapLink}>{project.State}, {project.Country}</a>
+                <a href={'#'}>{project.Location}</a>
               </div>
               <div className="col-12 desc-spec-value">0</div>
               <div className="col-12 desc-category">RESEARCH PROJECT</div>
@@ -52,16 +52,16 @@ class InvestorProjectCard extends Component {
           </div>
           <SummaryCards
             items={[
-              { value: investor.AmountInvested, desc: "your investment" },
-              { value: 0, desc: "your return" },
-              { value: 0, desc: "investment rating" },
-              { value: 0, desc: "community value" },
-              { value: "No immediate action", desc: "project actions" }
+              { value: project["Your Investment"], desc: "your investment" },
+              { value: project["Your Return"], desc: "your return" },
+              { value: project["Investment Rating"], desc: "investment rating" },
+              { value: project["Impact Rating"], desc: "Impact Rating" },
+              { value: project["Project Actions"], desc: "project actions" }
             ]}
           />
           <NavLink
             className="no-padding"
-            to={ROUTES.PROJECT_BASE + this.props.projectId}
+            to={ROUTES.PROJECT_BASE + project.Index}
           >
             <div className="desc-see-full-project">See Full Project Page ></div>
           </NavLink>

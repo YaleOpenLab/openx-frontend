@@ -14,7 +14,11 @@ import styled from "styled-components";
 import * as Yup from "yup";
 import ActionButtons from "../../../../ActionButtons";
 import ROUTES from "../../../../../../../routes/routes";
-import {registerAction, registerEntityAction, updateAccount} from "../../../../../store/actions";
+import {
+    registerCompanyAction,
+    setCompanyAction,
+    updateAccount
+} from "../../../../../store/actions";
 import {displayErrorAction, progressAction} from "../../../../../../../store/actions/actions";
 import {connect} from "react-redux";
 import {withSnackbar} from "notistack";
@@ -22,6 +26,7 @@ import history from "../../../../../../../helpers/history";
 import ConfirmModal from "../../../../../../UI/ConfirmModal/ConfirmModal";
 import SimpleInput from "../../../../../../UI/SolarForms/Input/InputSimple";
 import {allTrue, hasTrue} from "../../../../../../../helpers/functions/all-true";
+import {Http} from "../../../../../../../services/Http";
 
 export const StyledButtonGroupContainer = styled.div`
 	margin: 24px 0;
@@ -32,18 +37,18 @@ export const StyledInputGroupContainer = styled.div`
 
 const AccountSchema = Yup.object().shape({
 	username: Yup.string().required("Username is required"),
-	legalName: Yup.string().required("Legal name is required"),
+	legalname: Yup.string().required("Legal name is required"),
 	adminEmail: Yup.string().email("Invalid email"),
 	phoneNumber: Yup.string().required("Phone is required"),
 	address: Yup.string().required("Address is required"),
 	country: Yup.string().required("Country is required"),
 	city: Yup.string().required("City is required"),
-	zipCode: Yup.number().required("City is required"),
-	recoveryPhone: Yup.string().required("Recovery phone is required"),
+	zipcode: Yup.number().required("City is required"),
+	recoveryPhone: Yup.string(),
 	taxIdNumber: Yup.string(),
 });
 
-const RegisterNewEntity = ({account, isInvestor, isDeveloper, isRecipient, registerAccount, registerEntityAccount, showMessage}) => {
+const RegisterNewEntity = ({account, isInvestor, isDeveloper, isRecipient, showMessage, onSetCompany, onRegisterCompany}) => {
     const [userProfile, setProfileTypes] = useState({
         investor: false,
         recipient: false,
@@ -66,9 +71,10 @@ const RegisterNewEntity = ({account, isInvestor, isDeveloper, isRecipient, regis
 
 	const registerNewEntity = (values) => {
         const registerValues = {
-            username: account.Username,
-            email: account.Email,
-            pwhash: account.Pwhash
+            companytype: '',
+            name: account.Username,
+            seedpwd: "asdasd",
+            ...values,
         };
 
         if(!hasTrue(userProfile)) {
@@ -78,9 +84,28 @@ const RegisterNewEntity = ({account, isInvestor, isDeveloper, isRecipient, regis
 
         Object.keys(userProfile).map(key => {
             if(userProfile[key]) {
-                openModal(registerValues);
+                onSetCompany(key);
+                Http.setCompanyService(key).subscribe(result => {
+                    if(result.data && result.data.Code === 200) {
+                        console.log("fire");
+                        onRegisterCompany(key, registerValues);
+                        setProfileTypes({
+                            investor: false,
+                            recipient: false,
+                            developer: false,
+                            visitor: false,
+                        });
+                    }
+                });
+                onRegisterCompany(key, registerValues)
             }
         });
+
+        // Object.keys(userProfile).map(key => {
+        //     if(userProfile[key]) {
+        //         openModal(registerValues);
+        //     }
+        // });
     };
 
     const openModal = useCallback((values) => {
@@ -92,14 +117,7 @@ const RegisterNewEntity = ({account, isInvestor, isDeveloper, isRecipient, regis
         if(!seedpwd) {
             showMessage("error", "Seed password is mandatory!");
         }
-        Object.keys(userProfile).map(key => {
-            if(userProfile[key] && (key === "investor" || key === "recipient")){
-                registerAccount(key, {...params, seedpwd: seedpwd});
-            }
-            if(userProfile[key] && key === "developer"){
-                registerEntityAccount(key, {...params, seedpwd: seedpwd});
-            }
-        });
+
         setOpen(false);
         setSeedpwd(null);
         setProfileTypes({
@@ -148,14 +166,13 @@ const RegisterNewEntity = ({account, isInvestor, isDeveloper, isRecipient, regis
 							<Formik
 								initialValues={{
 									username: account && account.Username || "",
-									legalName: account && account.Name || "",
+									legalname: account && account.Name || "",
 									adminEmail: account && account.Email || "",
                                     address: account && account.Address,
                                     country: account && account.Country,
                                     city: account && account.City,
-                                    zipCode: account && account.ZipCode,
+                                    zipcode: account && account.ZipCode,
                                     phoneNumber: '',
-
                                 }}
 								onSubmit={(values, actions) => {
                                     registerNewEntity(values);
@@ -163,7 +180,7 @@ const RegisterNewEntity = ({account, isInvestor, isDeveloper, isRecipient, regis
 								validationSchema={AccountSchema}
                                 enableReinitialize={true}
 							>
-								{({errors, touched, values, handleChange}) => (
+								{({errors, touched, values, handleSubmit}) => (
 									<Form className="solar-form">
 										<StyledFieldSection>
 											<Field
@@ -176,11 +193,11 @@ const RegisterNewEntity = ({account, isInvestor, isDeveloper, isRecipient, regis
 											/>
 											<Field
 												type="text"
-												name="legalName"
+												name="legalname"
 												label={"entity legal name"}
 												component={Input}
-												errors={errors.legalName}
-												touched={touched.legalName}
+												errors={errors.legalname}
+												touched={touched.legalname}
 											/>
 										</StyledFieldSection>
 										<StyledFieldSection>
@@ -235,12 +252,12 @@ const RegisterNewEntity = ({account, isInvestor, isDeveloper, isRecipient, regis
 											/>
 											<Field
 												type="number"
-												name="zipCode"
-												value={values.zipCode}
-												label={"zipCode"}
+												name="zipcode"
+												value={values.zipcode}
+												label={"zipcode"}
 												component={Input}
-												errors={errors.zipCode}
-												touched={touched.zipCode}
+												errors={errors.zipcode}
+												touched={touched.zipcode}
 											/>
 										</StyledFieldSection>
 										<StyledFieldSection>
@@ -263,50 +280,53 @@ const RegisterNewEntity = ({account, isInvestor, isDeveloper, isRecipient, regis
 												touched={touched.taxIdNumber}
 											/>
 										</StyledFieldSection>
-									</Form>
+                                        <div>
+                                            <StyledSeparator size={3}/>
+                                            <StyledSmallerHeader>How would you describe your role in the organisation?</StyledSmallerHeader>
+                                            <StyledButtonGroupContainer>
+                                                <RadioButton name="founder" label="Im the founder or CEO" checked={roleInOrganization === "founder"} onChange={() => setRoleInOrganization("founder")} />
+                                                <RadioButton name="employee" label="Im an Employee or Partner with operational responsibilities" checked={roleInOrganization === "employee"} onChange={() => setRoleInOrganization("employee")} />
+                                                <RadioButton name="otherRole" label="Other" checked={roleInOrganization === "otherRole"} onChange={() => setRoleInOrganization("otherRole")} />
+                                            </StyledButtonGroupContainer>
+                                            <StyledSeparator size={3}/>
+                                            <StyledSmallerHeader><Highlight>How will this organisation use the opensolar platform?</Highlight></StyledSmallerHeader>
+                                            <StyledSmallerText>
+                                                This will create accounts and dashboard associated to your Profile and Entity. Only select those that you are sure you will use.
+                                            </StyledSmallerText>
+                                            <StyledButtonGroupContainer>
+                                                <RadioButton
+                                                    name="INVESTOR"
+                                                    label="INVESTOR: I will directly invest in solar projects as myself."
+                                                    checked={userProfile.investor}
+                                                    onChange={() => handleProfileTypeChange("investor")}/>
+                                                <RadioButton
+                                                    name="RECEIVER"
+                                                    label="RECEIVER: I will receive a solar array and pay its electricity generation to own it. "
+                                                    checked={userProfile.recipient}
+                                                    onChange={() => handleProfileTypeChange("recipient")}/>
+                                                {/*<RadioButton*/}
+                                                {/*    name="DEVELOPER"*/}
+                                                {/*    label="DEVELOPER: I will install a solar system or provide professional services for its installation, operation or maintenance. "*/}
+                                                {/*    checked={isDeveloper ? true : userProfile.developer}*/}
+                                                {/*    onChange={() => handleProfileTypeChange("developer")}/>*/}
+                                            </StyledButtonGroupContainer>
+                                        </div>
+                                        {console.log(errors)}
+                                        <ActionButtons
+                                            cancelButton={{
+                                                url: ROUTES.PROFILE_PAGES.SETTINGS_PAGES.ENTITY_PROFILE,
+                                                label: 'go back'
+                                            }}
+                                            confirmButton={{
+                                                action: handleSubmit,
+                                                label: 'register'
+                                            }}
+                                        />
+                                    </Form>
 								)}
 							</Formik>
-							<StyledSeparator size={3}/>
-							<StyledSmallerHeader>How would you describe your role in the organisation?</StyledSmallerHeader>
-							<StyledButtonGroupContainer>
-								<RadioButton name="founder" label="Im the founder or CEO" checked={roleInOrganization === "founder"} onChange={() => setRoleInOrganization("founder")} />
-								<RadioButton name="employee" label="Im an Employee or Partner with operational responsibilities" checked={roleInOrganization === "employee"} onChange={() => setRoleInOrganization("employee")} />
-								<RadioButton name="otherRole" label="Other" checked={roleInOrganization === "otherRole"} onChange={() => setRoleInOrganization("otherRole")} />
-							</StyledButtonGroupContainer>
-							<StyledSeparator size={3}/>
-							<StyledSmallerHeader><Highlight>How will this organisation use the opensolar platform?</Highlight></StyledSmallerHeader>
-							<StyledSmallerText>
-								This will create accounts and dashboard associated to your Profile and Entity. Only select those that you are sure you will use.
-							</StyledSmallerText>
-							<StyledButtonGroupContainer>
-                                <RadioButton
-                                    name="INVESTOR"
-                                    label="INVESTOR: I will directly invest in solar projects as myself."
-                                    checked={isInvestor ? true : userProfile.investor}
-                                    onChange={() => handleProfileTypeChange("investor")}/>
-                                <RadioButton
-                                    name="RECEIVER"
-                                    label="RECEIVER: I will receive a solar array and pay its electricity generation to own it. "
-                                    checked={isRecipient ? true : userProfile.recipient}
-                                    onChange={() => handleProfileTypeChange("recipient")}/>
-                                <RadioButton
-                                    name="DEVELOPER"
-                                    label="DEVELOPER: I will install a solar system or provide professional services for its installation, operation or maintenance. "
-                                    checked={isDeveloper ? true : userProfile.developer}
-                                    onChange={() => handleProfileTypeChange("developer")}/>
-							</StyledButtonGroupContainer>
 						</StyledInputGroupContainer>
-						<ActionButtons
-							cancelButton={{
-								url: ROUTES.PROFILE_PAGES.SETTINGS_PAGES.ENTITY_PROFILE,
-								label: 'go back'
-							}}
-							confirmButton={{
-								action: registerNewEntity,
-								label: 'register'
-							}}
-						/>
-					</div>
+						</div>
 				</div>
 			</div>
 		</div>
@@ -323,8 +343,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     updateAccount: (entity, payload) => dispatch(updateAccount(entity, payload)),
-    registerAccount: (entity, data) => dispatch(registerAction(entity, data)),
-    registerEntityAccount: (entity, data) => dispatch(registerEntityAction(entity, data)),
+    onSetCompany: (entity, data) => dispatch(setCompanyAction(entity, data)),
+    onRegisterCompany: (entity, data) => dispatch(registerCompanyAction(entity, data)),
     setProgress: (username, progress) => dispatch(progressAction(username, progress)),
     showMessage: (type, message) => dispatch(displayErrorAction(type, message)),
 });

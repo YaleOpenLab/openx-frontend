@@ -3,7 +3,7 @@ import * as axios from 'axios';
 import {from} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {sha3_512} from 'js-sha3';
-import {DATA} from "../helpers/enums/temporary-data";
+import {DATA, EXPLORE_FILLER} from "../helpers/enums/temporary-data";
 
 export class Http {
     static investorInvest(id, amount, seedpwd) {
@@ -35,6 +35,15 @@ export class Http {
         return this.postProtected(`entity/register`, data, );
     }
 
+    static setCompanyService(entity) {
+        return this.postProtected(`${entity}/company/set`, {username: Storage.get("username")} );
+    }
+
+    static registerCompanyService(entity, data) {
+        console.log(data, "??????")
+        return this.postProtected(`${entity}/company/details`, {...data}, );
+    }
+
     static getToken(username, pwd) {
         const hash = sha3_512(pwd);
         const data = {username: username, pwhash: hash};
@@ -64,9 +73,11 @@ export class Http {
         }
         return this.getProtected(`${entity}/dashboard`, {
             username: username,
-        }, ).pipe(map(value => {
-            return value;
-        }));
+        },).pipe(
+            map(result => {
+                return result.data;
+            })
+        );
     }
 
     static validateEntityService(entity, username) {
@@ -95,7 +106,7 @@ export class Http {
     }
 
     static getUserRoles(data) {
-        return this.getProtected('user/roles', {...data});
+        return this.getProtected('user/roles', {...data, username: Storage.get("username")});
     }
 
     static progress(data) {
@@ -110,14 +121,14 @@ export class Http {
     }
 
     static projectAll(type) {
-        return this.getProtected('project/all').pipe(
+        return this.getProtected('explore').pipe(
             map(result => {
                 return result.data
             }),
             map(data => {
                 if (!type || type === 'pv-solar') {
                     return data.map(project => {
-                        return {...project, ...DATA};
+                        return {...EXPLORE_FILLER, ...project};
                     });
                 } else {
                     return [];

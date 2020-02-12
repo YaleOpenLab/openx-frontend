@@ -56,7 +56,7 @@ class ProjectsTemplate extends Component {
 					<div className="projects-description-box">
 						<div className="row">
 							<div className="col-12 desc-status">
-								<SeeMore>Stage {data.Stage} | {STAGES[data.Stage]}</SeeMore>
+								<SeeMore>Stage {data.StageDescription}</SeeMore>
 							</div>
 							<div className="col-12 desc-title">
 								<NavLink
@@ -68,7 +68,7 @@ class ProjectsTemplate extends Component {
 							</div>
 							<div className="desc-location col-12">
 								<div className="projects-location-icon location-icon"/>
-								{data.City}, {data.State}, {data.Country}
+								{data.Location}
 							</div>
 							<div className="col-6 desc-category">
 								{data.InvestmentType}
@@ -142,16 +142,17 @@ class ProjectsTemplate extends Component {
 							<div className="col-12 specifics-box">
 								<div className="row">
 									<div className="col-6 spec-first-price">
-										${data.MoneyRaised}
+										${data.Raised}
 									</div>
 									<div className="col-6 spec-second-price">
-										${data.TotalValue}
+										${data.Total}
 									</div>
-									<div className="col-12 ">
+                                    {console.log(data, "??")}
+                                    <div className="col-12 ">
 										<ProgressBar
 											progress={percentage(
-												data.MoneyRaised,
-												data.TotalValue
+												data.Raised,
+												data.Total
 											)}
 											label={`${investors} backers`}
 										/>

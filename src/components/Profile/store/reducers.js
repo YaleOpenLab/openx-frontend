@@ -25,6 +25,14 @@ const initialState = {
         dashboard: {},
         items: {},
     },
+    developer: {
+        created: false,
+        isLoading: false,
+        error: null,
+        authorized: false,
+        dashboard: {},
+        items: {},
+    },
     entity: {
         created: false,
         isLoading: false,
@@ -161,6 +169,14 @@ const userAccountReducer = (state = initialState, action) => {
                     items: {},
                 },
                 recipient: {
+                    created: false,
+                    isLoading: false,
+                    error: null,
+                    authorized: false,
+                    dashboard: {},
+                    items: {},
+                },
+                developer: {
                     created: false,
                     isLoading: false,
                     error: null,

@@ -1,7 +1,17 @@
+export const EXPLORE_FILLER = {
+    Index: 1,
+    MainImage: 'https://i.ibb.co/8cqdT6n/Asset-3-4x.png',
+};
+
+export const RECIPIENT_FILLER = {
+    MainImage: 'https://i.ibb.co/8cqdT6n/Asset-3-4x.png',
+    Title: '5kW Solar At FabIDEAS Coop - Pilot 1',
+    Location: 'Aibonito, Puerto Rico, USA',
+    Raised: 0,
+    Total: 4000,
+};
+
 export const DATA = {
-	Name: "5kW Solar at FabIDEAS Coop - Pilot 1",
-	Location: "Aibonito, Puerto Rico, USA",
-	"Donation Type": "Grant",
 	Issuer: "Open Solar Platform",
 	Originator: "Martin Wainstein",
 	Description: "5kW solar to be owned by the FabIDEAS Community Cooperative in Aibonito. The Coop is part of the Instituto Nueva Escuela (INE), and will host a Fab Lab manufacturing montessori school ",
@@ -12,7 +22,6 @@ export const DATA = {
 	Tariff: "Unlimited tariff",
 	Tax: "1000",
 	Acquisition: "Sample Acquisition",
-	TotalValue: 4000,
 	Solar: '5kW',
 	Battery: '5kWh',
 	Return: '%0',

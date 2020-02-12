@@ -4,14 +4,21 @@ import {ofType} from "redux-observable";
 import {Observable} from "rxjs";
 import "rxjs/add/observable/of";
 import {
-    dashboardActionFailure, dashboardActionSuccess,
+    dashboardActionFailure,
+    dashboardActionSuccess,
     registerActionFailure,
-    registerActionSuccess, registerEntityActionFailure, registerEntityActionSuccess,
+    registerActionSuccess, registerCompanyActionFailure, registerCompanyActionSuccess,
+    registerEntityActionFailure,
+    registerEntityActionSuccess,
+    setCompanyActionFailure,
+    setCompanyActionSuccess,
     updateAccountFailure,
     updateAccountSuccess,
     validateAction,
     validateActionFailure,
-    validateActionSuccess, validateEntityActionFailure, validateEntityActionSuccess,
+    validateActionSuccess,
+    validateEntityActionFailure,
+    validateEntityActionSuccess,
 } from "./actions";
 import {TYPES} from "./actionTypes";
 import {displayErrorAction} from "../../../store/actions/actions";
@@ -118,20 +125,14 @@ export const getInvestorDashboard = action$ =>
         ofType(TYPES.investor.GET_DASHBOARD),
         switchMap(action => {
             return Http.getDashboard(action.entity, action.username).pipe(
-                concatMap(user => {
-                    if (user.data.Code) {
-                        return [
-                            displayErrorAction("error", user.data.Status),
-                            dashboardActionFailure(action.entity, user.data.Status),
-                        ]
-                    } else {
-                        return [
-                            dashboardActionSuccess(action.entity, user.data),
-                        ]
-                    }
+                concatMap(result => {
+                    return [
+                        dashboardActionSuccess(action.entity, result),
+                    ]
                 }),
-                catchError(error =>
-                    Observable.of(dashboardActionFailure(action.entity, error.message))
+                catchError(error => {
+                    return Observable.of(dashboardActionFailure(action.entity, error.message))
+                }
                 )
             );
         })
@@ -142,17 +143,27 @@ export const getRecipientDashboard = action$ =>
         ofType(TYPES.recipient.GET_DASHBOARD),
         switchMap(action => {
             return Http.getDashboard(action.entity, action.username).pipe(
-                concatMap(user => {
-                    if (user.data.Code) {
-                        return [
-                            displayErrorAction("error", user.data.Status),
-                            dashboardActionFailure(action.entity, user.data.Status),
-                        ]
-                    } else {
-                        return [
-                            dashboardActionSuccess(action.entity, user.data),
-                        ]
-                    }
+                concatMap(result => {
+                    return [
+                        dashboardActionSuccess(action.entity, result),
+                    ]
+                }),
+                catchError(error =>
+                    Observable.of(dashboardActionFailure(action.entity, error.message))
+                )
+            );
+        })
+    );
+
+export const getDeveloperDashboard = action$ =>
+    action$.pipe(
+        ofType(TYPES.developer.GET_DASHBOARD),
+        switchMap(action => {
+            return Http.getDashboard(action.entity, action.username).pipe(
+                concatMap(result => {
+                    return [
+                        dashboardActionSuccess(action.entity, result),
+                    ]
                 }),
                 catchError(error =>
                     Observable.of(dashboardActionFailure(action.entity, error.message))
@@ -205,6 +216,56 @@ export const registerActionEpic = action$ =>
                 }),
                 catchError(error =>
                     Observable.of(registerActionFailure(action.entity, error.message), displayErrorAction("error", error.message))
+                )
+            );
+        })
+    );
+
+export const setCompanyActionEpic = action$ =>
+    action$.pipe(
+        ofType(TYPES.SET_COMPANY),
+        switchMap(action => {
+            return Http.setCompanyService(action.entity).pipe(
+                concatMap(result => {
+                    console.log(result, "??");
+                    if (result.data && result.data.Code !== 200) {
+                        return [
+                            displayErrorAction("error", result.data.Status),
+                            setCompanyActionFailure(action.entity, result.data.Status),
+                        ]
+                    } else {
+                        return [
+                            setCompanyActionSuccess(action.entity, result.data),
+                        ]
+                    }
+                }),
+                catchError(error =>
+                    Observable.of(setCompanyActionFailure(action.entity, error.message), displayErrorAction("error", error.message))
+                )
+            );
+        })
+    );
+
+export const registerCompanyActionEpic = action$ =>
+    action$.pipe(
+        ofType(TYPES.REGISTER_COMPANY),
+        switchMap(action => {
+            return Http.registerCompanyService(action.entity, action.data).pipe(
+                concatMap(user => {
+                    if (user.data.Code && user.data.Code !== 200) {
+                        return [
+                            displayErrorAction("error", user.data.Status),
+                            registerCompanyActionFailure(action.entity, user.data.Status),
+                        ]
+                    } else {
+                        return [
+                            displayErrorAction("success", "Company Entity created!"),
+                            registerCompanyActionSuccess(action.entity, user.data),
+                        ]
+                    }
+                }),
+                catchError(error =>
+                    Observable.of(registerCompanyActionFailure(action.entity, error.message), displayErrorAction("error", error.message))
                 )
             );
         })

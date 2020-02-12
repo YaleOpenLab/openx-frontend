@@ -61,12 +61,13 @@ const Account = ({account, loading, updateAccount, registerAccount, registerEnti
                 openModal(registerValues);
             }
         });
-
-		if(account.ProfileProgress < progressLevel) {
-			setProgress(account.Username, progressLevel);
-			history.push(ROUTES.PROFILE_PAGES.SETTINGS_PAGES.SECURITY);
-		}
 	};
+
+	const handleGoNext = (e) => {
+	    e.preventDefault();
+        setProgress(account.Username, progressLevel);
+        history.push(ROUTES.PROFILE_PAGES.SETTINGS_PAGES.SECURITY);
+    };
 
     const openModal = useCallback((values) => {
         setParams(values);
@@ -330,8 +331,16 @@ const Account = ({account, loading, updateAccount, registerAccount, registerEnti
 												(errors.fullName && touched.fullName)
 											}
 										>
-											{account.ProfileProgress < progressLevel ? 'next' : 'update'}
+                                            save
 										</button>
+									</div>
+									<div className="col-6">
+                                        <button
+                                            className="solar-form-button solar-btn-normal"
+                                            onClick={handleGoNext}
+                                        >
+                                            next
+                                        </button>
 									</div>
 								</div>
 							</div>

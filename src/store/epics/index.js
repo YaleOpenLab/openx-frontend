@@ -3,8 +3,9 @@ import fetchProjectsEpic from "../../components/Explore/Projects/store/epics";
 import fetchProjectEpic from "../../components/Explore/SingleProject/store/epics";
 
 import {
+    getDeveloperDashboard,
     getInvestorDashboard, getRecipientDashboard,
-    registerActionEpic, registerEntityActionEpic,
+    registerActionEpic, registerCompanyActionEpic, registerEntityActionEpic, setCompanyActionEpic,
     updateAccountEpic, validateActionEpic, validateEntityEpic, validateInvestorEpic, validateRecipientEpic
 } from "../../components/Profile/store/epics";
 import {
@@ -31,4 +32,7 @@ export const rootEpic = (action$, store) =>
 		progressActionEpic,
         getInvestorDashboard,
         getRecipientDashboard,
+        getDeveloperDashboard,
+        setCompanyActionEpic,
+        registerCompanyActionEpic
 	)(action$, store);

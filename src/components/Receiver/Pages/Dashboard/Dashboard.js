@@ -1,138 +1,27 @@
 import React, {Component} from 'react';
-import IconBenef from '../../../../assets/images/ic-beneficiary.svg';
-import IconWallet from '../../../../assets/images/ic-wallet.svg';
-import Placeholder from '../../../../assets/images/solars.png';
-import IconGps from '../../../../assets/images/ic-location-min.svg';
-import iconWatch from '../../../../assets/images/ic-watch.svg';
-import IconTools from '../../../../assets/images/ic-tools.svg';
-import IconCalendar from '../../../../assets/images/ic-calendar.svg';
-import IconDeveloper from '../../../../assets/images/ic-developer.svg';
-import IconContractor from '../../../../assets/images/ic-contractor.svg';
-import IconArchive from '../../../../assets/images/ic-doc-archive.svg';
-import IconSingle from '../../../../assets/images/ic-single.svg';
-import IconChecked from '../../../../assets/images/ic-doc-checked.svg';
-import IconUnChecked from '../../../../assets/images/ic-doc-unchecked.svg';
-import AvatarPlaceholder from '../../../../assets/images/avatarplaceholder.png';
-import ProgressBar from './ProgressBar';
-import DetailContainer from './DetailContainer';
 import './Dashboard.scss';
-import DocumentationContainer from '../../../General/DocumentationContainer/DocumentationContainer';
-import {rwanda} from './rwanda';
 import SummaryCards from '../../../General/SummaryCards/SummaryCards';
 import {connect} from 'react-redux';
 import {dashboardAction, validateAction} from "../../../Profile/store/actions";
 import Storage from "../../../../services/Storage";
 import NotAvailable from "../../../UI/NotAvailable/NotAvailable";
+import ReceiverProject from "./ReceiverProject";
 
 class Dashboard extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			activeButton: 'day',
-			dropdown: false,
-			documentation: [
-				{
-					title: 'Project Overview',
-					sub: 'PROJECT PORTFOLIO',
-					icon: IconArchive
-				},
-				{
-					title: 'PPA',
-					sub: 'CONTRACT',
-					icon: IconSingle
-				},
-				{
-					title: 'RE Certification Agreement',
-					sub: 'RECs',
-					icon: IconSingle
-				},
-				{
-					title: 'Guarantor Agreements',
-					sub: 'INVESTOR PROTECTIONS',
-					icon: IconArchive
-				},
-				{
-					title: 'Contractors Agreement',
-					sub: 'DEVELOPER',
-					icon: IconArchive
-				},
-				{
-					title: 'Stakeholder Agreement',
-					sub: 'STAKEHOLDERS',
-					icon: IconSingle
-				},
-				{
-					title: 'Community Energy Charter',
-					sub: 'INVESTOR PROTECTIONS',
-					icon: IconSingle
-				},
-				{
-					title: 'Financial Reportings',
-					sub: 'PROJECT FINANCIALS',
-					icon: IconArchive
-				}
-			],
-			review: [
-				{
-					icon: IconChecked,
-					label: 'Link >'
-				},
-				{
-					icon: IconChecked,
-					label: 'Link >'
-				},
-				{
-					icon: IconChecked,
-					label: 'Link >'
-				},
-				{
-					icon: IconChecked,
-					label: 'Link >'
-				},
-				{
-					icon: IconUnChecked,
-					label: 'Developer >'
-				},
-				{
-					icon: IconUnChecked,
-					label: 'Developer >'
-				},
-				{
-					icon: IconUnChecked,
-					label: 'Developer >'
-				}
-			]
-		};
-	}
-
 	componentDidMount = () => {
 		this.props.fetchReceiver("recipient", Storage.get("username"));
 		this.props.fetchReceiverDB("recipient", Storage.get("username"));
 	};
 
-	onButtonClick = active => {
-		this.setState({
-			activeButton: active
-		});
-	};
-
-	handleDropdown = () => {
-		this.setState({
-			dropdown: !this.state.dropdown
-		});
-	};
-
 	render() {
-		const {authorized, receiver, recipientDB} = this.props;
+		const {authorized, receiver} = this.props;
 		if (this.props.receiver && !this.props.authorized) {
 			return <NotAvailable text={"You have not registered as a receiver"}/>
 		}
 
-        const projects = recipientDB["Active Projects"];
+        const projects = receiver["Your Projects"];
 
-		const temp = rwanda.project;
-
-		if (!authorized) {
+		if (!authorized || !receiver) {
 			return (
 				<div className="receiver-dashboard">
 					<div className="title-container -border">
@@ -158,8 +47,8 @@ class Dashboard extends Component {
 								<SummaryCards
 									title="your profile"
 									items={[
-										{value: receiver && receiver.U && receiver.U.Name, desc: 'beneficiary name'},
-										{value: projects, desc: 'active projects'}
+										{value: receiver["Your Profile"] && receiver["Your Profile"].Name, desc: 'beneficiary name'},
+										{value: receiver["Your Profile"] && receiver["Your Profile"]["Active Projects"], desc: 'active projects'}
 									]}
 									icon="beneficiary-icon"
 								/>
@@ -169,10 +58,10 @@ class Dashboard extends Component {
 									title="your energy"
 									items={[
 										{
-											value: '0kWh',
+											value: receiver["Your Energy"] && receiver["Your Energy"]["Total in Current Period"],
 											desc: 'TOTAL IN CURRENT PERIOD'
 										},
-										{value: '0MWh', desc: 'ALL TIME'}
+										{value: receiver["Your Energy"] && receiver["Your Energy"]["All Time"], desc: 'ALL TIME'}
 									]}
 									icon="solar-panel-icon"
 								/>
@@ -182,8 +71,8 @@ class Dashboard extends Component {
 								<SummaryCards
 									title="YOUR WALLET"
 									items={[
-										{value: '$0', desc: 'PROJECT WALLET BALANCE'},
-										{value: 'Inactive', desc: 'AUTO RE-LOAD'}
+										{value: receiver["Your Wallet"] ? receiver["Your Wallet"]["Project Wallet Balance"] : '$0', desc: 'PROJECT WALLET BALANCE'},
+										{value: receiver["Your Wallet"] ? receiver["Your Wallet"]["Auto Reload"] : 'Inactive', desc: 'AUTO RE-LOAD'}
 									]}
 									icon="wallet-icon"
 								/>
@@ -192,8 +81,8 @@ class Dashboard extends Component {
 								<SummaryCards
 									title="NOTIFICATIONS & ACTIONS"
 									items={[
-										{value: 'None', desc: 'NOTIFICATION'},
-										{value: 'Confirm Auto-Pay', desc: 'ACTIONS REQUIRED'}
+										{value: receiver["Notifications & Actions"] ? receiver["Notifications & Actions"]["Notification"] : 'None', desc: 'NOTIFICATION'},
+										{value:  receiver["Notifications & Actions"] ? receiver["Notifications & Actions"]["Actions Required"] : 'None', desc: 'ACTIONS REQUIRED'}
 									]}
 									icon="flag-icon"
 								/>
@@ -207,156 +96,23 @@ class Dashboard extends Component {
 					</div>
 					:
 				<div>
-					<div className="title-container -border">
-						<div className="container">
-							<h3 className="container-title">Your Projects</h3>
-						</div>
-					</div>
-					<div className="projects-section">
-						<div className="container">
-							<div className="row no-gutters">
-								<div className="col-lg-7 media-right">
-									<img src={Placeholder} alt="placeholder"/>
-								</div>
-								<div className="col-lg-5 media-left">
-									<button className="watch-button">
-										<img src={iconWatch} alt="watch-icon"/>
-									</button>
-									<h5>{temp.type}</h5>
-									<h3 className="title-primary">{temp.title}</h3>
-									<h6>
-										<img src={IconGps} alt="icon-gps"/>
-										<a href="https://goo.gl/maps/x8Cpr1C37V6ckHNLA" target="_blank"
-											 rel="noopener noreferrer">{temp.loc}</a>
-									</h6>
-									<div className="flexbox">
-										<p>{temp.category}</p>
-										<button><a href="https://neighborly.com" target="_blank" rel="noopener noreferrer">Bond Issuer
-											></a></button>
-									</div>
-									<p>{temp.description}</p>
-									<ul>
-										<li>{temp.bullets[0]}</li>
-										<li>{temp.bullets[1]}
-										</li>
-										<li>{temp.bullets[2]}</li>
-									</ul>
-									<h4 className="owner">PROJECT ORIGINATOR</h4>
-									<div className="flexbox -alt">
-										<img src={AvatarPlaceholder} alt="placeholder"/>
-										<h4>{temp.originator}</h4>
-									</div>
-									<div className="progress-bar-container">
-										<div className="flexbox -no-spacing">
-											<p className="progress-donated">
-												$ {temp.donated}
-											</p>
-											<p className="progress-total">
-												U$S {temp.total}
-											</p>
-										</div>
-										<ProgressBar percentage={0}/>
-									</div>
-									<div className="stats">
-										<div className="stat-container">
-											<h6>{temp.return}</h6>
-											<p>RETURN</p>
-										</div>
-										<div className="stat-container">
-											<h6>{temp.benefit}%</h6>
-											<p>TAX BENEFIT</p>
-										</div>
-										<div className="stat-container">
-											<h6>{temp.maturity}</h6>
-											<p>MATURITY</p>
-										</div>
-										<div className="stat-container">
-											<h6>{temp.investBy}</h6>
-											<p>INVEST BY</p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					{this.state.dropdown && (
-						<div className="dropdown-wrapper">
-							<div className="details-container">
-								<h3 className="title-primary desc">{temp.title} DETAILS</h3>
-								<div className="container">
-									<h4 className="section-title">Role</h4>
-									<DetailContainer
-										icon={IconBenef}
-										title={'You are an Offtaker'}
-									/>
-									<button className="see-more">SEE ALL PARTIES INVOLVED ></button>
-									<h4 className="section-title">Project Stage & Actions</h4>
-									<DetailContainer
-										icon={IconDeveloper}
-										title={'Project is in Stage: 7'}
-									/>
-									<DetailContainer
-										icon={IconTools}
-										title={'Contractor Actions'}
-										action={'No pending action'}
-									/>
-									<button className="see-more">
-										<a href={void(0)}>SEE PROJECT DEVELOPMENT TIMELINE ></a>
-									</button>
-									<h4 className="section-title">Project Wallets</h4>
-									<DetailContainer
-										icon={IconWallet}
-										title={"Carbon & Climate Certificates (****" + receiver.U.SecondaryWallet.PublicKey.slice(-5) + ")"}
-										titleLink={'#'}
-										action={'0'}
-										actionLink={"https://testnet.steexp.com/account/" + receiver.U.SecondaryWallet.PublicKey}
-									/>
-									<DetailContainer
-										icon={IconContractor}
-										title={"Carbon & Climate Certificates (****" + receiver.U.StellarWallet.PublicKey.slice(-5) + ")"}
-										titleLink={"https://ropsten.etherscan.io/address/" + receiver.U.StellarWallet.PublicKey}
-										action={'0'}
-										actionLink="https://swytch.io"
-									/>
-									<button className="see-more">
-										<a href={void(0)}>GO TO PROFILE AND WALLET SETUP ></a>
-									</button>
-									<h4 className="section-title">Bills & Rewards</h4>
-									<DetailContainer
-										icon={IconCalendar}
-										title={'Your pending payment'}
-										action={'$203 due on April 30'}
-									/>
-									<button className="see-more">
-										<a href='#' target="_blank" rel="noopener noreferrer">SEE PAST PAYMENTS ></a>
-									</button>
-								</div>
-							</div>
-							<div className="contracts-container">
-								<div className="container">
-									<h3 className="title-primary desc">
-										DOCUMENTATION AND SMART CONTRACTS
-									</h3>
-									<DocumentationContainer documents={[]}/>
-								</div>
-							</div>
-						</div>
-					)}
-					<button
-						className="display-button"
-						onClick={() => this.handleDropdown()}
-					>
-						{this.state.dropdown ? 'SHOW LESS' : 'SHOW MORE'}
-					</button>
-				</div>}
+                    <div className="title-container -border">
+                        <div className="container">
+                            <h3 className="container-title">Your Projects</h3>
+                        </div>
+                    </div>
+                    {projects.map(project => {
+                        return <ReceiverProject data={project} />
+                    })}
+                </div>
+				}
 			</div>
 		);
 	}
 }
 
 const mapStateToProps = state => ({
-	receiver: state.profile.recipient.items,
-	recipientDB: state.profile.recipient.dashboard,
+	receiver: state.profile.recipient.dashboard,
 	loading: state.profile.recipient.isLoading,
 	authorized: state.profile.recipient.authorized,
 });
