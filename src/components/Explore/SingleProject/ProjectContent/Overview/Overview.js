@@ -10,12 +10,12 @@ import Image from "../../../../../helpers/enums/images";
 const Overview = ({data}) => {
 	let cards = null;
 
-	if (data.executiveSummary) {
-		cards = data.executiveSummary.map(card => {
+	if (data["executive summary"]) {
+		cards = Object.keys(data["executive summary"]).map(card => {
 			return (
 				<div className="col-sm-6 col-lg-3" key={card.key}>
-					<SummaryCards title={ExecutiveSummary[card.key].title} items={card.items}
-												icon={ExecutiveSummary[card.key].icon} iconSize="29px" theme="-main-cards"/>
+					<SummaryCards title={card} items={data["executive summary"][card]}
+					icon={"ICON"} iconSize="29px" theme="-main-cards"/>
 				</div>
 			);
 		})

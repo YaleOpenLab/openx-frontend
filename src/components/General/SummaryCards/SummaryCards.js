@@ -4,11 +4,11 @@ import "./SummaryCards.scss";
 const SummaryCards = props => {
   let items = null;
   if (props.items) {
-    items = props.items.map((item, i) => {
+    items = Object.keys(props.items).map((description, value) => {
       return (
-        <div className="card-body" key={i}>
-          <div className="card-body-content">{item.value}</div>
-          <div className="card-body-description">{item.desc}</div>
+        <div className="card-body" key={value}>
+          <div className="card-body-content">{props.items[description]}</div>
+          <div className="card-body-description">{description}</div>
         </div>
       );
     });

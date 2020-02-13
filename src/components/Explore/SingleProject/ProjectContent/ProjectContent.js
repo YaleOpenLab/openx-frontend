@@ -18,8 +18,8 @@ configureAnchors({
 const ProjectContent = ({data, navigation, active}) => (
   <div className="ProjectContent">
     <AnchorNavigation list={navigation} active={active} data={data} />
-    <Terms data={data.Details["Terms"]} />
-    <Overview data={data} />
+    <Terms data={data.Details.Terms} />
+    <Overview data={data.Details.Overview} />
     <ProjectDetails data={data} />
     <Forecast data={data} />
     <Documents data={data.documents} />
