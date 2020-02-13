@@ -20,7 +20,7 @@ const ProjectContent = ({data, navigation, active}) => (
     <AnchorNavigation list={navigation} active={active} data={data} />
     <Terms data={data.Details.Terms} />
     <Overview data={data.Details.Overview} />
-    <ProjectDetails data={data} />
+    <ProjectDetails data={data.Details["project details"]} />
     <Forecast data={data} />
     <Documents data={data.documents} />
     <Invest data={data} />
