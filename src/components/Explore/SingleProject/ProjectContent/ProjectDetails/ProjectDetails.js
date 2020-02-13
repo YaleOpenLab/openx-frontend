@@ -4,6 +4,7 @@ import CustomSections from '../../../../General/CustomSections/CustomSections';
 import ArchitectureSection from '../../../../General/ArchitectureSection/ArchitectureSection';
 import EngineeringSection from '../../../../General/EngineeringSection/EngineeringSection';
 import CommunitySection from '../../../../General/CommunitySection/CommunitySection';
+import BizSection from '../../../../General/BizSection/BizSection';
 import Title from '../../../../General/Title/Title';
 
 const ProjectDetails = ({data}) => {
@@ -40,9 +41,7 @@ const ProjectDetails = ({data}) => {
           </div>
           <div className="business margin-top">
             <div className="container">
-              {data.business && (
-                <CustomSections sections={data.business}/>
-              )}
+                <BizSection items={data["biz numbers"]}/>
             </div>
           </div>
         </section>
