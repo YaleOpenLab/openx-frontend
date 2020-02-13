@@ -71,10 +71,10 @@ class ProjectsTemplate extends Component {
 								{data.Location}
 							</div>
 							<div className="col-6 desc-category">
-								{data.InvestmentType}
+								{data.ProjectType}
 							</div>
 							<div className="col-6 desc-category">
-								{data.Issuer}
+								{data.OriginatorName}
 							</div>
 							<div className="desc-description col-12">
 								<div className="desc-description-text">
@@ -101,14 +101,14 @@ class ProjectsTemplate extends Component {
 										<h6>Solar</h6>
 									</div>
 									<div>
-										<p>250 Wh</p>
+										<p>{data.Storage}</p>
 										<h6>Storage</h6>
 									</div>
 									<div>
 										<p>
-											0.0
+											{data.Tariff}
 											<span className="stats-units">
-                        $/kWh
+                        /kWh
                       </span>
 										</p>
 										<h6>Tariff</h6>
@@ -130,12 +130,12 @@ class ProjectsTemplate extends Component {
 										<h6>Rating</h6>
 									</div>
 									<div>
-										<p>n/a</p>
+										<p>{data.Tax}</p>
 										<h6>Tax</h6>
 									</div>
 									<div>
-										<p>2025</p>
-										<h6>AQUISITION</h6>
+										<p>{data.Acquisition}</p>
+										<h6>Acquisition</h6>
 									</div>
 								</div>
 							</div>
