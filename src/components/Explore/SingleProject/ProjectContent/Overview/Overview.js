@@ -6,6 +6,7 @@ import ExecutiveSummary from './constants';
 import CustomSections from '../../../../General/CustomSections/CustomSections';
 import Title from '../../../../General/Title/Title';
 import Image from "../../../../../helpers/enums/images";
+import OpportunitySection from '../../../../General/OpportunitySection/OpportunitySection';
 
 const Overview = ({data}) => {
 	let cards = null;
@@ -20,7 +21,6 @@ const Overview = ({data}) => {
 			);
 		})
 	}
-
 
 	return (
 		<ScrollableAnchor id={'overview'}>
@@ -41,24 +41,18 @@ const Overview = ({data}) => {
 
 				{data.heroImage ? (
 					<div className="full-image">
-						<Image imageKey={data.heroImage}/>
+						<Image imageKey={'https://openx.solar/static/media/HeroBar.0ff1d5bb.png'}/>
 					</div>
 				) : (
 					<div className="overview-separator"/>
 				)}
+
 				<div className="opportunity">
 					<div className="container">
-						<CustomSections sections={data.opportunity}/>
+						<OpportunitySection items={data["opportunity"]} />
 					</div>
 				</div>
 
-				<div className="context margin-top">
-					<div className="container">
-						{data.context && (
-							<CustomSections sections={data.context}/>
-						)}
-					</div>
-				</div>
 			</section>
 		</ScrollableAnchor>
 	);
