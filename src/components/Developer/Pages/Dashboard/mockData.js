@@ -1,56 +1,6 @@
 export const TEMP_DATA = {
 	terms: {
 		purpose: 'Proceeds from this project\'s raise are granted for the development of a pilot solar installation in the FabIDEAS cooperative in Aibonito. The pilot will be used to test the Open Solar platform’s smart contract and financial technology capabilities and is part of a research initiative of the  Digital Currency Initiative of the MIT Media Lab and the Yale Open Innovation Lab.',
-		table: [
-			{
-				variable: 'Investment Type',
-				value: 'Donation',
-				relevantParty: 'inverSOL',
-				note: 'Solar Equipment',
-				status: 'confirmed',
-				supportDoc: '#'
-			},
-			{
-				variable: 'PPA Tariff',
-				value: '0.24 ct/kWh',
-				relevantParty: 'Oracle  / PREPA',
-				note: 'Variable anchored to local tariff',
-				status: 'confirmed',
-				supportDoc: '#'
-			},
-			{
-				variable: 'Return (TEY)',
-				value: '3.1 %',
-				relevantParty: 'Broker Dealer',
-				note: 'Tax-adjusted Yield',
-				status: 'signed',
-				supportDoc: '#'
-			},
-			{
-				variable: 'Maturity',
-				value: '+/- 2025',
-				relevantParty: 'Broker Dealer',
-				note: 'Variable tied to tariff',
-				status: 'signed',
-				supportDoc: '#'
-			},
-			{
-				variable: 'Guarantee',
-				value: '50%',
-				relevantParty: 'Foundation X',
-				note: 'First-loss upon breach',
-				status: 'started',
-				supportDoc: '#'
-			},
-			{
-				variable: 'Insurance',
-				value: 'Premium',
-				relevantParty: 'Allianz CS',
-				note: 'Hurricane Coverage',
-				status: 'started',
-				supportDoc: '#'
-			},
-		],
 		securityNote: 'This project does not entail the issuance of a financial security, and is structured exclusively as a restricted research grant. The project does not entail an investment since there are no financial returns offered to donors. All funds accrued through power purchasing are donated back to the Cooperative.',
 	},
 	projectOverview: {

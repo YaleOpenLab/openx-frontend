@@ -57,7 +57,7 @@ class SingleProject extends Component {
             <ProjectContent
               navigation={this.state.menu}
               active={this.state.selectedItem}
-              data={project}
+              data={project.Content}
             />
           </React.Fragment>
         )}

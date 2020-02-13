@@ -23,14 +23,14 @@ const Terms = ({data}) => {
 								Purpose
 							</div>
 							<div className="sub-desc">
-								{data.terms.purpose}
+								{data.purpose}
 							</div>
 						</div>
 						<div className={(collapsed ? '' : '-minimized ') + "col-12 project-table no-padding"}>
 							<div className="col-12">
 								<div className="table-wrapper">
 									<TermsTable
-										data={data.terms.table}
+										data={data.table}
 										handleCollapse={handleCollapse}
 									/>
 									<button className={(collapsed ? '' : '-closed ') + "collapse-button"}
@@ -43,7 +43,7 @@ const Terms = ({data}) => {
 						<div className="col-12 security-note">
 							<div className="security-title">security note</div>
 							<div className="security-text">
-								{data.terms.securityNote}
+								{data["security note"]}
 								<a href="/"> Learn more ></a>
 							</div>
 						</div>

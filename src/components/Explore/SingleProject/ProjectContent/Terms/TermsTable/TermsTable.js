@@ -6,19 +6,26 @@ import SeeMore from "../../../../../UI/SeeMore/SeeMore";
 
 const TermsTable = props => {
   let items = null;
+  let columns = null;
+
+  if (props.data) {
+	   columns = props.data.columns.map(item => {
+		  return (<th scope="col">{item}</th>);
+	  });
+  }
 
 	if (props.data) {
-		items = props.data.map(item => {
+		items = props.data.rows.map(item => {
 			return (
 				<tr key={item.index}>
 					<td>
-						<div className="text-with-icon"><SeeMore>{item.variable}</SeeMore></div>
+						<div className="text-with-icon"><SeeMore>{item[0]}</SeeMore></div>
 					</td>
-					<td>{item.value}</td>
-					<td>{item.relevantParty}</td>
-					<td>{item.note}</td>
+					<td>{item[1]}</td>
+					<td>{item[2]}</td>
+					<td>{item[3]}</td>
 					<td>
-						<div className="terms-table-status">{item.status}</div>
+						<div className="terms-table-status">{item[4]}</div>
 					</td>
 					<td>
 						<span className="terms-doc-icon" />
@@ -32,14 +39,7 @@ const TermsTable = props => {
     <div className="table-responsive">
       <table className="table terms-table">
         <thead className="thead-white" onClick={() => props.handleCollapse()}>
-          <tr>
-            <th scope="col">variable</th>
-            <th scope="col">value</th>
-            <th scope="col">relevant party</th>
-            <th scope="col">note</th>
-            <th scope="col">status</th>
-            <th scope="col">support doc</th>
-          </tr>
+          <tr>{columns}</tr>
         </thead>
         <tbody className="tbody-white">{items}</tbody>
       </table>
