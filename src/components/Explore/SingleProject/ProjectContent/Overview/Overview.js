@@ -1,7 +1,7 @@
 import React from 'react';
 import './Overview.scss';
 import ScrollableAnchor from 'react-scrollable-anchor';
-import SummaryCards from '../../../../General/SummaryCards/SummaryCards';
+import SummaryCardsDup from '../../../../General/SummaryCardsDup/SummaryCardsDup';
 import ExecutiveSummary from './constants';
 import CustomSections from '../../../../General/CustomSections/CustomSections';
 import Title from '../../../../General/Title/Title';
@@ -15,7 +15,7 @@ const Overview = ({data}) => {
 		cards = Object.keys(data["executive summary"]).map(card => {
 			return (
 				<div className="col-sm-6 col-lg-3" key={card.key}>
-					<SummaryCards title={card} items={data["executive summary"][card]}
+					<SummaryCardsDup title={card} items={data["executive summary"][card]}
 					icon={"ICON"} iconSize="29px" theme="-main-cards"/>
 				</div>
 			);
