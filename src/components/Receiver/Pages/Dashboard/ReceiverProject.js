@@ -19,7 +19,6 @@ import ROUTES from "../../../../routes/routes";
 const ReceiverProject = ({data}) => {
     const project = {...RECIPIENT_FILLER, ...data};
     const [dropdown, setDropdown] = useState(false);
-    const TempExploreTab = project["Exploer Tab"] ? "Explore Tab" : "ExploreTab";
     
     return (
         <div>
@@ -45,16 +44,16 @@ const ReceiverProject = ({data}) => {
                                 <button><a href="https://neighborly.com" target="_blank" rel="noopener noreferrer">Bond Issuer
                                     ></a></button>
                             </div>
-                            <p>{project[TempExploreTab] && project[TempExploreTab].description}</p>
+                            <p>{project["Explore Tab"] && project["Explore Tab"].description}</p>
                             <ul>
-                                <li>{project[TempExploreTab] && project[TempExploreTab]["bullet 1"]}</li>
-                                <li>{project[TempExploreTab] && project[TempExploreTab]["bullet 2"]}</li>
-                                <li>{project[TempExploreTab] && project[TempExploreTab]["bullet 3"]}</li>
+                                <li>{project["Explore Tab"] && project["Explore Tab"]["bullet 1"]}</li>
+                                <li>{project["Explore Tab"] && project["Explore Tab"]["bullet 2"]}</li>
+                                <li>{project["Explore Tab"] && project["Explore Tab"]["bullet 3"]}</li>
                             </ul>
                             <h4 className="owner">PROJECT ORIGINATOR</h4>
                             <div className="flexbox -alt">
                                 <img src={AvatarPlaceholder} alt="placeholder"/>
-                                <h4>{project[TempExploreTab] && project[TempExploreTab]["originator name"]}</h4>
+                                <h4>{project["Explore Tab"] && project["Explore Tab"]["originator name"]}</h4>
                             </div>
                             <div className="progress-bar-container">
                                 <div className="flexbox -no-spacing">
@@ -69,19 +68,19 @@ const ReceiverProject = ({data}) => {
                             </div>
                             <div className="stats">
                                 <div className="stat-container">
-                                    <h6>{project[TempExploreTab] && project[TempExploreTab]["solar"]}</h6>
+                                    <h6>{project["Explore Tab"] && project["Explore Tab"]["solar"]}</h6>
                                     <p>SOLAR</p>
                                 </div>
                                 <div className="stat-container">
-                                    <h6>{project[TempExploreTab] && project[TempExploreTab]["battery"]}%</h6>
+                                    <h6>{project["Explore Tab"] && project["Explore Tab"]["battery"]}%</h6>
                                     <p>BATTERY</p>
                                 </div>
                                 <div className="stat-container">
-                                    <h6>{project[TempExploreTab] && project[TempExploreTab]["return"]}</h6>
+                                    <h6>{project["Explore Tab"] && project["Explore Tab"]["return"]}</h6>
                                     <p>RETURN</p>
                                 </div>
                                 <div className="stat-container">
-                                    <h6>{project[TempExploreTab] && project[TempExploreTab]["rating"]}</h6>
+                                    <h6>{project["Explore Tab"] && project["Explore Tab"]["rating"]}</h6>
                                     <p>RATING</p>
                                 </div>
                             </div>
@@ -156,8 +155,8 @@ const ReceiverProject = ({data}) => {
                                 />
                                 :<DetailContainer
                                 icon={IconCalendar}
-                                title={project["BillsRewards"] && project["BillsRewards"].Peyments ? project["BillsRewards"].Peyments[0] : ''}
-                                action={project["BillsRewards"] && project["BillsRewards"].Peyments ? project["BillsRewards"].Peyments[1] : ''}
+                                title={project["BillsRewards"] && project["BillsRewards"].Payments ? project["BillsRewards"].Payments[0] : ''}
+                                action={project["BillsRewards"] && project["BillsRewards"].Payments ? project["BillsRewards"].Payments[1] : ''}
                             />}
                             <button className="see-more">
                                 <a href='#' target="_blank" rel="noopener noreferrer">SEE PAST PAYMENTS ></a>
