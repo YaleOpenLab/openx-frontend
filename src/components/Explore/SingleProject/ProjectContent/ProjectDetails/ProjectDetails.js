@@ -3,6 +3,7 @@ import ScrollableAnchor from 'react-scrollable-anchor';
 import CustomSections from '../../../../General/CustomSections/CustomSections';
 import ArchitectureSection from '../../../../General/ArchitectureSection/ArchitectureSection';
 import EngineeringSection from '../../../../General/EngineeringSection/EngineeringSection';
+import CommunitySection from '../../../../General/CommunitySection/CommunitySection';
 import Title from '../../../../General/Title/Title';
 
 const ProjectDetails = ({data}) => {
@@ -34,9 +35,7 @@ const ProjectDetails = ({data}) => {
 
           <div className="community margin-top">
             <div className="container">
-              {data.community && (
-                <CustomSections sections={data.community}/>
-              )}
+              <CommunitySection items={data["community engagement"]} />
             </div>
           </div>
           <div className="business margin-top">
