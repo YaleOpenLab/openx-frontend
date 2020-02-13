@@ -2,6 +2,7 @@ import React from 'react';
 import ScrollableAnchor from 'react-scrollable-anchor';
 import CustomSections from '../../../../General/CustomSections/CustomSections';
 import ArchitectureSection from '../../../../General/ArchitectureSection/ArchitectureSection';
+import EngineeringSection from '../../../../General/EngineeringSection/EngineeringSection';
 import Title from '../../../../General/Title/Title';
 
 const ProjectDetails = ({data}) => {
@@ -25,9 +26,7 @@ const ProjectDetails = ({data}) => {
             <div className="row">
               <div className="col-12">
                 <div className="engineering">
-                  {data.engineering && (
-                    <CustomSections sections={data.engineering}/>
-                  )}
+                  <EngineeringSection items={data["layout"]} />
                 </div>
               </div>
             </div>
