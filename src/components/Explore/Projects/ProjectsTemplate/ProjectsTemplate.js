@@ -147,14 +147,13 @@ class ProjectsTemplate extends Component {
 									<div className="col-6 spec-second-price">
 										${data.Total}
 									</div>
-                                    {console.log(data, "??")}
                                     <div className="col-12 ">
 										<ProgressBar
 											progress={percentage(
 												data.Raised,
 												data.Total
 											)}
-											label={`${investors} backers`}
+											label={`${data.Backers} backers`}
 										/>
 									</div>
 								</div>
