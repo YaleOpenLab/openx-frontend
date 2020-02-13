@@ -21,7 +21,7 @@ const ProjectContent = ({data, navigation, active}) => (
     <Terms data={data.Details.Terms} />
     <Overview data={data.Details.Overview} />
     <ProjectDetails data={data.Details["project details"]} />
-    <Forecast data={data} />
+    <Forecast data={data.Details.Stage} />
     <Documents data={data.documents} />
     <Invest data={data} />
     <SupportOpenX />

@@ -39,13 +39,9 @@ const Overview = ({data}) => {
 					</div>
 				</div>
 
-				{data.heroImage ? (
-					<div className="full-image">
-						<Image imageKey={'https://openx.solar/static/media/HeroBar.0ff1d5bb.png'}/>
-					</div>
-				) : (
-					<div className="overview-separator"/>
-				)}
+<				div className="full-image">
+					<img src="/static/media/HeroBar.0ff1d5bb.png" alt="hero" height="100%"/>
+				</div>
 
 				<div className="opportunity">
 					<div className="container">
