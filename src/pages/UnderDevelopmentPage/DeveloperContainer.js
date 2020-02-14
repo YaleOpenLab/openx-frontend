@@ -8,8 +8,8 @@ class UnderDevelopmentPage extends Component {
     return (
       <LayoutHoc>
         <div className="component-content Development">
-        <SubNavigationComponent />
-        <UnderDevelopment />
+          <SubNavigationComponent />
+          <UnderDevelopment />
         </div>
       </LayoutHoc>
     );

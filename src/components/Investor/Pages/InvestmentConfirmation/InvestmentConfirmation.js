@@ -11,8 +11,8 @@ import PageLoading from "../../../General/Loading/Loading";
 import { Http } from "../../../../services/Http";
 import { withSnackbar } from "notistack";
 import ROUTES from "../../../../routes/routes";
-import axios from 'axios';
-import {validateAction} from "../../../Profile/store/actions";
+import axios from "axios";
+import { validateAction } from "../../../Profile/store/actions";
 import Storage from "../../../../services/Storage";
 import NotAvailable from "../../../UI/NotAvailable/NotAvailable";
 import ConfirmModal from "../../../UI/ConfirmModal/ConfirmModal";
@@ -28,26 +28,34 @@ class InvestmentConfirmation extends Component {
       investCategory: false,
       balance: 10000,
       open: false,
-      seedpwd: '',
+      seedpwd: ""
     };
   }
 
   componentDidMount = () => {
     window.scrollTo(0, 0);
     this.props.fetchProject(this.props.match.params.id);
-    this.props.fetchInvestor('investor', Storage.get('username'));
+    this.props.fetchInvestor("investor", Storage.get("username"));
   };
 
   componentDidUpdate = prevProps => {
-    if ((this.props.project.isLoading !== prevProps.project.isLoading) || (this.props.investor.isLoading !== prevProps.investor.isLoading) ) {
-      if(this.props.investor.items && this.props.investor.items.U){
-        axios.get(`https://api2.openx.solar/user/balance/asset?username=${this.props.investor.items.U.Username}&token=${Storage.get('token')}&asset=STABLEUSD`)
-        .then(res => {
-          const balance = res.data;
-          this.setState({
-            balance: Number(balance)
-          })
-        });
+    if (
+      this.props.project.isLoading !== prevProps.project.isLoading ||
+      this.props.investor.isLoading !== prevProps.investor.isLoading
+    ) {
+      if (this.props.investor.items && this.props.investor.items.U) {
+        axios
+          .get(
+            `https://api2.openx.solar/user/balance/asset?username=${
+              this.props.investor.items.U.Username
+            }&token=${Storage.get("token")}&asset=STABLEUSD`
+          )
+          .then(res => {
+            const balance = res.data;
+            this.setState({
+              balance: Number(balance)
+            });
+          });
       }
 
       this.setState({
@@ -58,7 +66,7 @@ class InvestmentConfirmation extends Component {
     }
   };
 
-    handleInvestmentChange = el => {
+  handleInvestmentChange = el => {
     this.setState({
       investmentAmount: Number(el.target.value)
     });
@@ -67,7 +75,8 @@ class InvestmentConfirmation extends Component {
   handleConfirm = () => {
     Http.investorInvest(
       this.props.match.params.id,
-      this.state.investmentAmount, this.state.seedpwd
+      this.state.investmentAmount,
+      this.state.seedpwd
     ).subscribe(
       () => {
         this.props.enqueueSnackbar("Transaction completed!", {
@@ -91,7 +100,7 @@ class InvestmentConfirmation extends Component {
     this.props.history.push(ROUTES.INVESTOR_PAGES.DASHBOARD);
   };
 
-  handleToggleChange = (key) => {
+  handleToggleChange = key => {
     this.setState(prevState => ({
       [key]: !prevState[key]
     }));
@@ -99,18 +108,18 @@ class InvestmentConfirmation extends Component {
 
   validateForm = value => {
     return !(
-        value > this.state.balance ||
-        value < 100 ||
-        value > this.state.project["SeedInvestmentCap"] ||
-        value > this.state.project.TotalValue - this.state.project.MoneyRaised
-      );
+      value > this.state.balance ||
+      value < 100 ||
+      value > this.state.project["SeedInvestmentCap"] ||
+      value > this.state.project.TotalValue - this.state.project.MoneyRaised
+    );
   };
 
-    setSeedpwd = value => {
-        this.setState({
-            seedpwd: value
-        })
-    };
+  setSeedpwd = value => {
+    this.setState({
+      seedpwd: value
+    });
+  };
 
   render() {
     const { investor, loading, project, balance, open, seedpwd } = this.state;
@@ -122,62 +131,73 @@ class InvestmentConfirmation extends Component {
           <PageLoading />
         ) : (
           <>
-              {open &&
+            {open && (
               <ConfirmModal
-                  title='Enter seed password'
-                  onConfirm={this.handleConfirm}
-                  onCancel={() => this.setState({open: false})}
-                  body={
-                      <Input placeholder='Seed Password' type='password' value={seedpwd} onChange={(e) => this.setSeedpwd(e.target.value)} />
-                  }
-              />}
-              <div className="d-flex justify-content-center">
+                title="Enter seed password"
+                onConfirm={this.handleConfirm}
+                onCancel={() => this.setState({ open: false })}
+                body={
+                  <Input
+                    placeholder="Seed Password"
+                    type="password"
+                    value={seedpwd}
+                    onChange={e => this.setSeedpwd(e.target.value)}
+                  />
+                }
+              />
+            )}
+            <div className="d-flex justify-content-center">
               <ProjectInfo project={project} />
             </div>
             <div className="">
-              {!isInvestor ? <NotAvailable text={"You have to be an Investor to invest in project"}/> :
-              <StepsForm
-                name="confirm"
-                tabs={[
-                  { name: "amount", key: 1 },
-                  { name: "profile", key: 2 },
-                  { name: "confirm", key: 3 }
-                ]}
-                separator={false}
-                classes={["bigger-fonts"]}
-                saveText="confirm"
-                handleSave={() => this.setState({open: true})}
-                disabledNext={!this.validateForm(this.state.investmentAmount)}
-                disabledConfirm={!this.state.agreeTerms}
-              >
-                <AmountTab
-                  key={1}
-                  handleChange={this.handleInvestmentChange}
-                  investmentValue={this.state.investmentAmount}
-                  project={project}
-                  account={investor.U}
-                  usdbalance={balance}
+              {!isInvestor ? (
+                <NotAvailable
+                  text={"You have to be an Investor to invest in project"}
                 />
-                <ProfileTab
-                  key={2}
-                  investmentValue={this.state.investmentAmount}
-                  account={investor.U}
-                  brokeDeal={this.state.brokeDeal}
-                  investCategory={this.state.investCategory}
-                  handleToggle={this.handleToggleChange}
-                  usdbalance={balance}
-                />
-                <ConfirmTab
-                  key={3}
-                  investmentValue={this.state.investmentAmount}
-                  data={project}
-                  loading={loading || project.length === 0}
-                  handleToggle={this.handleToggleChange}
-                  agreeTerms={this.state.agreeTerms}
-                  account={investor.U}
-                  usdbalance={balance}
-                />
-              </StepsForm>}
+              ) : (
+                <StepsForm
+                  name="confirm"
+                  tabs={[
+                    { name: "amount", key: 1 },
+                    { name: "profile", key: 2 },
+                    { name: "confirm", key: 3 }
+                  ]}
+                  separator={false}
+                  classes={["bigger-fonts"]}
+                  saveText="confirm"
+                  handleSave={() => this.setState({ open: true })}
+                  disabledNext={!this.validateForm(this.state.investmentAmount)}
+                  disabledConfirm={!this.state.agreeTerms}
+                >
+                  <AmountTab
+                    key={1}
+                    handleChange={this.handleInvestmentChange}
+                    investmentValue={this.state.investmentAmount}
+                    project={project}
+                    account={investor.U}
+                    usdbalance={balance}
+                  />
+                  <ProfileTab
+                    key={2}
+                    investmentValue={this.state.investmentAmount}
+                    account={investor.U}
+                    brokeDeal={this.state.brokeDeal}
+                    investCategory={this.state.investCategory}
+                    handleToggle={this.handleToggleChange}
+                    usdbalance={balance}
+                  />
+                  <ConfirmTab
+                    key={3}
+                    investmentValue={this.state.investmentAmount}
+                    data={project}
+                    loading={loading || project.length === 0}
+                    handleToggle={this.handleToggleChange}
+                    agreeTerms={this.state.agreeTerms}
+                    account={investor.U}
+                    usdbalance={balance}
+                  />
+                </StepsForm>
+              )}
             </div>
           </>
         )}
@@ -187,16 +207,17 @@ class InvestmentConfirmation extends Component {
 }
 
 const mapStateToProps = state => ({
-    isInvestor: state.profile.investor.authorized,
-    isRecipient: state.profile.recipient.authorized,
-    isDeveloper: state.profile.entity.items.Developer,
-    project: state.project,
-	profile: state.profile.user.items,
-	investor: state.profile.investor,
+  isInvestor: state.profile.investor.authorized,
+  isRecipient: state.profile.recipient.authorized,
+  isDeveloper: state.profile.entity.items.Developer,
+  project: state.project,
+  profile: state.profile.user.items,
+  investor: state.profile.investor
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchInvestor: (entity, username) => dispatch(validateAction(entity, username)),
+  fetchInvestor: (entity, username) =>
+    dispatch(validateAction(entity, username)),
   fetchProject: id => dispatch(fetchProject(id))
 });
 

@@ -1,23 +1,23 @@
 import React from "react";
 import { connect } from "react-redux";
-import {Switch} from "react-router-dom";
+import { Switch } from "react-router-dom";
 import PrivateRoute from "../../../../PrivateRouterComponent/PrivateRouterComponent";
 import ROUTES from "../../../../../routes/routes";
 import VerifyProfilePage from "./pages/VerifyProfilePage/VerifyProfilePage";
 import MainProfilePage from "./pages/MainProfilePage/MainProfilePage";
 
 const Entity = props => (
-	<Switch>
-		<PrivateRoute
-			path={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.USER_PROFILES}
-			exact
-			component={MainProfilePage}
-		/>
-		<PrivateRoute
-			path={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.USER_PROFILES_PAGES.VERIFY}
-			component={VerifyProfilePage}
-		/>
-	</Switch>
+  <Switch>
+    <PrivateRoute
+      path={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.USER_PROFILES}
+      exact
+      component={MainProfilePage}
+    />
+    <PrivateRoute
+      path={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.USER_PROFILES_PAGES.VERIFY}
+      component={VerifyProfilePage}
+    />
+  </Switch>
 );
 
 const mapStateToProps = state => ({
@@ -25,6 +25,4 @@ const mapStateToProps = state => ({
   loading: state.profile.user.isLoading
 });
 
-export default connect(
-  mapStateToProps,
-)(Entity);
+export default connect(mapStateToProps)(Entity);

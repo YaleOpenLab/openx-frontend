@@ -8,8 +8,8 @@ class DeveloperContainer extends Component {
     return (
       <LayoutHoc>
         <div className="component-content Developer">
-        <SubNavigationComponent />
-        <DeveloperComponent />
+          <SubNavigationComponent />
+          <DeveloperComponent />
         </div>
       </LayoutHoc>
     );

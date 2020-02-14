@@ -1,12 +1,12 @@
-import React from 'react';
-import Toolbar from '../../Navigation/Toolbar/Toolbar';
+import React from "react";
+import Toolbar from "../../Navigation/Toolbar/Toolbar";
 
-const header = (props) => {
-    return (
-        <React.Fragment>
-            <Toolbar />
-        </React.Fragment>
-    )
+const header = props => {
+  return (
+    <React.Fragment>
+      <Toolbar />
+    </React.Fragment>
+  );
 };
 
 export default header;

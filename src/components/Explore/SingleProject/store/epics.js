@@ -2,7 +2,7 @@ import { Observable } from "rxjs";
 import { switchMap, catchError, map } from "rxjs/operators";
 import { ofType } from "redux-observable";
 import { Http } from "../../../../services/Http";
-import 'rxjs/add/observable/of';
+import "rxjs/add/observable/of";
 import {
   FETCH_PROJECT,
   fetchProjectFailure,
@@ -15,8 +15,8 @@ const fetchProjectEpic = (action$, state$) => {
     switchMap(action =>
       Http.projectGet(action.payload).pipe(
         map(projects => {
-        	return fetchProjectSuccess(projects);
-				}),
+          return fetchProjectSuccess(projects);
+        }),
         catchError(error => Observable.of(fetchProjectFailure(error.message)))
       )
     )

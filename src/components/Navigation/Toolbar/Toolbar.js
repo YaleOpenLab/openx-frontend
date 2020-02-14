@@ -4,7 +4,7 @@ import MainNavigationComponent from "../MainNavigationComponent/MainNavigationCo
 
 const toolbar = props => (
   <header className="Toolbar">
-      <MainNavigationComponent />
+    <MainNavigationComponent />
   </header>
 );
 

@@ -66,12 +66,13 @@ class Projects extends Component {
                   <PageLoading />
                 ) : (
                   <div className="row">
-                    {this.props.projects.length === 0 && (
-                      <UnderDevelopment />
-                    )}
-                    {this.props.projects.length !== 0 && this.props.projects.filter(this.filter).length === 0 && (
-                      <EmptyContent>No project fits this criteria</EmptyContent>
-                    )}
+                    {this.props.projects.length === 0 && <UnderDevelopment />}
+                    {this.props.projects.length !== 0 &&
+                      this.props.projects.filter(this.filter).length === 0 && (
+                        <EmptyContent>
+                          No project fits this criteria
+                        </EmptyContent>
+                      )}
                     {this.props.projects.filter(this.filter).map(project => (
                       <ProjectsTemplate
                         data={project}
@@ -100,7 +101,4 @@ const mapDispatchToProps = dispatch => ({
   fetchProjects: type => dispatch(fetchProjects(type))
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Projects);
+export default connect(mapStateToProps, mapDispatchToProps)(Projects);

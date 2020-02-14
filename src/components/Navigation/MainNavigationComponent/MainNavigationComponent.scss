@@ -46,7 +46,7 @@
     }
 
     .nav-border-diveider {
-      margin: 12px 0px;
+      margin: 12px 0;
       border-left: 1px solid $warm-grey-two;
     }
     .profile-nav-box {
@@ -69,7 +69,6 @@
         margin: 12px 0;
         img {
           height: 100%;
-          widows: 100%;
           border-radius: 15px;
         }
       }
@@ -78,9 +77,8 @@
     .dropdown-default{
       position: absolute;
       will-change: transform;
-      top: 0px;
-      left: 0px;
-      width: 150px;
+      top: 0;
+      width: 130px !important;
       transform: translate3d(-20px, 45px, 0px) !important;
       span {
         padding: 0 10px;

@@ -148,3 +148,17 @@ export const validateEntityActionFailure = (entity, message) => ({
 	entity,
 	message: message,
 });
+
+export const getUserRoles = () => ({
+    type: TYPES.GET_USER_ROLES,
+});
+
+export const getUserRolesSuccess = (data) => ({
+    type: TYPES.GET_USER_ROLES_SUCCESS,
+    data
+});
+
+export const getUserRolesFailure = (message) => ({
+    type: TYPES.GET_USER_ROLES_SUCCESS,
+    message
+});

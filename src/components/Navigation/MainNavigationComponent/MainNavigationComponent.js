@@ -5,7 +5,7 @@ import {
   MDBNavbarBrand,
   MDBNavbarNav,
   MDBNavbarToggler,
-  MDBCollapse,
+  MDBCollapse
 } from "mdbreact";
 import Logo from "../../UI/Logo/Logo";
 import NavigationItem from "../NavigationItem/NavigationItem";

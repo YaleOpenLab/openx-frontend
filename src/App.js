@@ -12,8 +12,8 @@ import ReceiverContainer from "./pages/Receiver/ReceiverContainer";
 import AboutContainer from "./pages/About/AboutContainer";
 import DeveloperContainer from "./pages/Developer/DeveloperContainer";
 import AccessDemo from "./components/AccessDemo/AccessDemo";
-import Storage from './services/Storage';
-import UnderDevelopmentPage from './pages/UnderDevelopmentPage/DeveloperContainer';
+import Storage from "./services/Storage";
+import UnderDevelopmentPage from "./pages/UnderDevelopmentPage/DeveloperContainer";
 
 class App extends Component {
   state = {
@@ -44,7 +44,11 @@ class App extends Component {
         <PrivateRoute path={Routes.INVESTOR} component={InvestorContainer} />
         <PrivateRoute path={Routes.RECEIVER} component={ReceiverContainer} />
         <PrivateRoute path={Routes.DEVELOPER} component={DeveloperContainer} />
-        <Route path={Routes.DEVELOPMENT} exact component={UnderDevelopmentPage} />
+        <Route
+          path={Routes.DEVELOPMENT}
+          exact
+          component={UnderDevelopmentPage}
+        />
         <Route path="*" exact component={NotFoundPageContainer} />
       </Switch>
     );
