@@ -100,7 +100,6 @@ const RegisterNewEntity = ({
         onSetCompany(key);
         Http.setCompanyService(key).subscribe(result => {
           if (result.data && result.data.Code === 200) {
-            console.log("fire");
             onRegisterCompany(key, registerValues);
             setProfileTypes({
               investor: false,
@@ -202,7 +201,12 @@ const RegisterNewEntity = ({
                 onChange={() => setCompanyType("Cooperative")}
                 explanation="(eg. a working coop)"
               />
-              <RadioButton name="Other" label="Other" />
+              <RadioButton
+                name="Other"
+                label="Other"
+                checked={companyType === "Other"}
+                onChange={() => setCompanyType("Other")}
+              />
             </StyledButtonGroupContainer>
             <StyledSeparator size={5} />
             <StyledInputGroupContainer>
