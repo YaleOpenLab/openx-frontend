@@ -5,7 +5,6 @@ import ProgressBar from "../../../General/ProgressBar/ProgressBar";
 import percentage from "../../../../helpers/functions/percentage";
 import { Http } from "../../../../services/Http";
 import ShowMoreText from "../../../General/ShowMoreText/ShowMoreText";
-import { STAGES } from "../../../../helpers/enums/stages";
 import SeeMore from "../../../UI/SeeMore/SeeMore";
 
 class ProjectsTemplate extends Component {
@@ -44,7 +43,7 @@ class ProjectsTemplate extends Component {
               <button className="watch-button-explore" type="button">
                 <div className="watch-icon" />
               </button>
-              <img src={data.MainImage} alt={data.Name} />
+              <img src={data.MainImage} altcontent={data.Name} />
             </div>
           </NavLink>
           <div className="projects-description-box">
@@ -78,25 +77,25 @@ class ProjectsTemplate extends Component {
                 </div>
                 <div className="desc-description-bullets">
                   <ul>
-                    <li>{data.Bullet1}</li>
-                    <li>{data.Bullet2}</li>
-                    <li>{data.Bullet3}</li>
+                    <li>{data.Content.Details["Explore Tab"]["bullet 1"]}</li>
+                    <li>{data.Content.Details["Explore Tab"]["bullet 2"]}</li>
+                    <li>{data.Content.Details["Explore Tab"]["bullet 3"]}</li>
                   </ul>
                 </div>
               </div>
               <div className="col-12 specifics-box-no-mg">
                 <div className="projects-description__stats">
                   <div className="-primary-color">
-                    <p>{data.Solar}</p>
+                    <p>{data.Content.Details["Explore Tab"]["solar"]}</p>
                     <h6>Solar</h6>
                   </div>
                   <div>
-                    <p>{data.Storage}</p>
+                    <p>{data.Content.Details["Other Details"]["storage"]}</p>
                     <h6>Storage</h6>
                   </div>
                   <div>
                     <p>
-                      {data.Tariff}
+                      {data.Content.Details["Other Details"]["tariff"]}
                       <span className="stats-units">/kWh</span>
                     </p>
                     <h6>Tariff</h6>

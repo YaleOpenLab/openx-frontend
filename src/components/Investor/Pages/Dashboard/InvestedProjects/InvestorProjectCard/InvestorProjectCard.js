@@ -6,7 +6,6 @@ import SummaryCards from "../../../../../General/SummaryCards/SummaryCards";
 import { connect } from "react-redux";
 import { fetchProjects } from "../../../../../Explore/Projects/store/actions";
 import PageLoading from "../../../../../General/Loading/Loading";
-import { STAGES } from "../../../../../../helpers/enums/stages";
 
 class InvestorProjectCard extends Component {
   componentDidMount = () => {
@@ -37,7 +36,7 @@ class InvestorProjectCard extends Component {
           <div className="projects-description-box">
             <div className="row">
               <div className="col-12 desc-status">
-                Stage {project.Stage} | {STAGES[project.Stage]}
+                STAGE {project.StageDescription}
               </div>
               <div className="col-12 desc-title">
                 <NavLink

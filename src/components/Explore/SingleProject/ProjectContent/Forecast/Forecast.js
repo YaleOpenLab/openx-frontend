@@ -3,7 +3,6 @@ import DevelopmentStage from "./DevelopmentStage/DevelopmentStage";
 import { NavLink } from "react-router-dom";
 import ROUTES from "../../../../../routes/routes";
 import ScrollableAnchor from "react-scrollable-anchor";
-import { STAGES } from "../../../../../helpers/enums/stages";
 import Title from "../../../../General/Title/Title";
 
 let style1 = {

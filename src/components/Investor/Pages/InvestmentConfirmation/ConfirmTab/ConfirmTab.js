@@ -1,9 +1,6 @@
 import React from "react";
 import DivBox from "../../../../General/DivBox/DivBox";
-import TermsTable from "../../../../Explore/SingleProject/ProjectContent/Terms/TermsTable/TermsTable";
-import { DATA } from "../../../../../helpers/enums/temporary-data";
 import SwitchButton from "../../../../General/SwitchButton/SwitchButton";
-import PageLoading from "../../../../General/Loading/Loading";
 
 const ConfirmTab = props => (
   <div className="invest-confirm-confirm">
