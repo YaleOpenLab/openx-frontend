@@ -4,12 +4,12 @@ import "../../General/CustomSections/CustomSections.scss"
 const ArchitectureSection = props => {
   let items = null;
   var image1Style = {
-	backgroundImage: 'url(' + "https://i.ibb.co/594bKyf/Asset-1-4x-2x.png" + ')',
+	backgroundImage: 'url(' + props.items["map layout image"] + ')',
 	height: '437px',
   }
 
   var image2Style = {
-	backgroundImage: 'url(' + "https://i.ibb.co/kXvtDPb/Solar-Gen-2x.png" + ')',
+	backgroundImage: 'url(' + props.items["solar output image"] + ')',
     height: '437px',
   }
 

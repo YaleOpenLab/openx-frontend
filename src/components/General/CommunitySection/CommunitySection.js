@@ -4,19 +4,19 @@ import "../../General/CustomSections/CustomSections.scss"
 const CommunitySection = props => {
   let items = null;
 	var image1 = {
-		backgroundImage: 'url(' + "https://i.ibb.co/tPpgpkS/Image-2x.png" + ')',
+		backgroundImage: 'url(' + props.items["consultation"][0] + ')',
 		height: '162px',
 	}
 	var image2 = {
-		backgroundImage: 'url(' + "https://i.ibb.co/tz42RXt/Image-Copy-2x.png" + ')',
+		backgroundImage: 'url(' + props.items["participation"][0] + ')',
 		height: '162px',
 	}
 	var image3 = {
-		backgroundImage: 'url(' + "https://i.ibb.co/Zd0ryVB/Image-Copy-2-2x.png" + ')',
+		backgroundImage: 'url(' + props.items["outreach"][0] + ')',
 		height: '162px',
 	}
 	var image4 = {
-		backgroundImage: 'url(' + "https://i.ibb.co/WW362m2/Rectangle-Copy-15-2x.png" + ')',
+		backgroundImage: 'url(' + props.items["governance"][0] + ')',
 		height: '162px',
 	}
   if (props.items) {

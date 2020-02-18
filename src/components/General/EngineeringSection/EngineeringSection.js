@@ -4,15 +4,15 @@ import "../../General/CustomSections/CustomSections.scss"
 const EngineeringSection = props => {
   let items = null;
   var image1 = {
-	backgroundImage: 'url(' + "https://i.ibb.co/KxMn973/Asset-2-4x-2x.png" + ')',
+	backgroundImage: 'url(' + props.items["image"] + ')',
 	height: '401px',
   };
   var image2 = {
-	backgroundImage: 'url(' + "https://i.ibb.co/JqXQqvd/inver-SOL-Color-Logo-2x.png" + ')',
+	backgroundImage: 'url(' + props.items["highlighted product"]["images"][0] + ')',
 	height: '72px',
   };
   var image3 = {
-	backgroundImage: 'url(' + "https://i.ibb.co/4M3X3ts/Inver-Sol-Lumen-2x.png" + ')',
+	backgroundImage: 'url(' + props.items["highlighted product"]["images"][1] + ')',
 	height: '401px',
   };
   if (props.items) {
