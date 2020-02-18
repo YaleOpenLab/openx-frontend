@@ -3,7 +3,6 @@ import * as axios from "axios";
 import { from } from "rxjs";
 import { map } from "rxjs/operators";
 import { sha3_512 } from "js-sha3";
-import { DATA, EXPLORE_FILLER } from "../helpers/enums/temporary-data";
 
 export class Http {
   static investorInvest(id, amount, seedpwd) {
@@ -178,8 +177,7 @@ export class Http {
       map(result => {
         return {
           data: {
-            ...result.data,
-            ...DATA
+            ...result.data
           }
         };
       })

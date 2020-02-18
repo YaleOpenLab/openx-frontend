@@ -2,7 +2,6 @@ import React from "react";
 import ProgressBar from "../../../General/ProgressBar/ProgressBar";
 import "./ProjectMain.scss";
 import percentage from "../../../../helpers/functions/percentage";
-import { STAGES } from "../../../../helpers/enums/stages";
 import Image from "../../../../helpers/enums/images";
 
 const ProjectMain = ({ data }) => {
@@ -22,13 +21,13 @@ const ProjectMain = ({ data }) => {
 
           <div className="projects-description-box container">
             <div className="desc-status">
-              Stage {data.Stage} | {STAGES[data.Stage]}
+              Stage {data.Content.Details["Explore Tab"]["stage description"]}
             </div>
             <div className="desc-title">{data.Name}</div>
             <div className="desc-location">
               <div className="projects-location-icon location-icon" />
               <a href={data.MapLink} target="_blank" rel="noopener noreferrer">
-                {data.City}, {data.State}, {data.Country}
+                {data.Content.Details["Explore Tab"]["location"]}
               </a>
             </div>
             <div className="projects-description__spread">
@@ -36,17 +35,17 @@ const ProjectMain = ({ data }) => {
                 {data.InvestmentType}
               </div>
               <div className="desc-category desc-category-separator desc-gen-location">
-                {data.Issuer}
+                Neighborly Securities
               </div>
             </div>
 
             <div className="desc-description">
-              {data.Description}
+              {data.Content.Details["Explore Tab"]["description"]}
               <div className="desc-description-bullets">
                 <ul>
-                  <li>{data.Bullet1}</li>
-                  <li>{data.Bullet2}</li>
-                  <li>{data.Bullet3}</li>
+                  <li>{data.Content.Details["Explore Tab"]["bullet 1"]}</li>
+                  <li>{data.Content.Details["Explore Tab"]["bullet 2"]}</li>
+                  <li>{data.Content.Details["Explore Tab"]["bullet 3"]}</li>
                 </ul>
               </div>
             </div>
@@ -55,7 +54,7 @@ const ProjectMain = ({ data }) => {
                 ORIGINATOR
               </div>
               <div className="desc-description" style={{ fontSize: 12 }}>
-                {data.Originator}
+                {data.Content.Details["Explore Tab"]["originator name"]}
               </div>
             </div>
             <div className="specifics-box">
@@ -74,23 +73,23 @@ const ProjectMain = ({ data }) => {
                 <div className="col-12">
                   <div className="projects-description__stats">
                     <div className="-primary-color">
-                      <p>{data.Solar}</p>
+                      <p>{data.Content.Details["Explore Tab"]["solar"]}</p>
                       <h6>Solar</h6>
                     </div>
                     <div className="-dark-color">
-                      <p>{data.Battery}</p>
+                      <p>{data.Content.Details["Explore Tab"]["battery"]}</p>
                       <h6>Battery</h6>
                     </div>
                     <div>
-                      <p>{data.Return}</p>
+                      <p>{data.Content.Details["Explore Tab"]["return"]}</p>
                       <h6>Return</h6>
                     </div>
                     <div>
-                      <p>{data.Rating}</p>
+                      <p>{data.Content.Details["Explore Tab"]["rating"]}</p>
                       <h6>Rating</h6>
                     </div>
                     <div>
-                      <p>{data.Maturity}</p>
+                      <p>{data.Acquisition}</p>
                       <h6>Maturity</h6>
                     </div>
                   </div>
