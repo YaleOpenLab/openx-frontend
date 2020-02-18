@@ -16,7 +16,7 @@ const StyledImage = styled.img`
 
 const Image = ({imageKey}) => {
 	return (
-		<StyledImage src={imageList[imageKey].src} alt={imageList[imageKey].description} />
+		<StyledImage src={imageKey} alt="image" />
 	)
 };
 

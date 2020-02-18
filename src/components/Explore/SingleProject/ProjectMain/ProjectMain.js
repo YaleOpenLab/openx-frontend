@@ -11,7 +11,7 @@ const ProjectMain = ({ data }) => {
       <div className="row">
         <div className="col-sm-12 col-md-7 order-md-1 order-sm-1 no-padding">
           <div className="project-main-image project-main-display-image">
-            <Image imageKey={data.mainImage} />
+            <Image imageKey={data.MainImage} />
           </div>
         </div>
 

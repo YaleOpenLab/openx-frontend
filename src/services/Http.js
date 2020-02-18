@@ -157,7 +157,7 @@ export class Http {
       map(data => {
         if (!type || type === "pv-solar") {
           return data.map(project => {
-            return { ...EXPLORE_FILLER, ...project };
+            return {...project};
           });
         } else {
           return [];
