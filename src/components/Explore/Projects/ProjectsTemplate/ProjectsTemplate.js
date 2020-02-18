@@ -5,7 +5,6 @@ import ProgressBar from "../../../General/ProgressBar/ProgressBar";
 import percentage from "../../../../helpers/functions/percentage";
 import { Http } from "../../../../services/Http";
 import ShowMoreText from "../../../General/ShowMoreText/ShowMoreText";
-import { STAGES } from "../../../../helpers/enums/stages";
 import SeeMore from "../../../UI/SeeMore/SeeMore";
 
 class ProjectsTemplate extends Component {
