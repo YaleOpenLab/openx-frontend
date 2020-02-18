@@ -12,12 +12,11 @@ import IconWallet from "../../../../assets/images/ic-wallet.svg";
 import IconContractor from "../../../../assets/images/ic-contractor.svg";
 import IconCalendar from "../../../../assets/images/ic-calendar.svg";
 import DocumentationContainer from "../../../General/DocumentationContainer/DocumentationContainer";
-import {RECIPIENT_FILLER} from "../../../../helpers/enums/temporary-data";
 import ROUTES from "../../../../routes/routes";
 
 
 const ReceiverProject = ({data}) => {
-    const project = {...RECIPIENT_FILLER, ...data};
+    const project = {...data};
     const [dropdown, setDropdown] = useState(false);
     
     return (
@@ -33,14 +32,14 @@ const ReceiverProject = ({data}) => {
                                 <img src={iconWatch} alt="watch-icon"/>
                             </button>
                             <h5>SOLAR ONLY</h5>
-                            <h3 className="title-primary">{project.Title}</h3>
+                            <h3 className="title-primary">{project["Explore Tab"]["name"]}</h3>
                             <h6>
                                 <img src={IconGps} alt="icon-gps"/>
                                 <a href="https://goo.gl/maps/x8Cpr1C37V6ckHNLA" target="_blank"
-                                   rel="noopener noreferrer">{project.Location}</a>
+                                   rel="noopener noreferrer">{project["Explore Tab"]["location"]}</a>
                             </h6>
                             <div className="flexbox">
-                                <p>{project.category}</p>
+                                <p>{project["Explore Tab"]["project type"]}</p>
                                 <button><a href="https://neighborly.com" target="_blank" rel="noopener noreferrer">Bond Issuer
                                     ></a></button>
                             </div>
@@ -58,10 +57,10 @@ const ReceiverProject = ({data}) => {
                             <div className="progress-bar-container">
                                 <div className="flexbox -no-spacing">
                                     <p className="progress-donated">
-                                        $ {project.Raised}
+                                        $ {project["Explore Tab"]["money raised"]}
                                     </p>
                                     <p className="progress-total">
-                                        U$S {project.Total}
+                                        U$S {project["Explore Tab"]["total value"]}
                                     </p>
                                 </div>
                                 <ProgressBar percentage={0}/>
@@ -91,7 +90,7 @@ const ReceiverProject = ({data}) => {
             {dropdown && (
                 <div className="dropdown-wrapper">
                     <div className="details-container">
-                        <h3 className="title-primary desc">{project.title} DETAILS</h3>
+                        <h3 className="title-primary desc">PROJECT DETAILS</h3>
                         <div className="container">
                             <h4 className="section-title">Role</h4>
                             <DetailContainer
