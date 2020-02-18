@@ -1,7 +1,7 @@
 import React from "react";
 import InvestorProjectCard from "./InvestorProjectCard/InvestorProjectCard";
 
-const InvestedProjects = ({projects}) => (
+const InvestedProjects = ({ projects }) => (
   <React.Fragment>
     <div className="container investor-title">Invested Projects</div>
     <div className="investor-separator" />
@@ -10,7 +10,9 @@ const InvestedProjects = ({projects}) => (
         <div className="container">
           <div className="row">
             {projects.map(project => {
-              return <InvestorProjectCard key={project.Index} project={project} />
+              return (
+                <InvestorProjectCard key={project.Index} project={project} />
+              );
             })}
           </div>
         </div>

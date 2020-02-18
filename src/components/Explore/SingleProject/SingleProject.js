@@ -10,7 +10,7 @@ class SingleProject extends Component {
   constructor(props) {
     super(props);
     this.state = {
-	      menu: [
+      menu: [
         { name: "terms", link: "#terms", id: "terms-nav" },
         { name: "overview", link: "#overview", id: "overview-nav" },
         { name: "project", link: "#project", id: "project-nav" },
@@ -20,7 +20,11 @@ class SingleProject extends Component {
           id: "stageforecast-nav"
         },
         { name: "documents", link: "#documents", id: "documents-nav" },
-        { name: "invest", link: `/investor/${this.props.match.params.projectId}/confirm`, type: "button" }
+        {
+          name: "invest",
+          link: `/investor/${this.props.match.params.projectId}/confirm`,
+          type: "button"
+        }
       ],
       data: {},
       selectedItem: ""
@@ -67,15 +71,12 @@ class SingleProject extends Component {
 }
 
 const mapStateToProps = state => ({
-	project: state.project.items,
-	loading: state.project.isLoading,
+  project: state.project.items,
+  loading: state.project.isLoading
 });
 
 const mapDispatchToProps = dispatch => ({
   fetchProject: id => dispatch(fetchProject(id))
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(SingleProject);
+export default connect(mapStateToProps, mapDispatchToProps)(SingleProject);

@@ -15,7 +15,7 @@ configureAnchors({
   keepLastAnchorHash: true
 });
 
-const ProjectContent = ({data, navigation, active}) => (
+const ProjectContent = ({ data, navigation, active }) => (
   <div className="ProjectContent">
     <AnchorNavigation list={navigation} active={active} data={data} />
     <Terms data={data.Details.Terms} />

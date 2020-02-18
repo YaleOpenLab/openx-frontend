@@ -61,7 +61,6 @@ export class Http {
   }
 
   static registerCompanyService(entity, data) {
-    console.log(data, "??????");
     return this.postProtected(`${entity}/company/details`, { ...data });
   }
 
@@ -269,7 +268,7 @@ export class Http {
         },
         error => {
           if (error.response && error.response.status === 401) {
-            return { data: { Code: 401 } };
+            return { data: { Code: error.response.status } };
           }
         }
       );

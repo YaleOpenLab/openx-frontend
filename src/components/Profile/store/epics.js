@@ -222,7 +222,6 @@ export const setCompanyActionEpic = action$ =>
     switchMap(action => {
       return Http.setCompanyService(action.entity).pipe(
         concatMap(result => {
-          console.log(result, "??");
           if (result.data && result.data.Code !== 200) {
             return [
               displayErrorAction("error", result.data.Status),

@@ -15,7 +15,15 @@ import {
   updateAccount
 } from "../../../../../store/actions";
 
-const Entity = ({ account, setProgress, entity, onGetUserRoles, roles }) => {
+const Entity = ({
+  account,
+  setProgress,
+  entity,
+  onGetUserRoles,
+  roles,
+  isInvestor,
+  isRecipient
+}) => {
   const [verified, setVerified] = useState(account.Kyc);
   const [asEntity, setAsEntity] = useState(false);
   const handleVerify = () => {
@@ -30,8 +38,6 @@ const Entity = ({ account, setProgress, entity, onGetUserRoles, roles }) => {
   useEffect(() => {
     onGetUserRoles();
   }, []);
-
-  console.log(roles, "???");
 
   const goNext = () => {
     if (asEntity) {
@@ -68,15 +74,43 @@ const Entity = ({ account, setProgress, entity, onGetUserRoles, roles }) => {
               <div style={{ display: "flex" }}>
                 <DivBox
                   type="full"
-                  text={roles.Investor && roles.Investor.Name}
+                  text={
+                    roles.Investor &&
+                    roles.Investor &&
+                    roles.Investor.C &&
+                    roles.Investor.C.LegalName
+                  }
                   label="entity investor profile"
                   leftIcon="developer-icon"
                   rightIcon="profile-edit-icon"
                 />
                 <DivBox
-                  text={entity.StellarWallet && entity.StellarWallet.PublicKey}
+                  text={
+                    roles.Investor &&
+                    roles.Investor &&
+                    roles.Investor.U &&
+                    roles.Investor.U.StellarWallet &&
+                    roles.Investor.U.StellarWallet.PublicKey
+                  }
                   label="public key"
                   leftIcon="profile-badge-icon"
+                />
+              </div>
+              <div className="component-box-content">
+                <ToggleButton
+                  label={
+                    <SeeMore
+                      infoContent={
+                        <div style={{ fontSize: 12 }}>
+                          Is your account verified?{" "}
+                        </div>
+                      }
+                    >
+                      Is your account verified?
+                    </SeeMore>
+                  }
+                  checked={verified}
+                  handleChange={handleVerify}
                 />
               </div>
             </React.Fragment>
@@ -87,61 +121,80 @@ const Entity = ({ account, setProgress, entity, onGetUserRoles, roles }) => {
               <div style={{ display: "flex" }}>
                 <DivBox
                   type="full"
-                  text={roles.Recipient && roles.Recipient.Name}
+                  text={
+                    roles.Recipient &&
+                    roles.Recipient &&
+                    roles.Recipient.C &&
+                    roles.Recipient.C.LegalName
+                  }
                   label="entity receiver profile"
                   leftIcon="developer-icon"
                   rightIcon="profile-edit-icon"
                 />
                 <DivBox
-                  text={entity.StellarWallet && entity.StellarWallet.PublicKey}
+                  text={
+                    roles.Recipient &&
+                    roles.Recipient &&
+                    roles.Recipient.U &&
+                    roles.Recipient.U.StellarWallet &&
+                    roles.Recipient.U.StellarWallet.PublicKey
+                  }
                   label="public key"
                   leftIcon="profile-badge-icon"
                 />
               </div>
+              <div className="component-box-content">
+                <ToggleButton
+                  label={
+                    <SeeMore
+                      infoContent={
+                        <div style={{ fontSize: 12 }}>
+                          Is your account verified?{" "}
+                        </div>
+                      }
+                    >
+                      Is your account verified?
+                    </SeeMore>
+                  }
+                  checked={verified}
+                  handleChange={handleVerify}
+                />
+              </div>
             </React.Fragment>
           )}
-          <div className="component-box-content">
-            <ToggleButton
-              label={
-                <SeeMore
-                  infoContent={
-                    <div style={{ fontSize: 12 }}>
-                      Is your account verified?{" "}
-                    </div>
-                  }
-                >
-                  Is your account verified?
-                </SeeMore>
-              }
-              checked={verified}
-              handleChange={handleVerify}
-            />
-          </div>
           <div className="col-12 solar-form-separator" />
-          <div className="component-box-content">
-            <div className="component-box-title component-header">
-              <span className="-darker">Register a New Entity</span>
-            </div>
-            <RadioButton
-              name="ENTITY_MANAGER"
-              label="ENTITY MANAGER: I won't use the platform as an individual, but will operate on behalf of an entity (i.e. an organisation)."
-              checked={asEntity}
-              onChange={() => setAsEntity(!asEntity)}
-            />
-            <div className="margin-top">
-              <DivBox
-                type="full"
-                text="company name"
-                label="ONBOARD AN ORGANISATION"
-                leftIcon="profile-business-icon"
-                rightIcon="profile-add-icon"
-                link={
-                  ROUTES.PROFILE_PAGES.SETTINGS_PAGES.ENTITY_PROFILE_PAGES
-                    .NEW_ENTITY
-                }
+          {!(
+            roles &&
+            roles.Recipient &&
+            roles.Investor &&
+            roles.Recipient.Company &&
+            roles.Investor.Company
+          ) && (
+            <div className="component-box-content">
+              <div className="component-box-title component-header">
+                <span className="-darker">Register a New Entity</span>
+              </div>
+              <RadioButton
+                name="ENTITY_MANAGER"
+                label="ENTITY MANAGER: I won't use the platform as an individual, but will operate on behalf of an entity (i.e. an organisation)."
+                checked={asEntity}
+                onChange={() => setAsEntity(!asEntity)}
               />
+              <div className="margin-top">
+                <DivBox
+                  type="full"
+                  text="company name"
+                  label="ONBOARD AN ORGANISATION"
+                  leftIcon="profile-business-icon"
+                  rightIcon="profile-add-icon"
+                  link={
+                    ROUTES.PROFILE_PAGES.SETTINGS_PAGES.ENTITY_PROFILE_PAGES
+                      .NEW_ENTITY
+                  }
+                />
+              </div>
             </div>
-          </div>
+          )}
           <ActionButtons
             cancelButton={{
               url: ROUTES.PROFILE_PAGES.SETTINGS_PAGES.SECURITY,

@@ -39,7 +39,6 @@ const P2P = ({ account, showMessage }) => {
       if (result && result.status === 200 && typeof result.data == "string") {
         showMessage("success", "Limit expansion succeeded!");
       } else {
-        console.log(result);
         showMessage("error", "Error while expanding limit");
       }
     });

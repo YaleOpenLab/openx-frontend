@@ -12,7 +12,7 @@ import { displayErrorAction } from "../../../store/actions/actions";
 // Move validation rules into separate file
 const LoginSchema = Yup.object().shape({
   username: Yup.string()
-    .min(3, "Too Short!")
+    .min(2, "Too Short!")
     .required("Required"),
   password: Yup.string()
     .min(3, "Too Short!")

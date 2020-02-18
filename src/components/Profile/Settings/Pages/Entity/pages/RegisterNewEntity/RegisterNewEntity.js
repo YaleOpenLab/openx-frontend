@@ -15,11 +15,7 @@ import styled from "styled-components";
 import * as Yup from "yup";
 import ActionButtons from "../../../../ActionButtons";
 import ROUTES from "../../../../../../../routes/routes";
-import {
-  registerCompanyAction,
-  setCompanyAction,
-  updateAccount
-} from "../../../../../store/actions";
+import { registerAction, updateAccount } from "../../../../../store/actions";
 import {
   displayErrorAction,
   progressAction
@@ -29,10 +25,7 @@ import { withSnackbar } from "notistack";
 import history from "../../../../../../../helpers/history";
 import ConfirmModal from "../../../../../../UI/ConfirmModal/ConfirmModal";
 import SimpleInput from "../../../../../../UI/SolarForms/Input/InputSimple";
-import {
-  allTrue,
-  hasTrue
-} from "../../../../../../../helpers/functions/all-true";
+import { hasTrue } from "../../../../../../../helpers/functions/all-true";
 import { Http } from "../../../../../../../services/Http";
 
 export const StyledButtonGroupContainer = styled.div`
@@ -42,10 +35,10 @@ export const StyledButtonGroupContainer = styled.div`
 export const StyledInputGroupContainer = styled.div``;
 
 const AccountSchema = Yup.object().shape({
-  username: Yup.string().required("Username is required"),
+  name: Yup.string().required("Username is required"),
   legalname: Yup.string().required("Legal name is required"),
   adminEmail: Yup.string().email("Invalid email"),
-  phoneNumber: Yup.string().required("Phone is required"),
+  phoneNumber: Yup.string(),
   address: Yup.string().required("Address is required"),
   country: Yup.string().required("Country is required"),
   city: Yup.string().required("City is required"),
@@ -57,11 +50,8 @@ const AccountSchema = Yup.object().shape({
 const RegisterNewEntity = ({
   account,
   isInvestor,
-  isDeveloper,
   isRecipient,
-  showMessage,
-  onSetCompany,
-  onRegisterCompany
+  showMessage
 }) => {
   const [userProfile, setProfileTypes] = useState({
     investor: false,
@@ -83,35 +73,26 @@ const RegisterNewEntity = ({
   const [companyType, setCompanyType] = useState(null);
 
   const registerNewEntity = values => {
+    if (!companyType) {
+      showMessage("error", "Please Select a company type");
+      return;
+    } else if (!roleInOrganization) {
+      showMessage("error", "Please Select a role");
+      return;
+    }
     const registerValues = {
-      companytype: "",
-      name: account.Username,
-      seedpwd: "asdasd",
+      companytype: companyType,
+      role: roleInOrganization,
+      username: account.Username,
       ...values
     };
 
     if (!hasTrue(userProfile)) {
-      history.push(ROUTES.PROFILE_PAGES.SETTINGS_PAGES.ENTITY_PROFILE);
+      showMessage("error", "You should select at least one entity");
       return;
     }
 
-    Object.keys(userProfile).map(key => {
-      if (userProfile[key]) {
-        onSetCompany(key);
-        Http.setCompanyService(key).subscribe(result => {
-          if (result.data && result.data.Code === 200) {
-            onRegisterCompany(key, registerValues);
-            setProfileTypes({
-              investor: false,
-              recipient: false,
-              developer: false,
-              visitor: false
-            });
-          }
-        });
-        onRegisterCompany(key, registerValues);
-      }
-    });
+    openModal(registerValues);
   };
 
   const openModal = useCallback(values => {
@@ -119,20 +100,77 @@ const RegisterNewEntity = ({
     setOpen(true);
   });
 
-  const confirmRegisterEntity = () => {
+  const autoCreateUser = () => {
     if (!seedpwd) {
       showMessage("error", "Seed password is mandatory!");
     }
+    const createValues = {
+      username: account.Username,
+      email: account.Email,
+      name: account.Name,
+      pwhash: account.Pwhash,
+      seedpwd: seedpwd
+    };
 
-    setOpen(false);
-    setSeedpwd(null);
-    setProfileTypes({
-      investor: false,
-      recipient: false,
-      developer: false,
-      visitor: false
+    Object.keys(userProfile).map(key => {
+      if (userProfile[key]) {
+        if (key === "investor" && !isInvestor) {
+          Http.registerService(key, createValues).subscribe(
+            result => {
+              if (result.data.Code) {
+                showMessage("error", `Error while creating ${key} account`);
+              } else {
+                confirmRegisterEntity(key, params);
+              }
+            },
+            error => {
+              showMessage(
+                "error",
+                `Error while creating user profile, please make sure you enter correct seed password`
+              );
+            }
+          );
+        } else if (key === "recipient" && !isRecipient) {
+          Http.registerService(key, createValues).subscribe(
+            result => {
+              if (result.data.Code) {
+                showMessage("error", `Error while creating ${key} account`);
+              } else {
+                confirmRegisterEntity(key, params);
+              }
+            },
+            error => {
+              showMessage(
+                "error",
+                `Error while creating user profile, please make sure you enter correct seed password`
+              );
+            }
+          );
+        } else {
+          confirmRegisterEntity(key, params);
+        }
+      }
     });
-    history.push(ROUTES.PROFILE_PAGES.SETTINGS_PAGES.ENTITY_PROFILE);
+  };
+
+  const confirmRegisterEntity = (key, values) => {
+    Http.setCompanyService(key).subscribe(result => {
+      if (result.data && result.data.Code === 200) {
+        Http.registerCompanyService(key, values).subscribe(result => {
+          if (result.data && result.data.Code === 200) {
+            showMessage("success", "Company entity created!");
+            setParams({ values: null, key: null });
+            setSeedpwd(null);
+            setProfileTypes({
+              investor: false,
+              recipient: false,
+              developer: false
+            });
+            history.push(ROUTES.PROFILE_PAGES.SETTINGS_PAGES.ENTITY_PROFILE);
+          }
+        });
+      }
+    });
   };
 
   return (
@@ -141,7 +179,7 @@ const RegisterNewEntity = ({
         <ConfirmModal
           title="Enter Seed Password"
           onCancel={() => setOpen(false)}
-          onConfirm={confirmRegisterEntity}
+          onConfirm={autoCreateUser}
         >
           <SimpleInput
             value={seedpwd}
@@ -212,7 +250,7 @@ const RegisterNewEntity = ({
             <StyledInputGroupContainer>
               <Formik
                 initialValues={{
-                  username: (account && account.Username) || "",
+                  name: (account && account.Username) || "",
                   legalname: (account && account.Name) || "",
                   adminEmail: (account && account.Email) || "",
                   address: account && account.Address,
@@ -232,11 +270,11 @@ const RegisterNewEntity = ({
                     <StyledFieldSection>
                       <Field
                         type="text"
-                        name="username"
+                        name="name"
                         label={"entity username"}
                         component={Input}
-                        errors={errors.username}
-                        touched={touched.username}
+                        errors={errors.name}
+                        touched={touched.name}
                       />
                       <Field
                         type="text"
@@ -414,9 +452,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   updateAccount: (entity, payload) => dispatch(updateAccount(entity, payload)),
-  onSetCompany: (entity, data) => dispatch(setCompanyAction(entity, data)),
-  onRegisterCompany: (entity, data) =>
-    dispatch(registerCompanyAction(entity, data)),
   setProgress: (username, progress) =>
     dispatch(progressAction(username, progress)),
   showMessage: (type, message) => dispatch(displayErrorAction(type, message))

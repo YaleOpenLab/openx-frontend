@@ -14,8 +14,8 @@ class InvestorProjectCard extends Component {
   };
 
   render() {
-    const {project, loading} = this.props;
-    if(!project || loading) return <PageLoading />;
+    const { project, loading } = this.props;
+    if (!project || loading) return <PageLoading />;
 
     return (
       <div className="col-12 col-sm-6 col-md-4 investor-project-card">
@@ -28,12 +28,17 @@ class InvestorProjectCard extends Component {
               <button className="watch-button-explore" type="button">
                 <div className="watch-icon" />
               </button>
-              <img src={project.MainImage} alt="project card" />
+              <img
+                src={"https://i.ibb.co/8cqdT6n/Asset-3-4x.png"}
+                alt="project card"
+              />
             </div>
           </NavLink>
           <div className="projects-description-box">
             <div className="row">
-              <div className="col-12 desc-status">Stage {project.Stage} | {STAGES[project.Stage]}</div>
+              <div className="col-12 desc-status">
+                Stage {project.Stage} | {STAGES[project.Stage]}
+              </div>
               <div className="col-12 desc-title">
                 <NavLink
                   className="no-padding"
@@ -44,17 +49,20 @@ class InvestorProjectCard extends Component {
               </div>
               <div className="col-12 desc-location">
                 <div className="projects-location-icon location-icon" />
-                <a href={'#'}>{project.Location}</a>
+                <a href={"#"}>{project.Location}</a>
               </div>
-              <div className="col-12 desc-spec-value">0</div>
-              <div className="col-12 desc-category">RESEARCH PROJECT</div>
+              <div className="col-12 desc-spec-value">{project.Capacity}</div>
+              <div className="col-12 desc-category">CAPACITY</div>
             </div>
           </div>
           <SummaryCards
             items={[
               { value: project["Your Investment"], desc: "your investment" },
               { value: project["Your Return"], desc: "your return" },
-              { value: project["Investment Rating"], desc: "investment rating" },
+              {
+                value: project["Investment Rating"],
+                desc: "investment rating"
+              },
               { value: project["Impact Rating"], desc: "Impact Rating" },
               { value: project["Project Actions"], desc: "project actions" }
             ]}
