@@ -28,7 +28,7 @@ class InvestorProjectCard extends Component {
                 <div className="watch-icon" />
               </button>
               <img
-                src={"https://i.ibb.co/8cqdT6n/Asset-3-4x.png"}
+                src={project.Image}
                 alt="project card"
               />
             </div>

@@ -40,7 +40,7 @@ const Overview = ({data}) => {
 				</div>
 
 <				div className="full-image">
-					<img src="/static/media/HeroBar.0ff1d5bb.png" alt="hero" height="100%"/>
+					<img src={data["image link"]} alt="hero" height="100%"/>
 				</div>
 
 				<div className="opportunity">

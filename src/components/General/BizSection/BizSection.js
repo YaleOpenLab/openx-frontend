@@ -4,11 +4,11 @@ import "../../General/CustomSections/CustomSections.scss"
 const BizSection = props => {
   let items = null;
 	var image1 = {
-		backgroundImage: 'url(' + "https://i.ibb.co/8r5yz1h/Asset-10-4x-2x.png" + ')',
+		backgroundImage: 'url(' +  props.items["general payment logic"] + ')',
 		height: '401px',
 	}
 	var image2 = {
-		backgroundImage: 'url(' + "https://i.ibb.co/p1kqJxC/asdsads.png" + ')',
+		backgroundImage: 'url(' + props.items["capital expenditure image"] + ')',
 		height: '150px',
 	}
 
