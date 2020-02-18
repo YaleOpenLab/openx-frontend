@@ -96,23 +96,23 @@ const Entity = ({
                   leftIcon="profile-badge-icon"
                 />
               </div>
-              <div className="component-box-content">
-                <ToggleButton
-                  label={
-                    <SeeMore
-                      infoContent={
-                        <div style={{ fontSize: 12 }}>
-                          Is your account verified?{" "}
-                        </div>
-                      }
-                    >
-                      Is your account verified?
-                    </SeeMore>
-                  }
-                  checked={verified}
-                  handleChange={handleVerify}
-                />
-              </div>
+              {/*<div className="component-box-content">*/}
+              {/*  <ToggleButton*/}
+              {/*    label={*/}
+              {/*      <SeeMore*/}
+              {/*        infoContent={*/}
+              {/*          <div style={{ fontSize: 12 }}>*/}
+              {/*            Is your account verified?{" "}*/}
+              {/*          </div>*/}
+              {/*        }*/}
+              {/*      >*/}
+              {/*        Is your account verified?*/}
+              {/*      </SeeMore>*/}
+              {/*    }*/}
+              {/*    checked={verified}*/}
+              {/*    handleChange={handleVerify}*/}
+              {/*  />*/}
+              {/*</div>*/}
             </React.Fragment>
           )}
           {roles.Recipient && roles.Recipient.Company && (
@@ -143,23 +143,23 @@ const Entity = ({
                   leftIcon="profile-badge-icon"
                 />
               </div>
-              <div className="component-box-content">
-                <ToggleButton
-                  label={
-                    <SeeMore
-                      infoContent={
-                        <div style={{ fontSize: 12 }}>
-                          Is your account verified?{" "}
-                        </div>
-                      }
-                    >
-                      Is your account verified?
-                    </SeeMore>
-                  }
-                  checked={verified}
-                  handleChange={handleVerify}
-                />
-              </div>
+              {/*<div className="component-box-content">*/}
+              {/*  <ToggleButton*/}
+              {/*    label={*/}
+              {/*      <SeeMore*/}
+              {/*        infoContent={*/}
+              {/*          <div style={{ fontSize: 12 }}>*/}
+              {/*            Is your account verified?{" "}*/}
+              {/*          </div>*/}
+              {/*        }*/}
+              {/*      >*/}
+              {/*        Is your account verified?*/}
+              {/*      </SeeMore>*/}
+              {/*    }*/}
+              {/*    checked={verified}*/}
+              {/*    handleChange={handleVerify}*/}
+              {/*  />*/}
+              {/*</div>*/}
             </React.Fragment>
           )}
           <div className="col-12 solar-form-separator" />
