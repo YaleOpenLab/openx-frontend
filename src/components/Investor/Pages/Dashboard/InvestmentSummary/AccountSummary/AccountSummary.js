@@ -40,7 +40,7 @@ const AccountSummary = ({ investor, usdbalance }) => (
                 type: "primary"
               },
               {
-                text: "$" + usdbalance,
+                text: "$" + investor["Account Balance 1"],
                 label: "ACCOUNT BALANCE",
                 actionLabel: "Account History >",
                 actionLabelLink: {
@@ -52,7 +52,7 @@ const AccountSummary = ({ investor, usdbalance }) => (
                 }
               },
               {
-                text: "$" + usdbalance,
+                text: "$" + investor["Account Balance 1"],
                 label: "AVAILABLE FUNDS",
                 actionLabel: "Deposit Funds >",
                 actionLabelLink: ROUTES.PROFILE_PAGES.SETTINGS_PAGES.FUNDS_PAGES.LOAD_FUNDS.replace(
@@ -89,7 +89,7 @@ const AccountSummary = ({ investor, usdbalance }) => (
                 type: "primary"
               },
               {
-                text: "$0",
+                text: "$" + investor["Account Balance 2"],
                 label: "ACCOUNT BALANCE",
                 actionLabel: "Account History >",
                 actionLabelLink: {
@@ -101,7 +101,7 @@ const AccountSummary = ({ investor, usdbalance }) => (
                 }
               },
               {
-                text: "$0",
+                text: "$" + investor["Account Balance 2"],
                 label: "AVAILABLE FUNDS",
                 actionLabel: "Deposit Funds >",
                 actionLabelLink: ROUTES.PROFILE_PAGES.SETTINGS_PAGES.FUNDS_PAGES.LOAD_FUNDS.replace(
