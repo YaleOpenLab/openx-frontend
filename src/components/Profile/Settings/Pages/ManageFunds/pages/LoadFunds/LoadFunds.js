@@ -47,6 +47,14 @@ const LoadFunds = withRouter(({fetchFundsUser, account, history, match, showMess
 
 	const profileItems = generateItems();
 
+	var url = '';
+	if (investor && investor.Name) {
+		url = investor.AnchorKYC.Url;
+	}
+	if (recipient && recipient.Name) {
+		url = recipient.AnchorKYC.Url;
+	}
+
 	return (
 		<div className="ProfilePageContainer">
 			<div className="row">
@@ -95,22 +103,51 @@ const LoadFunds = withRouter(({fetchFundsUser, account, history, match, showMess
 						This link contains details of your  Open Solar user account in order to reference it
 						to youe Anchor USD account. If you don’t use this link, then your USDx funds in AnchorUSD
 						will not be linked to the Open Solar platform</span>}
-						link={{label: 'MAGIC LINK HERE >', url: '#'}}
-						image={{description: 'You should see a screen like this: '}}
+						link={{label: 'Go to anchorusd.com >', url: url	}}
+						image={{description: 'Guide screen: ', url: 'https://i.ibb.co/Mp6XNTf/anchor1.png'}}
 					/>
 					<TutorialStep
-						step={"STEP 2"}
-						description={<span><Highlight>Purchase USDx by linking your bank details to AnchorUSD. </Highlight>
-						You will have to wait for 2 to 3 business days for your funds to show in your account…</span>}
-						image={{description: 'You should see a screen like this: '}}
+						step={"STEP 2A / Register"}
+						description={<span>
+							Please register on AnchorUSD if you already haven't. This is a necessary step in order
+							to buy USD equivalents on the Stellar Network, and use them to invest in projects listed
+							on Opensolar. <br /><br /><Highlight>Choose Whether this is a personal or business account</Highlight>
+						</span>}
+						image={{description: '', url: 'https://i.ibb.co/BTYMWH8/anchor2.png'}}
 					/>
-
+					<TutorialStep
+						step={"STEP 2B / Register"}
+						description={<span>
+							<Highlight>Enter your name and relevant details: </Highlight>
+						</span>}
+						image={{description: '', url: 'https://i.ibb.co/c8YdKbh/anchor3.png'}}
+					/>				
+					<TutorialStep
+						step={"STEP 2C / Register"}
+						description={<span>
+							<Highlight>Enter your contact number</Highlight>
+						</span>}
+						image={{description: '', url: 'https://i.ibb.co/Try02Yg/anchor4.png'}}
+					/>
+					<TutorialStep
+						step={"STEP 2D / Register"}
+						description={<span>
+							<Highlight>Submit For Review</Highlight>
+						</span>}
+						image={{description: '', url: 'https://i.ibb.co/TcvRsYn/anchor5.png'}}
+					/>
+					<TutorialStep
+						step={"STEP 3"}
+						description={<span><Highlight>Purchase Funds on Opensolar</Highlight>
+						</span>}
+						image={{description: 'You should see a screen like this: ', url:'https://via.placeholder.com/500'}}
+					/>
 					<TutorialStep
 						step={"STEP 3"}
 						description={<span><Highlight>Return to OpenSolar once your funds show up in AnchorUSD. By this time,
-						your funds should be available in your Open Solar account.</Highlight>
+						your funds should be available in your Open Solar account.</Highlight><br /><br />
 						Please contact us if you see AnchorUSD funds but not in your OpenSolar account.  </span>}
-						image={{description: 'You should see a screen like this: '}}
+						image={{description: 'You should see a screen like this: ', url:'https://via.placeholder.com/500'}}
 					/>
 					<StyledSeparator size={5}/>
 					<ActionButtons

@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import {StyledText, StyledHeader, StyledFieldSection} from "../Pages/styles";
 import {Variables} from "../../../../styles/variables";
-import CustomLink from "../../../UI/CustomLink/CustomLink";
 
 const StyledTutorialStepContainer = styled.div`
 	margin-bottom: 40px	;
@@ -23,7 +22,7 @@ const StyledImageSection = styled.div`
 	margin: 16px 0;
 `;
 
-const StyledImage = styled.div`
+const StyledImage = styled.img`
 	
 `;
 const StyledImageDescription = styled.div`
