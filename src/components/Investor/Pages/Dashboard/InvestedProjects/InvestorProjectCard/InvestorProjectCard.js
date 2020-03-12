@@ -27,10 +27,7 @@ class InvestorProjectCard extends Component {
               <button className="watch-button-explore" type="button">
                 <div className="watch-icon" />
               </button>
-              <img
-                src={project.Image}
-                alt="project card"
-              />
+              <img src={project.Image} alt="project card" />
             </div>
           </NavLink>
           <div className="projects-description-box">

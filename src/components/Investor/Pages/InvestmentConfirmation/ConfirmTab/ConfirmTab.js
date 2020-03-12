@@ -22,7 +22,10 @@ const ConfirmTab = props => (
               <DivBox
                 type="open"
                 label="wallet address"
-                text={props.account.StellarWallet && props.account.StellarWallet.PublicKey}
+                text={
+                  props.account.StellarWallet &&
+                  props.account.StellarWallet.PublicKey
+                }
                 col="12"
                 classes={["light-box", "big-box", "label-right", "margin-top"]}
               />
@@ -31,7 +34,9 @@ const ConfirmTab = props => (
                   <div className="label-right">Available:</div>
                 </div>
                 <div className="col-4 invest-confirm-profile-values">
-                  <span className="-bigger">$ {props.usdbalance || '0 (Auto-Exchange Enabled)'}</span>
+                  <span className="-bigger">
+                    $ {props.usdbalance || "0 (Auto-Exchange Enabled)"}
+                  </span>
                 </div>
               </div>
             </div>

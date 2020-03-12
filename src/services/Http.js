@@ -85,6 +85,15 @@ export class Http {
       username: username
     }).pipe(
       map(value => {
+        if (
+          entity === "user" &&
+          value.data &&
+          value.data.Code &&
+          value.data.Code === 401
+        ) {
+          Storage.clear();
+          window.location.reload();
+        }
         return value;
       })
     );
@@ -156,7 +165,7 @@ export class Http {
       map(data => {
         if (!type || type === "pv-solar") {
           return data.map(project => {
-            return {...project};
+            return { ...project };
           });
         } else {
           return [];
@@ -209,6 +218,20 @@ export class Http {
 
   static manageSeed = values => {
     return this.getProtected("user/sendrecovery", {
+      username: Storage.get("username"),
+      ...values
+    });
+  };
+
+  static depositIntent = values => {
+    return this.getProtected("user/anchorusd/deposit/intent", {
+      username: Storage.get("username"),
+      ...values
+    });
+  };
+
+  static withdrawIntent = values => {
+    return this.getProtected("user/anchorusd/withdraw/intent", {
       username: Storage.get("username"),
       ...values
     });

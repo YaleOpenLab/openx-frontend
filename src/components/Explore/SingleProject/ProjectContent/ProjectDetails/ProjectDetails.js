@@ -1,15 +1,15 @@
-import React from 'react';
-import ScrollableAnchor from 'react-scrollable-anchor';
-import CustomSections from '../../../../General/CustomSections/CustomSections';
-import ArchitectureSection from '../../../../General/ArchitectureSection/ArchitectureSection';
-import EngineeringSection from '../../../../General/EngineeringSection/EngineeringSection';
-import CommunitySection from '../../../../General/CommunitySection/CommunitySection';
-import BizSection from '../../../../General/BizSection/BizSection';
-import Title from '../../../../General/Title/Title';
+import React from "react";
+import ScrollableAnchor from "react-scrollable-anchor";
+import CustomSections from "../../../../General/CustomSections/CustomSections";
+import ArchitectureSection from "../../../../General/ArchitectureSection/ArchitectureSection";
+import EngineeringSection from "../../../../General/EngineeringSection/EngineeringSection";
+import CommunitySection from "../../../../General/CommunitySection/CommunitySection";
+import BizSection from "../../../../General/BizSection/BizSection";
+import Title from "../../../../General/Title/Title";
 
-const ProjectDetails = ({data}) => {
+const ProjectDetails = ({ data }) => {
   return (
-    <ScrollableAnchor id={'project'}>
+    <ScrollableAnchor id={"project"}>
       <section>
         <section className="ProjectDetails -architecture">
           <Title title="Project Details" />
@@ -41,7 +41,7 @@ const ProjectDetails = ({data}) => {
           </div>
           <div className="business margin-top">
             <div className="container">
-                <BizSection items={data["biz numbers"]}/>
+              <BizSection items={data["biz numbers"]} />
             </div>
           </div>
         </section>

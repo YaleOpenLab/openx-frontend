@@ -8,6 +8,7 @@ import history from "../../../helpers/history";
 import { validateAction } from "../../Profile/store/actions";
 import { Http } from "../../../services/Http";
 import { displayErrorAction } from "../../../store/actions/actions";
+import Storage from "../../../services/Storage";
 
 // Move validation rules into separate file
 const LoginSchema = Yup.object().shape({
@@ -26,7 +27,7 @@ const LoginComponent = ({
   authorized
 }) => {
   useEffect(() => {
-    if (authorized) {
+    if (authorized && Storage.get("username") && Storage.get("token")) {
       showMessage("success", "Logged In");
       history.push(ROUTES.HOME);
     }
@@ -43,6 +44,7 @@ const LoginComponent = ({
               if (response.data.Code === 500) {
                 showMessage("error", "User Not Registered");
               } else if (response.data.Token) {
+                history.push(ROUTES.HOME);
                 fetchUserAccount("user", values.username);
               }
             }

@@ -22,7 +22,7 @@ const Verify = withRouter(
   ({
     fetchVerifyUser,
     fetchVerifyEntityUser,
-    account,
+    profile,
     history,
     match,
     showMessage
@@ -43,20 +43,6 @@ const Verify = withRouter(
       });
     }, []);
 
-    const handleContinue = () => {
-      fetchVerifyUser(match.params.userType, match.params.username);
-      if (account.Kyc) {
-        history.push(
-          ROUTES.PROFILE_PAGES.SETTINGS_PAGES.FUNDS_PAGES.LOAD_FUNDS.replace(
-            ":username",
-            match.params.username
-          ).replace(":userType", match.params.userType)
-        );
-      } else {
-        showMessage("error", "Account is not verified");
-      }
-    };
-
     return (
       <div className="ProfilePageContainer">
         <div className="row">
@@ -66,13 +52,13 @@ const Verify = withRouter(
             <StyledFieldSection>
               <DivBox
                 type="full"
-                text={account && account.Name}
+                text={profile && profile.Name}
                 label="individual"
                 leftIcon="profile-user-icon"
                 rightIcon="profile-edit-icon"
               />
               <DivBox
-                text={account && account.PublicKey}
+                text={profile.StellarWallet && profile.StellarWallet.PublicKey}
                 label="public key"
                 leftIcon="profile-badge-icon"
               />
@@ -95,6 +81,7 @@ const Verify = withRouter(
               USDx) for use in your account.
             </StyledText>
             <StyledSeparator noBorder={true} size={5} />
+
             <TutorialStep
               step={"STEP 1"}
               description={
@@ -165,10 +152,6 @@ const Verify = withRouter(
                 url: ROUTES.PROFILE_PAGES.SETTINGS_PAGES.USER_PROFILES,
                 label: "go back"
               }}
-              confirmButton={{
-                action: handleContinue,
-                label: "next"
-              }}
             />
           </div>
         </div>
@@ -178,7 +161,7 @@ const Verify = withRouter(
 );
 
 const mapStateToProps = state => ({
-  account: state.verify.user
+  profile: state.profile.user.items
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -4,17 +4,14 @@ import ROUTES from "../../../../routes/routes";
 import "./NavBar.scss";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import ProfileImage from "../../../../assets/images/user-profile-icon.svg"
+import ProfileImage from "../../../../assets/images/user-profile-icon.svg";
 
-const NavBar = ({account}) => (
+const NavBar = ({ account }) => (
   <div className="col-12 col-sm-4 col-lg-3">
     <div className="ProfileNavBar">
       <div className="profile-nav-info-section">
         <div className="proile-nav-image">
-          <img
-            src={ProfileImage}
-            alt="user profile"
-          />
+          <img src={ProfileImage} alt="user profile" />
         </div>
         <div className="profile-nav-user-name">{account.Name}</div>
       </div>
@@ -48,9 +45,14 @@ const NavBar = ({account}) => (
         <div className="profile-progress-text">
           Your account setup progress:
         </div>
-        <div className="profile-progress-percentage">{account.ProfileProgress}%</div>
+        <div className="profile-progress-percentage">
+          {account.ProfileProgress}%
+        </div>
         <div className="profile-progress-bar">
-          <div className="profile-progress-success" style={{ width: `${account.ProfileProgress}%` }} />
+          <div
+            className="profile-progress-success"
+            style={{ width: `${account.ProfileProgress}%` }}
+          />
         </div>
       </div>
     </div>
@@ -62,10 +64,6 @@ const mapStateToProps = state => ({
   loading: state.profile.user.isLoading
 });
 
-const mapDispatchToProps = dispatch => ({
-});
+const mapDispatchToProps = dispatch => ({});
 
-export default withRouter(connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(NavBar));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NavBar));

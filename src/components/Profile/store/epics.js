@@ -59,6 +59,8 @@ export const validateActionEpic = action$ =>
     switchMap(action => {
       return Http.validateService(action.entity, action.username).pipe(
         concatMap(user => {
+          console.log(user);
+
           if (user.data.Code) {
             return [
               displayErrorAction("error", user.data.Status),

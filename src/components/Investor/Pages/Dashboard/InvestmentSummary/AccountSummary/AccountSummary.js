@@ -40,7 +40,10 @@ const AccountSummary = ({ investor, usdbalance }) => (
                 type: "primary"
               },
               {
-                text: "$" + usdbalance,
+                text:
+                  "$" + investor &&
+                  investor["Account Balance 1"] &&
+                  investor["Account Balance 1"].toFixed(2),
                 label: "ACCOUNT BALANCE",
                 actionLabel: "Account History >",
                 actionLabelLink: {
@@ -52,18 +55,21 @@ const AccountSummary = ({ investor, usdbalance }) => (
                 }
               },
               {
-                text: "$" + usdbalance,
+                text:
+                  "$" + investor &&
+                  investor["Account Balance 1"] &&
+                  investor["Account Balance 1"].toFixed(2),
                 label: "AVAILABLE FUNDS",
                 actionLabel: "Deposit Funds >",
                 actionLabelLink: ROUTES.PROFILE_PAGES.SETTINGS_PAGES.FUNDS_PAGES.LOAD_FUNDS.replace(
                   ":username",
                   Storage.get("Username")
-                ).replace(":userType", "investor"),
+                ),
                 secondaryLink: {
                   url: ROUTES.PROFILE_PAGES.SETTINGS_PAGES.FUNDS_PAGES.WITHDRAW_FUNDS.replace(
                     ":username",
                     Storage.get("Username")
-                  ).replace(":userType", "investor"),
+                  ),
                   label: "Withdraw Funds >"
                 },
                 type: "last"
@@ -89,7 +95,10 @@ const AccountSummary = ({ investor, usdbalance }) => (
                 type: "primary"
               },
               {
-                text: "$0",
+                text:
+                  "$" + investor &&
+                  investor["Account Balance 2"] &&
+                  investor["Account Balance 2"].toFixed(2),
                 label: "ACCOUNT BALANCE",
                 actionLabel: "Account History >",
                 actionLabelLink: {
@@ -101,7 +110,10 @@ const AccountSummary = ({ investor, usdbalance }) => (
                 }
               },
               {
-                text: "$0",
+                text:
+                  "$" + investor &&
+                  investor["Account Balance 2"] &&
+                  investor["Account Balance 2"].toFixed(2),
                 label: "AVAILABLE FUNDS",
                 actionLabel: "Deposit Funds >",
                 actionLabelLink: ROUTES.PROFILE_PAGES.SETTINGS_PAGES.FUNDS_PAGES.LOAD_FUNDS.replace(

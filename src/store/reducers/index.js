@@ -6,7 +6,7 @@ import errorReducer from "./errors";
 import verifyAccountReducer from "../../components/Profile/Settings/Pages/Profiles/pages/VerifyProfilePage/store/reducers";
 import fundsAccountReducer from "../../components/Profile/Settings/Pages/ManageFunds/pages/store/reducers";
 
-const rootReducer = combineReducers({
+const appReducer = combineReducers({
   projects: projectsReducer,
   project: projectReducer,
   error: errorReducer,
@@ -14,5 +14,12 @@ const rootReducer = combineReducers({
   funds: fundsAccountReducer,
   profile: userAccountReducer
 });
+const rootReducer = (state, action) => {
+  if (action.type === "USER_LOGOUT") {
+    state = undefined;
+  }
+
+  return appReducer(state, action);
+};
 
 export default rootReducer;

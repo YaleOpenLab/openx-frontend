@@ -1,7 +1,7 @@
 import React from "react";
 import "./SupportComponent.scss";
-import ROUTES from '../../../routes/routes';
-import Link from 'react-router-dom/es/Link';
+import ROUTES from "../../../routes/routes";
+import Link from "react-router-dom/es/Link";
 
 const supportComponent = props => (
   <div className="support">

@@ -25,7 +25,4 @@ class LogoutPage extends Component {
 const mapDispatchToProps = dispatch =>
   bindActionCreators({ logoutUserAccount }, dispatch);
 
-export default connect(
-  null,
-  mapDispatchToProps
-)(LogoutPage);
+export default connect(null, mapDispatchToProps)(LogoutPage);
