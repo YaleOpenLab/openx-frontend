@@ -19,14 +19,7 @@ import { displayErrorAction } from "../../../../../../../store/actions/actions";
 import { Http } from "../../../../../../../services/Http";
 
 const Verify = withRouter(
-  ({
-    fetchVerifyUser,
-    fetchVerifyEntityUser,
-    profile,
-    history,
-    match,
-    showMessage
-  }) => {
+  ({ fetchVerifyUser, fetchVerifyEntityUser, profile, history, match }) => {
     const [url, setUrl] = useState("#");
 
     useEffect(() => {
@@ -87,18 +80,74 @@ const Verify = withRouter(
               description={
                 <span>
                   <Highlight>
-                    Access Anchor USD and Create an Account{" "}
+                    Access Anchor USD and create an account if you already
+                    haven't
                   </Highlight>
-                  Description of the step that the user needs to take. Lorem
-                  ipsum needed for regulatory compliance whenever managing funds
-                  that are tied to investments. The standard procedure is called
-                  KYC, which stands for ‘Know Your Customer.’ In this case, KYC
-                  is needed to acquire stable digital funds (called USDx) for
-                  use in your account.
+                  This link contains details of your Opensolar user account in
+                  order to reference it to youe Anchor USD account. If you don’t
+                  use this link, then your USDx funds in Opensolar will not be
+                  linked to AnchorUSD, and vice versa
                 </span>
               }
-              link={{ label: "LINK HERE >", url: url }}
-              image={{ description: "You should see a screen like this: " }}
+              link={{ label: "Go to anchorusd.com >", url: url }}
+              image={{
+                description: "Guide screen: ",
+                url: "https://i.ibb.co/Mp6XNTf/anchor1.png"
+              }}
+            />
+            <TutorialStep
+              step={"STEP 2A / Register"}
+              description={
+                <span>
+                  Please register on AnchorUSD if you already haven't. This is a
+                  necessary step in order to exchange and buy USD equivalents on
+                  the Stellar Network <br />
+                  <br />
+                  <Highlight>
+                    Choose Whether this is a personal or business account
+                  </Highlight>
+                </span>
+              }
+              image={{
+                description: "",
+                url: "https://i.ibb.co/BTYMWH8/anchor2.png"
+              }}
+            />
+            <TutorialStep
+              step={"STEP 2B / Register"}
+              description={
+                <span>
+                  <Highlight>Enter your name and relevant details: </Highlight>
+                </span>
+              }
+              image={{
+                description: "",
+                url: "https://i.ibb.co/c8YdKbh/anchor3.png"
+              }}
+            />
+            <TutorialStep
+              step={"STEP 2C / Register"}
+              description={
+                <span>
+                  <Highlight>Enter your contact number</Highlight>
+                </span>
+              }
+              image={{
+                description: "",
+                url: "https://i.ibb.co/Try02Yg/anchor4.png"
+              }}
+            />
+            <TutorialStep
+              step={"STEP 2D / Register"}
+              description={
+                <span>
+                  <Highlight>Submit For Review</Highlight>
+                </span>
+              }
+              image={{
+                description: "",
+                url: "https://i.ibb.co/TcvRsYn/anchor5.png"
+              }}
             />
             <TutorialStep
               step={"STEP 2"}
@@ -117,7 +166,6 @@ const Verify = withRouter(
               }
               image={{ description: "You should see a screen like this: " }}
             />
-
             <TutorialStep
               step={"STEP 3"}
               description={
