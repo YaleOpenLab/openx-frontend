@@ -367,7 +367,7 @@ const Account = ({
                   </div>
                   <div className="col-6">
                     <button
-                      className="solar-form-button solar-btn-normal"
+                      className="solar-form-button solar-btn-white"
                       onClick={handleGoNext}
                     >
                       next
