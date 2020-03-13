@@ -2,7 +2,7 @@ import { ofType } from "redux-observable";
 import { catchError, concatMap, switchMap } from "rxjs/operators";
 import { Http } from "../../../../../../../../services/Http";
 import { displayErrorAction } from "../../../../../../../../store/actions/actions";
-import { Observable } from "rxjs";
+import { of } from "rxjs";
 import {
   FETCH_VERIFY_ENTITY_PROFILE,
   FETCH_VERIFY_PROFILE,
@@ -28,7 +28,7 @@ export const fetchVerifyAccountEpic = action$ =>
           }
         }),
         catchError(error =>
-          Observable.of(fetchVerifyAccountFailure(action.entity, error.message))
+          of(fetchVerifyAccountFailure(action.entity, error.message))
         )
       );
     })
@@ -50,9 +50,7 @@ export const fetchVerifyEntityAccountEpic = action$ =>
           }
         }),
         catchError(error =>
-          Observable.of(
-            fetchVerifyEntityAccountFailure(action.entity, error.message)
-          )
+          of(fetchVerifyEntityAccountFailure(action.entity, error.message))
         )
       );
     })

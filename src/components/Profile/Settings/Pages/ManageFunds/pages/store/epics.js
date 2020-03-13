@@ -2,7 +2,7 @@ import { ofType } from "redux-observable";
 import { catchError, concatMap, switchMap } from "rxjs/operators";
 import { Http } from "../../../../../../../services/Http";
 import { displayErrorAction } from "../../../../../../../store/actions/actions";
-import { Observable } from "rxjs";
+import { of } from "rxjs";
 import {
   FETCH_FUNDS_PROFILE,
   fetchFundsAccountSuccess,
@@ -25,7 +25,7 @@ export const fetchFundsAccountEpic = action$ =>
           }
         }),
         catchError(error =>
-          Observable.of(fetchFundsAccountFailure(action.entity, error.message))
+          of(fetchFundsAccountFailure(action.entity, error.message))
         )
       );
     })

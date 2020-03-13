@@ -12,6 +12,7 @@ import NavigationItem from "../NavigationItem/NavigationItem";
 import Routes from "../../../routes/routes";
 import isAuthorized from "../../../helpers/functions/is-authorized";
 import UserProfileSection from "./UserProfileSection/UserProfileSection";
+import ImageLogo from "../../UI/ImageLogo/ImageLogo";
 
 class MainNavigationComponent extends Component {
   state = {
@@ -28,7 +29,7 @@ class MainNavigationComponent extends Component {
     return (
       <MDBNavbar color="dark" className="main-navigation" expand="md">
         <MDBNavbarBrand>
-          <Logo projectName="solar" />
+          <ImageLogo />
         </MDBNavbarBrand>
         <MDBNavbarToggler onClick={this.toggleCollapse} />
         <MDBCollapse

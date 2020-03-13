@@ -7,7 +7,7 @@ import {
   progressActionFailure,
   progressActionSuccess
 } from "../actions/actions";
-import { Observable } from "rxjs";
+import { of } from "rxjs";
 
 export const progressActionEpic = action$ =>
   action$.pipe(
@@ -22,7 +22,7 @@ export const progressActionEpic = action$ =>
           }
         }),
         catchError(error =>
-          Observable.of(
+          of(
             progressActionFailure(error.message),
             displayErrorAction("error", error.message)
           )

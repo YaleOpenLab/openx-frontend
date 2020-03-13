@@ -1,8 +1,7 @@
 import { Http } from "../../../services/Http";
 import { catchError, concatMap, switchMap } from "rxjs/operators";
 import { ofType } from "redux-observable";
-import { Observable } from "rxjs";
-import "rxjs/add/observable/of";
+import { of } from "rxjs";
 import {
   dashboardActionFailure,
   dashboardActionSuccess,
@@ -44,7 +43,7 @@ export const updateAccountEpic = (action$, store) =>
           }
         }),
         catchError(error =>
-          Observable.of(
+          of(
             updateAccountFailure(action.entity, error.message),
             displayErrorAction("error", error.message)
           )
@@ -59,8 +58,6 @@ export const validateActionEpic = action$ =>
     switchMap(action => {
       return Http.validateService(action.entity, action.username).pipe(
         concatMap(user => {
-          console.log(user);
-
           if (user.data.Code) {
             return [
               displayErrorAction("error", user.data.Status),
@@ -71,7 +68,7 @@ export const validateActionEpic = action$ =>
           }
         }),
         catchError(error =>
-          Observable.of(validateActionFailure(action.entity, error.message))
+          of(validateActionFailure(action.entity, error.message))
         )
       );
     })
@@ -92,9 +89,9 @@ export const validateInvestorEpic = action$ =>
             return [validateActionSuccess(action.entity, user.data)];
           }
         }),
-        catchError(error =>
-          Observable.of(validateActionFailure(action.entity, error.message))
-        )
+        catchError(error => {
+          return of(validateActionFailure(action.entity, error.message));
+        })
       );
     })
   );
@@ -115,7 +112,7 @@ export const validateRecipientEpic = action$ =>
           }
         }),
         catchError(error =>
-          Observable.of(validateActionFailure(action.entity, error.message))
+          of(validateActionFailure(action.entity, error.message))
         )
       );
     })
@@ -130,9 +127,7 @@ export const getInvestorDashboard = action$ =>
           return [dashboardActionSuccess(action.entity, result)];
         }),
         catchError(error => {
-          return Observable.of(
-            dashboardActionFailure(action.entity, error.message)
-          );
+          return of(dashboardActionFailure(action.entity, error.message));
         })
       );
     })
@@ -147,7 +142,7 @@ export const getRecipientDashboard = action$ =>
           return [dashboardActionSuccess(action.entity, result)];
         }),
         catchError(error =>
-          Observable.of(dashboardActionFailure(action.entity, error.message))
+          of(dashboardActionFailure(action.entity, error.message))
         )
       );
     })
@@ -162,7 +157,7 @@ export const getDeveloperDashboard = action$ =>
           return [dashboardActionSuccess(action.entity, result)];
         }),
         catchError(error =>
-          Observable.of(dashboardActionFailure(action.entity, error.message))
+          of(dashboardActionFailure(action.entity, error.message))
         )
       );
     })
@@ -184,7 +179,7 @@ export const validateEntityEpic = action$ =>
           }
         }),
         catchError(error =>
-          Observable.of(validateEntityActionFailure("entity", error.message))
+          of(validateEntityActionFailure("entity", error.message))
         )
       );
     })
@@ -209,7 +204,7 @@ export const registerActionEpic = action$ =>
           }
         }),
         catchError(error =>
-          Observable.of(
+          of(
             registerActionFailure(action.entity, error.message),
             displayErrorAction("error", error.message)
           )
@@ -234,7 +229,7 @@ export const setCompanyActionEpic = action$ =>
           }
         }),
         catchError(error =>
-          Observable.of(
+          of(
             setCompanyActionFailure(action.entity, error.message),
             displayErrorAction("error", error.message)
           )
@@ -262,7 +257,7 @@ export const registerCompanyActionEpic = action$ =>
           }
         }),
         catchError(error =>
-          Observable.of(
+          of(
             registerCompanyActionFailure(action.entity, error.message),
             displayErrorAction("error", error.message)
           )
@@ -290,7 +285,7 @@ export const registerEntityActionEpic = action$ =>
           }
         }),
         catchError(error =>
-          Observable.of(
+          of(
             registerEntityActionFailure("entity", error.message),
             displayErrorAction("error", error.message)
           )
@@ -315,7 +310,7 @@ export const getUserRolesEpic = action$ =>
           }
         }),
         catchError(error =>
-          Observable.of(
+          of(
             getUserRolesFailure(error.message),
             displayErrorAction("error", error.message)
           )

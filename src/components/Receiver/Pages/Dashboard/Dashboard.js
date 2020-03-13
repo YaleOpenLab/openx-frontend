@@ -39,128 +39,133 @@ class Dashboard extends Component {
     }
 
     return (
-		<div className="receiver-dashboard">
-			<div className="title-container -border">
-			{!projects ? (
-				<div className="container" style={{ marginBottom: 40 }}>
-					<NotAvailable text={"You don't have any projects"} />
-				</div>
-			) : (
-				<div>
-					<div className="container">
-					<h3 className="container-title">Summary</h3>
-					</div>
-					<div className="profile-section">
-						<div className="container">
-							<div className="row">
-								<div className="col-sm-6 col-lg-3 ">
-									<SummaryCards
-									title="your profile"
-									items={[
-										{
-										value:
-											receiver["Your Profile"] &&
-											receiver["Your Profile"].Name,
-										desc: "beneficiary name"
-										},
-										{
-										value:
-											receiver["Your Profile"] &&
-											receiver["Your Profile"]["Active Projects"] !==0?
-												receiver["Your Profile"]["Active Projects"]
-												:
-												""
-											,
-										desc: "active projects"
-										}
-									]}
-									icon="beneficiary-icon"
-									/>
-								</div>
-								<div className="col-sm-6 col-lg-3 ">
-									<SummaryCards
-									title="your energy"
-									items={[
-										{
-										value:
-											receiver["Your Energy"] &&
-											receiver["Your Energy"]["Total in Current Period"],
-										desc: "TOTAL IN CURRENT PERIOD"
-										},
-										{
-										value:
-											receiver["Your Energy"] &&
-											receiver["Your Energy"]["All Time"],
-										desc: "ALL TIME"
-										}
-									]}
-									icon="solar-panel-icon"
-									/>
-								</div>
-								<div className="col-sm-6 col-lg-3 ">
-									<SummaryCards
-									title="YOUR WALLET"
-									items={[
-										{
-										value: receiver["Your Wallet"]
-											? receiver["Your Wallet"]["Project Wallet Balance"] !== 0 ?
-												receiver["Your Wallet"]["Project Wallet Balance"]
-												:
-												""
-											: "",
-										desc: "PROJECT WALLET BALANCE"
-										},
-										{
-										value: receiver["Your Wallet"]
-											? receiver["Your Wallet"]["Auto Reload"]
-											: "Inactive",
-										desc: "AUTO RE-LOAD"
-										}
-									]}
-									icon="wallet-icon"
-									/>
-								</div>
-								<div className="col-sm-6 col-lg-3 ">
-								<SummaryCards
-								title="NOTIFICATIONS & ACTIONS"
-								items={[
-									{
-									value: receiver["Notifications & Actions"]
-										? receiver["Notifications & Actions"]["Notification"]
-										: "None",
-									desc: "NOTIFICATION"
-									},
-									{
-									value: receiver["Notifications & Actions"]
-										? receiver["Notifications & Actions"][
-											"Actions Required"
-										]
-										: "None",
-									desc: "ACTIONS REQUIRED"
-									}
-								]}
-								icon="flag-icon"
-								/>
-							</div>
-							</div>
-						</div>
-					</div>
-					<div>
-						<div className="title-container -border">
-						<div className="container">
-							<h3 className="container-title">Your Projects</h3>
-						</div>
-						</div>
-						{projects.map(project => {
-							return <ReceiverProject data={project} />;
-						})}
-					</div>
-				</div>
-			)}
-			</div>
-		</div>
-	);
-	}
+      <div className="receiver-dashboard">
+        <div className="title-container -border">
+          {!projects ? (
+            <div className="container" style={{ marginBottom: 40 }}>
+              <NotAvailable text={"You don't have any projects"} />
+            </div>
+          ) : (
+            <div>
+              <div className="container">
+                <h3 className="container-title">Summary</h3>
+              </div>
+              <div className="profile-section">
+                <div className="container">
+                  <div className="row">
+                    <div className="col-sm-6 col-lg-3 ">
+                      <SummaryCards
+                        title="your profile"
+                        items={[
+                          {
+                            value:
+                              receiver["Your Profile"] &&
+                              receiver["Your Profile"].Name,
+                            desc: "beneficiary name"
+                          },
+                          {
+                            value:
+                              receiver["Your Profile"] &&
+                              receiver["Your Profile"]["Active Projects"] !== 0
+                                ? receiver["Your Profile"]["Active Projects"]
+                                : "",
+                            desc: "active projects"
+                          }
+                        ]}
+                        icon="beneficiary-icon"
+                      />
+                    </div>
+                    <div className="col-sm-6 col-lg-3 ">
+                      <SummaryCards
+                        title="your energy"
+                        items={[
+                          {
+                            value:
+                              receiver["Your Energy"] &&
+                              receiver["Your Energy"][
+                                "Total in Current Period"
+                              ],
+                            desc: "TOTAL IN CURRENT PERIOD"
+                          },
+                          {
+                            value:
+                              receiver["Your Energy"] &&
+                              receiver["Your Energy"]["All Time"],
+                            desc: "ALL TIME"
+                          }
+                        ]}
+                        icon="solar-panel-icon"
+                      />
+                    </div>
+                    <div className="col-sm-6 col-lg-3 ">
+                      <SummaryCards
+                        title="YOUR WALLET"
+                        items={[
+                          {
+                            value: receiver["Your Wallet"]
+                              ? receiver["Your Wallet"][
+                                  "Project Wallet Balance"
+                                ] !== 0
+                                ? receiver["Your Wallet"][
+                                    "Project Wallet Balance"
+                                  ]
+                                : ""
+                              : "",
+                            desc: "PROJECT WALLET BALANCE"
+                          },
+                          {
+                            value: receiver["Your Wallet"]
+                              ? receiver["Your Wallet"]["Auto Reload"]
+                              : "Inactive",
+                            desc: "AUTO RE-LOAD"
+                          }
+                        ]}
+                        icon="wallet-icon"
+                      />
+                    </div>
+                    <div className="col-sm-6 col-lg-3 ">
+                      <SummaryCards
+                        title="NOTIFICATIONS & ACTIONS"
+                        items={[
+                          {
+                            value: receiver["Notifications & Actions"]
+                              ? receiver["Notifications & Actions"][
+                                  "Notification"
+                                ]
+                              : "None",
+                            desc: "NOTIFICATION"
+                          },
+                          {
+                            value: receiver["Notifications & Actions"]
+                              ? receiver["Notifications & Actions"][
+                                  "Actions Required"
+                                ]
+                              : "None",
+                            desc: "ACTIONS REQUIRED"
+                          }
+                        ]}
+                        icon="flag-icon"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div className="title-container -border">
+                  <div className="container">
+                    <h3 className="container-title">Your Projects</h3>
+                  </div>
+                </div>
+                {projects.map(project => {
+                  return <ReceiverProject data={project} />;
+                })}
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    );
+  }
 }
 
 const mapStateToProps = state => ({

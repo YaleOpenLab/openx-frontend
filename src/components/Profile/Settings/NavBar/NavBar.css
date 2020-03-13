@@ -1,0 +1,81 @@
+.ProfileNavBar .profile-nav-info-section .proile-nav-image {
+  height: 119px;
+  width: 119px;
+  margin: auto; }
+  .ProfileNavBar .profile-nav-info-section .proile-nav-image img {
+    object-fit: cover;
+    width: 100%;
+    border-radius: 100%;
+    cursor: pointer; }
+  .ProfileNavBar .profile-nav-info-section .proile-nav-image img:hover {
+    opacity: 0.8; }
+.ProfileNavBar .profile-nav-info-section .profile-nav-user-name {
+  color: #4a4a4a;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  text-align: center;
+  font-weight: 300;
+  margin-top: 16px; }
+.ProfileNavBar .profile-nav-menu-section {
+  margin-top: 16px; }
+  .ProfileNavBar .profile-nav-menu-section .ProfileNavItem {
+    height: 48px;
+    background: #f6f7f7;
+    border-bottom: 2px solid #dfdddd;
+    color: #4a4a4a;
+    opacity: 0.76;
+    display: flex;
+    cursor: pointer; }
+  .ProfileNavBar .profile-nav-menu-section .ProfileNavItem:hover {
+    opacity: 0.8;
+    color: #f5a623;
+    box-shadow: 3px 0px 0px 0px #2961a2;
+    opacity: 1; }
+    .ProfileNavBar .profile-nav-menu-section .ProfileNavItem:hover .profile-menu-icon,
+    .ProfileNavBar .profile-nav-menu-section .ProfileNavItem:hover .profile-menu-name {
+      color: #2961a2; }
+  .ProfileNavBar .profile-nav-menu-section .is-active .ProfileNavItem {
+    opacity: 0.8;
+    color: #f5a623;
+    box-shadow: 3px 0px 0px 0px #2961a2;
+    font-weight: bold;
+    opacity: 1; }
+    .ProfileNavBar .profile-nav-menu-section .is-active .ProfileNavItem .profile-menu-icon,
+    .ProfileNavBar .profile-nav-menu-section .is-active .ProfileNavItem .profile-menu-name {
+      color: #2961a2; }
+  .ProfileNavBar .profile-nav-menu-section .profile-menu-icon {
+    width: 25%;
+    height: 100%;
+    line-height: 3;
+    float: left;
+    text-align: center;
+    color: #4a4a4a;
+    display: flex;
+    justify-content: center; }
+  .ProfileNavBar .profile-nav-menu-section .profile-menu-name {
+    width: 75%;
+    float: left;
+    text-transform: capitalize;
+    font-size: 14px;
+    align-self: center;
+    color: #4a4a4a; }
+.ProfileNavBar .profile-nav-progress-section {
+  margin-top: 56px;
+  text-align: center;
+  color: #4a4a4a;
+  font-size: 14px; }
+  .ProfileNavBar .profile-nav-progress-section .profile-progress-percentage {
+    margin-top: 5px; }
+  .ProfileNavBar .profile-nav-progress-section .profile-progress-bar {
+    border: 1px solid #979797;
+    height: 11px;
+    margin: 0px 10px 0px 10px;
+    border-radius: 5.5px; }
+    .ProfileNavBar .profile-nav-progress-section .profile-progress-bar .profile-progress-success {
+      height: 100%;
+      background: #f5911e;
+      border-radius: 5.5px;
+      -webkit-transition: width 0.3s;
+      transition: width 0.3s; }
+
+/*# sourceMappingURL=NavBar.css.map */
