@@ -89,7 +89,9 @@ const ProjectMain = ({ data }) => {
                       <h6>Rating</h6>
                     </div>
                     <div>
-                      <p>{data.Acquisition}</p>
+                      <p>
+                        {data.Content.Details["Explore Tab"]["acquisition"]}
+                      </p>
                       <h6>Maturity</h6>
                     </div>
                   </div>
