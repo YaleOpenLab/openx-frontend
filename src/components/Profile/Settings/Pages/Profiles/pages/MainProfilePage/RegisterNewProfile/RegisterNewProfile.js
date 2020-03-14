@@ -30,12 +30,6 @@ const ConfirmBodyItem = styled.div`
   color: ${Variables.Colors.secondaryColor};
 `;
 
-const StyledModalTitle = styled.div`
-  font-size: 14px;
-  margin-top: 15px;
-  color: ${Variables.Colors.errorColor};
-`;
-
 const RegisterNewProfile = withRouter(
   ({
     investor,

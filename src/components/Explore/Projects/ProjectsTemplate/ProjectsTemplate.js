@@ -30,10 +30,6 @@ class ProjectsTemplate extends Component {
 
   render() {
     const { data } = this.props;
-    var investors = 0; // to handle cases where the number of investors associated with a project is zero
-    if (this.props.data.InvestorIndices != null) {
-      investors = this.props.data.InvestorIndices.length;
-    }
     return (
       <div className="col-sm-12 col-md-6">
         <div className="projects-box-explore">

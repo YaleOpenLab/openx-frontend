@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import {
   StyledHeader,
   Highlight,
@@ -29,7 +29,6 @@ const WithdrawFunds = withRouter(
     account,
     history,
     match,
-    showMessage,
     profile,
     investor,
     recipient
@@ -46,8 +45,6 @@ const WithdrawFunds = withRouter(
     useEffect(() => {
       fetchFundsUser(match.params.userType, match.params.username);
     }, []);
-
-    const handleContinue = () => {};
 
     const handleChange = e => {
       history.push(

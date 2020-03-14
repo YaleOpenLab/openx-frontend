@@ -6,11 +6,6 @@ import Button from "../../UI/SolarForms/Button/Button";
 const StepsForm = ({tabs, disabledNext, separator, loading, handleSave, disabledConfirm, classes, children, saveText, goBackUrl}) =>  {
   const [step, setStep] = useState(1);
 
-  const scrollTop = () => {
-    const head = document.getElementsByClassName("steps-container")[0];
-    head.scrollIntoView();
-  };
-
   const goNext = () => {
     if (step < children.length) {
 			setStep(step + 1)

@@ -12,12 +12,6 @@ const StyledStepTitle = styled(StyledHeader)`
   margin-bottom: ${Variables.Global.pixelBase * 2}px;
 `;
 
-const StyledStepDescription = styled.div`
-  font-size: 14px;
-  color: ${Variables.Colors.secondaryColor};
-  margin-bottom: ${Variables.Global.pixelBase}px;
-`;
-
 const StyledImageSection = styled.div`
   margin: 16px 0;
 `;
@@ -46,7 +40,7 @@ const TutorialStep = ({ step, description, link, image }) => {
       <StyledText>{description}</StyledText>
       {link && (
         <StyledFieldSection>
-          <a href={link.url} target="_blank">
+          <a href={link.url} target="_blank" rel="noopener noreferrer">
             {link.label}
           </a>
         </StyledFieldSection>

@@ -1,6 +1,5 @@
 import React from "react";
 import ScrollableAnchor from "react-scrollable-anchor";
-import CustomSections from "../../../../General/CustomSections/CustomSections";
 import ArchitectureSection from "../../../../General/ArchitectureSection/ArchitectureSection";
 import EngineeringSection from "../../../../General/EngineeringSection/EngineeringSection";
 import CommunitySection from "../../../../General/CommunitySection/CommunitySection";

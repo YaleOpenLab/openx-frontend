@@ -7,7 +7,6 @@ import {
   MDBNavbarToggler,
   MDBCollapse
 } from "mdbreact";
-import Logo from "../../UI/Logo/Logo";
 import NavigationItem from "../NavigationItem/NavigationItem";
 import Routes from "../../../routes/routes";
 import isAuthorized from "../../../helpers/functions/is-authorized";

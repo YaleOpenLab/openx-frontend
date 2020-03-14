@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 import {
   StyledDescription,
-  StyledActions,
-  StyledError,
   StyledSection
 } from "./styles";
 import { StyledSeparator } from "../../../../styles";
-import Select from "../../../../../../../UI/SolarForms/Select/Select";
 import Input from "../../../../../../../UI/SolarForms/Input/InputSimple";
 import Button from "../../../../../../../UI/SolarForms/Button/Button";
 import { displayErrorAction } from "../../../../../../../../store/actions/actions";

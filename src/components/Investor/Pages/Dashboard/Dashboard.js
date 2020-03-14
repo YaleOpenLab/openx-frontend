@@ -17,7 +17,7 @@ const Dashboard = ({
   authorized,
   loading
 }) => {
-  const [balance, setBalance] = useState(0);
+  const [balance] = useState(0);
 
   useEffect(() => {
     fetchInvestor("investor", Storage.get("username"));

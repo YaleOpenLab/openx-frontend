@@ -1,5 +1,4 @@
 import React from "react";
-import DevelopmentStage from "./DevelopmentStage/DevelopmentStage";
 import { NavLink } from "react-router-dom";
 import ROUTES from "../../../../../routes/routes";
 import ScrollableAnchor from "react-scrollable-anchor";
@@ -35,7 +34,7 @@ const Forecast = ({ data }) => (
                   <div className="ds-ball ds-full"></div>
                   <div className="ds-line"></div>
                   <div className="ds-title">
-                    <a href="#" title="Stage 0 description" style={style1}>
+                    <a href="#/" title="Stage 0 description" style={style1}>
                       Handshake
                     </a>
                   </div>
@@ -47,7 +46,7 @@ const Forecast = ({ data }) => (
                   <div className="ds-line"></div>
                   <div className="ds-title">
                     <a
-                      href="#"
+                      href="#/"
                       title="The project is in stage 1, where the project idea is still udner discussion but main parties hae defined and verbal agreements have been achieved. Pre feasibility assessments are being doen in order to have a RFP to receive formal quotes from developers. This stage has high investment risk since formal contracts and final quotes have not been defined."
                       style={style1}
                     >
@@ -62,7 +61,7 @@ const Forecast = ({ data }) => (
                   <div className="ds-line"></div>
                   <div className="ds-title">
                     <a
-                      href="#"
+                      href="#/"
                       title="The project is in stage 2, where overall project idea and parties have been defined but quotes are needed to advance on a defined budget. This stage means there is already a 'Request for Proposal' document and has cleared feasbility reports. If the report uses a public tender, contractors are able to bid through the platform."
                       style={style1}
                     >
@@ -76,7 +75,7 @@ const Forecast = ({ data }) => (
                   <div className="ds-ball ds-full"></div>
                   <div className="ds-line"></div>
                   <div className="ds-title">
-                    <a href="#" title="Stage 3 description" style={style1}>
+                    <a href="#/" title="Stage 3 description" style={style1}>
                       Contracts
                     </a>
                   </div>
@@ -88,7 +87,7 @@ const Forecast = ({ data }) => (
                   <div className="ds-line"></div>
                   <div className="ds-title">
                     <a
-                      href="#"
+                      href="#/"
                       title="The project is in stage 4, meaning all major contracts and quotes relating to total proejct cost have been processed and signed. Your investment at this stage has less risk since financial projections are more detailed than earlier stages. However, risks may occur during the construction periods and some solar contracts do not have warranties against these."
                       style={style1}
                     >
@@ -102,7 +101,7 @@ const Forecast = ({ data }) => (
                   <div className="ds-ball ds-empty"></div>
                   <div className="ds-line"></div>
                   <div className="ds-title">
-                    <a href="#" title="Stage 5 description" style={style1}>
+                    <a href="#/" title="Stage 5 description" style={style1}>
                       Construction
                     </a>
                   </div>
@@ -113,7 +112,7 @@ const Forecast = ({ data }) => (
                   <div className="ds-ball ds-empty"></div>
                   <div className="ds-line"></div>
                   <div className="ds-title">
-                    <a href="#" title="Stage 6 description" style={style1}>
+                    <a href="#/" title="Stage 6 description" style={style1}>
                       Interconnection
                     </a>
                   </div>
@@ -126,7 +125,7 @@ const Forecast = ({ data }) => (
                   <div className="ds-dashed-line-half-right"></div>
                   <div className="ds-title">
                     <a
-                      href="#"
+                      href="#/"
                       title="The project is in legacy stage, also known as O&amp;M for Operations and Management. This means the system has been successfully funded and deployed, and the receiver is making payments appropriately"
                       style={style1}
                     >
@@ -141,7 +140,7 @@ const Forecast = ({ data }) => (
                   <div className="ds-dashed-line-half-left"></div>
                   <div className="ds-title">
                     <a
-                      href="#"
+                      href="#/"
                       title="The project is in stage 8, which means that there has been an  ownership flip. Ownership flips can happen when a tax equity investor is involved in a project company, when a pay-to-own model is able to cover the investment principle, when a bond matures or when an equity based investment with convertible notes allows premium stock holders (normally community members) to buy the positiion of equity investors"
                       style={style1}
                     >
@@ -161,12 +160,12 @@ const Forecast = ({ data }) => (
             <div className="forecast-info-content">
               {data["development stage"]["stage description"]}
               <div className="learn-more">
-                <a href="#">Learn more ></a>
+                <a href="#/">Learn more ></a>
               </div>
             </div>
           </div>
           <div className="col-12 mg-top-15 link-to-records">
-            <a href="#">FULL TIMELINE RECORDS ></a>
+            <a href="#/">FULL TIMELINE RECORDS ></a>
           </div>
         </div>
       </div>

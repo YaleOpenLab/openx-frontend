@@ -8,7 +8,6 @@ import DetailContainer from "./DetailContainer";
 import IconBenef from "../../../../assets/images/ic-beneficiary.svg";
 import IconDeveloper from "../../../../assets/images/ic-developer.svg";
 import IconTools from "../../../../assets/images/ic-tools.svg";
-import IconWallet from "../../../../assets/images/ic-wallet.svg";
 import IconContractor from "../../../../assets/images/ic-contractor.svg";
 import IconCalendar from "../../../../assets/images/ic-calendar.svg";
 import DocumentationContainer from "../../../General/DocumentationContainer/DocumentationContainer";
@@ -140,7 +139,7 @@ const ReceiverProject = ({ data }) => {
                 action={"No pending action"}
               />
               <button className="see-more">
-                <a href={void 0}>SEE PROJECT DEVELOPMENT TIMELINE ></a>
+                <a href="#/">SEE PROJECT DEVELOPMENT TIMELINE ></a>
               </button>
               <h4 className="section-title">Project Wallets</h4>
               <DetailContainer
@@ -221,7 +220,7 @@ const ReceiverProject = ({ data }) => {
                 />
               )}
               <button className="see-more">
-                <a href="#" target="_blank" rel="noopener noreferrer">
+                <a href="#/" target="_blank" rel="noopener noreferrer">
                   SEE PAST PAYMENTS >
                 </a>
               </button>

@@ -30,10 +30,10 @@ const verifyAccountReducer = (state = initialState, action) => {
 			return {
 				...state,
 				user: {
-					Username: action.payload.Username || action.payload.U.Username || "",
-					Name: action.payload.Name || action.payload.U && action.payload.U.Name || "",
-					PublicKey: action.payload.StellarWallet && action.payload.StellarWallet.PublicKey || action.payload.U && action.payload.U.StellarWallet.PublicKey || "",
-					Kyc: action.payload.Kyc || action.payload.U && action.payload.U.Kyc || "",
+					Username: (action.payload.Username) || (action.payload.U.Username || ""),
+					Name: (action.payload.Name) || (action.payload.U && (action.payload.U.Name || "")),
+					PublicKey: (action.payload.StellarWallet && action.payload.StellarWallet.PublicKey) || (action.payload.U && (action.payload.U.StellarWallet.PublicKey || "")),
+					Kyc: (action.payload.Kyc) || (action.payload.U && (action.payload.U.Kyc || "")),
 				},
 				isLoading: false,
 			};

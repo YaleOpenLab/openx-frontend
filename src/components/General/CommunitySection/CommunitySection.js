@@ -46,7 +46,7 @@ const CommunitySection = props => {
           <p class="">{props.items["governance"][1]}</p>
         </div>
         <div class="col-md-8 CustomSection">
-          <a href="#">Link to community impact report &gt;</a>
+          <a href="#/">Link to community impact report &gt;</a>
         </div>
       </div>
     );

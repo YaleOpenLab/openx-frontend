@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import SeeMore from "../../../../../../UI/SeeMore/SeeMore";
 import RadioButton from "../../../../../../UI/SolarForms/RadioButton/RadioButton";
 import DivBox from "../../../../../../General/DivBox/DivBox";
 import ROUTES from "../../../../../../../routes/routes";
-import ToggleButton from "../../../../../../General/ToggleButton";
 import ActionButtons from "../../../../ActionButtons";
 import history from "../../../../../../../helpers/history";
 import { progressAction } from "../../../../../../../store/actions/actions";
@@ -18,23 +16,10 @@ import {
 const Entity = ({
   account,
   setProgress,
-  entity,
   onGetUserRoles,
   roles,
-  isInvestor,
-  isRecipient
 }) => {
-  const [verified, setVerified] = useState(account.Kyc);
   const [asEntity, setAsEntity] = useState(false);
-  const handleVerify = () => {
-    history.push(
-      ROUTES.PROFILE_PAGES.SETTINGS_PAGES.USER_PROFILES_PAGES.VERIFY.replace(
-        ":username",
-        account.Username
-      ).replace(":userType", "user")
-    );
-  };
-
   useEffect(() => {
     onGetUserRoles();
   }, []);

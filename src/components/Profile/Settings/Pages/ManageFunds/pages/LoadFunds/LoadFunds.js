@@ -9,7 +9,6 @@ import {
   StyledAccountBalance,
   Balance,
   Label,
-  StyledCustomLink
 } from "../../../styles";
 import DivBox from "../../../../../../General/DivBox/DivBox";
 import { registerAction } from "../../../../../store/actions";
@@ -37,8 +36,6 @@ const LoadFunds = withRouter(
     useEffect(() => {
       fetchFundsUser(match.params.userType, match.params.username);
     }, []);
-
-    const handleContinue = () => {};
 
     const handleChange = e => {
       history.push(

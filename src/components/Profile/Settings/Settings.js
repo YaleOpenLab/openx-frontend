@@ -23,8 +23,8 @@ const Settings = ({
   fetchEntityUser,
   account
 }) => {
-  const [username, setUsername] = useState(Storage.get("username"));
-  const [password, sePassword] = useState(Storage.get("password"));
+  const [username] = useState(Storage.get("username"));
+  const [password] = useState(Storage.get("password"));
 
   useEffect(() => {
     fetchUser("investor", username);

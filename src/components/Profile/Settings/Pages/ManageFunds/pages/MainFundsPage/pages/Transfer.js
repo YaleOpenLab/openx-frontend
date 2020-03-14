@@ -7,14 +7,7 @@ import Button from "../../../../../../../UI/SolarForms/Button/Button";
 import { displayErrorAction } from "../../../../../../../../store/actions/actions";
 import { connect } from "react-redux";
 import { Http } from "../../../../../../../../services/Http";
-import * as Yup from "yup";
-import SeeMore from "../../../../../../../UI/SeeMore/SeeMore";
 import ConfirmModal from "../../../../../../../UI/ConfirmModal/ConfirmModal";
-
-const formSchema = Yup.object().shape({
-  from: Yup.string().required("Required"),
-  to: Yup.string().required("Required")
-});
 
 const Transfer = ({ account, showMessage }) => {
   const [from, setFrom] = useState(0);

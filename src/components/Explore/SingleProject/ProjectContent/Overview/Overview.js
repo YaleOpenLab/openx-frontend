@@ -2,10 +2,7 @@ import React from "react";
 import "./Overview.scss";
 import ScrollableAnchor from "react-scrollable-anchor";
 import SummaryCardsDup from "../../../../General/SummaryCardsDup/SummaryCardsDup";
-import ExecutiveSummary from "./constants";
-import CustomSections from "../../../../General/CustomSections/CustomSections";
 import Title from "../../../../General/Title/Title";
-import Image from "../../../../../helpers/enums/images";
 import OpportunitySection from "../../../../General/OpportunitySection/OpportunitySection";
 
 const Overview = ({ data }) => {

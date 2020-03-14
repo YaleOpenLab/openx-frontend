@@ -1,7 +1,5 @@
 import React from "react";
 import "./TermsTable.scss";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faInfoCircle } from '@fortawesome/free-solid-svg-icons'
 import SeeMore from "../../../../../UI/SeeMore/SeeMore";
 
 const TermsTable = props => {

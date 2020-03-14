@@ -45,7 +45,7 @@ const BizSection = props => {
           <p class="">{props.items["project revenue"]}</p>
         </div>
         <div class="col-md-12 CustomSection">
-          <a href="#">
+          <a href="#/">
             {props.items["other links"]}
             &gt;
           </a>

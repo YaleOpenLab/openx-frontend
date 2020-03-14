@@ -79,7 +79,7 @@ export class Http {
 
   static validateService(entity, username) {
     if (!entity || !username) {
-      throw "Unhandled Error";
+      throw new Error("Unhandled Error");
     }
     return this.getProtected(`${entity}/validate`, {
       username: username
@@ -101,7 +101,7 @@ export class Http {
 
   static getDashboard(entity, username) {
     if (!entity || !username) {
-      throw "Unhandled Error";
+      throw new Error("Unhandled Error");
     }
     return this.getProtected(`${entity}/dashboard`, {
       username: username
@@ -114,7 +114,7 @@ export class Http {
 
   static validateEntityService(entity, username) {
     if (!entity || !username) {
-      throw "Unhandled Error";
+      throw new Error("Unhandled Error");
     }
     return this.getProtected(`entity/validate`, {
       username: username

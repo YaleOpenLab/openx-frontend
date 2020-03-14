@@ -15,7 +15,7 @@ import styled from "styled-components";
 import * as Yup from "yup";
 import ActionButtons from "../../../../ActionButtons";
 import ROUTES from "../../../../../../../routes/routes";
-import { registerAction, updateAccount } from "../../../../../store/actions";
+import { updateAccount } from "../../../../../store/actions";
 import {
   displayErrorAction,
   progressAction
