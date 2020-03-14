@@ -45,6 +45,7 @@ const LoginComponent = ({
                 showMessage("error", "User Not Registered");
               } else if (response.data.Token) {
                 history.push(ROUTES.HOME);
+                showMessage("success", "Logged In");
                 fetchUserAccount("user", values.username);
               }
             }
