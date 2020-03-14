@@ -13,12 +13,7 @@ import {
   updateAccount
 } from "../../../../../store/actions";
 
-const Entity = ({
-  account,
-  setProgress,
-  onGetUserRoles,
-  roles,
-}) => {
+const Entity = ({ account, setProgress, onGetUserRoles, roles }) => {
   const [asEntity, setAsEntity] = useState(false);
   useEffect(() => {
     onGetUserRoles();

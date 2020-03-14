@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-import {
-  StyledDescription,
-  StyledSection
-} from "./styles";
+import { StyledDescription, StyledSection } from "./styles";
 import { StyledSeparator } from "../../../../styles";
 import Input from "../../../../../../../UI/SolarForms/Input/InputSimple";
 import Button from "../../../../../../../UI/SolarForms/Button/Button";

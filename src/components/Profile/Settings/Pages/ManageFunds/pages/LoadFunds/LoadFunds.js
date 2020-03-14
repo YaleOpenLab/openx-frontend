@@ -8,7 +8,7 @@ import {
   StyledFundsInfo,
   StyledAccountBalance,
   Balance,
-  Label,
+  Label
 } from "../../../styles";
 import DivBox from "../../../../../../General/DivBox/DivBox";
 import { registerAction } from "../../../../../store/actions";
