@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   StyledHeader,
   Highlight,
@@ -11,79 +11,46 @@ import {
   Label
 } from "../../../styles";
 import DivBox from "../../../../../../General/DivBox/DivBox";
-import { registerAction } from "../../../../../store/actions";
+import { dashboardAction, registerAction } from "../../../../../store/actions";
 import { connect } from "react-redux";
 import ROUTES from "../../../../../../../routes/routes";
 import TutorialStep from "../../../../TutorialStep/TutorialStep";
-import { fetchFundsAccount } from "../store/actions";
 import { withRouter } from "react-router-dom";
 import ActionButtons from "../../../../ActionButtons";
 import { displayErrorAction } from "../../../../../../../store/actions/actions";
-import Select from "../../../../../../UI/SolarForms/Select/Select";
 import ToggleButton from "../../../../../../General/ToggleButton";
 import SeeMore from "../../../../../../UI/SeeMore/SeeMore";
+import { Http } from "../../../../../../../services/Http";
+import Storage from "../../../../../../../services/Storage";
 
 const WithdrawFunds = withRouter(
   ({
-    fetchFundsUser,
-    account,
     history,
-    match,
     profile,
+    fetchInvestorDashboard,
+    investorDashboard,
     investor,
     recipient
   }) => {
+    const [magicUrl, setMagicUrl] = useState("#");
+
     const handleVerify = () => {
       history.push(
         ROUTES.PROFILE_PAGES.SETTINGS_PAGES.USER_PROFILES_PAGES.VERIFY.replace(
           ":username",
-          account.Username
+          profile.Username
         ).replace(":userType", "user")
       );
     };
 
     useEffect(() => {
-      fetchFundsUser(match.params.userType, match.params.username);
+      fetchInvestorDashboard("investor", Storage.get("username"));
+      Http.withdrawIntent().subscribe(result => {
+        if (result.data) {
+          setMagicUrl(result.data.url);
+        }
+      });
     }, []);
-
-    const handleChange = e => {
-      history.push(
-        ROUTES.PROFILE_PAGES.SETTINGS_PAGES.FUNDS_PAGES.WITHDRAW_FUNDS.replace(
-          ":username",
-          match.params.username
-        ).replace(":userType", e.target.value)
-      );
-    };
-
-    const generateItems = () => {
-      const itemList = [];
-      if (profile && profile.Name) {
-        itemList.push({ name: `${profile.Name} / individual`, value: "user" });
-      }
-      if (investor && investor.Name) {
-        itemList.push({
-          name: `${investor.Name} / investor`,
-          value: "investor"
-        });
-      }
-      if (recipient && recipient.Name) {
-        itemList.push({
-          name: `${recipient.Name} / recipient`,
-          value: "recipient"
-        });
-      }
-      return itemList;
-    };
-
-    const profileItems = generateItems();
-
-    var url = "";
-    if (investor && investor.Name) {
-      url = investor.AnchorKYC.Url;
-    }
-    if (recipient && recipient.Name) {
-      url = recipient.AnchorKYC.Url;
-    }
 
     return (
       <div className="ProfilePageContainer">
@@ -100,40 +67,17 @@ const WithdrawFunds = withRouter(
               (termed USDx) for accounts. Please follow the instructions below
               to manage your funds.
             </StyledText>
-            <StyledSeparator size={4} />
-            <StyledFieldSection padding={15}>
-              <Select
-                label="select account address to fund"
-                items={profileItems}
-                onChange={handleChange}
-              />
-            </StyledFieldSection>
-            <StyledSeparator size={4} />
-            <StyledFieldSection>
-              <DivBox
-                type="full"
-                text={account.Name}
-                label={match.params.userType}
-                leftIcon="profile-user-icon"
-                rightIcon="profile-edit-icon"
-              />
-              <DivBox
-                text={account.PublicKey}
-                label="public key"
-                leftIcon="profile-badge-icon"
-              />
-            </StyledFieldSection>
             <StyledSeparator size={5} noBorder={true} />
             <StyledFieldSection>
               <DivBox
                 type="full"
-                text={investor && investor.Name}
-                label={"investor profile"}
+                text={profile && profile.Name}
+                label={"profile"}
                 leftIcon="profile-user-icon"
                 rightIcon="profile-edit-icon"
               />
               <DivBox
-                text={investor && investor.StellarWallet.PublicKey}
+                text={profile.StellarWallet && profile.StellarWallet.PublicKey}
                 label="public key"
                 leftIcon="profile-badge-icon"
               />
@@ -158,7 +102,11 @@ const WithdrawFunds = withRouter(
             </StyledFieldSection>
             <StyledFundsInfo>
               <StyledAccountBalance>
-                <Balance>$0</Balance>
+                <Balance>
+                  ${" "}
+                  {investorDashboard["Account Balance 1"] &&
+                    investorDashboard["Account Balance 1"].toFixed(2)}
+                </Balance>
                 <Label>ACCOUNT BALANCE</Label>
               </StyledAccountBalance>
             </StyledFundsInfo>
@@ -187,7 +135,7 @@ const WithdrawFunds = withRouter(
                   linked to AnchorUSD
                 </span>
               }
-              link={{ label: "Go to anchorusd.com >", url: url }}
+              link={{ label: "Go to anchorusd.com >", url: magicUrl }}
               image={{
                 description: "Guide screen: ",
                 url: "https://i.ibb.co/Mp6XNTf/anchor1.png"
@@ -313,16 +261,16 @@ const WithdrawFunds = withRouter(
 );
 
 const mapStateToProps = state => ({
-  account: state.funds.user,
   profile: state.profile.user.items,
   investor: state.profile.investor.items.U,
-  recipient: state.profile.recipient.items.U
+  recipient: state.profile.recipient.items.U,
+  investorDashboard: state.profile.investor.dashboard
 });
 
 const mapDispatchToProps = dispatch => ({
   registerEntity: (entity, info) => dispatch(registerAction(entity, info)),
-  fetchFundsUser: (entity, account) =>
-    dispatch(fetchFundsAccount(entity, account)),
+  fetchInvestorDashboard: (entity, username) =>
+    dispatch(dashboardAction(entity, username)),
   showMessage: (type, message) => dispatch(displayErrorAction(type, message))
 });
 
