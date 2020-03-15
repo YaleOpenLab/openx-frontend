@@ -3,14 +3,15 @@ import "./Footer.scss";
 import Logo from "../../UI/Logo/Logo";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCopyright } from "@fortawesome/free-solid-svg-icons";
+import ImageLogo from "../../UI/ImageLogo/ImageLogo";
 
-const footer = props => (
+const footer = () => (
   <div>
     <div className="Footer">
       <div className="footer-content">
         <div className="container">
           <div className="logo-container">
-            <Logo projectName="solar" />
+            <ImageLogo />
           </div>
           <div className="footer-info">
             <div className="footer-info-title">
