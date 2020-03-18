@@ -39,14 +39,13 @@ export const StyledInputGroupContainer = styled.div``;
 const AccountSchema = Yup.object().shape({
   name: Yup.string().required("Username is required"),
   legalname: Yup.string().required("Legal name is required"),
-  adminEmail: Yup.string().email("Invalid email"),
-  phoneNumber: Yup.string(),
+  adminemail: Yup.string().email("Invalid email"),
+  phonenumber: Yup.string(),
   address: Yup.string().required("Address is required"),
   country: Yup.string().required("Country is required"),
   city: Yup.string().required("City is required"),
   zipcode: Yup.number().required("City is required"),
-  recoveryPhone: Yup.string(),
-  taxIdNumber: Yup.string()
+  taxidnumber: Yup.string()
 });
 
 const RegisterNewEntity = ({
@@ -84,7 +83,8 @@ const RegisterNewEntity = ({
           Country: acc && acc.Country,
           City: acc && acc.City,
           ZipCode: acc && acc.ZipCode,
-          PhoneNumber: acc && acc.PhoneNumber
+          PhoneNumber: acc && acc.PhoneNumber,
+          TaxIDNumber: acc && acc.TaxIDNumber
         })
         setCompanyType(acc && acc.CompanyType);
         setRoleInOrganization(acc && acc.Role);
@@ -102,7 +102,8 @@ const RegisterNewEntity = ({
           Country: acc && acc.Country,
           City: acc && acc.City,
           ZipCode: acc && acc.ZipCode,
-          PhoneNumber: acc && acc.PhoneNumber
+          PhoneNumber: acc && acc.PhoneNumber,
+          TaxIDNumber: acc && acc.TaxIDNumber
         })
         setCompanyType(acc && acc.CompanyType);
         setRoleInOrganization(acc && acc.Role);
@@ -315,12 +316,13 @@ const handleProfileTypeChange = type => {
                 initialValues={{
                   name: (account && account.Name) || "",
                   legalname: (account && account.LegalName) || "",
-                  adminEmail: (account && account.AdminEmail) || "",
+                  adminemail: (account && account.AdminEmail) || "",
                   address: account && account.Address,
                   country: account && account.Country,
                   city: account && account.City,
                   zipcode: account && account.ZipCode,
-                  phoneNumber: (account && account.PhoneNumber) || ""
+                  phonenumber: (account && account.PhoneNumber) || "",
+                  taxidnumber: (account && account.TaxIDNumber) || ""
                 }}
                 onSubmit={(values, actions) => {
                   registerNewEntity(values);
@@ -351,20 +353,21 @@ const handleProfileTypeChange = type => {
                     <StyledFieldSection>
                       <Field
                         type="email"
-                        name="adminEmail"
+                        name="adminemail"
+                        value={values.adminemail}
                         label={"admin email (optional)"}
                         component={Input}
-                        errors={errors.adminEmail}
-                        touched={touched.adminEmail}
+                        errors={errors.adminemail}
+                        touched={touched.adminemail}
                       />
                       <Field
                         type="text"
-                        name="phoneNumber"
-                        value={values.phoneNumber}
+                        name="phonenumber"
+                        value={values.phonenumber}
                         label={"phone number (optional)"}
                         component={Input}
-                        errors={errors.phoneNumber}
-                        touched={touched.phoneNumber}
+                        errors={errors.phonenumber}
+                        touched={touched.phonenumber}
                       />
                     </StyledFieldSection>
                     <StyledSeparator spacing={5} />
@@ -410,23 +413,15 @@ const handleProfileTypeChange = type => {
                     </StyledFieldSection>
                     <StyledFieldSection>
                       <Field
-                        type="text"
-                        name="recoveryPhone"
-                        value={values.recoveryPhone}
-                        label={"recovery phone (optional)"}
-                        component={Input}
-                        errors={errors.recoveryPhone}
-                        touched={touched.recoveryPhone}
-                      />
-                      <Field
                         type="number"
-                        name="taxIdNumber"
-                        value={values.taxIdNumber}
+                        name="taxidnumber"
+                        value={values.taxidnumber}
                         label={"tax id number (optional)"}
                         component={Input}
-                        errors={errors.taxIdNumber}
-                        touched={touched.taxIdNumber}
+                        errors={errors.taxidnumber}
+                        touched={touched.taxidnumber}
                       />
+                      <div style={{flex:1}} />
                     </StyledFieldSection>
                     <div>
                       <StyledSeparator size={3} />

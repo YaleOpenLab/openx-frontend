@@ -92,6 +92,7 @@ const RegisteredProfiles = ({
               label="INVESTOR PROFILE"
               leftIcon="investor-icon"
               rightIcon="profile-edit-icon"
+              link={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.ACCOUNT}
             />
             <DivBox
               text={investor.StellarWallet && investor.StellarWallet.PublicKey}
@@ -144,6 +145,7 @@ const RegisteredProfiles = ({
               label="RECEIVER PROFILE"
               leftIcon="beneficiary-icon"
               rightIcon="profile-edit-icon"
+              link={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.ACCOUNT}
             />
             <DivBox
               text={
@@ -197,6 +199,7 @@ const RegisteredProfiles = ({
               label="developer profile"
               leftIcon="developer-icon"
               rightIcon="profile-edit-icon"
+              link={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.ACCOUNT}
             />
             <DivBox
               text={
