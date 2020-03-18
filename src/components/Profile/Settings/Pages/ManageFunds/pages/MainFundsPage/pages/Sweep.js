@@ -55,11 +55,6 @@ const Sweep = ({ account, showMessage }) => {
       address: account.StellarWallet && account.StellarWallet.PublicKey,
       name: "Primary Account"
     },
-    {
-      value: 1,
-      address: account.SecondaryWallet && account.SecondaryWallet.PublicKey,
-      name: "Secondary Account"
-    }
   ];
 
   const handleSelectChange = e => {

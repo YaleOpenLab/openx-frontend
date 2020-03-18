@@ -36,7 +36,9 @@ const ROUTES = {
       SECURITY: "/profile/settings/security",
       ENTITY_PROFILE: "/profile/settings/entity",
       ENTITY_PROFILE_PAGES: {
-        NEW_ENTITY: "/profile/settings/entity/register"
+        NEW_ENTITY: "/profile/settings/entity/register",
+        RECIPIENT: "/profile/settings/entity/register?role=recipient",
+        INVESTOR: "/profile/settings/entity/register?role=investor",
       },
       USER_PROFILES: "/profile/settings/users",
       USER_PROFILES_PAGES: {

@@ -63,6 +63,8 @@ const Entity = ({ account, setProgress, onGetUserRoles, roles }) => {
                   label="entity investor profile"
                   leftIcon="developer-icon"
                   rightIcon="profile-edit-icon"
+                  link={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.ENTITY_PROFILE_PAGES
+                    .INVESTOR}
                 />
                 <DivBox
                   text={
@@ -76,23 +78,6 @@ const Entity = ({ account, setProgress, onGetUserRoles, roles }) => {
                   leftIcon="profile-badge-icon"
                 />
               </div>
-              {/*<div className="component-box-content">*/}
-              {/*  <ToggleButton*/}
-              {/*    label={*/}
-              {/*      <SeeMore*/}
-              {/*        infoContent={*/}
-              {/*          <div style={{ fontSize: 12 }}>*/}
-              {/*            Is your account verified?{" "}*/}
-              {/*          </div>*/}
-              {/*        }*/}
-              {/*      >*/}
-              {/*        Is your account verified?*/}
-              {/*      </SeeMore>*/}
-              {/*    }*/}
-              {/*    checked={verified}*/}
-              {/*    handleChange={handleVerify}*/}
-              {/*  />*/}
-              {/*</div>*/}
             </React.Fragment>
           )}
           {roles.Recipient && roles.Recipient.Company && (
@@ -110,6 +95,8 @@ const Entity = ({ account, setProgress, onGetUserRoles, roles }) => {
                   label="entity receiver profile"
                   leftIcon="developer-icon"
                   rightIcon="profile-edit-icon"
+                  link={ROUTES.PROFILE_PAGES.SETTINGS_PAGES.ENTITY_PROFILE_PAGES
+                    .RECIPIENT}
                 />
                 <DivBox
                   text={
@@ -123,23 +110,6 @@ const Entity = ({ account, setProgress, onGetUserRoles, roles }) => {
                   leftIcon="profile-badge-icon"
                 />
               </div>
-              {/*<div className="component-box-content">*/}
-              {/*  <ToggleButton*/}
-              {/*    label={*/}
-              {/*      <SeeMore*/}
-              {/*        infoContent={*/}
-              {/*          <div style={{ fontSize: 12 }}>*/}
-              {/*            Is your account verified?{" "}*/}
-              {/*          </div>*/}
-              {/*        }*/}
-              {/*      >*/}
-              {/*        Is your account verified?*/}
-              {/*      </SeeMore>*/}
-              {/*    }*/}
-              {/*    checked={verified}*/}
-              {/*    handleChange={handleVerify}*/}
-              {/*  />*/}
-              {/*</div>*/}
             </React.Fragment>
           )}
           <div className="col-12 solar-form-separator" />

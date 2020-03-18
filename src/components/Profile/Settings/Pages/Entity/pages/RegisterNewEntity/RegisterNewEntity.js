@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useState, useEffect } from "react";
 import {
   Highlight,
   StyledFieldSection,
@@ -15,12 +15,14 @@ import styled from "styled-components";
 import * as Yup from "yup";
 import ActionButtons from "../../../../ActionButtons";
 import ROUTES from "../../../../../../../routes/routes";
-import { updateAccount } from "../../../../../store/actions";
+import { updateAccount, getUserRoles } from "../../../../../store/actions";
 import {
   displayErrorAction,
   progressAction
 } from "../../../../../../../store/actions/actions";
 import { connect } from "react-redux";
+import { withRouter} from "react-router-dom";
+import queryString from 'query-string'
 import { withSnackbar } from "notistack";
 import history from "../../../../../../../helpers/history";
 import ConfirmModal from "../../../../../../UI/ConfirmModal/ConfirmModal";
@@ -48,10 +50,13 @@ const AccountSchema = Yup.object().shape({
 });
 
 const RegisterNewEntity = ({
-  account,
+  roles,
+  user,
+  location,
   isInvestor,
   isRecipient,
-  showMessage
+  showMessage,
+  onGetUserRoles
 }) => {
   const [userProfile, setProfileTypes] = useState({
     investor: false,
@@ -60,9 +65,67 @@ const RegisterNewEntity = ({
   });
   const [seedpwd, setSeedpwd] = useState(null);
   const [open, setOpen] = useState(false);
-  const [params, setParams] = useState(null);
+  const [registerParams, setRegisterParams] = useState(null);
+  const [account, setAccount] = useState(user);
+  const editRole = queryString.parse(location.search);
 
-  const handleProfileTypeChange = type => {
+  useEffect(() => {
+    onGetUserRoles();
+  }, []);
+
+  useEffect(() => {
+      if(editRole.role === "investor") {
+        const acc = roles.Investor && roles.Investor.C;
+        setAccount({
+          Name: acc && acc.Name,
+          LegalName: acc && acc.LegalName,
+          AdminEmail: acc && acc.AdminEmail,
+          Address: acc && acc.Address,
+          Country: acc && acc.Country,
+          City: acc && acc.City,
+          ZipCode: acc && acc.ZipCode,
+          PhoneNumber: acc && acc.PhoneNumber
+        })
+        setCompanyType(acc && acc.CompanyType);
+        setRoleInOrganization(acc && acc.Role);
+        setProfileTypes({
+          ...userProfile,
+          investor: true
+        });
+      }else if(editRole.role === "recipient") {
+        const acc = roles.Recipient && roles.Recipient.C;
+        setAccount({
+          Name: acc && acc.Name,
+          LegalName: acc && acc.LegalName,
+          AdminEmail: acc && acc.AdminEmail,
+          Address: acc && acc.Address,
+          Country: acc && acc.Country,
+          City: acc && acc.City,
+          ZipCode: acc && acc.ZipCode,
+          PhoneNumber: acc && acc.PhoneNumber
+        })
+        setCompanyType(acc && acc.CompanyType);
+        setRoleInOrganization(acc && acc.Role);
+        setProfileTypes({
+          ...userProfile,
+          recipient: true
+        });
+      } else {
+      setAccount({
+        Name: user.Username,
+        LegalName: user.Name,
+        AdminEmail: user.Email,
+        Address: user.Address,
+        Country: user.Country,
+        City: user.City,
+        ZipCode: user.ZipCode,
+        PhoneNumber: user.PhoneNumber
+      })
+    }
+}, [user, roles, setAccount, setCompanyType, setRoleInOrganization])
+
+
+const handleProfileTypeChange = type => {
     setProfileTypes({
       ...userProfile,
       [type]: !userProfile[type]
@@ -83,7 +146,7 @@ const RegisterNewEntity = ({
     const registerValues = {
       companytype: companyType,
       role: roleInOrganization,
-      username: account.Username,
+      username: user.Username,
       ...values
     };
 
@@ -96,7 +159,7 @@ const RegisterNewEntity = ({
   };
 
   const openModal = useCallback(values => {
-    setParams(values);
+    setRegisterParams(values);
     setOpen(true);
   });
 
@@ -105,10 +168,10 @@ const RegisterNewEntity = ({
       showMessage("error", "Seed password is mandatory!");
     }
     const createValues = {
-      username: account.Username,
-      email: account.Email,
-      name: account.Name,
-      pwhash: account.Pwhash,
+      username: user.Username,
+      email: user.Email,
+      name: user.Name,
+      pwhash: user.Pwhash,
       seedpwd: seedpwd
     };
 
@@ -120,7 +183,7 @@ const RegisterNewEntity = ({
               if (result.data.Code) {
                 showMessage("error", `Error while creating ${key} account`);
               } else {
-                confirmRegisterEntity(key, params);
+                confirmRegisterEntity(key, registerParams);
               }
             },
             error => {
@@ -136,7 +199,7 @@ const RegisterNewEntity = ({
               if (result.data.Code) {
                 showMessage("error", `Error while creating ${key} account`);
               } else {
-                confirmRegisterEntity(key, params);
+                confirmRegisterEntity(key, registerParams);
               }
             },
             error => {
@@ -147,7 +210,7 @@ const RegisterNewEntity = ({
             }
           );
         } else {
-          confirmRegisterEntity(key, params);
+          confirmRegisterEntity(key, registerParams);
         }
       }
     });
@@ -159,7 +222,7 @@ const RegisterNewEntity = ({
         Http.registerCompanyService(key, values).subscribe(result => {
           if (result.data && result.data.Code === 200) {
             showMessage("success", "Company entity created!");
-            setParams({ values: null, key: null });
+            setRegisterParams({ values: null, key: null });
             setSeedpwd(null);
             setProfileTypes({
               investor: false,
@@ -250,14 +313,14 @@ const RegisterNewEntity = ({
             <StyledInputGroupContainer>
               <Formik
                 initialValues={{
-                  name: (account && account.Username) || "",
-                  legalname: (account && account.Name) || "",
-                  adminEmail: (account && account.Email) || "",
+                  name: (account && account.Name) || "",
+                  legalname: (account && account.LegalName) || "",
+                  adminEmail: (account && account.AdminEmail) || "",
                   address: account && account.Address,
                   country: account && account.Country,
                   city: account && account.City,
                   zipcode: account && account.ZipCode,
-                  phoneNumber: ""
+                  phoneNumber: (account && account.PhoneNumber) || ""
                 }}
                 onSubmit={(values, actions) => {
                   registerNewEntity(values);
@@ -298,7 +361,7 @@ const RegisterNewEntity = ({
                         type="text"
                         name="phoneNumber"
                         value={values.phoneNumber}
-                        label={"phone number name"}
+                        label={"phone number (optional)"}
                         component={Input}
                         errors={errors.phoneNumber}
                         touched={touched.phoneNumber}
@@ -350,7 +413,7 @@ const RegisterNewEntity = ({
                         type="text"
                         name="recoveryPhone"
                         value={values.recoveryPhone}
-                        label={"recoveryPhone"}
+                        label={"recovery phone (optional)"}
                         component={Input}
                         errors={errors.recoveryPhone}
                         touched={touched.recoveryPhone}
@@ -391,6 +454,7 @@ const RegisterNewEntity = ({
                         />
                       </StyledButtonGroupContainer>
                       <StyledSeparator size={3} />
+                      {!(editRole.role === 'recipient' || editRole.role === 'investor') && <StyledButtonGroupContainer>
                       <StyledSmallerHeader>
                         <Highlight>
                           How will this organisation use the opensolar platform?
@@ -401,7 +465,6 @@ const RegisterNewEntity = ({
                         your Profile and Entity. Only select those that you are
                         sure you will use.
                       </StyledSmallerText>
-                      <StyledButtonGroupContainer>
                         <RadioButton
                           name="INVESTOR"
                           label="INVESTOR: I will directly invest in solar projects as myself."
@@ -419,7 +482,7 @@ const RegisterNewEntity = ({
                         {/*    label="DEVELOPER: I will install a solar system or provide professional services for its installation, operation or maintenance. "*/}
                         {/*    checked={isDeveloper ? true : userProfile.developer}*/}
                         {/*    onChange={() => handleProfileTypeChange("developer")}/>*/}
-                      </StyledButtonGroupContainer>
+                      </StyledButtonGroupContainer>}
                     </div>
                     <ActionButtons
                       cancelButton={{
@@ -443,7 +506,8 @@ const RegisterNewEntity = ({
 };
 
 const mapStateToProps = state => ({
-  account: state.profile.user.items,
+  roles: state.profile.roles,
+  user: state.profile.user.items,
   isInvestor: state.profile.investor.authorized,
   isRecipient: state.profile.recipient.authorized,
   isDeveloper: state.profile.entity.items.Developer,
@@ -451,13 +515,14 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
+  onGetUserRoles: () => dispatch(getUserRoles()),
   updateAccount: (entity, payload) => dispatch(updateAccount(entity, payload)),
   setProgress: (username, progress) =>
     dispatch(progressAction(username, progress)),
   showMessage: (type, message) => dispatch(displayErrorAction(type, message))
 });
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(withSnackbar(RegisterNewEntity));
+)(withSnackbar(RegisterNewEntity)));

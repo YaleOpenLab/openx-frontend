@@ -21,18 +21,19 @@ const Settings = ({
   developerCreated,
   fetchUser,
   fetchEntityUser,
-  account
+  account,
+  roles
 }) => {
   const [username] = useState(Storage.get("username"));
   const [password] = useState(Storage.get("password"));
 
   useEffect(() => {
     fetchUser("investor", username);
-  }, [investorCreated, account]);
+  }, [investorCreated, account, roles.Investor]);
 
   useEffect(() => {
     fetchUser("recipient", username);
-  }, [recipientCreated, account]);
+  }, [recipientCreated, account, roles.Recipient]);
 
   useEffect(() => {
     fetchEntityUser(username);
@@ -92,6 +93,7 @@ const Settings = ({
 };
 
 const mapStateToProps = state => ({
+  roles: state.profile.roles,
   account: state.profile.user.items,
   investorCreated: state.profile.investor.created,
   recipientCreated: state.profile.recipient.created,
