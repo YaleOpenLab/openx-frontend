@@ -45,15 +45,6 @@ const ReceiverProject = ({ data }) => {
               </h6>
               <div className="flexbox">
                 <p>{project["Explore Tab"]["project type"]}</p>
-                <button>
-                  <a
-                    href="https://neighborly.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Bond Issuer >
-                  </a>
-                </button>
               </div>
               <p>
                 {project["Explore Tab"] && project["Explore Tab"].description}
@@ -80,13 +71,13 @@ const ReceiverProject = ({ data }) => {
               <div className="progress-bar-container">
                 <div className="flexbox -no-spacing">
                   <p className="progress-donated">
-                    $ {project["Explore Tab"]["money raised"]}
+                    $ {project["Explore Tab"]["money raised"]} funded
                   </p>
                   <p className="progress-total">
-                    U$S {project["Explore Tab"]["total value"]}
+                    US ${project["Explore Tab"]["total value"]}
                   </p>
                 </div>
-                <ProgressBar percentage={0} />
+                <ProgressBar percentage={100} />
               </div>
               <div className="stats">
                 <div className="stat-container">
@@ -99,7 +90,6 @@ const ReceiverProject = ({ data }) => {
                   <h6>
                     {project["Explore Tab"] &&
                       project["Explore Tab"]["battery"]}
-                    %
                   </h6>
                   <p>BATTERY</p>
                 </div>
@@ -146,15 +136,15 @@ const ReceiverProject = ({ data }) => {
                 icon={IconContractor}
                 title={
                   (project["ProjectWallets"].Certificates &&
-                    project["ProjectWallets"].Certificates[1][0]) ||
+                    project["ProjectWallets"].Certificates[0][0]) ||
                   (project["ProjectWallets"]["Project Wallets"] &&
-                    project["ProjectWallets"][["Project Wallets"]][1][0])
+                    project["ProjectWallets"][["Project Wallets"]][0][0])
                 }
                 action={
                   (project["ProjectWallets"].Certificates &&
-                    project["ProjectWallets"].Certificates[1][1]) ||
+                    project["ProjectWallets"].Certificates[0][1]) ||
                   (project["ProjectWallets"]["Project Wallets"] &&
-                    project["ProjectWallets"][["Project Wallets"]][1][1])
+                    project["ProjectWallets"][["Project Wallets"]][0][1])
                 }
                 actionLink="https://swytch.io"
               />
@@ -178,17 +168,6 @@ const ReceiverProject = ({ data }) => {
                 </a>
               </button>
               <h4 className="section-title">Bills & Rewards</h4>
-              {project["PendingPayments"] ? (
-                <DetailContainer
-                  icon={IconCalendar}
-                  title={
-                    project["PendingPayments"] && project["PendingPayments"][0]
-                  }
-                  action={
-                    project["PendingPayments"] && project["PendingPayments"][1]
-                  }
-                />
-              ) : (
                 <div>
                 <DetailContainer
                   icon={IconCalendar}
@@ -216,8 +195,20 @@ const ReceiverProject = ({ data }) => {
                       : ""
                   }
                 />
+                <DetailContainer
+                  icon={IconCalendar}
+                  title={
+                    project["BillsRewards"] && project["BillsRewards"].Payments
+                      ? project["BillsRewards"].Payments[4]
+                      : ""
+                  }
+                  action={
+                    project["BillsRewards"] && project["BillsRewards"].Payments
+                      ? project["BillsRewards"].Payments[5]
+                      : ""
+                  }
+                />
                 </div>
-              )}
               <button className="see-more">
                 <a href="#/" target="_blank" rel="noopener noreferrer">
                   SEE PAST PAYMENTS >
