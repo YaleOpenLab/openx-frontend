@@ -158,22 +158,6 @@ const ReceiverProject = ({ data }) => {
                 }
                 actionLink="https://swytch.io"
               />
-              <DetailContainer
-                icon={IconContractor}
-                title={
-                  (project["ProjectWallets"].Certificates &&
-                    project["ProjectWallets"].Certificates[0][0]) ||
-                  (project["ProjectWallets"]["Project Wallets"] &&
-                    project["ProjectWallets"][["Project Wallets"]][0][0])
-                }
-                action={
-                  (project["ProjectWallets"].Certificates &&
-                    project["ProjectWallets"].Certificates[0][1]) ||
-                  (project["ProjectWallets"]["Project Wallets"] &&
-                    project["ProjectWallets"][["Project Wallets"]][0][1])
-                }
-                actionLink="https://swytch.io"
-              />
               {/*<DetailContainer*/}
               {/*    icon={IconWallet}*/}
               {/*    title={"Carbon & Climate Certificates (****" + project.U.SecondaryWallet.PublicKey.slice(-5) + ")"}*/}
@@ -205,6 +189,7 @@ const ReceiverProject = ({ data }) => {
                   }
                 />
               ) : (
+                <div>
                 <DetailContainer
                   icon={IconCalendar}
                   title={
@@ -218,6 +203,20 @@ const ReceiverProject = ({ data }) => {
                       : ""
                   }
                 />
+                <DetailContainer
+                  icon={IconCalendar}
+                  title={
+                    project["BillsRewards"] && project["BillsRewards"].Payments
+                      ? project["BillsRewards"].Payments[2]
+                      : ""
+                  }
+                  action={
+                    project["BillsRewards"] && project["BillsRewards"].Payments
+                      ? project["BillsRewards"].Payments[3]
+                      : ""
+                  }
+                />
+                </div>
               )}
               <button className="see-more">
                 <a href="#/" target="_blank" rel="noopener noreferrer">
