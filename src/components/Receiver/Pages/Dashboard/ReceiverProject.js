@@ -223,6 +223,25 @@ const ReceiverProject = ({ data }) => {
                   SEE PAST PAYMENTS >
                 </a>
               </button>
+              <h4 className="section-title">Teller Details</h4>
+              <div>
+                <DetailContainer
+                  icon={IconCalendar}
+                  title="Broker URL"
+                  action="mqtt.openx.solar"
+                />
+                <DetailContainer
+                  icon={IconCalendar}
+                  title="Teller Data"
+                  action="Download local data"
+                  actionLink="https://api.openx.solar/user/tellerfile"
+                />
+              </div>
+              <button className="see-more">
+                <a href="#/" target="_blank" rel="noopener noreferrer">
+                  SEE PAST PAYMENTS >
+                </a>
+              </button>
             </div>
           </div>
           <div className="contracts-container">
