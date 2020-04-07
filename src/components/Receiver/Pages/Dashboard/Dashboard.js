@@ -84,13 +84,13 @@ class Dashboard extends Component {
                               receiver["Your Energy"] &&
                               receiver["Your Energy"][
                                 "Total in Current Period"
-                              ],
+                              ] + " Wh",
                             desc: "TOTAL IN CURRENT PERIOD"
                           },
                           {
                             value:
                               receiver["Your Energy"] &&
-                              receiver["Your Energy"]["All Time"],
+                              receiver["Your Energy"]["All Time"] + " Wh",
                             desc: "ALL TIME"
                           }
                         ]}
