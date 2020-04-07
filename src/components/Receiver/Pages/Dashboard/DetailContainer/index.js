@@ -75,9 +75,6 @@ const DetailContainer = props => {
                   </p>
                 )}
               </div>
-              <button>
-                <img src={IconDoc} alt="doc" />
-              </button>
             </div>
           </div>
         </div>

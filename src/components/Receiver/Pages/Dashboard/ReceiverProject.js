@@ -36,7 +36,7 @@ const ReceiverProject = ({ data }) => {
               <h6>
                 <img src={IconGps} alt="icon-gps" />
                 <a
-                  href="https://goo.gl/maps/x8Cpr1C37V6ckHNLA"
+                  href="https://goo.gl/maps/d66egUG3GfsZCtpe6"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -167,7 +167,7 @@ const ReceiverProject = ({ data }) => {
                   GO TO PROFILE AND WALLET SETUP >
                 </a>
               </button>
-              <h4 className="section-title">Bills & Rewards</h4>
+              <h4 className="section-title">Pending Bill Information</h4>
                 <div>
                 <DetailContainer
                   icon={IconCalendar}
