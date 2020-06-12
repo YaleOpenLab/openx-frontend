@@ -269,10 +269,12 @@ export class Http {
   }
 
   static request(method, path, data, version = "api2") {
+    console.log("Senging request: path", path, "data", data)
     return from(
       axios({
         method: method,
-        url: `https://${version}.openx.solar/${path}`,
+        // url: `https://${version}.openx.solar/${path}`,
+        url: `http://127.0.0.1:8081/${path}`,
         params: data,
         headers: {
           "Content-Type": "application/x-www-form/urlencoded"
