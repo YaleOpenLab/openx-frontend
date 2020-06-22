@@ -167,7 +167,7 @@ const ReceiverProject = ({ data }) => {
                   GO TO PROFILE AND WALLET SETUP >
                 </a>
               </button>
-              <h4 className="section-title">Pending Bill Information</h4>
+              <h4 className="section-title">`Pending Bill `Information</h4>
                 <div>
                 <DetailContainer
                   icon={IconCalendar}
