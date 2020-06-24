@@ -1,8 +1,8 @@
 import React from "react";
-import "./SupportOpenX.scss";
+import "./SupportOpensolar.scss";
 
-const SupportOpenX = props => (
-  <div className="SupportOpenX">
+const SupportOpensolar = props => (
+  <div className="SupportOpensolar">
     <div className="container">
       <div className="row">
         <div className="col-12 col-md-7 text mx-auto">
@@ -19,4 +19,4 @@ const SupportOpenX = props => (
   </div>
 );
 
-export default SupportOpenX;
+export default SupportOpensolar;
