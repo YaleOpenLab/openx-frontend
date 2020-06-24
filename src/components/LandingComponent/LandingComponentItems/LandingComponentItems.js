@@ -8,13 +8,13 @@ const landingComponentItems = props => (
       <LandingItem
         url={ROUTES.EXPLORE}
         title="Explore"
-        imageUrl="https://s3.amazonaws.com/cz-public-images/openx/landing+page+1.png"
+        imageUrl="https://i.ibb.co/FnPkRg0/landing-page-1.png"
         diffUrl="INVEST IN PROJECTS >"
       />
       <LandingItem
         url={ROUTES.DEVELOPER}
         title="Originate"
-        imageUrl="https://s3.amazonaws.com/cz-public-images/openx/Landing+Page+2.png"
+        imageUrl="https://i.ibb.co/Nytxtjd/Landing-Page-2.png"
         diffUrl="ACCESS THE ENGINE >"
       />
     </div>

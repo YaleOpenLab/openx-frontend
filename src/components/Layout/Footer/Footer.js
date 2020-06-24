@@ -41,7 +41,7 @@ const footer = () => (
               >
                 GitHub
               </a>
-              . OpenX is the underlying ‘platform of platforms’ framework that
+              . Open X is the underlying ‘platform of platforms’ framework that
               drives the OpenSolar instance and can be utilized for other
               peer-based financing platforms.
             </div>
