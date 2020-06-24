@@ -7,7 +7,7 @@ import ProjectDetails from "./ProjectDetails/ProjectDetails";
 import Forecast from "./Forecast/Forecast";
 import Documents from "./Documents/Documents";
 import Invest from "./Invest/Invest";
-import SupportOpenX from "../../../General/SupportOpenX/SupportOpenX";
+import SupportOpensolar from "../../../General/SupportOpensolar/SupportOpensolar";
 import { configureAnchors } from "react-scrollable-anchor";
 configureAnchors({
   offset: -68,
@@ -24,7 +24,7 @@ const ProjectContent = ({ data, navigation, active }) => (
     <Forecast data={data.Details.Stage} />
     <Documents data={data.documents} />
     <Invest data={data} />
-    <SupportOpenX />
+    <SupportOpensolar />
   </div>
 );
 

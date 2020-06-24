@@ -43,7 +43,7 @@ const AboutComponent = () => (
               rel="noopener noreferrer"
             >
               <button className="solar-form-button solar-btn-normal">
-                go to openx wiki
+                go to opensolar wiki
               </button>
             </a>
             <a
