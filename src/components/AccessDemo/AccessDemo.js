@@ -6,7 +6,7 @@ class AccessDemo extends Component {
   state = {
     userInput: "",
     accessCode: "demodemo"
-  };
+  }
 
   componentDidMount() {
     document.addEventListener("keyup", event => {
@@ -55,26 +55,26 @@ class AccessDemo extends Component {
             <div className="inner-addon left-addon">
               <i className="solar-icon user-icon" />
               <input
-                type="text"
-                placeholder="Visitor Access Code"
-                className="solar-form-input"
-                value={this.state.userInput}
-                onChange={this.handleInputChange}
+                  type="text"
+                  placeholder="Visitor Access Code"
+                  className="solar-form-input"
+                  value={this.state.userInput}
+                  onChange={this.handleInputChange}
               />
             </div>
           </div>
           <div className="demo-button">
             <button
-              type="button"
-              className="solar-form-button solar-btn-normal"
-              onClick={this.handleAccessGrant}
+                type="button"
+                className="solar-form-button solar-btn-normal"
+                onClick={this.handleAccessGrant}
             >
               access
             </button>
           </div>
         </div>
       </div>
-    );
+   );
   }
 }
 

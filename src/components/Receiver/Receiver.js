@@ -3,6 +3,7 @@ import "./Receiver.scss";
 import { Switch, Redirect } from "react-router-dom";
 import ROUTES from "../../routes/routes";
 import Dashboard from "./Pages/Dashboard/Dashboard";
+import Originate from "./Pages/Originate/Originate"
 import PrivateRoute from "../PrivateRouterComponent/PrivateRouterComponent";
 
 class ReceiverComponent extends Component {
@@ -19,6 +20,11 @@ class ReceiverComponent extends Component {
             path={ROUTES.RECEIVER_PAGES.DASHBOARD}
             exact
             component={Dashboard}
+          />
+          <PrivateRoute
+              path={ROUTES.RECEIVER_PAGES.ORIGINATE}
+              exact
+              component={Originate}
           />
         </Switch>
       </div>
