@@ -10,12 +10,24 @@ import Storage from "../../../../services/Storage";
 import NotAvailable from "../../../UI/NotAvailable/NotAvailable";
 import ReceiverProject from "../Dashboard/ReceiverProject";
 import RichText from "./slate_richtext"
+import {AddCircle} from '@material-ui/icons'
 
 class Originate extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isCMSshow: false
+        }
+    }
+
     componentDidMount = () => {
         this.props.fetchReceiver("recipient", Storage.get("username"));
         this.props.fetchReceiverDB("recipient", Storage.get("username"));
     };
+
+    showCMS () {
+        this.setState({isCMSshow: true})
+    }
 
     render() {
         const { authorized, receiver } = this.props;
@@ -41,11 +53,24 @@ class Originate extends Component {
 
         return (
             <div className="receiver-dashboard">
+                <div className="container">
+
+                    {!this.state.isCMSshow ? (
+                        <div className="container" style={{ marginBottom: 40 }}>
+                            <h4 className="container-title">Add project </h4>
+                            <button onClick={this.showCMS()}>
+                                <AddCircle />
+                            </button>
+                        </div>
+                    ) : (
+                        <RichText/>
+                    )}
+                </div>
+
                 <div className="title-container -border">
                     {!projects ? (
                         <div className="container" style={{ marginBottom: 40 }}>
                             <NotAvailable text={"You don't have any projects"} />
-                            <RichText/>
                         </div>
                     ) : (
                         <div>
