@@ -57,7 +57,7 @@ class Originate extends Component {
 
                     {!this.state.isCMSshow ? (
                         <div className="container" style={{ marginBottom: 40 }}>
-                            <h4 className="container-title">Add project </h4>
+                            <h4 className="container-title">Add test project</h4>
                             <button onClick={this.showCMS()}>
                                 <AddCircle />
                             </button>
