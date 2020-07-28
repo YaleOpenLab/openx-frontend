@@ -131,6 +131,11 @@ const RegisteredProfiles = ({
               >
                 Load Funds >
               </StyledCustomLink>
+              <StyledCustomLink
+                  onClick={() => {navigator.clipboard.writeText(investor.StellarWallet.PublicKey)}}
+              >
+                Copy address to clipboard >
+              </StyledCustomLink>
             </StyledFundsInfo>
           </StyledProfileActionsSection>
         </StyledFlexContainer>
