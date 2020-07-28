@@ -22,6 +22,21 @@ export class Http {
     );
   }
 
+  static getStablecoins(amount, seedpwd) {
+    return this.getProtected("stablecoin/get", {
+      username: Storage.get("username"),
+      seedpwd: seedpwd,
+      amount: amount
+    }).pipe(
+        map(response => {
+          if (response.data && response.data.Code && response.data.Code === 404) {
+            throw new Error("Transaction failed.");
+          }
+          return response;
+        })
+    );
+  }
+
   static registerService(
     entity,
     { username, name, email, pwd, pwhash, seedpwd }
