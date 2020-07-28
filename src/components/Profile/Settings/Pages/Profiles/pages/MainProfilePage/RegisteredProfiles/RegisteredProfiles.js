@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import DivBox from "../../../../../../../General/DivBox/DivBox";
 import {
   Highlight,
@@ -21,6 +21,11 @@ import { connect } from "react-redux";
 import { withSnackbar } from "notistack";
 import { dashboardAction } from "../../../../../../store/actions";
 import Storage from "../../../../../../../../services/Storage";
+import ConfirmModal from "../../../../../../../UI/ConfirmModal/ConfirmModal";
+import Input from "../../../../../../../UI/SolarForms/Input/InputSimple";
+import {Http} from "../../../../../../../../services/Http";
+import Alert from '@material-ui/lab/Alert';
+import Button from '@material-ui/core/Button';
 
 const StyledProfileSection = styled.div`
   display: flex;
@@ -42,6 +47,11 @@ const RegisteredProfiles = ({
   fetchInvestorDashboard,
   investorDashboard
 }) => {
+
+  const [modalOpen, setModalOpen] = useState(false);
+  const [seedpwd, setSeedpwd] = useState("");
+  const [alertBalance, setAlertBalance] = useState(false);
+
   useEffect(() => {
     fetchInvestorDashboard("investor", Storage.get("username"));
   }, []);
@@ -64,6 +74,17 @@ const RegisteredProfiles = ({
     );
   };
 
+  const openModal = () => {
+      console.log(investorDashboard["Account Balance 1"].toFixed(2))
+      if (investorDashboard["Account Balance 1"].toFixed(2) > 1000.00) {
+        setAlertBalance(true)
+      } else {
+        setModalOpen(true);
+      }
+
+      console.log(modalOpen, seedpwd);
+      };
+
   const handleWithdrawFunds = (username, userType) => {
     history.push(
       ROUTES.PROFILE_PAGES.SETTINGS_PAGES.FUNDS_PAGES.WITHDRAW_FUNDS.replace(
@@ -72,6 +93,37 @@ const RegisteredProfiles = ({
       )
     );
   };
+
+  const Confirm = async () => {
+    try {
+      const response = await fetch(
+          `https://friendbot.stellar.org?addr=${encodeURIComponent(investor.StellarWallet.PublicKey)}`
+      );
+      const responseJSON = await response.json();
+      console.log("SUCCESS! Funded :)\n", responseJSON);
+
+      await getTokens();
+
+      console.log("Processed. wait 30 sec");
+      } catch (e) {
+      console.error("ERROR!", e);
+      }
+
+    console.log(modalOpen, seedpwd);
+  };
+
+  const getTokens = async () => {
+    Http.getStablecoins(
+        10,
+        seedpwd
+    ).subscribe(
+        () => {
+          console.log("Processing")
+        },
+        error =>
+            console.log(error)
+    );
+  }
 
   return (
     <React.Fragment>
@@ -127,7 +179,8 @@ const RegisteredProfiles = ({
                 <Label>ACCOUNT BALANCE</Label>
               </StyledAccountBalance>
               <StyledCustomLink
-                onClick={() => handleLoadFunds(investor.Username, "investor")}
+                // onClick={() => handleLoadFunds(investor.Username, "investor")}
+                  onClick={() => openModal()}
               >
                 Load Funds >
               </StyledCustomLink>
@@ -136,6 +189,27 @@ const RegisteredProfiles = ({
               >
                 Copy address to clipboard >
               </StyledCustomLink>
+
+              {modalOpen && (
+                  <ConfirmModal
+                      title="Enter seed password"
+                      onConfirm={Confirm}
+                      onCancel={() => setModalOpen(false)}
+                      body={
+                        <Input
+                            placeholder="Seed Password"
+                            type="password"
+                            value={seedpwd}
+                            onChange={e => setSeedpwd(e.target.value)}
+                        />
+                      }
+                  />
+              )}
+              {alertBalance && (
+                  <Alert onClose={() => {setAlertBalance(false)}}>You already have test STABLEUSD in the account</Alert>
+              )}
+
+
             </StyledFundsInfo>
           </StyledProfileActionsSection>
         </StyledFlexContainer>
@@ -178,11 +252,11 @@ const RegisteredProfiles = ({
               handleChange={() => handleVerify(recipient.Username, "recipient")}
             />
             <StyledFundsInfo>
-              <StyledCustomLink
-                onClick={() => handleLoadFunds(recipient.Username, "recipient")}
-              >
-                Load Funds >
-              </StyledCustomLink>
+              {/*<StyledCustomLink*/}
+              {/*  onClick={() => handleLoadFunds(recipient.Username, "recipient")}*/}
+              {/*>*/}
+              {/*  Load Funds >*/}
+              {/*</StyledCustomLink>*/}
               <StyledCustomLink
                 onClick={() =>
                   handleWithdrawFunds(recipient.Username, "recipient")
