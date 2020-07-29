@@ -289,8 +289,8 @@ export class Http {
       axios({
         method: method,
         // url: `https://${version}.openx.solar/${path}`,
-        // url: `https://demoapi.openx.solar:8081/${path}`,
-        url: `http://localhost:8081/${path}`,
+        url: `https://demoapi.openx.solar:8081/${path}`,
+        // url: `http://localhost:8081/${path}`,
         params: data,
         headers: {
           "Content-Type": "application/x-www-form/urlencoded"
